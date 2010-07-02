@@ -1,0 +1,31 @@
+#
+# Generated files (common)
+#
+# fichiers emacs
+*~
+loader.sce
+cleaner.sce
+loader_gateway.sce
+cleaner_gateway.sce
+#
+# Generated files (Windows)
+#
+*.Dll
+*.def
+*.obj
+Makelib.mak
+master_help.xml
+skeleton_*.c
+scilab_*_help
+#
+# Generated files (Linux)
+#
+libskeleton_c.c
+libskeleton_cpp.c
+libskeleton_fortran.c
+*.so
+*.o
+#
+# Generated files (Macos)
+#
+.DS_Store 
