@@ -1,0 +1,199 @@
+# ParaView State Version 1.6
+
+set kw(vtkTemp5) [$Application GetMainWindow]
+set kw(vtkTemp24) [$kw(vtkTemp5) GetMainView]
+set kw(vtkTemp178) [$kw(vtkTemp5) GetAnimationInterface]
+[$kw(vtkTemp5) GetRotateCameraButton] SetState 1
+$kw(vtkTemp5) ChangeInteractorStyle 1
+set kw(vtkTemp994) [$kw(vtkTemp5) InitializeReadCustom "legacyreader" "/tmp/test.vtk"]
+$kw(vtkTemp5) ReadFileInformation $kw(vtkTemp994) "/tmp/test.vtk"
+$kw(vtkTemp5) FinalizeRead $kw(vtkTemp994) "/tmp/test.vtk"
+set kw(vtkTemp999) [$kw(vtkTemp994) GetPVWidget {Filename}]
+$kw(vtkTemp999) SetValue "/tmp/test.vtk"
+$kw(vtkTemp994) AcceptCallback
+set kw(vtkTemp1006) [$kw(vtkTemp994) GetPVOutput]
+$kw(vtkTemp1006) ColorByCellField {Domaine} 1
+$kw(vtkTemp1006) SetMapScalarsFlag 1
+$kw(vtkTemp1006) SetInterpolateColorsFlag 0
+$kw(vtkTemp1006) DrawWireframe
+$kw(vtkTemp1006) SetVisibility 1
+$kw(vtkTemp5) SetCurrentPVSourceCallback $kw(vtkTemp994)
+set kw(vtkTemp1176) [$kw(vtkTemp5) CreatePVSource Threshold]
+set kw(vtkTemp1199) [$kw(vtkTemp1176) GetPVWidget {Input}]
+$kw(vtkTemp1199) SetCurrentValue $kw(vtkTemp994)
+set kw(vtkTemp1200) [$kw(vtkTemp1176) GetPVWidget {FieldMenu}]
+$kw(vtkTemp1200) SetValue 2
+set kw(vtkTemp1201) [$kw(vtkTemp1176) GetPVWidget {Scalars}]
+$kw(vtkTemp1201) SetValue {Volume_log}
+set kw(vtkTemp1188) [$kw(vtkTemp1176) GetPVWidget {MinMax}]
+$kw(vtkTemp1188) SetMaxValue 0
+$kw(vtkTemp1188) SetMinValue 0
+set kw(vtkTemp1196) [$kw(vtkTemp1176) GetPVWidget {AllScalars}]
+$kw(vtkTemp1196) SetState 1
+$kw(vtkTemp1176) AcceptCallback
+set kw(vtkTemp1205) [$kw(vtkTemp1176) GetPVOutput]
+$kw(vtkTemp1205) ColorByCellField {Volume_log} 1
+$kw(vtkTemp1205) SetMapScalarsFlag 1
+$kw(vtkTemp1205) SetInterpolateColorsFlag 0
+$kw(vtkTemp1205) DrawSurface
+$kw(vtkTemp1205) SetVisibility 0
+$kw(vtkTemp5) SetCurrentPVSourceCallback $kw(vtkTemp994)
+set kw(vtkTemp1375) [$kw(vtkTemp5) CreatePVSource Threshold]
+set kw(vtkTemp1398) [$kw(vtkTemp1375) GetPVWidget {Input}]
+$kw(vtkTemp1398) SetCurrentValue $kw(vtkTemp994)
+set kw(vtkTemp1399) [$kw(vtkTemp1375) GetPVWidget {FieldMenu}]
+$kw(vtkTemp1399) SetValue 2
+set kw(vtkTemp1400) [$kw(vtkTemp1375) GetPVWidget {Scalars}]
+$kw(vtkTemp1400) SetValue {Min(Sin(AnglS/2))}
+set kw(vtkTemp1387) [$kw(vtkTemp1375) GetPVWidget {MinMax}]
+$kw(vtkTemp1387) SetMaxValue 0.81
+$kw(vtkTemp1387) SetMinValue 0.02
+set kw(vtkTemp1395) [$kw(vtkTemp1375) GetPVWidget {AllScalars}]
+$kw(vtkTemp1395) SetState 1
+$kw(vtkTemp1375) AcceptCallback
+set kw(vtkTemp1404) [$kw(vtkTemp1375) GetPVOutput]
+$kw(vtkTemp1404) ColorByCellField {Min(Sin(AnglS/2))} 1
+$kw(vtkTemp1404) SetMapScalarsFlag 1
+$kw(vtkTemp1404) SetInterpolateColorsFlag 0
+$kw(vtkTemp1404) DrawSurface
+$kw(vtkTemp1404) SetVisibility 0
+$kw(vtkTemp5) SetCurrentPVSourceCallback $kw(vtkTemp994)
+set kw(vtkTemp1574) [$kw(vtkTemp5) CreatePVSource Threshold]
+set kw(vtkTemp1597) [$kw(vtkTemp1574) GetPVWidget {Input}]
+$kw(vtkTemp1597) SetCurrentValue $kw(vtkTemp994)
+set kw(vtkTemp1598) [$kw(vtkTemp1574) GetPVWidget {FieldMenu}]
+$kw(vtkTemp1598) SetValue 2
+set kw(vtkTemp1599) [$kw(vtkTemp1574) GetPVWidget {Scalars}]
+$kw(vtkTemp1599) SetValue {3Rinsc/Rcirc}
+set kw(vtkTemp1586) [$kw(vtkTemp1574) GetPVWidget {MinMax}]
+$kw(vtkTemp1586) SetMaxValue 0.96
+$kw(vtkTemp1586) SetMinValue 0.04
+set kw(vtkTemp1594) [$kw(vtkTemp1574) GetPVWidget {AllScalars}]
+$kw(vtkTemp1594) SetState 1
+$kw(vtkTemp1574) AcceptCallback
+set kw(vtkTemp1603) [$kw(vtkTemp1574) GetPVOutput]
+$kw(vtkTemp1603) ColorByCellField {3Rinsc/Rcirc} 1
+$kw(vtkTemp1603) SetMapScalarsFlag 1
+$kw(vtkTemp1603) SetInterpolateColorsFlag 0
+$kw(vtkTemp1603) DrawSurface
+$kw(vtkTemp1603) SetVisibility 0
+$kw(vtkTemp5) SetCurrentPVSourceCallback $kw(vtkTemp994)
+set kw(vtkTemp1773) [$kw(vtkTemp5) CreatePVSource Threshold]
+set kw(vtkTemp1796) [$kw(vtkTemp1773) GetPVWidget {Input}]
+$kw(vtkTemp1796) SetCurrentValue $kw(vtkTemp994)
+set kw(vtkTemp1797) [$kw(vtkTemp1773) GetPVWidget {FieldMenu}]
+$kw(vtkTemp1797) SetValue 2
+set kw(vtkTemp1798) [$kw(vtkTemp1773) GetPVWidget {Scalars}]
+$kw(vtkTemp1798) SetValue {12(3Vol)^(2/3)/sum(Long^2)}
+set kw(vtkTemp1785) [$kw(vtkTemp1773) GetPVWidget {MinMax}]
+$kw(vtkTemp1785) SetMaxValue 0.97
+$kw(vtkTemp1785) SetMinValue 0.1
+set kw(vtkTemp1793) [$kw(vtkTemp1773) GetPVWidget {AllScalars}]
+$kw(vtkTemp1793) SetState 1
+$kw(vtkTemp1773) AcceptCallback
+set kw(vtkTemp1802) [$kw(vtkTemp1773) GetPVOutput]
+$kw(vtkTemp1802) ColorByCellField {12(3Vol)^(2/3)/sum(Long^2)} 1
+$kw(vtkTemp1802) SetMapScalarsFlag 1
+$kw(vtkTemp1802) SetInterpolateColorsFlag 0
+$kw(vtkTemp1802) DrawSurface
+$kw(vtkTemp1802) SetVisibility 0
+set kw(vtkTemp1121) [$kw(vtkTemp5) GetPVColorMap {Domaine} 1]
+$kw(vtkTemp1121) SetScalarRange 1 2
+$kw(vtkTemp1121) SetStartHSV 0.6667 1 1
+$kw(vtkTemp1121) SetEndHSV 0 1 1
+$kw(vtkTemp1121) VectorModeMagnitudeCallback
+$kw(vtkTemp1121) SetScalarBarVisibility 0
+set kw(vtkTemp1320) [$kw(vtkTemp5) GetPVColorMap {Volume_log} 1]
+$kw(vtkTemp1320) SetScalarRange -2.5721 -1.24058
+$kw(vtkTemp1320) SetStartHSV 0.6667 1 1
+$kw(vtkTemp1320) SetEndHSV 0 1 1
+$kw(vtkTemp1320) VectorModeMagnitudeCallback
+$kw(vtkTemp1320) SetScalarBarVisibility 0
+set kw(vtkTemp1519) [$kw(vtkTemp5) GetPVColorMap {qual1} 1]
+$kw(vtkTemp1519) SetScalarRange 0.181259 0.978532
+$kw(vtkTemp1519) SetStartHSV 0.6667 1 1
+$kw(vtkTemp1519) SetEndHSV 0 1 1
+$kw(vtkTemp1519) VectorModeMagnitudeCallback
+$kw(vtkTemp1519) SetScalarBarVisibility 0
+set kw(vtkTemp1718) [$kw(vtkTemp5) GetPVColorMap {qual2} 1]
+$kw(vtkTemp1718) SetScalarRange 0.08778 0.902612
+$kw(vtkTemp1718) SetStartHSV 0.6667 1 1
+$kw(vtkTemp1718) SetEndHSV 0 1 1
+$kw(vtkTemp1718) VectorModeMagnitudeCallback
+$kw(vtkTemp1718) SetScalarBarVisibility 0
+set kw(vtkTemp1917) [$kw(vtkTemp5) GetPVColorMap {qual3} 1]
+$kw(vtkTemp1917) SetScalarRange 0.2915 0.983609
+$kw(vtkTemp1917) SetStartHSV 0.6667 1 1
+$kw(vtkTemp1917) SetEndHSV 0 1 1
+$kw(vtkTemp1917) VectorModeMagnitudeCallback
+$kw(vtkTemp1917) SetScalarBarVisibility 0
+set kw(vtkTemp1975) [$kw(vtkTemp5) GetPVColorMap {Min(Sin(AnglS/2))} 1]
+$kw(vtkTemp1975) SetScalarRange 0.027243 0.806838
+$kw(vtkTemp1975) SetStartHSV 0.6667 1 1
+$kw(vtkTemp1975) SetEndHSV 0 1 1
+$kw(vtkTemp1975) VectorModeMagnitudeCallback
+$kw(vtkTemp1975) SetScalarBarVisibility 0
+set kw(vtkTemp2033) [$kw(vtkTemp5) GetPVColorMap {3Rinsc/Rcirc} 1]
+$kw(vtkTemp2033) SetScalarRange 0.042542 0.957302
+$kw(vtkTemp2033) SetStartHSV 0.6667 1 1
+$kw(vtkTemp2033) SetEndHSV 0 1 1
+$kw(vtkTemp2033) VectorModeMagnitudeCallback
+$kw(vtkTemp2033) SetScalarBarVisibility 0
+set kw(vtkTemp2091) [$kw(vtkTemp5) GetPVColorMap {12(3Vol)^(2/3)/sum(Long^2)} 1]
+$kw(vtkTemp2091) SetScalarRange 0.10638 0.96476
+$kw(vtkTemp2091) SetStartHSV 0.6667 1 1
+$kw(vtkTemp2091) SetEndHSV 0 1 1
+$kw(vtkTemp2091) VectorModeMagnitudeCallback
+$kw(vtkTemp2091) SetScalarBarVisibility 0
+$kw(vtkTemp24) SetRendererBackgroundColor 0.305882 0.419608 0.501961
+$kw(vtkTemp24) ParallelProjectionOff
+$kw(vtkTemp24) SetCameraState -13.8816 -16.886 -4.27624 -3.02736 -2.12548 -2.4373 -0.0625969 -0.07793 0.994992
+$kw(vtkTemp24) SetUseTriangleStrips 0
+$kw(vtkTemp24) SetUseImmediateMode 1
+set kw(vtkTemp103) [$kw(vtkTemp24) GetRenderModuleUI]
+catch {$kw(vtkTemp103) SetLODThreshold 5}
+catch {$kw(vtkTemp103) SetLODResolution 50}
+catch {$kw(vtkTemp103) SetOutlineThreshold 5e+06}
+catch {$kw(vtkTemp103) SetRenderInterruptsEnabled 1}
+set kw(vtkTemp50) [$kw(vtkTemp24) GetCornerAnnotation]
+$kw(vtkTemp50) SetVisibility 0
+$kw(vtkTemp50) SetCornerText {} 0
+$kw(vtkTemp50) SetCornerText {} 1
+$kw(vtkTemp50) SetCornerText {} 2
+$kw(vtkTemp50) SetCornerText {} 3
+$kw(vtkTemp50) SetMaximumLineHeight 0.07
+set kw(vtkTemp70) [$kw(vtkTemp50) GetTextPropertyWidget]
+$kw(vtkTemp70) SetColor 1 1 1
+$kw(vtkTemp70) SetFontFamily 0
+$kw(vtkTemp70) SetBold 0
+$kw(vtkTemp70) SetItalic 0
+$kw(vtkTemp70) SetShadow 0
+$kw(vtkTemp70) SetOpacity 1
+$kw(vtkTemp24) SetOrientationAxesVisibility 0
+$kw(vtkTemp24) SetOrientationAxesInteractivity 1
+$kw(vtkTemp24) SetOrientationAxesOutlineColor 1 1 1
+$kw(vtkTemp24) SetOrientationAxesTextColor 1 1 1
+set kw(vtkTemp250) [$kw(vtkTemp24) GetManipulatorControl2D]
+$kw(vtkTemp250) SetCurrentManipulator 0 1 {Roll}
+$kw(vtkTemp250) SetCurrentManipulator 0 0 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 1 0 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 1 1 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 2 1 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 0 2 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 1 2 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 2 2 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 2 0 {Zoom}
+set kw(vtkTemp249) [$kw(vtkTemp24) GetManipulatorControl3D]
+$kw(vtkTemp249) SetCurrentManipulator 0 2 {FlyIn}
+$kw(vtkTemp249) SetCurrentManipulator 2 2 {FlyOut}
+$kw(vtkTemp249) SetCurrentManipulator 0 0 {Rotate}
+$kw(vtkTemp249) SetCurrentManipulator 1 1 {Rotate}
+$kw(vtkTemp249) SetCurrentManipulator 1 2 {Rotate}
+$kw(vtkTemp249) SetCurrentManipulator 0 1 {Roll}
+$kw(vtkTemp249) SetCurrentManipulator 1 0 {Pan}
+$kw(vtkTemp249) SetCurrentManipulator 2 1 {Pan}
+$kw(vtkTemp249) SetCurrentManipulator 2 0 {Zoom}
+$kw(vtkTemp178) SetNumberOfFrames 100
+$kw(vtkTemp178) SetCurrentTime 0
+$kw(vtkTemp178) SetCacheGeometry 1
+$kw(vtkTemp5) SetCenterOfRotation 0 0 -5
