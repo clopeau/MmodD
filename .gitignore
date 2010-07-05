@@ -7,6 +7,8 @@ loader.sce
 cleaner.sce
 loader_gateway.sce
 cleaner_gateway.sce
+jar/scilab_en_US_help.jar
+jar/scilab_fr_FR_help.jar
 *.bin
 *.dylib
 #
