@@ -261,5 +261,5 @@ elseif ( rho == 0.0 ),                 // breakdown
 else
   flag = 1;                           // no convergence
 end
-
+endfunction
 // END bicg.sci
