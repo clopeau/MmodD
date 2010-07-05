@@ -1,5 +1,4 @@
-// Copyright (C) 2008 - INRIA
-// Copyright (C) 2009 - DIGITEO
+//By Dream Team: ****** Thierry Clopeau, Delanoue David, Marcel Ndeffo, Sofian Smatti ******
 
 // This file is released into the public domain
 
