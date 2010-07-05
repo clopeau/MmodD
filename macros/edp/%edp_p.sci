@@ -1,0 +1,14 @@
+function  %edp_p(%u)
+  write(%io(2),' Type '+typeof(%u)+' Nom : '+string(%u.Id));
+  write(%io(2),'');
+  write(%io(2),' Geometry  :   '+%u.geo+'   ('+evstr('typeof('+%u.geo+')')+')');
+  write(%io(2),' Variable  :   '+%u.var+'   ('+evstr('typeof('+%u.var+')')+')');
+  write(%io(2),' Equation  :   '+%u.eq);
+  write(%io(2),' Boundary  :');
+  for i=1:length(%u.BndId)
+    write(%io(2),'             '+%u.BndId(i)+' -> '+...
+	%u.TypBnd(i)+' '+string(%u.BndVal(i)));
+  end
+  
+endfunction
+  

@@ -1,0 +1,77 @@
+# ParaView State Version 1.6
+
+set kw(vtkTemp5) [$Application GetMainWindow]
+set kw(vtkTemp24) [$kw(vtkTemp5) GetMainView]
+set kw(vtkTemp178) [$kw(vtkTemp5) GetAnimationInterface]
+[$kw(vtkTemp5) GetRotateCameraButton] SetState 1
+$kw(vtkTemp5) ChangeInteractorStyle 1
+set kw(vtkTemp995) [$kw(vtkTemp5) InitializeReadCustom "legacyreader" "/tmp/test_clope.vtk"]
+$kw(vtkTemp5) ReadFileInformation $kw(vtkTemp995) "/tmp/test_clope.vtk"
+$kw(vtkTemp5) FinalizeRead $kw(vtkTemp995) "/tmp/test_clope.vtk"
+set kw(vtkTemp1000) [$kw(vtkTemp995) GetPVWidget {Filename}]
+$kw(vtkTemp1000) SetValue "/tmp/test_clope.vtk"
+$kw(vtkTemp995) AcceptCallback
+set kw(vtkTemp1007) [$kw(vtkTemp995) GetPVOutput]
+$kw(vtkTemp1007) ColorByCellField {Temperature} 1
+$kw(vtkTemp1007) SetMapScalarsFlag 1
+$kw(vtkTemp1007) SetInterpolateColorsFlag 0
+$kw(vtkTemp1007) DrawSurface
+$kw(vtkTemp1007) SetVisibility 1
+set kw(vtkTemp1122) [$kw(vtkTemp5) GetPVColorMap {Temperature} 1]
+$kw(vtkTemp1122) SetScalarRange 106.671 1302.41
+$kw(vtkTemp1122) SetStartHSV 0.6667 1 1
+$kw(vtkTemp1122) SetEndHSV 0 1 1
+$kw(vtkTemp1122) VectorModeMagnitudeCallback
+$kw(vtkTemp1122) SetScalarBarVisibility 0
+$kw(vtkTemp24) SetRendererBackgroundColor 0.305882 0.419608 0.501961
+$kw(vtkTemp24) ParallelProjectionOff
+$kw(vtkTemp24) SetCameraState 0 0 0.0433061 0 0 -0.00085 0 1 0
+$kw(vtkTemp24) SetUseTriangleStrips 1
+$kw(vtkTemp24) SetUseImmediateMode 1
+set kw(vtkTemp103) [$kw(vtkTemp24) GetRenderModuleUI]
+catch {$kw(vtkTemp103) SetLODThreshold 5}
+catch {$kw(vtkTemp103) SetLODResolution 50}
+catch {$kw(vtkTemp103) SetOutlineThreshold 5e+06}
+catch {$kw(vtkTemp103) SetRenderInterruptsEnabled 1}
+set kw(vtkTemp50) [$kw(vtkTemp24) GetCornerAnnotation]
+$kw(vtkTemp50) SetVisibility 0
+$kw(vtkTemp50) SetCornerText {} 0
+$kw(vtkTemp50) SetCornerText {} 1
+$kw(vtkTemp50) SetCornerText {} 2
+$kw(vtkTemp50) SetCornerText {} 3
+$kw(vtkTemp50) SetMaximumLineHeight 0.07
+set kw(vtkTemp70) [$kw(vtkTemp50) GetTextPropertyWidget]
+$kw(vtkTemp70) SetColor 1 1 1
+$kw(vtkTemp70) SetFontFamily 0
+$kw(vtkTemp70) SetBold 0
+$kw(vtkTemp70) SetItalic 0
+$kw(vtkTemp70) SetShadow 0
+$kw(vtkTemp70) SetOpacity 1
+$kw(vtkTemp24) SetOrientationAxesVisibility 1
+$kw(vtkTemp24) SetOrientationAxesInteractivity 0
+$kw(vtkTemp24) SetOrientationAxesOutlineColor 1 1 1
+$kw(vtkTemp24) SetOrientationAxesTextColor 1 1 1
+set kw(vtkTemp250) [$kw(vtkTemp24) GetManipulatorControl2D]
+$kw(vtkTemp250) SetCurrentManipulator 0 1 {Roll}
+$kw(vtkTemp250) SetCurrentManipulator 0 0 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 1 0 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 1 1 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 2 1 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 0 2 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 1 2 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 2 2 {Pan}
+$kw(vtkTemp250) SetCurrentManipulator 2 0 {Zoom}
+set kw(vtkTemp249) [$kw(vtkTemp24) GetManipulatorControl3D]
+$kw(vtkTemp249) SetCurrentManipulator 0 2 {FlyIn}
+$kw(vtkTemp249) SetCurrentManipulator 2 2 {FlyOut}
+$kw(vtkTemp249) SetCurrentManipulator 0 0 {Rotate}
+$kw(vtkTemp249) SetCurrentManipulator 1 1 {Rotate}
+$kw(vtkTemp249) SetCurrentManipulator 1 2 {Rotate}
+$kw(vtkTemp249) SetCurrentManipulator 0 1 {Roll}
+$kw(vtkTemp249) SetCurrentManipulator 1 0 {Pan}
+$kw(vtkTemp249) SetCurrentManipulator 2 1 {Pan}
+$kw(vtkTemp249) SetCurrentManipulator 2 0 {Zoom}
+$kw(vtkTemp178) SetNumberOfFrames 100
+$kw(vtkTemp178) SetCurrentTime 0
+$kw(vtkTemp178) SetCacheGeometry 1
+$kw(vtkTemp5) SetCenterOfRotation 0 0 -0.00085
