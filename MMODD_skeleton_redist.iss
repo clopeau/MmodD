@@ -1,22 +1,22 @@
 ;##############################################################################################################
-; Inno Setup Install script for Toolbox_skeleton
+; Inno Setup Install script for MMODD_skeleton
 ; http://www.jrsoftware.org/isinfo.php
-; Allan CORNET
+; Clopeau Thierry, Delanoue David, Ndeffo Marcel & Smatti Sofian
 ; This file is released into the public domain
 ;##############################################################################################################
-; modify this path where is toolbox_skeleton directory
-#define BinariesSourcePath "C:\Programs files\scilab-5.0\contrib\toolbox_skeleton"
+; modify this path where is MMODD_skeleton directory
+#define BinariesSourcePath "C:\Programs files\scilab-5.0\contrib\MMODD_skeleton"
 ;
-#define Toolbox_skeleton_version "0.1"
-#define CurrentYear "2008"
-#define Toolbox_skeletonDirFilename "toolbox_skeleton"
+#define MMODD_skeleton_version "0.1"
+#define CurrentYear "2010"
+#define MMODD_skeletonDirFilename "MMODD_skeleton"
 ;##############################################################################################################
 [Setup]
 ; Debut Données de base à renseigner suivant version
 SourceDir={#BinariesSourcePath}
-AppName=Toolbox skeleton
-AppVerName=Toolbox skeleton version 0.1
-DefaultDirName={pf}\{#Toolbox_skeletonDirFilename}
+AppName=MMODD skeleton
+AppVerName=MMODD skeleton version 0.1
+DefaultDirName={pf}\{#MMODD_skeletonDirFilename}
 InfoAfterfile=readme.txt
 LicenseFile=license.txt
 WindowVisible=true
@@ -26,14 +26,14 @@ AppCopyright=Copyright © {#CurrentYear}
 Compression=lzma/max
 InternalCompressLevel=normal
 SolidCompression=true
-VersionInfoVersion={#Toolbox_skeleton_version}
+VersionInfoVersion={#MMODD_skeleton_version}
 VersionInfoCompany=Your Company
 ;##############################################################################################################
 [Files]
 ; Add here files that you want to add
 Source: loader.sce; DestDir: {app}
-Source: etc\toolbox_skeleton.quit; DestDir: {app}\etc
-Source: etc\toolbox_skeleton.start; DestDir: {app}\etc
+Source: etc\MMODD_skeleton.quit; DestDir: {app}\etc
+Source: etc\MMODD_skeleton.start; DestDir: {app}\etc
 Source: macros\buildmacros.sce; DestDir: {app}\macros
 Source: macros\lib; DestDir: {app}\macros
 Source: macros\names; DestDir: {app}\macros
