@@ -6,9 +6,9 @@
 mode(-1);
 lines(0);
 
-TOOLBOX_NAME  = "MMODD";
-TOOLBOX_TITLE = "MMODD";
-toolbox_dir   = get_absolute_file_path("builder.sce");
+TOOLBOX_NAME  = "mmodd";
+TOOLBOX_TITLE = "mmodd";
+toolbox_dir = get_absolute_file_path("builder.sce");
 
 // Check Scilab's version
 // =============================================================================
@@ -34,7 +34,7 @@ end
 // Action
 // =============================================================================
 
-tbx_builder_macros(toolbox_dir);
+tbx_builder_macros(toolbox_dir+'\macros\');
 tbx_builder_src(toolbox_dir);
 tbx_builder_gateway(toolbox_dir);
 tbx_builder_help(toolbox_dir);
