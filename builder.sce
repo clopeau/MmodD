@@ -6,8 +6,8 @@
 mode(-1);
 lines(0);
 
-TOOLBOX_NAME  = "toolbox_skeleton";
-TOOLBOX_TITLE = "Toolbox Skeleton";
+TOOLBOX_NAME  = "MMODD";
+TOOLBOX_TITLE = "MMODD";
 toolbox_dir   = get_absolute_file_path("builder.sce");
 
 // Check Scilab's version
