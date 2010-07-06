@@ -18,5 +18,5 @@ function  dcomp3d_vtk(u,%v)
   fprintf(u,'SCALARS id int 1');
   fprintf(u,'LOOKUP_TABLE default');
   fprintf(u,'%i\n',%v.Type')
-  
+endfunction
 
