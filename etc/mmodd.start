@@ -1,6 +1,3 @@
-// Copyright (C) 2008 - INRIA
-// Copyright (C) 2009 - DIGITEO
-
 // This file is released into the public domain
 
 mprintf("Start MMODD\n");
@@ -18,7 +15,22 @@ root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
 // =============================================================================
 mprintf("\tLoad macros\n");
 pathmacros = pathconvert( root_tlbx ) + "macros" + filesep();
-toolbox_skeletonlib = lib(pathmacros);
+mopen(pathmacros+"buildmacros.sce")
+macrospath=get_absolute_file_path("buildmacros.sce");
+
+listfic=listfiles(macrospath);
+dir=[];
+for i=1:size(listfic,1)
+  rep=listfic(i,1);
+  if(isdir(macrospath+rep))
+    dir($+1)=rep;
+  end
+end
+num=size(dir,1)
+for i=1:num
+  str=macrospath+dir(i,1);
+  execstr('mmodd_'+dir(i,1)+'_lib='+'lib('''+ str+'/'' )')
+end
 clear pathmacros;
 
 // load gateways
