@@ -1,0 +1,62 @@
+// This file is released into the public domain
+
+mprintf("Start MMODD\n");
+
+if isdef("toolbox_skeletonlib") then
+	warning("MMODD library is already loaded");
+	return;
+end
+
+etc_tlbx  = get_absolute_file_path("mmodd.start");
+etc_tlbx  = getshortpathname(etc_tlbx);
+root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
+
+//Load  functions library
+// =============================================================================
+mprintf("\tLoad macros\n");
+pathmacros = pathconvert( root_tlbx ) + "macros" + filesep();
+macrospath=get_absolute_file_path("buildmacros.sce");
+
+listfic=listfiles(macrospath);
+dir=[];
+for i=1:size(listfic,1)
+  rep=listfic(i,1);
+  if(isdir(macrospath+rep))
+    dir($+1)=rep;
+  end
+end
+num=size(dir,1)
+for i=1:num
+	execstr('mmod_'+dir(i,1)+'_lib = lib(pathmacros)')
+end
+clear pathmacros;
+
+// load gateways
+// =============================================================================
+//mprintf("\tLoad gateways\n");
+//ilib_verbose(0);
+//exec(pathconvert(root_tlbx+"/sci_gateway/loader_gateway.sce",%f));
+
+// Load and add help chapter
+// =============================================================================
+if or(getscilabmode() == ["NW";"STD"]) then
+	mprintf("\tLoad help\n");
+	path_addchapter = pathconvert(root_tlbx+"/jar");
+	if ( isdir(path_addchapter) <> [] ) then
+		add_help_chapter("Toolbox skeleton", path_addchapter, %F);
+		clear add_help_chapter;
+	end
+	clear path_addchapter;
+end
+
+// Load demos
+// =============================================================================
+if or(getscilabmode() == ["NW";"STD"]) then
+	mprintf("\tLoad demos\n");
+	pathdemos = pathconvert(root_tlbx+"/demos/toolbox_skeleton.dem.gateway.sce",%F,%T);
+	add_demo("Toolbox skeleton",pathdemos);
+	clear pathdemos add_demo;
+end
+
+clear root_tlbx;
+clear etc_tlbx;
