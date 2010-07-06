@@ -16,7 +16,7 @@ for i=1:size(listfic,1)
 end
 
 for i=1:size(dir,1)
-  tbx_build_macros(TOOLBOX_NAME,files+dir(i));
+  tbx_build_macros(TOOLBOX_NAME,macrospath+dir(i));
 end
 
 //clear tbx_build_macros,files,listfic,dir,rep,i;
