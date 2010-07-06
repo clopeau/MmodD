@@ -1,6 +1,0 @@
-function %in1=%p1_2db_p_p1_2db(%in2,%in1)
-%in1.Node=%in2.Node .^ %in1.Node;
-%in1.Cell=%in2.Cell .^ %in1.Cell;
-%in1.#=rand(1);
-endfunction
-  
