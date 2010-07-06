@@ -15,6 +15,7 @@ root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
 // =============================================================================
 mprintf("\tLoad macros\n");
 pathmacros = pathconvert( root_tlbx ) + "macros" + filesep();
+mopen(pathmacros+"buildmacros.sce")
 macrospath=get_absolute_file_path("buildmacros.sce");
 
 listfic=listfiles(macrospath);
@@ -27,7 +28,8 @@ for i=1:size(listfic,1)
 end
 num=size(dir,1)
 for i=1:num
-	execstr('mmod_'+dir(i,1)+'_lib = lib(pathmacros)')
+  str=macrospath+dir(i,1);
+  execstr('mmodd_'+dir(i,1)+'_lib='+'lib('''+ str+'/'' )')
 end
 clear pathmacros;
 
