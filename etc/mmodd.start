@@ -26,9 +26,13 @@ for i=1:size(listfic,1)
     dir($+1)=rep;
   end
 end
+tk=with_tk();
 num=size(dir,1)
 for i=1:num
-  str=macrospath+dir(i,1);
+  if(dir(i,1)=="tk" & ~tk)
+  break
+  end
+  tr=macrospath+dir(i,1)<>;
   execstr('mmodd_'+dir(i,1)+'_lib='+'lib('''+ str+'/'' )')
 end
 clear pathmacros;

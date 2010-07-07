@@ -34,7 +34,9 @@ end
 // =============================================================================
 
 exec(toolbox_dir+'\macros\buildmacros.sce');
+if(with_tk())
 exec(toolbox_dir+'tclloader.sce');
+end
 //Tbx_builder_macros(toolbox_dir+'\macros\');
 //tbx_builder_src(toolbox_dir);
 //tbx_builder_gateway(toolbox_dir);
