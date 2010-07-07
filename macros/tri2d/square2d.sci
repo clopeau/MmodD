@@ -3,20 +3,25 @@ function th=square2d(x,y,nx,ny)
 // syntaxe :
 // --------
 //
-//  square2d()      : carre unité a deux triangles
+//  square2d()      : carre unitï¿½ a deux triangles
 //
-//  square2d(nx,ny) : grille unité a 2*nx*ny triangles
+//  square2d(nx,ny) : grille unitï¿½ a 2*nx*ny triangles
 //
 //  square2d(x,y)   : x et y vecteurs d'affixes et d'ordonnes
 //
 //  square2d([x_min,x_max],[y_min,y_max],nx,ny)   
 //
 // Le resultat possede 4 frontieres 'E' 'W' 'N' 'S'
-  [lhs,rhs]=argn(0);
-  if rhs==0                     // carre unite 4 nodes 2 triangles
-    x=[0;1];nx=2;
-    y=[0,1];ny=2;
-  elseif rhs==2 
+
+  [lhs,rhs]=argn();
+  if rhs==0|x<2|y<2
+    disp("---- Warning: need argument greater than 2  ----");
+                        // carre unite 4 nodes 2 triangles
+    x=0;nx=2;
+    y=0;ny=2;
+
+elseif rhs==2 
+if y>1&x>1
     if length(x)==1 & length(y)==1 // carre unite de nx,ny points par ligne 
       nx=x;
       ny=y;
@@ -35,12 +40,14 @@ function th=square2d(x,y,nx,ny)
   else
     error('Bad arguments in square function');
     return
+    end
   end
   
    th=tri2d("square2d");
    //-------
    // Coor
    //-------
+ 
    th.Coor=[matrix(x(:,ones(y)),-1,1),matrix(y(:,ones(x))',-1,1)];
    //-------
    //  Tri
@@ -80,6 +87,6 @@ function th=square2d(x,y,nx,ny)
        find([zeros(1:ny-1) 1].*.ones(1:nx))',...
        find([1 zeros(1:ny-1)].*.ones(1:nx))'...
        );
- 
+
 endfunction
  

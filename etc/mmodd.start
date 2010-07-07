@@ -11,8 +11,6 @@ etc_tlbx  = get_absolute_file_path("mmodd.start");
 etc_tlbx  = getshortpathname(etc_tlbx);
 root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
 
-
-
 //Load  functions library
 // =============================================================================
 mprintf("\tLoad macros\n");
