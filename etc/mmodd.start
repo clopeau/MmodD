@@ -14,7 +14,7 @@ root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
 //Load  functions library
 // =============================================================================
 mprintf("\tLoad macros\n");
-pathmacros = pathconvert( root_tlbx ) + "macros" + filesep();
+macrospath = pathconvert( root_tlbx ) + "macros" + filesep();
 
 listfic=listfiles(macrospath);
 %dir=[];

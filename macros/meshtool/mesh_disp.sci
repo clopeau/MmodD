@@ -2,7 +2,7 @@
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // gestion du menu meshtools
 function []=mesh_disp(th,etat)
-  xbasc();
+  clf();
   rect =[min(th)-0.05*abs(max(th)-min(th));max(th)+0.05*abs(max(th)-min(th))]';
   
   plot2d(1,1,[1],"030"," ",rect(1:4));
