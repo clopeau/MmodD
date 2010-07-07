@@ -32,7 +32,7 @@ for i=1:num
   if(dir(i,1)=="tk" & ~tk)
   break
   end
-  tr=macrospath+dir(i,1)<>;
+  str=macrospath+dir(i,1);
   execstr('mmodd_'+dir(i,1)+'_lib='+'lib('''+ str+'/'' )')
 end
 clear pathmacros;
