@@ -11,6 +11,8 @@ jar/scilab_en_US_help.jar
 jar/scilab_fr_FR_help.jar
 *.bin
 *.dylib
+names
+lib
 #
 # Generated files (Windows)
 #

@@ -64,5 +64,38 @@ clear pathmacros;
 //	clear pathdemos add_demo;
 //end
 
+// menus additionnels
+if and(sciargs()<>"-nw")
+  //delmenu('toolboxes');
+  //delmenu('Help');
+  //delmenu('Demos');
+  //delmenu('Editor');
+  
+  delmenu('Mesh')
+  //addmenu('Mesh',['New mesh';'Load mesh';'View mesh';'Export mesh']);
+  addmenu('Mesh',['Load mesh';'View mesh']);
+  
+  //addmenu("Editor",list(2,"scipad"));
+  ///addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
+  //Mesh(1)="exec("""+root_tlbx+"menu/Mesh_New.sce"");";
+  Mesh(1)="exec("""+root_tlbx+"menu/Mesh_Load.sce"");";
+  Mesh(2)="exec("""+root_tlbx+"menu/Mesh_View.sce"");";
+  //Mesh(4)="exec("""+root_tlbx+"menu/Mesh_Export.sce"");";
+  
+  delmenu('Variable')
+  addmenu('Variable',['View Var']);
+  
+  //Variable(1)="exec "+root_tlbx+"menu/Var_New.sce;";
+  //Variable(2)="exec "+root_tlbx+"menu/Var_Load.sce;";
+  Variable(1)="exec("""+root_tlbx+"menu/Var_View.sce"");";
+  //Variable(4)="exec "+root_tlbx+"menu/Var_Export.sce;";
+  
+  //if ~(grep(SCI,"scilab-3")==1)
+  //  addmenu("Editor",list(2,"scipad"));
+  //end
+  //addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
+
+end
+
 clear root_tlbx;
 clear etc_tlbx;
