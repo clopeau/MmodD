@@ -12,7 +12,7 @@ if %_nams~=[]
 	'Choose a mesh','Cancel');
   end
   
-  exec(%path_femt+"menu/Var_Tool.sce");
+  exec(%menupath+"/menu/Var_Tool.sce");
   disp('')
   clear %n  
 else  
