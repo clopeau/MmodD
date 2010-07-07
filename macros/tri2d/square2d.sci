@@ -15,7 +15,7 @@ function th=square2d(x,y,nx,ny)
 
   [lhs,rhs]=argn();
   if rhs==0|x<2|y<2
-    disp("---- Warning: a square2d by default will be built ----");
+    disp("---- Warning: need argument greater than 2  ----");
                         // carre unite 4 nodes 2 triangles
     x=0;nx=2;
     y=0;ny=2;
