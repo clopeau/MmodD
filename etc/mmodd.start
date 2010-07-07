@@ -11,28 +11,30 @@ etc_tlbx  = get_absolute_file_path("mmodd.start");
 etc_tlbx  = getshortpathname(etc_tlbx);
 root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
 
-
-
 //Load  functions library
 // =============================================================================
 mprintf("\tLoad macros\n");
 pathmacros = pathconvert( root_tlbx ) + "macros" + filesep();
+mopen(pathmacros+"buildmacros.sce");
+macrospath=get_absolute_file_path("buildmacros.sce");
 
 listfic=listfiles(macrospath);
-%dir=[];
+dir=[];
 for i=1:size(listfic,1)
   rep=listfic(i,1);
   if(isdir(macrospath+rep))
-    %dir($+1)=rep;
+    dir($+1)=rep;
   end
 end
 tk=with_tk();
-num=size(%dir,1);
+num=size(dir,1);
 for i=1:num
-  if ~(%dir(i,1)=="tk" & ~tk)
-    str=macrospath+%dir(i,1);
-    execstr('mmodd_'+%dir(i,1)+'_lib='+'lib('''+ str+'/'' )');
+  if(dir(i,1)=="tk" & ~tk)
+  break
   end
+  str=macrospath+dir(i,1);
+  execstr('mmodd_'+dir(i,1)+'_lib='+'lib('''+ str+'/'' )');
+   write(%io(2),'---------------- '+dir(i,1)+' loaded -----------------');
 end
 clear pathmacros;
 
@@ -81,7 +83,7 @@ if and(sciargs()<>"-nw")
   Mesh(2)="exec("""+root_tlbx+"menu/Mesh_View.sce"");";
   //Mesh(4)="exec("""+root_tlbx+"menu/Mesh_Export.sce"");";
   
-  delmenu('Variable');
+  delmenu('Variable')
   addmenu('Variable',['View Var']);
   
   //Variable(1)="exec "+root_tlbx+"menu/Var_New.sce;";
@@ -95,14 +97,6 @@ if and(sciargs()<>"-nw")
   //addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
 
 end
-
-// definition of global var %exclud (using in function name)
-if ~isdef("%exclud")
-    global %exclud;
-    %exclud=who('get');
-    %exclud=%exclud(length(%exclud)>2);
-    %exclud=[%exclud;'%'];
-end	
 
 clear root_tlbx;
 clear etc_tlbx;
