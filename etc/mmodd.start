@@ -24,15 +24,26 @@ for i=1:size(listfic,1)
     %dir($+1)=rep;
   end
 end
+//figw=220; figh=160;
+//close(1)
+//figure(1,"position",[0 0 figw figh]);
+//htrig=uicontrol(1,"style","radiobutton","Min",0,"Max",1,"value",0,..
+//                    "position",[80 10 20 20]);
+//httrig=uititle(htrig,"free/trig","r")
+winId=waitbar('This is an example');
+realtimeinit(0.3);
 tk=with_tk();
 num=size(%dir,1);
 for i=1:num
   if ~(%dir(i,1)=="tk" & ~tk)
     str=macrospath+%dir(i,1);
     execstr('mmodd_'+%dir(i,1)+'_lib='+'lib('''+ str+'/'' )');
+    realtime(3*i/num)
+    waitbar(i/num,winId) 
   end
 end
-clear pathmacros;
+winclose(winId)
+clear macrospath;
 
 // load gateways
 // =============================================================================
