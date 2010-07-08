@@ -42,7 +42,6 @@ for i=1:num
     waitbar(i/num,winId) 
   end
 end
-winclose(winId)
 clear macrospath;
 
 // load gateways
