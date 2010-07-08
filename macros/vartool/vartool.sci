@@ -36,7 +36,7 @@ function []=vartool(var)
    rac=typeof(var)
     
   
-   xbasc();
+   clf();
    rect =evstr('[min('+var.geo+');max('+var.geo+')]');
    minmax =[min(var);max(var)]
    plot2d(1,1,[1],"030"," ",rect(1:4));

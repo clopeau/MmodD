@@ -30,7 +30,7 @@ end
 //htrig=uicontrol(1,"style","radiobutton","Min",0,"Max",1,"value",0,..
 //                    "position",[80 10 20 20]);
 //httrig=uititle(htrig,"free/trig","r")
-winId=waitbar('This is an example');
+winId=waitbar('MMoDD loading');
 realtimeinit(0.3);
 tk=with_tk();
 num=size(%dir,1);
