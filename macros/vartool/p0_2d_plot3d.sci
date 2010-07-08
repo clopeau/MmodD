@@ -8,7 +8,7 @@ function p0_2d_plot3d(v)
     yy=matrix(%th.Coor(%th.Tri,2),-1,3)';
     zz=v.Cell(:,[1 1 1])';
  
-    xbasc()
+    clf()
     coulmax=256;
     xset("colormap",rgbcolor(coulmax))
     colorbar(mi,ma);

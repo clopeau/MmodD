@@ -8,7 +8,7 @@ function p1_2d_plot3d(v)
     yy=matrix(full(%th.Coor(%th.Tri,2)),-1,3)';
     zz=matrix(full(v.Node(%th.Tri)),-1,3)';
  
-    xbasc()
+    clf()
     coulmax=256;
     xset("colormap",rgbcolor(coulmax))
     colorbar(mi,ma);

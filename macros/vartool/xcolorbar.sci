@@ -13,7 +13,7 @@ function [gwin]=xcolorbar(zmin,zmax)
    xset('window',gwin);
    xset('wpdim',105,350);
    xset('wdim',70,300);
-   xbasc();
+   clf();
    delmenu(gwin,'Zoom')
    delmenu(gwin,'2D Zoom') // Scilab2.6
    delmenu(gwin,'UnZoom')

@@ -2,7 +2,7 @@
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // gestion du menu vartools
 function []=var_disp(var,etat)
-//  xbasc();
+//  clf();
 //  rect =[min(var);max(var)]';
   
 //  plot2d(1,1,[1],"030"," ",rect(1:4));
