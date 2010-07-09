@@ -1,0 +1,983 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fbc28df1440, pid=19848, tid=140448385931024
+#
+# JRE version: 6.0_18-b07
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (16.0-b13 mixed mode linux-amd64 )
+# Problematic frame:
+# C  [libGL.so.1+0x7f440]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000000739000):  JavaThread "main" [_thread_in_native, id=19848, stack(0x00007fffe8f9d000,0x00007fffe909d000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=1 (SEGV_MAPERR), si_addr=0x0000000000000000
+
+Registers:
+RAX=0x0000000000000000, RBX=0x000000000095dfd0, RCX=0x0000003be3769e88, RDX=0x0000000000000000
+RSP=0x00007fffe909be00, RBP=0x00007fbc28f33020, RSI=0x0000000000000000, RDI=0x0000003be3769e80
+R8 =0x0000000000000000, R9 =0x0000000000000000, R10=0x00007fffe909bba0, R11=0x0000000000000000
+R12=0x0000003bf0420790, R13=0x00007fbc28f49360, R14=0x0000000000e0b2d0, R15=0x0000000000000050
+RIP=0x00007fbc28df1440, EFL=0x0000000000010246, CSGSFS=0x0000000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007fffe909be00)
+0x00007fffe909be00:   00007fbc28f33020 0000000000004d88
+0x00007fffe909be10:   0000003bf0420790 00007fbc28de24e5
+0x00007fffe909be20:   00007fffe909be30 000000000000008a
+0x00007fffe909be30:   00007fffe909c320 0000000000000000
+0x00007fffe909be40:   0000003be301f008 0000003be2e0f0cc
+0x00007fffe909be50:   00007fbcbaecb000 00007fbcbaecb590
+0x00007fffe909be60:   00007fbcba524508 00007fbcb51d7000
+0x00007fffe909be70:   00007fbcbaecaa38 00007fbcbacbe510
+0x00007fffe909be80:   00007fbcbacbea30 00007fbcb8f16a30
+0x00007fffe909be90:   00007fbcba524000 00007fbcba524a18
+0x00007fffe909bea0:   00007fbcb9e4b000 00007fbcb9e4b520
+0x00007fffe909beb0:   00007fbcb9e4ba40 00007fbcb96b7000
+0x00007fffe909bec0:   00007fbcb96b7530 00007fbcb96b7a48
+0x00007fffe909bed0:   00007fbcb8f16520 00007fbcb8807000
+0x00007fffe909bee0:   00007fbcb8807518 00007fbcb8807a28
+0x00007fffe909bef0:   00007fbcb7f73000 00007fbcb7f73520
+0x00007fffe909bf00:   00007fbcb7f73a58 00007fbcb7825000
+0x00007fffe909bf10:   00007fbcb7825530 00007fbcb7825a58
+0x00007fffe909bf20:   00007fbcb6f8b000 00007fbcb6f8b518
+0x00007fffe909bf30:   00007fbcb6773000 00007fbcb6773510
+0x00007fffe909bf40:   00007fbcb6773a30 00007fbcb6019520
+0x00007fffe909bf50:   00007fbcb6019a38 00007fbcb59a2a60
+0x00007fffe909bf60:   00007fbcb51d7528 00007fbcb51d7a60
+0x00007fffe909bf70:   00007fbcb4bb6000 00007fbcb4bb6510
+0x00007fffe909bf80:   00007fbcb4bb6a30 00007fbcb44ae530
+0x00007fffe909bf90:   00007fbcb44aea50 00007fbcb3d09a48
+0x00007fffe909bfa0:   00007fbcb36f1000 00007fbcbacbe000
+0x00007fffe909bfb0:   00007fbcb8f16000 00007fbcb6f8ba28
+0x00007fffe909bfc0:   00007fbcb6019000 00007fbcb59a2000
+0x00007fffe909bfd0:   00007fbcb59a2528 00007fbcb44ae000
+0x00007fffe909bfe0:   00007fbcb3d09000 00007fbcb3d09520
+0x00007fffe909bff0:   00007fbcb36f1508 00007fbcb36f1a18 
+
+Instructions: (pc=0x00007fbc28df1440)
+0x00007fbc28df1430:   10 48 85 d2 74 43 48 8b 42 10 48 8b 5a 08 31 d2
+0x00007fbc28df1440:   44 8b 20 48 89 df 44 89 e6 e8 42 a9 fb ff 31 d2 
+
+Stack: [0x00007fffe8f9d000,0x00007fffe909d000],  sp=0x00007fffe909be00,  free space=3fb0000000000000018k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libGL.so.1+0x7f440]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007fbc18001000 JavaThread "Thread-5" [_thread_blocked, id=19884, stack(0x00007fbc2ac11000,0x00007fbc2b612000)]
+  0x0000000000d1b000 JavaThread "TimerQueue" daemon [_thread_blocked, id=19882, stack(0x00007fbc2bdfe000,0x00007fbc2beff000)]
+  0x0000000000bea800 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=19881, stack(0x00007fbc2beff000,0x00007fbc2c000000)]
+  0x0000000000bee000 JavaThread "AWT-Shutdown" [_thread_blocked, id=19880, stack(0x00007fbc8808c000,0x00007fbc8818d000)]
+  0x00000000009d1800 JavaThread "AWT-XAWT" daemon [_thread_in_native, id=19874, stack(0x00007fbc88cbf000,0x00007fbc88dc0000)]
+  0x000000000098b000 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=19873, stack(0x00007fbc88fdf000,0x00007fbc890e0000)]
+  0x000000000082e000 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=19871, stack(0x00007fbc89772000,0x00007fbc89873000)]
+  0x000000000082c000 JavaThread "CompilerThread1" daemon [_thread_blocked, id=19870, stack(0x00007fbc89873000,0x00007fbc89974000)]
+  0x0000000000829000 JavaThread "CompilerThread0" daemon [_thread_blocked, id=19869, stack(0x00007fbc89974000,0x00007fbc89a75000)]
+  0x0000000000827000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=19868, stack(0x00007fbc89a75000,0x00007fbc89b76000)]
+  0x000000000080a800 JavaThread "Finalizer" daemon [_thread_blocked, id=19867, stack(0x00007fbc89b76000,0x00007fbc89c77000)]
+  0x0000000000808800 JavaThread "Reference Handler" daemon [_thread_blocked, id=19866, stack(0x00007fbc89c77000,0x00007fbc89d78000)]
+=>0x0000000000739000 JavaThread "main" [_thread_in_native, id=19848, stack(0x00007fffe8f9d000,0x00007fffe909d000)]
+
+Other Threads:
+  0x0000000000804000 VMThread [stack: 0x00007fbc89d78000,0x00007fbc89e79000] [id=19865]
+  0x0000000000830800 WatcherThread [stack: 0x00007fbc89671000,0x00007fbc89772000] [id=19872]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 74880K, used 11548K [0x00007fbc9bab0000, 0x00007fbca1000000, 0x00007fbca1000000)
+  eden space 64000K, 1% used [0x00007fbc9bab0000,0x00007fbc9bb59cf8,0x00007fbc9f930000)
+  from space 10880K, 99% used [0x00007fbc9fac0000,0x00007fbca055d6d0,0x00007fbca0560000)
+  to   space 10880K, 0% used [0x00007fbca0560000,0x00007fbca0560000,0x00007fbca1000000)
+ PSOldGen        total 174784K, used 19550K [0x00007fbc91000000, 0x00007fbc9bab0000, 0x00007fbc9bab0000)
+  object space 174784K, 11% used [0x00007fbc91000000,0x00007fbc92317a50,0x00007fbc9bab0000)
+ PSPermGen       total 33152K, used 33034K [0x00007fbc8bc00000, 0x00007fbc8dc60000, 0x00007fbc91000000)
+  object space 33152K, 99% used [0x00007fbc8bc00000,0x00007fbc8dc42ba0,0x00007fbc8dc60000)
+
+Dynamic libraries:
+00400000-00402000 r-xp 00000000 09:00 2526212                            /usr/local/lib/scilab-5.2.2/bin/scilab-bin
+00601000-00602000 r--p 00001000 09:00 2526212                            /usr/local/lib/scilab-5.2.2/bin/scilab-bin
+00602000-00603000 rw-p 00002000 09:00 2526212                            /usr/local/lib/scilab-5.2.2/bin/scilab-bin
+00729000-00f4e000 rw-p 00000000 00:00 0                                  [heap]
+413b4000-413b6000 rwxp 00000000 00:0f 703                                /dev/zero
+3be2e00000-3be2e1f000 r-xp 00000000 09:00 3622                           /lib64/ld-2.10.1.so
+3be301e000-3be301f000 r--p 0001e000 09:00 3622                           /lib64/ld-2.10.1.so
+3be301f000-3be3020000 rw-p 0001f000 09:00 3622                           /lib64/ld-2.10.1.so
+3be3200000-3be3201000 r-xp 00000000 09:00 55465                          /usr/lib64/nvidia/tls/libnvidia-tls.so.185.18.36
+3be3201000-3be3301000 ---p 00001000 09:00 55465                          /usr/lib64/nvidia/tls/libnvidia-tls.so.185.18.36
+3be3301000-3be3302000 rw-p 00001000 09:00 55465                          /usr/lib64/nvidia/tls/libnvidia-tls.so.185.18.36
+3be3400000-3be3564000 r-xp 00000000 09:00 6311                           /lib64/libc-2.10.1.so
+3be3564000-3be3764000 ---p 00164000 09:00 6311                           /lib64/libc-2.10.1.so
+3be3764000-3be3768000 r--p 00164000 09:00 6311                           /lib64/libc-2.10.1.so
+3be3768000-3be3769000 rw-p 00168000 09:00 6311                           /lib64/libc-2.10.1.so
+3be3769000-3be376e000 rw-p 00000000 00:00 0 
+3be3800000-3be3802000 r-xp 00000000 09:00 270374                         /lib64/libdl-2.10.1.so
+3be3802000-3be3a02000 ---p 00002000 09:00 270374                         /lib64/libdl-2.10.1.so
+3be3a02000-3be3a03000 r--p 00002000 09:00 270374                         /lib64/libdl-2.10.1.so
+3be3a03000-3be3a04000 rw-p 00003000 09:00 270374                         /lib64/libdl-2.10.1.so
+3be3c00000-3be3c82000 r-xp 00000000 09:00 11622                          /lib64/libm-2.10.1.so
+3be3c82000-3be3e82000 ---p 00082000 09:00 11622                          /lib64/libm-2.10.1.so
+3be3e82000-3be3e83000 r--p 00082000 09:00 11622                          /lib64/libm-2.10.1.so
+3be3e83000-3be3e84000 rw-p 00083000 09:00 11622                          /lib64/libm-2.10.1.so
+3be4000000-3be4017000 r-xp 00000000 09:00 262769                         /lib64/libpthread-2.10.1.so
+3be4017000-3be4216000 ---p 00017000 09:00 262769                         /lib64/libpthread-2.10.1.so
+3be4216000-3be4217000 r--p 00016000 09:00 262769                         /lib64/libpthread-2.10.1.so
+3be4217000-3be4218000 rw-p 00017000 09:00 262769                         /lib64/libpthread-2.10.1.so
+3be4218000-3be421c000 rw-p 00000000 00:00 0 
+3be4800000-3be4934000 r-xp 00000000 09:00 262666                         /usr/lib64/libX11.so.6.2.0
+3be4934000-3be4b33000 ---p 00134000 09:00 262666                         /usr/lib64/libX11.so.6.2.0
+3be4b33000-3be4b39000 rw-p 00133000 09:00 262666                         /usr/lib64/libX11.so.6.2.0
+3be4c00000-3be4c02000 r-xp 00000000 09:00 262162                         /usr/lib64/libXau.so.6.0.0
+3be4c02000-3be4e01000 ---p 00002000 09:00 262162                         /usr/lib64/libXau.so.6.0.0
+3be4e01000-3be4e02000 rw-p 00001000 09:00 262162                         /usr/lib64/libXau.so.6.0.0
+3be5000000-3be501a000 r-xp 00000000 09:00 262665                         /usr/lib64/libxcb.so.1.1.0
+3be501a000-3be521a000 ---p 0001a000 09:00 262665                         /usr/lib64/libxcb.so.1.1.0
+3be521a000-3be521b000 rw-p 0001a000 09:00 262665                         /usr/lib64/libxcb.so.1.1.0
+3be5400000-3be541c000 r-xp 00000000 09:00 262763                         /lib64/libselinux.so.1
+3be541c000-3be561b000 ---p 0001c000 09:00 262763                         /lib64/libselinux.so.1
+3be561b000-3be561c000 r--p 0001b000 09:00 262763                         /lib64/libselinux.so.1
+3be561c000-3be561d000 rw-p 0001c000 09:00 262763                         /lib64/libselinux.so.1
+3be561d000-3be561e000 rw-p 00000000 00:00 0 
+3be5800000-3be5811000 r-xp 00000000 09:00 262755                         /usr/lib64/libXext.so.6.4.0
+3be5811000-3be5a11000 ---p 00011000 09:00 262755                         /usr/lib64/libXext.so.6.4.0
+3be5a11000-3be5a12000 rw-p 00011000 09:00 262755                         /usr/lib64/libXext.so.6.4.0
+3be5c00000-3be5cdd000 r-xp 00000000 09:00 262670                         /lib64/libglib-2.0.so.0.2000.5
+3be5cdd000-3be5edc000 ---p 000dd000 09:00 262670                         /lib64/libglib-2.0.so.0.2000.5
+3be5edc000-3be5ede000 rw-p 000dc000 09:00 262670                         /lib64/libglib-2.0.so.0.2000.5
+3be6000000-3be6007000 r-xp 00000000 09:00 262770                         /lib64/librt-2.10.1.so
+3be6007000-3be6206000 ---p 00007000 09:00 262770                         /lib64/librt-2.10.1.so
+3be6206000-3be6207000 r--p 00006000 09:00 262770                         /lib64/librt-2.10.1.so
+3be6207000-3be6208000 rw-p 00007000 09:00 262770                         /lib64/librt-2.10.1.so
+3be6400000-3be6441000 r-xp 00000000 09:00 262671                         /lib64/libgobject-2.0.so.0.2000.5
+3be6441000-3be6641000 ---p 00041000 09:00 262671                         /lib64/libgobject-2.0.so.0.2000.5
+3be6641000-3be6643000 rw-p 00041000 09:00 262671                         /lib64/libgobject-2.0.so.0.2000.5
+3be6800000-3be6826000 r-xp 00000000 09:00 95997                          /lib64/libexpat.so.1.5.2
+3be6826000-3be6a25000 ---p 00026000 09:00 95997                          /lib64/libexpat.so.1.5.2
+3be6a25000-3be6a28000 rw-p 00025000 09:00 95997                          /lib64/libexpat.so.1.5.2
+3be6c00000-3be6c03000 r-xp 00000000 09:00 262672                         /lib64/libgmodule-2.0.so.0.2000.5
+3be6c03000-3be6e02000 ---p 00003000 09:00 262672                         /lib64/libgmodule-2.0.so.0.2000.5
+3be6e02000-3be6e03000 rw-p 00002000 09:00 262672                         /lib64/libgmodule-2.0.so.0.2000.5
+3be7000000-3be7093000 r-xp 00000000 09:00 95977                          /usr/lib64/libfreetype.so.6.3.20
+3be7093000-3be7293000 ---p 00093000 09:00 95977                          /usr/lib64/libfreetype.so.6.3.20
+3be7293000-3be7299000 rw-p 00093000 09:00 95977                          /usr/lib64/libfreetype.so.6.3.20
+3be7400000-3be7425000 r-xp 00000000 09:00 270373                         /usr/lib64/libpng12.so.0.37.0
+3be7425000-3be7624000 ---p 00025000 09:00 270373                         /usr/lib64/libpng12.so.0.37.0
+3be7624000-3be7625000 rw-p 00024000 09:00 270373                         /usr/lib64/libpng12.so.0.37.0
+3be7800000-3be7833000 r-xp 00000000 09:00 130668                         /usr/lib64/libfontconfig.so.1.4.1
+3be7833000-3be7a32000 ---p 00033000 09:00 130668                         /usr/lib64/libfontconfig.so.1.4.1
+3be7a32000-3be7a34000 rw-p 00032000 09:00 130668                         /usr/lib64/libfontconfig.so.1.4.1
+3be7c00000-3be7c75000 r-xp 00000000 09:00 262764                         /lib64/libgio-2.0.so.0.2000.5
+3be7c75000-3be7e75000 ---p 00075000 09:00 262764                         /lib64/libgio-2.0.so.0.2000.5
+3be7e75000-3be7e77000 rw-p 00075000 09:00 262764                         /lib64/libgio-2.0.so.0.2000.5
+3be7e77000-3be7e78000 rw-p 00000000 00:00 0 
+3be8000000-3be803b000 r-xp 00000000 09:00 125888                         /usr/lib64/libibus.so.1.0.0
+3be803b000-3be823b000 ---p 0003b000 09:00 125888                         /usr/lib64/libibus.so.1.0.0
+3be823b000-3be823e000 rw-p 0003b000 09:00 125888                         /usr/lib64/libibus.so.1.0.0
+3be8400000-3be8409000 r-xp 00000000 09:00 262668                         /usr/lib64/libXrender.so.1.3.0
+3be8409000-3be8608000 ---p 00009000 09:00 262668                         /usr/lib64/libXrender.so.1.3.0
+3be8608000-3be8609000 rw-p 00008000 09:00 262668                         /usr/lib64/libXrender.so.1.3.0
+3be8800000-3be8802000 r-xp 00000000 09:00 262756                         /usr/lib64/libXinerama.so.1.0.0
+3be8802000-3be8a01000 ---p 00002000 09:00 262756                         /usr/lib64/libXinerama.so.1.0.0
+3be8a01000-3be8a02000 rw-p 00001000 09:00 262756                         /usr/lib64/libXinerama.so.1.0.0
+3be8c00000-3be8c08000 r-xp 00000000 09:00 262758                         /usr/lib64/libXrandr.so.2.2.0
+3be8c08000-3be8e07000 ---p 00008000 09:00 262758                         /usr/lib64/libXrandr.so.2.2.0
+3be8e07000-3be8e08000 rw-p 00007000 09:00 262758                         /usr/lib64/libXrandr.so.2.2.0
+3be9000000-3be9004000 r-xp 00000000 09:00 262771                         /lib64/libgthread-2.0.so.0.2000.5
+3be9004000-3be9203000 ---p 00004000 09:00 262771                         /lib64/libgthread-2.0.so.0.2000.5
+3be9203000-3be9204000 rw-p 00003000 09:00 262771                         /lib64/libgthread-2.0.so.0.2000.5
+3be9400000-3be9409000 r-xp 00000000 09:00 262760                         /usr/lib64/libXcursor.so.1.0.2
+3be9409000-3be9609000 ---p 00009000 09:00 262760                         /usr/lib64/libXcursor.so.1.0.2
+3be9609000-3be960a000 rw-p 00009000 09:00 262760                         /usr/lib64/libXcursor.so.1.0.2
+3be9800000-3be9805000 r-xp 00000000 09:00 262759                         /usr/lib64/libXfixes.so.3.1.0
+3be9805000-3be9a04000 ---p 00005000 09:00 262759                         /usr/lib64/libXfixes.so.3.1.0
+3be9a04000-3be9a05000 rw-p 00004000 09:00 262759                         /usr/lib64/libXfixes.so.3.1.0
+3bea400000-3bea409000 r-xp 00000000 09:00 262757                         /usr/lib64/libXi.so.6.0.0
+3bea409000-3bea609000 ---p 00009000 09:00 262757                         /usr/lib64/libXi.so.6.0.0
+3bea609000-3bea60a000 rw-p 00009000 09:00 262757                         /usr/lib64/libXi.so.6.0.0
+3bea800000-3bea804000 r-xp 00000000 09:00 27035                          /lib64/libattr.so.1.1.0
+3bea804000-3beaa03000 ---p 00004000 09:00 27035                          /lib64/libattr.so.1.1.0
+3beaa03000-3beaa04000 rw-p 00003000 09:00 27035                          /lib64/libattr.so.1.1.0
+3beac00000-3beac1d000 r-xp 00000000 09:00 262765                         /usr/lib64/libgdk_pixbuf-2.0.so.0.1600.6
+3beac1d000-3beae1d000 ---p 0001d000 09:00 262765                         /usr/lib64/libgdk_pixbuf-2.0.so.0.1600.6
+3beae1d000-3beae1e000 rw-p 0001d000 09:00 262765                         /usr/lib64/libgdk_pixbuf-2.0.so.0.1600.6
+3beb000000-3beb004000 r-xp 00000000 09:00 270409                         /lib64/libcap.so.2.16
+3beb004000-3beb203000 ---p 00004000 09:00 270409                         /lib64/libcap.so.2.16
+3beb203000-3beb204000 rw-p 00003000 09:00 270409                         /lib64/libcap.so.2.16
+3beb400000-3beb43c000 r-xp 00000000 09:00 262781                         /lib64/libdbus-1.so.3.4.0
+3beb43c000-3beb63c000 ---p 0003c000 09:00 262781                         /lib64/libdbus-1.so.3.4.0
+3beb63c000-3beb63d000 r--p 0003c000 09:00 262781                         /lib64/libdbus-1.so.3.4.0
+3beb63d000-3beb63e000 rw-p 0003d000 09:00 262781                         /lib64/libdbus-1.so.3.4.0
+3beb800000-3beb802000 r-xp 00000000 09:00 262761                         /usr/lib64/libXcomposite.so.1.0.0
+3beb802000-3beba01000 ---p 00002000 09:00 262761                         /usr/lib64/libXcomposite.so.1.0.0
+3beba01000-3beba02000 rw-p 00001000 09:00 262761                         /usr/lib64/libXcomposite.so.1.0.0
+3bebc00000-3bebc2c000 r-xp 00000000 09:00 262674                         /usr/lib64/libpangoft2-1.0.so.0.2400.5
+3bebc2c000-3bebe2b000 ---p 0002c000 09:00 262674                         /usr/lib64/libpangoft2-1.0.so.0.2400.5
+3bebe2b000-3bebe2d000 rw-p 0002b000 09:00 262674                         /usr/lib64/libpangoft2-1.0.so.0.2400.5
+3bec000000-3bec00b000 r-xp 00000000 09:00 262675                         /usr/lib64/libpangocairo-1.0.so.0.2400.5
+3bec00b000-3bec20a000 ---p 0000b000 09:00 262675                         /usr/lib64/libpangocairo-1.0.so.0.2400.5
+3bec20a000-3bec20b000 rw-p 0000a000 09:00 262675                         /usr/lib64/libpangocairo-1.0.so.0.2400.5
+3bec400000-3bec41d000 r-xp 00000000 09:00 262767                         /usr/lib64/libatk-1.0.so.0.2511.1
+3bec41d000-3bec61c000 ---p 0001d000 09:00 262767                         /usr/lib64/libatk-1.0.so.0.2511.1
+3bec61c000-3bec61f000 rw-p 0001c000 09:00 262767                         /usr/lib64/libatk-1.0.so.0.2511.1
+3bec800000-3becc21000 r-xp 00000000 09:00 262768                         /usr/lib64/libgtk-x11-2.0.so.0.1600.6
+3becc21000-3bece20000 ---p 00421000 09:00 262768                         /usr/lib64/libgtk-x11-2.0.so.0.1600.6
+3bece20000-3bece2b000 rw-p 00420000 09:00 262768                         /usr/lib64/libgtk-x11-2.0.so.0.1600.6
+3bece2b000-3bece2d000 rw-p 00000000 00:00 0 
+3bed000000-3bed043000 r-xp 00000000 09:00 66380                          /usr/lib64/libpixman-1.so.0.14.0
+3bed043000-3bed242000 ---p 00043000 09:00 66380                          /usr/lib64/libpixman-1.so.0.14.0
+3bed242000-3bed245000 rw-p 00042000 09:00 66380                          /usr/lib64/libpixman-1.so.0.14.0
+3bed400000-3bed4a5000 r-xp 00000000 09:00 262766                         /usr/lib64/libgdk-x11-2.0.so.0.1600.6
+3bed4a5000-3bed6a5000 ---p 000a5000 09:00 262766                         /usr/lib64/libgdk-x11-2.0.so.0.1600.6
+3bed6a5000-3bed6aa000 rw-p 000a5000 09:00 262766                         /usr/lib64/libgdk-x11-2.0.so.0.1600.6
+3bed800000-3bed846000 r-xp 00000000 09:00 262673                         /usr/lib64/libpango-1.0.so.0.2400.5
+3bed846000-3beda46000 ---p 00046000 09:00 262673                         /usr/lib64/libpango-1.0.so.0.2400.5
+3beda46000-3beda49000 rw-p 00046000 09:00 262673                         /usr/lib64/libpango-1.0.so.0.2400.5
+3bedc00000-3bedc74000 r-xp 00000000 09:00 262669                         /usr/lib64/libcairo.so.2.10800.8
+3bedc74000-3bede73000 ---p 00074000 09:00 262669                         /usr/lib64/libcairo.so.2.10800.8
+3bede73000-3bede76000 rw-p 00073000 09:00 262669                         /usr/lib64/libcairo.so.2.10800.8
+3bee000000-3bee002000 r-xp 00000000 09:00 262762                         /usr/lib64/libXdamage.so.1.1.0
+3bee002000-3bee201000 ---p 00002000 09:00 262762                         /usr/lib64/libXdamage.so.1.1.0
+3bee201000-3bee202000 rw-p 00001000 09:00 262762                         /usr/lib64/libXdamage.so.1.1.0
+3bef000000-3bef016000 r-xp 00000000 09:00 6957                           /lib64/libnsl-2.10.1.so
+3bef016000-3bef216000 ---p 00016000 09:00 6957                           /lib64/libnsl-2.10.1.so
+3bef216000-3bef217000 r--p 00016000 09:00 6957                           /lib64/libnsl-2.10.1.so
+3bef217000-3bef218000 rw-p 00017000 09:00 6957                           /lib64/libnsl-2.10.1.so
+3bef218000-3bef21a000 rw-p 00000000 00:00 0 
+3bef800000-3bef805000 r-xp 00000000 09:00 262772                         /usr/lib64/libXxf86vm.so.1.0.0
+3bef805000-3befa04000 ---p 00005000 09:00 262772                         /usr/lib64/libXxf86vm.so.1.0.0
+3befa04000-3befa05000 rw-p 00004000 09:00 262772                         /usr/lib64/libXxf86vm.so.1.0.0
+3befc00000-3bf09da000 r-xp 00000000 09:00 34119                          /usr/lib64/nvidia/libGLcore.so.185.18.36
+3bf09da000-3bf0ada000 ---p 00dda000 09:00 34119                          /usr/lib64/nvidia/libGLcore.so.185.18.36
+3bf0ada000-3bf0f13000 rwxp 00dda000 09:00 34119                          /usr/lib64/nvidia/libGLcore.so.185.18.36
+3bf0f13000-3bf0f26000 rwxp 00000000 00:00 0 
+3bf2800000-3bf2802000 r-xp 00000000 09:00 107166                         /lib64/libutil-2.10.1.so
+3bf2802000-3bf2a01000 ---p 00002000 09:00 107166                         /lib64/libutil-2.10.1.so
+3bf2a01000-3bf2a02000 r--p 00001000 09:00 107166                         /lib64/libutil-2.10.1.so
+3bf2a02000-3bf2a03000 rw-p 00002000 09:00 107166                         /lib64/libutil-2.10.1.so
+3bf3000000-3bf3005000 r-xp 00000000 09:00 270436                         /usr/lib64/libXtst.so.6.1.0
+3bf3005000-3bf3205000 ---p 00005000 09:00 270436                         /usr/lib64/libXtst.so.6.1.0
+3bf3205000-3bf3206000 rw-p 00005000 09:00 270436                         /usr/lib64/libXtst.so.6.1.0
+3bf6400000-3bf6414000 r-xp 00000000 09:00 29307                          /usr/lib64/libXft.so.2.1.13
+3bf6414000-3bf6613000 ---p 00014000 09:00 29307                          /usr/lib64/libXft.so.2.1.13
+3bf6613000-3bf6614000 rw-p 00013000 09:00 29307                          /usr/lib64/libXft.so.2.1.13
+3bf6e00000-3bf6e02000 r-xp 00000000 09:00 81010                          /usr/lib64/libXss.so.1.0.0
+3bf6e02000-3bf7002000 ---p 00002000 09:00 81010                          /usr/lib64/libXss.so.1.0.0
+3bf7002000-3bf7003000 rw-p 00002000 09:00 81010                          /usr/lib64/libXss.so.1.0.0
+7fbc00000000-7fbc00022000 rw-p 00000000 00:00 0 
+7fbc00022000-7fbc04000000 ---p 00000000 00:00 0 
+7fbc04000000-7fbc04021000 rw-p 00000000 00:00 0 
+7fbc04021000-7fbc08000000 ---p 00000000 00:00 0 
+7fbc08000000-7fbc08021000 rw-p 00000000 00:00 0 
+7fbc08021000-7fbc0c000000 ---p 00000000 00:00 0 
+7fbc0c5e7000-7fbc0ed6f000 rw-p 00000000 00:00 0 
+7fbc14000000-7fbc14021000 rw-p 00000000 00:00 0 
+7fbc14021000-7fbc18000000 ---p 00000000 00:00 0 
+7fbc18000000-7fbc18021000 rw-p 00000000 00:00 0 
+7fbc18021000-7fbc1c000000 ---p 00000000 00:00 0 
+7fbc1c000000-7fbc1c021000 rw-p 00000000 00:00 0 
+7fbc1c021000-7fbc20000000 ---p 00000000 00:00 0 
+7fbc20000000-7fbc20567000 rw-p 00000000 00:00 0 
+7fbc20567000-7fbc24000000 ---p 00000000 00:00 0 
+7fbc24000000-7fbc2416a000 rw-p 00000000 00:00 0 
+7fbc2416a000-7fbc28000000 ---p 00000000 00:00 0 
+7fbc286b8000-7fbc286c3000 r--s 00000000 09:00 19012                      /usr/share/fonts/default/ghostscript/hrscc.pfa
+7fbc286d5000-7fbc286df000 r--s 00000000 09:00 19015                      /usr/share/fonts/default/ghostscript/hrscs.pfa
+7fbc28703000-7fbc28712000 r--s 00000000 09:00 19008                      /usr/share/fonts/default/ghostscript/hrplt.pfa
+7fbc28734000-7fbc28743000 r--s 00000000 09:00 18984                      /usr/share/fonts/default/ghostscript/hrger.pfa
+7fbc28743000-7fbc2874e000 r--s 00000000 09:00 18996                      /usr/share/fonts/default/ghostscript/hrpld.pfa
+7fbc2874e000-7fbc2875d000 r--s 00000000 09:00 18990                      /usr/share/fonts/default/ghostscript/hrgrr.pfa
+7fbc28770000-7fbc2877d000 r--s 00000000 09:00 18993                      /usr/share/fonts/default/ghostscript/hritr.pfa
+7fbc2877d000-7fbc28788000 r--s 00000000 09:00 18999                      /usr/share/fonts/default/ghostscript/hrpldi.pfa
+7fbc2879a000-7fbc287a9000 r--s 00000000 09:00 19011                      /usr/share/fonts/default/ghostscript/hrplti.pfa
+7fbc287a9000-7fbc287b3000 r--s 00000000 09:00 243927                     /usr/share/X11/fonts/Type1/c0419bt_.pfb
+7fbc287b3000-7fbc287bd000 r--s 00000000 09:00 243929                     /usr/share/X11/fonts/Type1/c0582bt_.pfb
+7fbc287bd000-7fbc287cb000 r--s 00000000 09:00 243942                     /usr/share/X11/fonts/Type1/cursor.pfa
+7fbc287cb000-7fbc287d5000 r--s 00000000 09:00 243931                     /usr/share/X11/fonts/Type1/c0583bt_.pfb
+7fbc287d5000-7fbc287e7000 r--s 00000000 09:00 243921                     /usr/share/X11/fonts/Type1/UTB_____.pfa
+7fbc287e7000-7fbc287f0000 r--s 00000000 09:00 243941                     /usr/share/X11/fonts/Type1/c0649bt_.pfb
+7fbc287f0000-7fbc287f9000 r--s 00000000 09:00 243935                     /usr/share/X11/fonts/Type1/c0632bt_.pfb
+7fbc287f9000-7fbc2880b000 r--s 00000000 09:00 243925                     /usr/share/X11/fonts/Type1/UTRG____.pfa
+7fbc2880b000-7fbc28814000 r--s 00000000 09:00 243937                     /usr/share/X11/fonts/Type1/c0633bt_.pfb
+7fbc28814000-7fbc28827000 r--s 00000000 09:00 243919                     /usr/share/X11/fonts/Type1/UTBI____.pfa
+7fbc28827000-7fbc28831000 r--s 00000000 09:00 243933                     /usr/share/X11/fonts/Type1/c0611bt_.pfb
+7fbc28831000-7fbc2883a000 r--s 00000000 09:00 243939                     /usr/share/X11/fonts/Type1/c0648bt_.pfb
+7fbc2883a000-7fbc2884d000 r--s 00000000 09:00 243923                     /usr/share/X11/fonts/Type1/UTI_____.pfa
+7fbc2884d000-7fbc28860000 r--s 00000000 09:00 18851                      /usr/share/fonts/default/Type1/n019064l.pfb
+7fbc28860000-7fbc28879000 r--s 00000000 09:00 18863                      /usr/share/fonts/default/Type1/n022004l.pfb
+7fbc28879000-7fbc2888b000 r--s 00000000 09:00 18825                      /usr/share/fonts/default/Type1/b018035l.pfb
+7fbc2888b000-7fbc2889c000 r--s 00000000 09:00 18841                      /usr/share/fonts/default/Type1/n019023l.pfb
+7fbc2889c000-7fbc288b3000 r--s 00000000 09:00 18857                      /usr/share/fonts/default/Type1/n021023l.pfb
+7fbc288b3000-7fbc288cd000 r--s 00000000 09:00 18827                      /usr/share/fonts/default/Type1/c059013l.pfb
+7fbc288cd000-7fbc288e1000 r--s 00000000 09:00 18837                      /usr/share/fonts/default/Type1/n019003l.pfb
+7fbc288e1000-7fbc288f3000 r--s 00000000 09:00 18847                      /usr/share/fonts/default/Type1/n019044l.pfb
+7fbc288f3000-7fbc28905000 r--s 00000000 09:00 18839                      /usr/share/fonts/default/Type1/n019004l.pfb
+7fbc28905000-7fbc2891d000 r--s 00000000 09:00 18861                      /usr/share/fonts/default/Type1/n022003l.pfb
+7fbc2891d000-7fbc28933000 r--s 00000000 09:00 18859                      /usr/share/fonts/default/Type1/n021024l.pfb
+7fbc28933000-7fbc28945000 r--s 00000000 09:00 18845                      /usr/share/fonts/default/Type1/n019043l.pfb
+7fbc28945000-7fbc2895b000 r--s 00000000 09:00 18865                      /usr/share/fonts/default/Type1/n022023l.pfb
+7fbc2895b000-7fbc2896c000 r--s 00000000 09:00 18817                      /usr/share/fonts/default/Type1/a010035l.pfb
+7fbc2896c000-7fbc28983000 r--s 00000000 09:00 18879                      /usr/share/fonts/default/Type1/z003034l.pfb
+7fbc28983000-7fbc2899f000 r--s 00000000 09:00 18875                      /usr/share/fonts/default/Type1/p052024l.pfb
+7fbc2899f000-7fbc289ba000 r--s 00000000 09:00 18869                      /usr/share/fonts/default/Type1/p052003l.pfb
+7fbc289ba000-7fbc289c6000 r--s 00000000 09:00 18835                      /usr/share/fonts/default/Type1/d050000l.pfb
+7fbc289c6000-7fbc289de000 r--s 00000000 09:00 18833                      /usr/share/fonts/default/Type1/c059036l.pfb
+7fbc289de000-7fbc289f7000 r--s 00000000 09:00 18853                      /usr/share/fonts/default/Type1/n021003l.pfb
+7fbc289f7000-7fbc28a08000 r--s 00000000 09:00 18849                      /usr/share/fonts/default/Type1/n019063l.pfb
+7fbc28a08000-7fbc28a23000 r--s 00000000 09:00 18873                      /usr/share/fonts/default/Type1/p052023l.pfb
+7fbc28a23000-7fbc28a33000 r--s 00000000 09:00 18811                      /usr/share/fonts/default/Type1/a010013l.pfb
+7fbc28a33000-7fbc28a43000 r--s 00000000 09:00 18815                      /usr/share/fonts/default/Type1/a010033l.pfb
+7fbc28a43000-7fbc28a4c000 r--s 00000000 09:00 18877                      /usr/share/fonts/default/Type1/s050000l.pfb
+7fbc28a4c000-7fbc28a65000 r--s 00000000 09:00 18819                      /usr/share/fonts/default/Type1/b018012l.pfb
+7fbc28a65000-7fbc28a80000 r--s 00000000 09:00 18829                      /usr/share/fonts/default/Type1/c059016l.pfb
+7fbc28a80000-7fbc28a82000 r-xp 00000000 09:00 2525838                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libjogl_awt.so
+7fbc28a82000-7fbc28b81000 ---p 00002000 09:00 2525838                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libjogl_awt.so
+7fbc28b81000-7fbc28b82000 rw-p 00001000 09:00 2525838                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libjogl_awt.so
+7fbc28b82000-7fbc28c71000 r-xp 00000000 09:00 2525930                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libjogl.so
+7fbc28c71000-7fbc28d71000 ---p 000ef000 09:00 2525930                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libjogl.so
+7fbc28d71000-7fbc28d72000 rw-p 000ef000 09:00 2525930                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libjogl.so
+7fbc28d72000-7fbc28dff000 r-xp 00000000 09:00 55479                      /usr/lib64/nvidia/libGL.so.185.18.36
+7fbc28dff000-7fbc28efe000 ---p 0008d000 09:00 55479                      /usr/lib64/nvidia/libGL.so.185.18.36
+7fbc28efe000-7fbc28f33000 rwxp 0008c000 09:00 55479                      /usr/lib64/nvidia/libGL.so.185.18.36
+7fbc28f33000-7fbc28f4a000 rwxp 00000000 00:00 0 
+7fbc28f4a000-7fbc29097000 rw-s 00000000 00:08 1085046916                 /SYSV00000000 (deleted)
+7fbc290a8000-7fbc290c1000 r--s 00000000 09:00 18855                      /usr/share/fonts/default/Type1/n021004l.pfb
+7fbc290c1000-7fbc290c2000 r-xp 00000000 09:00 2526431                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libjawt.so
+7fbc290c2000-7fbc291c1000 ---p 00001000 09:00 2526431                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libjawt.so
+7fbc291c1000-7fbc291c2000 rw-p 00000000 09:00 2526431                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libjawt.so
+7fbc2930f000-7fbc29a89000 r--p 00000000 09:00 11469                      /usr/share/icons/hicolor/icon-theme.cache
+7fbc29a89000-7fbc2a10f000 r--p 00000000 09:00 14306                      /usr/share/icons/gnome/icon-theme.cache
+7fbc2a10f000-7fbc2a112000 ---p 00000000 00:00 0 
+7fbc2a112000-7fbc2a210000 rwxp 00000000 00:00 0 
+7fbc2a210000-7fbc2a211000 ---p 00000000 00:00 0 
+7fbc2a211000-7fbc2ac11000 rwxp 00000000 00:00 0 
+7fbc2ac11000-7fbc2ac14000 ---p 00000000 00:00 0 
+7fbc2ac14000-7fbc2b612000 rwxp 00000000 00:00 0 
+7fbc2b624000-7fbc2b639000 r--s 00000000 09:00 18823                      /usr/share/fonts/default/Type1/b018032l.pfb
+7fbc2b639000-7fbc2b63c000 ---p 00000000 00:00 0 
+7fbc2b63c000-7fbc2b73a000 rwxp 00000000 00:00 0 
+7fbc2b73a000-7fbc2b887000 rw-s 00000000 00:08 1082622085                 /SYSV00000000 (deleted)
+7fbc2b9a6000-7fbc2b9af000 r--s 0004f000 09:00 3497141                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/xcos/jar/org.scilab.modules.xcos.jar
+7fbc2b9af000-7fbc2b9bf000 r-xp 00000000 09:00 139155                     /usr/lib64/gio/modules/libgioremote-volume-monitor.so
+7fbc2b9bf000-7fbc2bbbf000 ---p 00010000 09:00 139155                     /usr/lib64/gio/modules/libgioremote-volume-monitor.so
+7fbc2bbbf000-7fbc2bbc0000 rw-p 00010000 09:00 139155                     /usr/lib64/gio/modules/libgioremote-volume-monitor.so
+7fbc2bbc3000-7fbc2bbd4000 r--s 00000000 09:00 18843                      /usr/share/fonts/default/Type1/n019024l.pfb
+7fbc2bbd4000-7fbc2bbec000 r--s 00000000 09:00 18831                      /usr/share/fonts/default/Type1/c059033l.pfb
+7fbc2bbec000-7fbc2bbfc000 r--s 00000000 09:00 18813                      /usr/share/fonts/default/Type1/a010015l.pfb
+7fbc2bbfc000-7fbc2bbfd000 r-xp 00000000 09:00 2525767                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libgluegen-rt.so
+7fbc2bbfd000-7fbc2bcfc000 ---p 00001000 09:00 2525767                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libgluegen-rt.so
+7fbc2bcfc000-7fbc2bcfd000 rw-p 00000000 09:00 2525767                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libgluegen-rt.so
+7fbc2bcfd000-7fbc2bd00000 ---p 00000000 00:00 0 
+7fbc2bd00000-7fbc2bdfe000 rwxp 00000000 00:00 0 
+7fbc2bdfe000-7fbc2be01000 ---p 00000000 00:00 0 
+7fbc2be01000-7fbc2beff000 rwxp 00000000 00:00 0 
+7fbc2beff000-7fbc2bf02000 ---p 00000000 00:00 0 
+7fbc2bf02000-7fbc2c000000 rwxp 00000000 00:00 0 
+7fbc2c000000-7fbc2c021000 rw-p 00000000 00:00 0 
+7fbc2c021000-7fbc30000000 ---p 00000000 00:00 0 
+7fbc30000000-7fbc30021000 rw-p 00000000 00:00 0 
+7fbc30021000-7fbc34000000 ---p 00000000 00:00 0 
+7fbc34000000-7fbc34021000 rw-p 00000000 00:00 0 
+7fbc34021000-7fbc38000000 ---p 00000000 00:00 0 
+7fbc38000000-7fbc38021000 rw-p 00000000 00:00 0 
+7fbc38021000-7fbc3c000000 ---p 00000000 00:00 0 
+7fbc3c000000-7fbc3ce8e000 rw-p 00000000 00:00 0 
+7fbc3ce8e000-7fbc40000000 ---p 00000000 00:00 0 
+7fbc40000000-7fbc41212000 rw-p 00000000 00:00 0 
+7fbc41212000-7fbc44000000 ---p 00000000 00:00 0 
+7fbc44000000-7fbc44021000 rw-p 00000000 00:00 0 
+7fbc44021000-7fbc48000000 ---p 00000000 00:00 0 
+7fbc48000000-7fbc48021000 rw-p 00000000 00:00 0 
+7fbc48021000-7fbc4c000000 ---p 00000000 00:00 0 
+7fbc4c000000-7fbc4c031000 rw-p 00000000 00:00 0 
+7fbc4c031000-7fbc50000000 ---p 00000000 00:00 0 
+7fbc50000000-7fbc50021000 rw-p 00000000 00:00 0 
+7fbc50021000-7fbc54000000 ---p 00000000 00:00 0 
+7fbc54000000-7fbc54021000 rw-p 00000000 00:00 0 
+7fbc54021000-7fbc58000000 ---p 00000000 00:00 0 
+7fbc58000000-7fbc58021000 rw-p 00000000 00:00 0 
+7fbc58021000-7fbc5c000000 ---p 00000000 00:00 0 
+7fbc5c000000-7fbc5c021000 rw-p 00000000 00:00 0 
+7fbc5c021000-7fbc60000000 ---p 00000000 00:00 0 
+7fbc60000000-7fbc60021000 rw-p 00000000 00:00 0 
+7fbc60021000-7fbc64000000 ---p 00000000 00:00 0 
+7fbc64000000-7fbc64021000 rw-p 00000000 00:00 0 
+7fbc64021000-7fbc68000000 ---p 00000000 00:00 0 
+7fbc68000000-7fbc68021000 rw-p 00000000 00:00 0 
+7fbc68021000-7fbc6c000000 ---p 00000000 00:00 0 
+7fbc6c000000-7fbc6c021000 rw-p 00000000 00:00 0 
+7fbc6c021000-7fbc70000000 ---p 00000000 00:00 0 
+7fbc70000000-7fbc70021000 rw-p 00000000 00:00 0 
+7fbc70021000-7fbc74000000 ---p 00000000 00:00 0 
+7fbc74000000-7fbc74021000 rw-p 00000000 00:00 0 
+7fbc74021000-7fbc78000000 ---p 00000000 00:00 0 
+7fbc78000000-7fbc78021000 rw-p 00000000 00:00 0 
+7fbc78021000-7fbc7c000000 ---p 00000000 00:00 0 
+7fbc7c000000-7fbc7c021000 rw-p 00000000 00:00 0 
+7fbc7c021000-7fbc80000000 ---p 00000000 00:00 0 
+7fbc80000000-7fbc80021000 rw-p 00000000 00:00 0 
+7fbc80021000-7fbc84000000 ---p 00000000 00:00 0 
+7fbc84000000-7fbc84021000 rw-p 00000000 00:00 0 
+7fbc84021000-7fbc88000000 ---p 00000000 00:00 0 
+7fbc88007000-7fbc8801a000 r--s 00000000 09:00 18821                      /usr/share/fonts/default/Type1/b018015l.pfb
+7fbc8801a000-7fbc88030000 r--s 00000000 09:00 18867                      /usr/share/fonts/default/Type1/n022024l.pfb
+7fbc88030000-7fbc8808c000 r--p 00000000 09:00 48957                      /usr/share/icons/Fedora/icon-theme.cache
+7fbc8808c000-7fbc8808f000 ---p 00000000 00:00 0 
+7fbc8808f000-7fbc8818d000 rwxp 00000000 00:00 0 
+7fbc8818d000-7fbc881a2000 r-xp 00000000 09:00 10016                      /usr/lib64/libgvfscommon.so.0.0.0
+7fbc881a2000-7fbc883a2000 ---p 00015000 09:00 10016                      /usr/lib64/libgvfscommon.so.0.0.0
+7fbc883a2000-7fbc883a3000 rw-p 00015000 09:00 10016                      /usr/lib64/libgvfscommon.so.0.0.0
+7fbc883aa000-7fbc883c5000 r--s 00000000 09:00 18871                      /usr/share/fonts/default/Type1/p052004l.pfb
+7fbc883c5000-7fbc883e2000 r-xp 00000000 09:00 139156                     /usr/lib64/gio/modules/libgvfsdbus.so
+7fbc883e2000-7fbc885e2000 ---p 0001d000 09:00 139156                     /usr/lib64/gio/modules/libgvfsdbus.so
+7fbc885e2000-7fbc885e3000 rw-p 0001d000 09:00 139156                     /usr/lib64/gio/modules/libgvfsdbus.so
+7fbc885e4000-7fbc885ea000 r--s 0004a000 09:00 2526540                    /usr/local/lib/scilab-5.2.2/thirdparty/jgraphx.jar
+7fbc885ea000-7fbc885f9000 r--s 00658000 09:00 2526478                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/charsets.jar
+7fbc885f9000-7fbc88608000 r--s 00658000 09:00 2526478                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/charsets.jar
+7fbc88608000-7fbc88609000 r--s 00004000 09:00 2526508                    /usr/local/lib/scilab-5.2.2/thirdparty/gluegen-rt.jar
+7fbc88609000-7fbc88614000 r--s 00108000 09:00 2526551                    /usr/local/lib/scilab-5.2.2/thirdparty/jogl.jar
+7fbc88616000-7fbc8861a000 r--s 000c8000 09:00 3486237                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/ext/localedata.jar
+7fbc8861a000-7fbc8861f000 rw-s 00000000 00:08 1086292107                 /SYSV00000000 (deleted)
+7fbc8861f000-7fbc88623000 r--s 00024000 09:00 3498597                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/xpad/jar/org.scilab.modules.xpad.jar
+7fbc88625000-7fbc88627000 r--s 0000b000 09:00 2526229                    /usr/local/lib/scilab-5.2.2/thirdparty/jhdf5.jar
+7fbc88627000-7fbc88641000 r--s 00000000 09:00 10778                      /usr/share/mime/mime.cache
+7fbc88641000-7fbc8864e000 r--p 00000000 09:00 32977                      /usr/share/icons/Mist/icon-theme.cache
+7fbc8864e000-7fbc88678000 rw-s 00000000 00:08 1083441288                 /SYSV00000000 (deleted)
+7fbc88678000-7fbc886d8000 rw-s 00000000 00:08 1082556547                 /SYSV00000000 (deleted)
+7fbc886d8000-7fbc886df000 r--s 00111000 09:00 2526355                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/resources.jar
+7fbc886df000-7fbc886e2000 ---p 00000000 00:00 0 
+7fbc886e2000-7fbc887e0000 rwxp 00000000 00:00 0 
+7fbc887e0000-7fbc887e6000 r--s 00024000 09:00 3504846                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/renderer/jar/org.scilab.modules.renderer.jar
+7fbc887e6000-7fbc887eb000 r-xp 00000000 09:00 94558                      /usr/lib64/gtk-2.0/2.10.0/immodules/im-ibus.so
+7fbc887eb000-7fbc889eb000 ---p 00005000 09:00 94558                      /usr/lib64/gtk-2.0/2.10.0/immodules/im-ibus.so
+7fbc889eb000-7fbc889ec000 rw-p 00005000 09:00 94558                      /usr/lib64/gtk-2.0/2.10.0/immodules/im-ibus.so
+7fbc889ec000-7fbc88a84000 r--p 00000000 09:00 11249                      /usr/share/fonts/dejavu/DejaVuSans.ttf
+7fbc88a84000-7fbc88a96000 r-xp 00000000 09:00 45401                      /usr/lib64/gtk-2.0/2.10.0/engines/libnodoka.so
+7fbc88a96000-7fbc88c96000 ---p 00012000 09:00 45401                      /usr/lib64/gtk-2.0/2.10.0/engines/libnodoka.so
+7fbc88c96000-7fbc88c97000 rw-p 00012000 09:00 45401                      /usr/lib64/gtk-2.0/2.10.0/engines/libnodoka.so
+7fbc88c97000-7fbc88cbf000 r--p 00000000 09:00 532351                     /usr/share/locale/fr/LC_MESSAGES/gtk20-properties.mo
+7fbc88cbf000-7fbc88cc2000 ---p 00000000 00:00 0 
+7fbc88cc2000-7fbc88dc0000 rwxp 00000000 00:00 0 
+7fbc88dc0000-7fbc88dc7000 r-xp 00000000 09:00 2526404                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libnio.so
+7fbc88dc7000-7fbc88ec6000 ---p 00007000 09:00 2526404                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libnio.so
+7fbc88ec6000-7fbc88ec8000 rw-p 00006000 09:00 2526404                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libnio.so
+7fbc88ec8000-7fbc88edb000 r-xp 00000000 09:00 2526432                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libnet.so
+7fbc88edb000-7fbc88fdc000 ---p 00013000 09:00 2526432                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libnet.so
+7fbc88fdc000-7fbc88fdf000 rw-p 00014000 09:00 2526432                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libnet.so
+7fbc88fdf000-7fbc88fe2000 ---p 00000000 00:00 0 
+7fbc88fe2000-7fbc890e0000 rwxp 00000000 00:00 0 
+7fbc890e0000-7fbc8915e000 r-xp 00000000 09:00 2526407                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libfontmanager.so
+7fbc8915e000-7fbc8925d000 ---p 0007e000 09:00 2526407                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libfontmanager.so
+7fbc8925d000-7fbc89273000 rw-p 0007d000 09:00 2526407                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libfontmanager.so
+7fbc89273000-7fbc89284000 rw-p 00000000 00:00 0 
+7fbc89284000-7fbc8928e000 r--s 0004a000 09:00 3489405                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/gui/jar/org.scilab.modules.gui.jar
+7fbc8928e000-7fbc8928f000 r--s 00000000 09:00 3500272                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/action_binding/jar/org.scilab.modules.action_binding.jar
+7fbc8928f000-7fbc89290000 r--s 00000000 09:00 3490441                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/localization/jar/org.scilab.modules.localization.jar
+7fbc89290000-7fbc89292000 r--s 0000a000 09:00 3497021                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/console/jar/org.scilab.modules.console.jar
+7fbc89292000-7fbc89293000 r--s 00000000 09:00 3494430                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/completion/jar/org.scilab.modules.completion.jar
+7fbc89293000-7fbc89294000 r--s 00000000 09:00 3499431                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/history_manager/jar/org.scilab.modules.history_manager.jar
+7fbc89294000-7fbc89295000 r--s 00000000 09:00 3498556                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/shell/jar/org.scilab.modules.shell.jar
+7fbc89295000-7fbc89297000 r--s 00006000 09:00 3488337                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/hdf5/jar/org.scilab.modules.hdf5.jar
+7fbc89297000-7fbc892a1000 r--s 00087000 09:00 2526239                    /usr/local/lib/scilab-5.2.2/thirdparty/jhall.jar
+7fbc892a1000-7fbc892a2000 r--s 0000c000 09:00 2526238                    /usr/local/lib/scilab-5.2.2/thirdparty/commons-logging.jar
+7fbc892a2000-7fbc892ab000 r--s 0005b000 09:00 2526230                    /usr/local/lib/scilab-5.2.2/thirdparty/looks-2.1.1.jar
+7fbc892ab000-7fbc892b1000 r--s 0004c000 09:00 2526231                    /usr/local/lib/scilab-5.2.2/thirdparty/skinlf.jar
+7fbc892b1000-7fbc892b2000 r--s 00001000 09:00 2526548                    /usr/local/lib/scilab-5.2.2/thirdparty/jrosetta-API.jar
+7fbc892b2000-7fbc892b4000 r--s 00008000 09:00 2526514                    /usr/local/lib/scilab-5.2.2/thirdparty/jrosetta-engine.jar
+7fbc892b4000-7fbc892b5000 r--s 00001000 09:00 2526548                    /usr/local/lib/scilab-5.2.2/thirdparty/jrosetta-API.jar
+7fbc892b5000-7fbc892bf000 r--s 0006a000 09:00 2526542                    /usr/local/lib/scilab-5.2.2/thirdparty/flexdock-0.5.1.jar
+7fbc892bf000-7fbc892e2000 r--p 00000000 09:00 270348                     /usr/share/locale/fr/LC_MESSAGES/libc.mo
+7fbc892e2000-7fbc89324000 r-xp 00000000 09:00 2526426                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/xawt/libmawt.so
+7fbc89324000-7fbc89423000 ---p 00042000 09:00 2526426                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/xawt/libmawt.so
+7fbc89423000-7fbc8942e000 rw-p 00041000 09:00 2526426                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/xawt/libmawt.so
+7fbc8942e000-7fbc89430000 rw-p 00000000 00:00 0 
+7fbc89430000-7fbc894c2000 r-xp 00000000 09:00 2526408                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libawt.so
+7fbc894c2000-7fbc895c1000 ---p 00092000 09:00 2526408                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libawt.so
+7fbc895c1000-7fbc895da000 rw-p 00091000 09:00 2526408                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libawt.so
+7fbc895da000-7fbc895ff000 rw-p 00000000 00:00 0 
+7fbc895ff000-7fbc89606000 r--s 00000000 09:00 5866                       /usr/lib64/gconv/gconv-modules.cache
+7fbc89606000-7fbc8966f000 r--p 00000000 09:00 3488255                    /usr/local/lib/scilab-5.2.2/share/locale/fr_FR/LC_MESSAGES/scilab.mo
+7fbc8966f000-7fbc89671000 r--s 00001000 09:00 3499088                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/jvm/jar/org.scilab.modules.jvm.jar
+7fbc89671000-7fbc89672000 ---p 00000000 00:00 0 
+7fbc89672000-7fbc89772000 rwxp 00000000 00:00 0 
+7fbc89772000-7fbc89775000 ---p 00000000 00:00 0 
+7fbc89775000-7fbc89873000 rwxp 00000000 00:00 0 
+7fbc89873000-7fbc89876000 ---p 00000000 00:00 0 
+7fbc89876000-7fbc89974000 rwxp 00000000 00:00 0 
+7fbc89974000-7fbc89977000 ---p 00000000 00:00 0 
+7fbc89977000-7fbc89a75000 rwxp 00000000 00:00 0 
+7fbc89a75000-7fbc89a78000 ---p 00000000 00:00 0 
+7fbc89a78000-7fbc89b76000 rwxp 00000000 00:00 0 
+7fbc89b76000-7fbc89b79000 ---p 00000000 00:00 0 
+7fbc89b79000-7fbc89c77000 rwxp 00000000 00:00 0 
+7fbc89c77000-7fbc89c7a000 ---p 00000000 00:00 0 
+7fbc89c7a000-7fbc89d78000 rwxp 00000000 00:00 0 
+7fbc89d78000-7fbc89d79000 ---p 00000000 00:00 0 
+7fbc89d79000-7fbc89e79000 rwxp 00000000 00:00 0 
+7fbc89e79000-7fbc8ac87000 rw-p 00000000 00:00 0 
+7fbc8ac87000-7fbc8ae1e000 r--s 02ab6000 09:00 2526467                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/rt.jar
+7fbc8ae1e000-7fbc8ae1f000 ---p 00000000 00:00 0 
+7fbc8ae1f000-7fbc8af1f000 rwxp 00000000 00:00 0 
+7fbc8af1f000-7fbc8af20000 ---p 00000000 00:00 0 
+7fbc8af20000-7fbc8b020000 rwxp 00000000 00:00 0 
+7fbc8b020000-7fbc8b021000 ---p 00000000 00:00 0 
+7fbc8b021000-7fbc8b121000 rwxp 00000000 00:00 0 
+7fbc8b121000-7fbc8b122000 ---p 00000000 00:00 0 
+7fbc8b122000-7fbc8b222000 rwxp 00000000 00:00 0 
+7fbc8b222000-7fbc8b223000 ---p 00000000 00:00 0 
+7fbc8b223000-7fbc8b323000 rwxp 00000000 00:00 0 
+7fbc8b323000-7fbc8b324000 ---p 00000000 00:00 0 
+7fbc8b324000-7fbc8b424000 rwxp 00000000 00:00 0 
+7fbc8b424000-7fbc8b425000 ---p 00000000 00:00 0 
+7fbc8b425000-7fbc8b525000 rwxp 00000000 00:00 0 
+7fbc8b525000-7fbc8b526000 ---p 00000000 00:00 0 
+7fbc8b526000-7fbc8b626000 rwxp 00000000 00:00 0 
+7fbc8b626000-7fbc8b627000 ---p 00000000 00:00 0 
+7fbc8b627000-7fbc8b727000 rwxp 00000000 00:00 0 
+7fbc8b727000-7fbc8b728000 ---p 00000000 00:00 0 
+7fbc8b728000-7fbc8b828000 rwxp 00000000 00:00 0 
+7fbc8b828000-7fbc8b829000 ---p 00000000 00:00 0 
+7fbc8b829000-7fbc8b929000 rwxp 00000000 00:00 0 
+7fbc8b929000-7fbc8b92a000 ---p 00000000 00:00 0 
+7fbc8b92a000-7fbc8ba2a000 rwxp 00000000 00:00 0 
+7fbc8ba2a000-7fbc8ba2b000 ---p 00000000 00:00 0 
+7fbc8ba2b000-7fbc8bb2b000 rwxp 00000000 00:00 0 
+7fbc8bb2b000-7fbc8bb3c000 rw-p 00000000 00:00 0 
+7fbc8bb3c000-7fbc8bb55000 rw-p 00000000 00:00 0 
+7fbc8bb55000-7fbc8bb66000 rw-p 00000000 00:00 0 
+7fbc8bb66000-7fbc8bb7f000 rw-p 00000000 00:00 0 
+7fbc8bb7f000-7fbc8dc60000 rw-p 00000000 00:00 0 
+7fbc8dc60000-7fbc91000000 rw-p 00000000 00:00 0 
+7fbc91000000-7fbca1000000 rw-p 00000000 00:00 0 
+7fbca1000000-7fbca1280000 rwxp 00000000 00:00 0 
+7fbca1280000-7fbca426b000 rw-p 00000000 00:00 0 
+7fbca426b000-7fbca8000000 ---p 00000000 00:00 0 
+7fbca8000000-7fbca8001000 rw-p 00000000 00:00 0 
+7fbca8001000-7fbca800c000 r--p 00000000 09:00 94600                      /usr/share/locale/fr/LC_MESSAGES/glib20.mo
+7fbca800c000-7fbca8016000 rw-p 00000000 00:00 0 
+7fbca8016000-7fbca80cc000 rw-p 00000000 00:00 0 
+7fbca80cc000-7fbca80da000 r-xp 00000000 09:00 2526429                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libzip.so
+7fbca80da000-7fbca81dc000 ---p 0000e000 09:00 2526429                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libzip.so
+7fbca81dc000-7fbca81df000 rw-p 00010000 09:00 2526429                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libzip.so
+7fbca81df000-7fbca81e0000 rw-p 00000000 00:00 0 
+7fbca81e0000-7fbca81e7000 r-xp 00000000 09:00 2526439                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/native_threads/libhpi.so
+7fbca81e7000-7fbca82e8000 ---p 00007000 09:00 2526439                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/native_threads/libhpi.so
+7fbca82e8000-7fbca82ea000 rw-p 00008000 09:00 2526439                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/native_threads/libhpi.so
+7fbca82ea000-7fbca82eb000 rw-p 00000000 00:00 0 
+7fbca82eb000-7fbca8314000 r-xp 00000000 09:00 2526423                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libjava.so
+7fbca8314000-7fbca8413000 ---p 00029000 09:00 2526423                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libjava.so
+7fbca8413000-7fbca841a000 rw-p 00028000 09:00 2526423                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libjava.so
+7fbca841a000-7fbca8427000 r-xp 00000000 09:00 2526411                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libverify.so
+7fbca8427000-7fbca8526000 ---p 0000d000 09:00 2526411                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libverify.so
+7fbca8526000-7fbca8529000 rw-p 0000c000 09:00 2526411                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/libverify.so
+7fbca8529000-7fbca8cdd000 r-xp 00000000 09:00 2526395                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/server/libjvm.so
+7fbca8cdd000-7fbca8ddd000 ---p 007b4000 09:00 2526395                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/server/libjvm.so
+7fbca8ddd000-7fbca8f67000 rw-p 007b4000 09:00 2526395                    /usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/server/libjvm.so
+7fbca8f67000-7fbca8fa0000 rw-p 00000000 00:00 0 
+7fbca8fa0000-7fbca8fa1000 ---p 00000000 00:00 0 
+7fbca8fa1000-7fbca99a1000 rwxp 00000000 00:00 0 
+7fbca99a1000-7fbca9a39000 r--p 00000000 09:00 11249                      /usr/share/fonts/dejavu/DejaVuSans.ttf
+7fbca9a39000-7fbca9a86000 rw-p 00000000 00:00 0 
+7fbca9a88000-7fbca9a89000 r--p 00000000 00:00 0 
+7fbca9a89000-7fbca9a8a000 r--s 00007000 09:00 3494023                    /usr/local/lib/scilab-5.2.2/share/scilab/modules/graphic_export/jar/org.scilab.modules.graphic_export.jar
+7fbca9a8a000-7fbca9a9d000 r--p 00000000 09:00 94773                      /usr/share/locale/fr/LC_MESSAGES/gtk20.mo
+7fbca9a9d000-7fbca9af3000 rw-p 00000000 00:00 0 
+7fbca9af3000-7fbca9afb000 rw-s 00000000 09:00 3520094                    /tmp/hsperfdata_ndeffo/19848
+7fbca9afb000-7fbca9afc000 rw-p 00000000 00:00 0 
+7fbca9afc000-7fbca9afd000 r--p 00000000 00:00 0 
+7fbca9afd000-7fbca9b01000 r--s 00000000 09:00 94081                      /var/cache/fontconfig/87f5e051180a7a75f16eb6fe7dbd3749-x86-64.cache-2
+7fbca9b01000-7fbca9b0a000 r--s 00000000 09:00 94080                      /var/cache/fontconfig/b79f3aaa7d385a141ab53ec885cc22a8-x86-64.cache-2
+7fbca9b0a000-7fbca9b0f000 r--s 00000000 09:00 1323005                    /var/cache/fontconfig/103e7fb1ea2629e851f0af6e29d50d14-x86-64.cache-2
+7fbca9b0f000-7fbca9b14000 r--s 00000000 09:00 1323004                    /var/cache/fontconfig/c4c72d5f47a988aa2d2b5e019553fb0a-x86-64.cache-2
+7fbca9b14000-7fbca9b19000 r--s 00000000 09:00 1323003                    /var/cache/fontconfig/f51c2ebd7e636ed1629dff932acec21b-x86-64.cache-2
+7fbca9b19000-7fbca9b1b000 r--s 00000000 09:00 93647                      /var/cache/fontconfig/2e1514a9fdd499050989183bb65136db-x86-64.cache-2
+7fbca9b1b000-7fbca9b34000 r--s 00000000 09:00 94090                      /var/cache/fontconfig/7a7f22e4c6b2236c525eb458794c6fd2-x86-64.cache-2
+7fbca9b34000-7fbca9b40000 r-xp 00000000 09:00 129671                     /lib64/libnss_files-2.10.1.so
+7fbca9b40000-7fbca9d3f000 ---p 0000c000 09:00 129671                     /lib64/libnss_files-2.10.1.so
+7fbca9d3f000-7fbca9d40000 r--p 0000b000 09:00 129671                     /lib64/libnss_files-2.10.1.so
+7fbca9d40000-7fbca9d41000 rw-p 0000c000 09:00 129671                     /lib64/libnss_files-2.10.1.so
+7fbca9d41000-7fbca9d43000 r--s 00000000 09:00 94096                      /var/cache/fontconfig/5c755b2f27115486aa6359c84dd3cbda-x86-64.cache-2
+7fbca9d43000-7fbca9d45000 r--s 00000000 09:00 94095                      /var/cache/fontconfig/3f821257dd33660ba7bbb45c32deb84c-x86-64.cache-2
+7fbca9d45000-7fbca9d47000 r--s 00000000 09:00 94094                      /var/cache/fontconfig/830f035fa84a65ce80e050178dbb630d-x86-64.cache-2
+7fbca9d47000-7fbca9d48000 r--s 00000000 09:00 94093                      /var/cache/fontconfig/81a173283b451552b599cfaafd6236bd-x86-64.cache-2
+7fbca9d48000-7fbca9d4b000 r--s 00000000 09:00 10702                      /var/cache/fontconfig/cfde08ab28ad1d91784abb10973575e3-x86-64.cache-2
+7fbca9d4b000-7fbca9d4e000 r--s 00000000 09:00 128494                     /var/cache/fontconfig/6082f993537e886e2b8c280984f3ae67-x86-64.cache-2
+7fbca9d4e000-7fbca9d4f000 r--s 00000000 09:00 94087                      /var/cache/fontconfig/e61abf8156cc476151baa07d67337cae-x86-64.cache-2
+7fbca9d4f000-7fbca9d53000 r--s 00000000 09:00 94086                      /var/cache/fontconfig/b67b32625a2bb51b023d3814a918f351-x86-64.cache-2
+7fbca9d53000-7fbca9d55000 r--s 00000000 09:00 94085                      /var/cache/fontconfig/d3379abda271c4acd2ad0c01f565d0b0-x86-64.cache-2
+7fbca9d55000-7fbca9d5a000 r--s 00000000 09:00 94084                      /var/cache/fontconfig/46b47dbc682d2ca4191e148ea7bde7f2-x86-64.cache-2
+7fbca9d5a000-7fbca9d63000 r--s 00000000 09:00 94082                      /var/cache/fontconfig/12b26b760a24f8b4feb03ad48a333a72-x86-64.cache-2
+7fbca9d63000-7fbca9d64000 ---p 00000000 00:00 0 
+7fbca9d64000-7fbcaa764000 rwxp 00000000 00:00 0 
+7fbcaa764000-7fbcaa765000 ---p 00000000 00:00 0 
+7fbcaa765000-7fbcab165000 rwxp 00000000 00:00 0 
+7fbcab19e000-7fbcb0271000 r--p 00000000 09:00 270371                     /usr/lib/locale/locale-archive
+7fbcb0271000-7fbcb027b000 rw-p 00000000 00:00 0 
+7fbcb027b000-7fbcb036d000 r-xp 00000000 09:00 2525855                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libstdc++.so.6.0.13
+7fbcb036d000-7fbcb056d000 ---p 000f2000 09:00 2525855                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libstdc++.so.6.0.13
+7fbcb056d000-7fbcb0574000 r--p 000f2000 09:00 2525855                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libstdc++.so.6.0.13
+7fbcb0574000-7fbcb0576000 rw-p 000f9000 09:00 2525855                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libstdc++.so.6.0.13
+7fbcb0576000-7fbcb058e000 rw-p 00000000 00:00 0 
+7fbcb058e000-7fbcb05a4000 r-xp 00000000 09:00 2525895                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libgcc_s.so.1
+7fbcb05a4000-7fbcb07a4000 ---p 00016000 09:00 2525895                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libgcc_s.so.1
+7fbcb07a4000-7fbcb07a5000 rw-p 00016000 09:00 2525895                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libgcc_s.so.1
+7fbcb07a5000-7fbcb07a6000 rw-p 00000000 00:00 0 
+7fbcb07a6000-7fbcb07bc000 r-xp 00000000 09:00 2525914                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libz.so.1.2.3.3
+7fbcb07bc000-7fbcb09bc000 ---p 00016000 09:00 2525914                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libz.so.1.2.3.3
+7fbcb09bc000-7fbcb09bd000 rw-p 00016000 09:00 2525914                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libz.so.1.2.3.3
+7fbcb09bd000-7fbcb09be000 rw-p 00000000 00:00 0 
+7fbcb09be000-7fbcb09f9000 r-xp 00000000 09:00 2525782                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libncurses.so.5.7
+7fbcb09f9000-7fbcb0bf8000 ---p 0003b000 09:00 2525782                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libncurses.so.5.7
+7fbcb0bf8000-7fbcb0bfd000 rw-p 0003a000 09:00 2525782                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libncurses.so.5.7
+7fbcb0bfd000-7fbcb0bfe000 r--s 00000000 09:00 94092                      /var/cache/fontconfig/6cfc7d49b27ba7d3eb71ab86e04def2c-x86-64.cache-2
+7fbcb0bfe000-7fbcb0bff000 r--s 00000000 09:00 94091                      /var/cache/fontconfig/044963cbb93fcb06c61d94a50dee394f-x86-64.cache-2
+7fbcb0bff000-7fbcb0c00000 r--s 00000000 09:00 130217                     /var/cache/fontconfig/6fcb01a03a016cc71057b587cdea6709-x86-64.cache-2
+7fbcb0c00000-7fbcb0c01000 r--s 00000000 09:00 94083                      /var/cache/fontconfig/b4d0b56f766d89640448751fcd18ec1e-x86-64.cache-2
+7fbcb0c01000-7fbcb0c08000 r--s 00000000 09:00 94078                      /var/cache/fontconfig/928306c3ad40271d946e41014a49fc28-x86-64.cache-2
+7fbcb0c08000-7fbcb0c0f000 r--s 00000000 09:00 94077                      /var/cache/fontconfig/fa1582dab13e7e8e44e5a9424d309f0e-x86-64.cache-2
+7fbcb0c0f000-7fbcb0c1a000 r--s 00000000 09:00 94076                      /var/cache/fontconfig/e19de935dec46bbf3ed114ee4965548a-x86-64.cache-2
+7fbcb0c1a000-7fbcb0c1b000 r--s 00000000 09:00 94016                      /var/cache/fontconfig/1248881498ac025e45c3042f6afe9284-x86-64.cache-2
+7fbcb0c1b000-7fbcb0c1c000 r--s 00000000 09:00 244142                     /var/cache/fontconfig/d04038e664b0033ae700a78c51f179d3-x86-64.cache-2
+7fbcb0c1c000-7fbcb0c1f000 r--s 00000000 09:00 243947                     /var/cache/fontconfig/beeeeb3dfe132a8a0633a017c99ce0c0-x86-64.cache-2
+7fbcb0c1f000-7fbcb0cf8000 r-xp 00000000 09:00 2525911                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libgfortran.so.3.0.0
+7fbcb0cf8000-7fbcb0ef8000 ---p 000d9000 09:00 2525911                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libgfortran.so.3.0.0
+7fbcb0ef8000-7fbcb0efa000 rw-p 000d9000 09:00 2525911                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libgfortran.so.3.0.0
+7fbcb0efa000-7fbcb0efb000 rw-p 00000000 00:00 0 
+7fbcb0efb000-7fbcb16ac000 r-xp 00000000 09:00 2525773                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/liblapack.so.3gf.0
+7fbcb16ac000-7fbcb18ab000 ---p 007b1000 09:00 2525773                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/liblapack.so.3gf.0
+7fbcb18ab000-7fbcb18ac000 r--p 007b0000 09:00 2525773                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/liblapack.so.3gf.0
+7fbcb18ac000-7fbcb18b0000 rw-p 007b1000 09:00 2525773                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/liblapack.so.3gf.0
+7fbcb18b0000-7fbcb19bd000 rw-p 00000000 00:00 0 
+7fbcb19bd000-7fbcb19ec000 r-xp 00000000 09:00 2525819                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libpcre.so.7.8.0
+7fbcb19ec000-7fbcb1beb000 ---p 0002f000 09:00 2525819                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libpcre.so.7.8.0
+7fbcb1beb000-7fbcb1bec000 rw-p 0002e000 09:00 2525819                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libpcre.so.7.8.0
+7fbcb1bec000-7fbcb1bee000 r-xp 00000000 09:00 2525810                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libpcreposix.so.7.8.0
+7fbcb1bee000-7fbcb1ded000 ---p 00002000 09:00 2525810                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libpcreposix.so.7.8.0
+7fbcb1ded000-7fbcb1dee000 rw-p 00001000 09:00 2525810                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libpcreposix.so.7.8.0
+7fbcb1dee000-7fbcb1def000 rw-p 00000000 00:00 0 
+7fbcb1def000-7fbcb1efc000 r-xp 00000000 09:00 2525769                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libtcl8.5.3.so
+7fbcb1efc000-7fbcb20fc000 ---p 0010d000 09:00 2525769                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libtcl8.5.3.so
+7fbcb20fc000-7fbcb210b000 rw-p 0010d000 09:00 2525769                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libtcl8.5.3.so
+7fbcb210b000-7fbcb210c000 rw-p 00000000 00:00 0 
+7fbcb210c000-7fbcb2235000 r-xp 00000000 09:00 2525784                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libtk8.5.3.so
+7fbcb2235000-7fbcb2435000 ---p 00129000 09:00 2525784                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libtk8.5.3.so
+7fbcb2435000-7fbcb2452000 rw-p 00129000 09:00 2525784                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libtk8.5.3.so
+7fbcb2452000-7fbcb2453000 rw-p 00000000 00:00 0 
+7fbcb2453000-7fbcb24e1000 r-xp 00000000 09:00 2525886                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libblas.so.3gf.0
+7fbcb24e1000-7fbcb26e1000 ---p 0008e000 09:00 2525886                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libblas.so.3gf.0
+7fbcb26e1000-7fbcb26e2000 rw-p 0008e000 09:00 2525886                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libblas.so.3gf.0
+7fbcb26e2000-7fbcb26e3000 rw-p 00000000 00:00 0 
+7fbcb26e3000-7fbcb298b000 r-xp 00000000 09:00 2525859                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libhdf5-1.8.3.so.6.0.2
+7fbcb298b000-7fbcb2a8b000 ---p 002a8000 09:00 2525859                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libhdf5-1.8.3.so.6.0.2
+7fbcb2a8b000-7fbcb2a95000 rw-p 002a8000 09:00 2525859                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libhdf5-1.8.3.so.6.0.2
+7fbcb2a95000-7fbcb2a96000 rw-p 00000000 00:00 0 
+7fbcb2a96000-7fbcb2a9a000 r-xp 00000000 09:00 2526128                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihdf5-forceload.so.5.0.2
+7fbcb2a9a000-7fbcb2c99000 ---p 00004000 09:00 2526128                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihdf5-forceload.so.5.0.2
+7fbcb2c99000-7fbcb2c9a000 r--p 00003000 09:00 2526128                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihdf5-forceload.so.5.0.2
+7fbcb2c9a000-7fbcb2c9b000 rw-p 00004000 09:00 2526128                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihdf5-forceload.so.5.0.2
+7fbcb2c9b000-7fbcb2cc8000 r-xp 00000000 09:00 2526031                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscioutput_stream.so.5.0.2
+7fbcb2cc8000-7fbcb2ec7000 ---p 0002d000 09:00 2526031                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscioutput_stream.so.5.0.2
+7fbcb2ec7000-7fbcb2ec8000 r--p 0002c000 09:00 2526031                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscioutput_stream.so.5.0.2
+7fbcb2ec8000-7fbcb2ec9000 rw-p 0002d000 09:00 2526031                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscioutput_stream.so.5.0.2
+7fbcb2ec9000-7fbcb2f87000 rw-p 00000000 00:00 0 
+7fbcb2f87000-7fbcb2f88000 r-xp 00000000 09:00 2526136                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscimalloc.so.5.0.2
+7fbcb2f88000-7fbcb3187000 ---p 00001000 09:00 2526136                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscimalloc.so.5.0.2
+7fbcb3187000-7fbcb3188000 r--p 00000000 09:00 2526136                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscimalloc.so.5.0.2
+7fbcb3188000-7fbcb3189000 rw-p 00001000 09:00 2526136                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscimalloc.so.5.0.2
+7fbcb3189000-7fbcb32da000 r-xp 00000000 09:00 2525921                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libxml2.so.2.7.6
+7fbcb32da000-7fbcb34d9000 ---p 00151000 09:00 2525921                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libxml2.so.2.7.6
+7fbcb34d9000-7fbcb34e3000 rw-p 00150000 09:00 2525921                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libxml2.so.2.7.6
+7fbcb34e3000-7fbcb34e4000 rw-p 00000000 00:00 0 
+7fbcb34e4000-7fbcb34f0000 r-xp 00000000 09:00 2526183                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscixpad.so.5.0.2
+7fbcb34f0000-7fbcb36ef000 ---p 0000c000 09:00 2526183                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscixpad.so.5.0.2
+7fbcb36ef000-7fbcb36f0000 r--p 0000b000 09:00 2526183                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscixpad.so.5.0.2
+7fbcb36f0000-7fbcb36f1000 rw-p 0000c000 09:00 2526183                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscixpad.so.5.0.2
+7fbcb36f1000-7fbcb36f2000 rw-p 00000000 00:00 0 
+7fbcb36f2000-7fbcb3702000 r-xp 00000000 09:00 2525978                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscixcos.so.5.0.2
+7fbcb3702000-7fbcb3901000 ---p 00010000 09:00 2525978                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscixcos.so.5.0.2
+7fbcb3901000-7fbcb3902000 r--p 0000f000 09:00 2525978                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscixcos.so.5.0.2
+7fbcb3902000-7fbcb3903000 rw-p 00010000 09:00 2525978                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscixcos.so.5.0.2
+7fbcb3903000-7fbcb3904000 r-xp 00000000 09:00 2526192                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidynamiclibrary.so.5.0.2
+7fbcb3904000-7fbcb3b03000 ---p 00001000 09:00 2526192                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidynamiclibrary.so.5.0.2
+7fbcb3b03000-7fbcb3b04000 r--p 00000000 09:00 2526192                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidynamiclibrary.so.5.0.2
+7fbcb3b04000-7fbcb3b05000 rw-p 00001000 09:00 2526192                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidynamiclibrary.so.5.0.2
+7fbcb3b05000-7fbcb3b08000 r-xp 00000000 09:00 2526099                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilibst.so.5.0.2
+7fbcb3b08000-7fbcb3d07000 ---p 00003000 09:00 2526099                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilibst.so.5.0.2
+7fbcb3d07000-7fbcb3d08000 r--p 00002000 09:00 2526099                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilibst.so.5.0.2
+7fbcb3d08000-7fbcb3d09000 rw-p 00003000 09:00 2526099                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilibst.so.5.0.2
+7fbcb3d09000-7fbcb3d0a000 rw-p 00000000 00:00 0 
+7fbcb3d0a000-7fbcb3d26000 r-xp 00000000 09:00 2526010                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciapi_scilab.so.5.0.2
+7fbcb3d26000-7fbcb3f25000 ---p 0001c000 09:00 2526010                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciapi_scilab.so.5.0.2
+7fbcb3f25000-7fbcb3f26000 r--p 0001b000 09:00 2526010                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciapi_scilab.so.5.0.2
+7fbcb3f26000-7fbcb3f27000 rw-p 0001c000 09:00 2526010                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciapi_scilab.so.5.0.2
+7fbcb3f27000-7fbcb3f5b000 r-xp 00000000 09:00 2526185                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciarnoldi.so.5.0.2
+7fbcb3f5b000-7fbcb415b000 ---p 00034000 09:00 2526185                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciarnoldi.so.5.0.2
+7fbcb415b000-7fbcb415c000 r--p 00034000 09:00 2526185                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciarnoldi.so.5.0.2
+7fbcb415c000-7fbcb415d000 rw-p 00035000 09:00 2526185                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciarnoldi.so.5.0.2
+7fbcb415d000-7fbcb41ef000 r-xp 00000000 09:00 2526001                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscielementary_functions.so.5.0.2
+7fbcb41ef000-7fbcb43ee000 ---p 00092000 09:00 2526001                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscielementary_functions.so.5.0.2
+7fbcb43ee000-7fbcb43ef000 r--p 00091000 09:00 2526001                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscielementary_functions.so.5.0.2
+7fbcb43ef000-7fbcb43f3000 rw-p 00092000 09:00 2526001                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscielementary_functions.so.5.0.2
+7fbcb43f3000-7fbcb44af000 rw-p 00000000 00:00 0 
+7fbcb44af000-7fbcb44cd000 r-xp 00000000 09:00 2525936                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscistring.so.5.0.2
+7fbcb44cd000-7fbcb46cc000 ---p 0001e000 09:00 2525936                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscistring.so.5.0.2
+7fbcb46cc000-7fbcb46cd000 r--p 0001d000 09:00 2525936                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscistring.so.5.0.2
+7fbcb46cd000-7fbcb46ce000 rw-p 0001e000 09:00 2525936                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscistring.so.5.0.2
+7fbcb46ce000-7fbcb4788000 rw-p 00000000 00:00 0 
+7fbcb4788000-7fbcb47ac000 r-xp 00000000 09:00 2525938                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscifileio.so.5.0.2
+7fbcb47ac000-7fbcb49ab000 ---p 00024000 09:00 2525938                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscifileio.so.5.0.2
+7fbcb49ab000-7fbcb49ac000 r--p 00023000 09:00 2525938                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscifileio.so.5.0.2
+7fbcb49ac000-7fbcb49ad000 rw-p 00024000 09:00 2525938                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscifileio.so.5.0.2
+7fbcb49ad000-7fbcb49b4000 r-xp 00000000 09:00 2525942                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscijvm.so.5.0.2
+7fbcb49b4000-7fbcb4bb4000 ---p 00007000 09:00 2525942                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscijvm.so.5.0.2
+7fbcb4bb4000-7fbcb4bb5000 r--p 00007000 09:00 2525942                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscijvm.so.5.0.2
+7fbcb4bb5000-7fbcb4bb6000 rw-p 00008000 09:00 2525942                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscijvm.so.5.0.2
+7fbcb4bb6000-7fbcb4bb7000 rw-p 00000000 00:00 0 
+7fbcb4bb7000-7fbcb4bc5000 r-xp 00000000 09:00 2526138                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihistory_manager.so.5.0.2
+7fbcb4bc5000-7fbcb4dc4000 ---p 0000e000 09:00 2526138                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihistory_manager.so.5.0.2
+7fbcb4dc4000-7fbcb4dc5000 r--p 0000d000 09:00 2526138                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihistory_manager.so.5.0.2
+7fbcb4dc5000-7fbcb4dc6000 rw-p 0000e000 09:00 2526138                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihistory_manager.so.5.0.2
+7fbcb4dc6000-7fbcb4dc8000 r-xp 00000000 09:00 2526028                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciaction_binding.so.5.0.2
+7fbcb4dc8000-7fbcb4fc7000 ---p 00002000 09:00 2526028                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciaction_binding.so.5.0.2
+7fbcb4fc7000-7fbcb4fc8000 r--p 00001000 09:00 2526028                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciaction_binding.so.5.0.2
+7fbcb4fc8000-7fbcb4fc9000 rw-p 00002000 09:00 2526028                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciaction_binding.so.5.0.2
+7fbcb4fc9000-7fbcb4fd6000 r-xp 00000000 09:00 2525940                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciconsole.so.5.0.2
+7fbcb4fd6000-7fbcb51d5000 ---p 0000d000 09:00 2525940                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciconsole.so.5.0.2
+7fbcb51d5000-7fbcb51d6000 r--p 0000c000 09:00 2525940                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciconsole.so.5.0.2
+7fbcb51d6000-7fbcb51d7000 rw-p 0000d000 09:00 2525940                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciconsole.so.5.0.2
+7fbcb51d7000-7fbcb51d8000 rw-p 00000000 00:00 0 
+7fbcb51d8000-7fbcb520c000 r-xp 00000000 09:00 2526097                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscigraphic_export.so.5.0.2
+7fbcb520c000-7fbcb540b000 ---p 00034000 09:00 2526097                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscigraphic_export.so.5.0.2
+7fbcb540b000-7fbcb540c000 r--p 00033000 09:00 2526097                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscigraphic_export.so.5.0.2
+7fbcb540c000-7fbcb540d000 rw-p 00034000 09:00 2526097                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscigraphic_export.so.5.0.2
+7fbcb540d000-7fbcb540f000 r-xp 00000000 09:00 2525988                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidoublylinkedlist.so.5.0.2
+7fbcb540f000-7fbcb560e000 ---p 00002000 09:00 2525988                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidoublylinkedlist.so.5.0.2
+7fbcb560e000-7fbcb560f000 r--p 00001000 09:00 2525988                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidoublylinkedlist.so.5.0.2
+7fbcb560f000-7fbcb5610000 rw-p 00002000 09:00 2525988                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidoublylinkedlist.so.5.0.2
+7fbcb5610000-7fbcb5788000 r-xp 00000000 09:00 2525962                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscirenderer.so.5.0.2
+7fbcb5788000-7fbcb5987000 ---p 00178000 09:00 2525962                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscirenderer.so.5.0.2
+7fbcb5987000-7fbcb599f000 r--p 00177000 09:00 2525962                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscirenderer.so.5.0.2
+7fbcb599f000-7fbcb59a2000 rw-p 0018f000 09:00 2525962                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscirenderer.so.5.0.2
+7fbcb59a2000-7fbcb59a3000 rw-p 00000000 00:00 0 
+7fbcb59a3000-7fbcb5a09000 r-xp 00000000 09:00 2526049                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscigui.so.5.0.2
+7fbcb5a09000-7fbcb5c08000 ---p 00066000 09:00 2526049                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscigui.so.5.0.2
+7fbcb5c08000-7fbcb5c09000 r--p 00065000 09:00 2526049                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscigui.so.5.0.2
+7fbcb5c09000-7fbcb5c0b000 rw-p 00066000 09:00 2526049                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscigui.so.5.0.2
+7fbcb5c0b000-7fbcb5c15000 r-xp 00000000 09:00 2526052                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscitclsci.so.5.0.2
+7fbcb5c15000-7fbcb5e14000 ---p 0000a000 09:00 2526052                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscitclsci.so.5.0.2
+7fbcb5e14000-7fbcb5e15000 r--p 00009000 09:00 2526052                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscitclsci.so.5.0.2
+7fbcb5e15000-7fbcb5e16000 rw-p 0000a000 09:00 2526052                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscitclsci.so.5.0.2
+7fbcb5e16000-7fbcb5e18000 r-xp 00000000 09:00 2526197                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihashtable.so.5.0.2
+7fbcb5e18000-7fbcb6017000 ---p 00002000 09:00 2526197                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihashtable.so.5.0.2
+7fbcb6017000-7fbcb6018000 r--p 00001000 09:00 2526197                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihashtable.so.5.0.2
+7fbcb6018000-7fbcb6019000 rw-p 00002000 09:00 2526197                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihashtable.so.5.0.2
+7fbcb6019000-7fbcb601a000 rw-p 00000000 00:00 0 
+7fbcb601a000-7fbcb6094000 r-xp 00000000 09:00 2526117                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscigraphics.so.5.0.2
+7fbcb6094000-7fbcb6293000 ---p 0007a000 09:00 2526117                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscigraphics.so.5.0.2
+7fbcb6293000-7fbcb6295000 r--p 00079000 09:00 2526117                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscigraphics.so.5.0.2
+7fbcb6295000-7fbcb6298000 rw-p 0007b000 09:00 2526117                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscigraphics.so.5.0.2
+7fbcb6298000-7fbcb6299000 rw-p 00000000 00:00 0 
+7fbcb6299000-7fbcb62a2000 r-xp 00000000 09:00 2526030                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscifunctions.so.5.0.2
+7fbcb62a2000-7fbcb64a1000 ---p 00009000 09:00 2526030                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscifunctions.so.5.0.2
+7fbcb64a1000-7fbcb64a2000 r--p 00008000 09:00 2526030                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscifunctions.so.5.0.2
+7fbcb64a2000-7fbcb64a3000 rw-p 00009000 09:00 2526030                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscifunctions.so.5.0.2
+7fbcb64a3000-7fbcb655d000 rw-p 00000000 00:00 0 
+7fbcb655d000-7fbcb6572000 r-xp 00000000 09:00 2526160                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihdf5.so.5.0.2
+7fbcb6572000-7fbcb6771000 ---p 00015000 09:00 2526160                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihdf5.so.5.0.2
+7fbcb6771000-7fbcb6772000 r--p 00014000 09:00 2526160                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihdf5.so.5.0.2
+7fbcb6772000-7fbcb6773000 rw-p 00015000 09:00 2526160                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscihdf5.so.5.0.2
+7fbcb6773000-7fbcb6774000 rw-p 00000000 00:00 0 
+7fbcb6774000-7fbcb6871000 r-xp 00000000 09:00 2525856                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libfftw3.so.3.2.3
+7fbcb6871000-7fbcb6a71000 ---p 000fd000 09:00 2525856                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libfftw3.so.3.2.3
+7fbcb6a71000-7fbcb6a78000 rw-p 000fd000 09:00 2525856                    /usr/local/lib/scilab-5.2.2/lib/thirdparty/libfftw3.so.3.2.3
+7fbcb6a78000-7fbcb6a7e000 r-xp 00000000 09:00 2525952                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscifftw.so.5.0.2
+7fbcb6a7e000-7fbcb6c7d000 ---p 00006000 09:00 2525952                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscifftw.so.5.0.2
+7fbcb6c7d000-7fbcb6c7e000 r--p 00005000 09:00 2525952                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscifftw.so.5.0.2
+7fbcb6c7e000-7fbcb6c7f000 rw-p 00006000 09:00 2525952                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscifftw.so.5.0.2
+7fbcb6c7f000-7fbcb6c88000 r-xp 00000000 09:00 2526018                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidynamic_link.so.5.0.2
+7fbcb6c88000-7fbcb6e87000 ---p 00009000 09:00 2526018                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidynamic_link.so.5.0.2
+7fbcb6e87000-7fbcb6e88000 r--p 00008000 09:00 2526018                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidynamic_link.so.5.0.2
+7fbcb6e88000-7fbcb6e89000 rw-p 00009000 09:00 2526018                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidynamic_link.so.5.0.2
+7fbcb6e89000-7fbcb6f8c000 rw-p 00000000 00:00 0 
+7fbcb6f8c000-7fbcb6fb7000 r-xp 00000000 09:00 2526102                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilinear_algebra.so.5.0.2
+7fbcb6fb7000-7fbcb71b6000 ---p 0002b000 09:00 2526102                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilinear_algebra.so.5.0.2
+7fbcb71b6000-7fbcb71b7000 r--p 0002a000 09:00 2526102                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilinear_algebra.so.5.0.2
+7fbcb71b7000-7fbcb71b8000 rw-p 0002b000 09:00 2526102                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilinear_algebra.so.5.0.2
+7fbcb71b8000-7fbcb7272000 rw-p 00000000 00:00 0 
+7fbcb7272000-7fbcb729f000 r-xp 00000000 09:00 2526167                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciinteger.so.5.0.2
+7fbcb729f000-7fbcb749e000 ---p 0002d000 09:00 2526167                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciinteger.so.5.0.2
+7fbcb749e000-7fbcb749f000 r--p 0002c000 09:00 2526167                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciinteger.so.5.0.2
+7fbcb749f000-7fbcb74a0000 rw-p 0002d000 09:00 2526167                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciinteger.so.5.0.2
+7fbcb74a0000-7fbcb755a000 rw-p 00000000 00:00 0 
+7fbcb755a000-7fbcb756a000 r-xp 00000000 09:00 2526040                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidata_structures.so.5.0.2
+7fbcb756a000-7fbcb7769000 ---p 00010000 09:00 2526040                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidata_structures.so.5.0.2
+7fbcb7769000-7fbcb776a000 r--p 0000f000 09:00 2526040                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidata_structures.so.5.0.2
+7fbcb776a000-7fbcb776b000 rw-p 00010000 09:00 2526040                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidata_structures.so.5.0.2
+7fbcb776b000-7fbcb7826000 rw-p 00000000 00:00 0 
+7fbcb7826000-7fbcb7832000 r-xp 00000000 09:00 2526198                    /usr/local/lib/scilab-5.2.2/lib/scilab/libmex.so.5.0.2
+7fbcb7832000-7fbcb7a31000 ---p 0000c000 09:00 2526198                    /usr/local/lib/scilab-5.2.2/lib/scilab/libmex.so.5.0.2
+7fbcb7a31000-7fbcb7a32000 r--p 0000b000 09:00 2526198                    /usr/local/lib/scilab-5.2.2/lib/scilab/libmex.so.5.0.2
+7fbcb7a32000-7fbcb7a33000 rw-p 0000c000 09:00 2526198                    /usr/local/lib/scilab-5.2.2/lib/scilab/libmex.so.5.0.2
+7fbcb7a33000-7fbcb7a35000 rw-p 00000000 00:00 0 
+7fbcb7a35000-7fbcb7aa0000 r-xp 00000000 09:00 2525987                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidifferential_equations.so.5.0.2
+7fbcb7aa0000-7fbcb7ca0000 ---p 0006b000 09:00 2525987                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidifferential_equations.so.5.0.2
+7fbcb7ca0000-7fbcb7ca1000 r--p 0006b000 09:00 2525987                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidifferential_equations.so.5.0.2
+7fbcb7ca1000-7fbcb7ca2000 rw-p 0006c000 09:00 2525987                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidifferential_equations.so.5.0.2
+7fbcb7ca2000-7fbcb7d64000 rw-p 00000000 00:00 0 
+7fbcb7d64000-7fbcb7d70000 r-xp 00000000 09:00 2525996                    /usr/local/lib/scilab-5.2.2/lib/scilab/libmat.so.5.0.2
+7fbcb7d70000-7fbcb7f6f000 ---p 0000c000 09:00 2525996                    /usr/local/lib/scilab-5.2.2/lib/scilab/libmat.so.5.0.2
+7fbcb7f6f000-7fbcb7f70000 r--p 0000b000 09:00 2525996                    /usr/local/lib/scilab-5.2.2/lib/scilab/libmat.so.5.0.2
+7fbcb7f70000-7fbcb7f71000 rw-p 0000c000 09:00 2525996                    /usr/local/lib/scilab-5.2.2/lib/scilab/libmat.so.5.0.2
+7fbcb7f71000-7fbcb7f74000 rw-p 00000000 00:00 0 
+7fbcb7f74000-7fbcb7f80000 r-xp 00000000 09:00 2525939                    /usr/local/lib/scilab-5.2.2/lib/scilab/libmx.so.5.0.2
+7fbcb7f80000-7fbcb817f000 ---p 0000c000 09:00 2525939                    /usr/local/lib/scilab-5.2.2/lib/scilab/libmx.so.5.0.2
+7fbcb817f000-7fbcb8180000 r--p 0000b000 09:00 2525939                    /usr/local/lib/scilab-5.2.2/lib/scilab/libmx.so.5.0.2
+7fbcb8180000-7fbcb8181000 rw-p 0000c000 09:00 2525939                    /usr/local/lib/scilab-5.2.2/lib/scilab/libmx.so.5.0.2
+7fbcb8181000-7fbcb8183000 rw-p 00000000 00:00 0 
+7fbcb8183000-7fbcb8262000 r-xp 00000000 09:00 2526190                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicacsd.so.5.0.2
+7fbcb8262000-7fbcb8462000 ---p 000df000 09:00 2526190                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicacsd.so.5.0.2
+7fbcb8462000-7fbcb8463000 r--p 000df000 09:00 2526190                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicacsd.so.5.0.2
+7fbcb8463000-7fbcb8464000 rw-p 000e0000 09:00 2526190                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicacsd.so.5.0.2
+7fbcb8464000-7fbcb851e000 rw-p 00000000 00:00 0 
+7fbcb851e000-7fbcb854b000 r-xp 00000000 09:00 2526113                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscipolynomials.so.5.0.2
+7fbcb854b000-7fbcb874a000 ---p 0002d000 09:00 2526113                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscipolynomials.so.5.0.2
+7fbcb874a000-7fbcb874b000 r--p 0002c000 09:00 2526113                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscipolynomials.so.5.0.2
+7fbcb874b000-7fbcb874c000 rw-p 0002d000 09:00 2526113                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscipolynomials.so.5.0.2
+7fbcb874c000-7fbcb8808000 rw-p 00000000 00:00 0 
+7fbcb8808000-7fbcb8857000 r-xp 00000000 09:00 2526125                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscisparse.so.5.0.2
+7fbcb8857000-7fbcb8a56000 ---p 0004f000 09:00 2526125                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscisparse.so.5.0.2
+7fbcb8a56000-7fbcb8a57000 r--p 0004e000 09:00 2526125                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscisparse.so.5.0.2
+7fbcb8a57000-7fbcb8a58000 rw-p 0004f000 09:00 2526125                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscisparse.so.5.0.2
+7fbcb8a58000-7fbcb8b12000 rw-p 00000000 00:00 0 
+7fbcb8b12000-7fbcb8b13000 r-xp 00000000 09:00 2526110                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscipvm.so.5.0.2
+7fbcb8b13000-7fbcb8d12000 ---p 00001000 09:00 2526110                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscipvm.so.5.0.2
+7fbcb8d12000-7fbcb8d13000 r--p 00000000 09:00 2526110                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscipvm.so.5.0.2
+7fbcb8d13000-7fbcb8d14000 rw-p 00001000 09:00 2526110                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscipvm.so.5.0.2
+7fbcb8d14000-7fbcb8d15000 r-xp 00000000 09:00 2526115                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciwindows_tools.so.5.0.2
+7fbcb8d15000-7fbcb8f14000 ---p 00001000 09:00 2526115                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciwindows_tools.so.5.0.2
+7fbcb8f14000-7fbcb8f15000 r--p 00000000 09:00 2526115                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciwindows_tools.so.5.0.2
+7fbcb8f15000-7fbcb8f16000 rw-p 00001000 09:00 2526115                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciwindows_tools.so.5.0.2
+7fbcb8f16000-7fbcb8f17000 rw-p 00000000 00:00 0 
+7fbcb8f17000-7fbcb8f1a000 r-xp 00000000 09:00 2526016                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscitime.so.5.0.2
+7fbcb8f1a000-7fbcb911a000 ---p 00003000 09:00 2526016                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscitime.so.5.0.2
+7fbcb911a000-7fbcb911b000 r--p 00003000 09:00 2526016                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscitime.so.5.0.2
+7fbcb911b000-7fbcb911c000 rw-p 00004000 09:00 2526016                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscitime.so.5.0.2
+7fbcb911c000-7fbcb9136000 r-xp 00000000 09:00 2526195                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscistatistics.so.5.0.2
+7fbcb9136000-7fbcb9335000 ---p 0001a000 09:00 2526195                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscistatistics.so.5.0.2
+7fbcb9335000-7fbcb9336000 r--p 00019000 09:00 2526195                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscistatistics.so.5.0.2
+7fbcb9336000-7fbcb9337000 rw-p 0001a000 09:00 2526195                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscistatistics.so.5.0.2
+7fbcb9337000-7fbcb93f1000 rw-p 00000000 00:00 0 
+7fbcb93f1000-7fbcb93fb000 r-xp 00000000 09:00 2526153                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscispecial_functions.so.5.0.2
+7fbcb93fb000-7fbcb95fb000 ---p 0000a000 09:00 2526153                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscispecial_functions.so.5.0.2
+7fbcb95fb000-7fbcb95fc000 r--p 0000a000 09:00 2526153                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscispecial_functions.so.5.0.2
+7fbcb95fc000-7fbcb95fd000 rw-p 0000b000 09:00 2526153                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscispecial_functions.so.5.0.2
+7fbcb95fd000-7fbcb96b8000 rw-p 00000000 00:00 0 
+7fbcb96b8000-7fbcb96ba000 r-xp 00000000 09:00 2526013                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciintersci.so.5.0.2
+7fbcb96ba000-7fbcb98b9000 ---p 00002000 09:00 2526013                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciintersci.so.5.0.2
+7fbcb98b9000-7fbcb98ba000 r--p 00001000 09:00 2526013                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciintersci.so.5.0.2
+7fbcb98ba000-7fbcb98bb000 rw-p 00002000 09:00 2526013                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciintersci.so.5.0.2
+7fbcb98bb000-7fbcb98c4000 r-xp 00000000 09:00 2525981                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciboolean.so.5.0.2
+7fbcb98c4000-7fbcb9ac3000 ---p 00009000 09:00 2525981                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciboolean.so.5.0.2
+7fbcb9ac3000-7fbcb9ac4000 r--p 00008000 09:00 2525981                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciboolean.so.5.0.2
+7fbcb9ac4000-7fbcb9ac5000 rw-p 00009000 09:00 2525981                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciboolean.so.5.0.2
+7fbcb9ac5000-7fbcb9b7f000 rw-p 00000000 00:00 0 
+7fbcb9b7f000-7fbcb9b90000 r-xp 00000000 09:00 2526129                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidouble.so.5.0.2
+7fbcb9b90000-7fbcb9d8f000 ---p 00011000 09:00 2526129                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidouble.so.5.0.2
+7fbcb9d8f000-7fbcb9d90000 r--p 00010000 09:00 2526129                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidouble.so.5.0.2
+7fbcb9d90000-7fbcb9d91000 rw-p 00011000 09:00 2526129                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscidouble.so.5.0.2
+7fbcb9d91000-7fbcb9e4c000 rw-p 00000000 00:00 0 
+7fbcb9e4c000-7fbcb9e4f000 r-xp 00000000 09:00 2526089                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicall_scilab.so.5.0.2
+7fbcb9e4f000-7fbcba04e000 ---p 00003000 09:00 2526089                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicall_scilab.so.5.0.2
+7fbcba04e000-7fbcba04f000 r--p 00002000 09:00 2526089                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicall_scilab.so.5.0.2
+7fbcba04f000-7fbcba050000 rw-p 00003000 09:00 2526089                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicall_scilab.so.5.0.2
+7fbcba050000-7fbcba051000 r-xp 00000000 09:00 2526188                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilab.so.0.0.0
+7fbcba051000-7fbcba251000 ---p 00001000 09:00 2526188                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilab.so.0.0.0
+7fbcba251000-7fbcba252000 r--p 00001000 09:00 2526188                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilab.so.0.0.0
+7fbcba252000-7fbcba253000 rw-p 00002000 09:00 2526188                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilab.so.0.0.0
+7fbcba253000-7fbcba269000 r-xp 00000000 09:00 2526123                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciio.so.5.0.2
+7fbcba269000-7fbcba468000 ---p 00016000 09:00 2526123                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciio.so.5.0.2
+7fbcba468000-7fbcba469000 r--p 00015000 09:00 2526123                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciio.so.5.0.2
+7fbcba469000-7fbcba46a000 rw-p 00016000 09:00 2526123                    /usr/local/lib/scilab-5.2.2/lib/scilab/libsciio.so.5.0.2
+7fbcba46a000-7fbcba525000 rw-p 00000000 00:00 0 
+7fbcba525000-7fbcba529000 r-xp 00000000 09:00 2526027                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilocalization.so.5.0.2
+7fbcba529000-7fbcba728000 ---p 00004000 09:00 2526027                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilocalization.so.5.0.2
+7fbcba728000-7fbcba729000 r--p 00003000 09:00 2526027                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilocalization.so.5.0.2
+7fbcba729000-7fbcba72e000 rw-p 00004000 09:00 2526027                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscilocalization.so.5.0.2
+7fbcba72e000-7fbcba735000 r-xp 00000000 09:00 2526055                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicompletion.so.5.0.2
+7fbcba735000-7fbcba934000 ---p 00007000 09:00 2526055                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicompletion.so.5.0.2
+7fbcba934000-7fbcba935000 r--p 00006000 09:00 2526055                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicompletion.so.5.0.2
+7fbcba935000-7fbcba936000 rw-p 00007000 09:00 2526055                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicompletion.so.5.0.2
+7fbcba936000-7fbcba9bc000 r-xp 00000000 09:00 2526131                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicore.so.5.0.2
+7fbcba9bc000-7fbcbabbc000 ---p 00086000 09:00 2526131                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicore.so.5.0.2
+7fbcbabbc000-7fbcbabbe000 r--p 00086000 09:00 2526131                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicore.so.5.0.2
+7fbcbabbe000-7fbcbabc1000 rw-p 00088000 09:00 2526131                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscicore.so.5.0.2
+7fbcbabc1000-7fbcbacbf000 rw-p 00000000 00:00 0 
+7fbcbacbf000-7fbcbacc8000 r-xp 00000000 09:00 2525955                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscishell.so.5.0.2
+7fbcbacc8000-7fbcbaec8000 ---p 00009000 09:00 2525955                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscishell.so.5.0.2
+7fbcbaec8000-7fbcbaec9000 r--p 00009000 09:00 2525955                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscishell.so.5.0.2
+7fbcbaec9000-7fbcbaeca000 rw-p 0000a000 09:00 2525955                    /usr/local/lib/scilab-5.2.2/lib/scilab/libscishell.so.5.0.2
+7fbcbaeca000-7fbcbaecc000 rw-p 00000000 00:00 0 
+7fffe8f9d000-7fffe8fa0000 ---p 00000000 00:00 0 
+7fffe8fa0000-7fffe909d000 rwxp 00000000 00:00 0                          [stack]
+7fffe909d000-7fffe909e000 rw-p 00000000 00:00 0 
+7fffe9167000-7fffe9168000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Djava.library.path= -Djava.compiler=JIT -Xmx256m -Dapple.laf.useScreenMenuBar=true 
+java_command: <unknown>
+Launcher Type: generic
+
+Environment Variables:
+JAVA_HOME=/usr/local/lib/scilab-5.2.2/thirdparty/java
+JRE_HOME=/usr/local/lib/scilab-5.2.2/thirdparty/java
+CLASSPATH=/usr/local/lib/scilab-5.2.2/thirdparty:/usr/local/lib/scilab-5.2.2/thirdparty/java/lib
+PATH=/usr/local/lib/scilab-5.2.2/bin:/usr/local/bin:/usr/lib64/qt-3.3/bin:/usr/kerberos/bin:/usr/lib64/ccache:/usr/local/bin:/bin:/usr/bin:/usr/lib64/paraview-3.6.1-Linux-x86_64/bin/:/usr/local/sbin:/usr/sbin:/sbin:/usr/lib64/paraview-3.6.1-Linux-x86_64/bin/:/home/M2SITN/ndeffo/bin:/usr/lib64/paraview-3.6.1-Linux-x86_64/bin/:/usr/local/lib/scilab-5.2.2/share/scilab/modules/scicos/
+LD_LIBRARY_PATH=/usr/local/lib/scilab-5.2.2/share/scilab/bin:/usr/local/lib/scilab-5.2.2/share/scilab/lib/scilab/:/usr/local/lib/scilab-5.2.2/share/scilab/lib64/scilab/:/usr/local/lib/scilab-5.2.2/lib/scilab:/usr/local/lib/scilab-5.2.2/lib/thirdparty:/usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64:/usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/server:/usr/local/lib/scilab-5.2.2/thirdparty/java/lib/amd64/native_threads
+SHELL=/bin/bash
+DISPLAY=:2005.0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x70f1a0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x70f1a0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x5d7f70], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: SIG_IGN, sa_mask[0]=0x00001000, sa_flags=0x10000000
+SIGXFSZ: [libjvm.so+0x5d7f70], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x5d7f70], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x5da790], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x5da4e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libscicore.so.5+0x2c190], sa_mask[0]=0x00000002, sa_flags=0x10000000
+SIGTERM: [libjvm.so+0x5da4e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x5da4e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Fedora release 11 (Leonidas)
+
+uname:Linux 2.6.30.9-90.fc11.x86_64 #1 SMP Sat Oct 17 11:25:35 EDT 2009 x86_64
+libc:glibc 2.10.1 NPTL 2.10.1 
+rlimit: STACK 10240k, CORE 0k, NPROC 1024, NOFILE 1024, AS infinity
+load average:0.05 0.14 0.20
+
+CPU:total 16 (8 cores per cpu, 2 threads per core) family 6 model 26 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 49065876k(4457212k free), swap 50331632k(50197916k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (16.0-b13) for linux-amd64 JRE (1.6.0_18-b07), built on Dec 17 2009 13:42:22 by "java_re" with gcc 3.2.2 (SuSE Linux)
+
+time: Fri Jul  9 14:26:20 2010
+elapsed time: 199 seconds
+

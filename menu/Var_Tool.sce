@@ -18,8 +18,8 @@
   execstr(View+'_'+string(gwin)+...
       '=[''etat(1)=~etat(1); menu_var_disp(gwin,etat); var_disp('+%_nams(%n)+',etat)'' ]');
   execstr(Replot+'_'+string(gwin)+...
-	  '=''var_disp('+%_nams(%n)+',etat)');
- 
+	  '=''var_disp('+%_nams(%n)+',etat); menu_var_disp(gwin,etat);''');
+  
   execstr('var_disp('+%_nams(%n)+',etat)')
   
   menu_var_disp(gwin,etat); // affichage du Menu
