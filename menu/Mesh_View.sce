@@ -10,8 +10,9 @@ if %_nams~=[]
   if %n>1
     %n=x_choose(%_nams+'  ('+evstr('typeof('+%_nams+')')+')',...
 	'Choose a mesh','Cancel');
-  end
-  exec(%menupath+"/menu/Mesh_Tool.sce");
+end
+//mesh_tool(%n)
+ exec(%menupath+"/menu/Mesh_Tool.sce");
   clear %n
   disp('')
 else  
@@ -19,5 +20,4 @@ else
 end
 
 clear %_nams %ind %geom_c
-
 

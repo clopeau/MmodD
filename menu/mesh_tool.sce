@@ -1,4 +1,6 @@
-  rac=evstr('typeof('+%_nams(%n)+')');
+function []=mesh_tool(%n)
+  disp("affichage boutons")
+ rac=evstr('typeof('+%_nams(%n)+')');
   
   Number='Number';
   Geom='Geom';
@@ -10,11 +12,12 @@
   xset('window',gwin);
   //gwin=xget("window");
   // Menu deja existant par defaut  
-  delmenu(gwin,'Edition') 
-  delmenu(gwin,'?')
+  delmenu(gwin,'Edit') 
   //delmenu(gwin,'3D Rot.') //2d seulement
   //unsetmenu(gwin,'File',7) //close'=Objects')  
- etat=[%f;%f;%f;%t;%t;%f]; // etat d'affichage :voir node, triangles et extremes
+  etat=[%f;%f;%f;%t;%t;%f]; // etat d'affichage :voir node, triangles et extremes
+  
+  menu_mesh_disp(gwin,etat); // affichage du Menu
 
   // Commande associe au Menu Meshtool
   execstr(Number+'_'+string(gwin)+...
@@ -33,14 +36,9 @@
 	  menu_mesh_disp(gwin,etat);'';...
 	  ''etat(6)=~etat(6); if etat(6) then, '+rac+'_show_rect('+%_nams(%n)+') ,end;...  
 	  menu_mesh_disp(gwin,etat);'']')
-	  
- // Commande associe au Replot
-	 
+  // Commande associe au Replot
    execstr(Replot+'_'+string(gwin)+...
-   '=''mesh_disp('+%_nams(%n)+',etat);''');
-    menu_mesh_disp(gwin,etat);
-      execstr('mesh_disp('+%_nams(%n)+',etat)');
+	  '=''mesh_disp('+%_nams(%n)+',etat);''');
+   execstr('mesh_disp('+%_nams(%n)+',etat)');
  
- 
-  
-  menu_mesh_disp(gwin,etat); // affichage du Menu
+endfunction

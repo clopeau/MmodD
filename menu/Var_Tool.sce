@@ -7,16 +7,19 @@
   // Menu deja existant par defaut  
   
   delmenu(gwin,'Edit') 
-  
+  delmenu(gwin,'?')
   etat=[%t];
-  menu_var_disp(gwin,etat); // affichage du Menu
+ // menu_var_disp(gwin,etat); // affichage du Menu
   
   // Commande associe au Menu 
   View='View';
   Replot='Replot';
+  
   execstr(View+'_'+string(gwin)+...
       '=[''etat(1)=~etat(1); menu_var_disp(gwin,etat); var_disp('+%_nams(%n)+',etat)'' ]');
   execstr(Replot+'_'+string(gwin)+...
-	  '=''var_disp('+%_nams(%n)+',etat)''');
-
+	  '=''var_disp('+%_nams(%n)+',etat)');
+ 
   execstr('var_disp('+%_nams(%n)+',etat)')
+  
+  menu_var_disp(gwin,etat); // affichage du Menu
