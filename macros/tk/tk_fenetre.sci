@@ -1,5 +1,5 @@
-function = tk_fenetre(arg)
-  titre=arg 
+function [] = tk_fenetre(titre)
+  
   TCL_EvalStr("toplevel ."+titre);
 
 // creates a toplevel TK window. 
