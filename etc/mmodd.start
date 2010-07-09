@@ -43,6 +43,10 @@ for i=1:num
   end
   write(%io(2),'-------------------- '+%dir(i,1)+' loaded ---------------------');
 end
+
+xpause(1000)
+winclose(winId);
+
 clear macrospath;
 
 // load gateways
