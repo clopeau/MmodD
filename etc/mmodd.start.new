@@ -1,0 +1,117 @@
+// This file is released into the public domain
+
+mprintf("Start MMODD\n");
+
+if isdef("toolbox_mmodd") then
+	warning("Toolbox MMODD is already loaded");
+	return;
+end
+
+etc_tlbx  = get_absolute_file_path("mmodd.start");
+etc_tlbx  = getshortpathname(etc_tlbx);
+root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
+
+//Load  functions library
+// =============================================================================
+mprintf("\tLoad macros\n");
+macrospath = pathconvert( root_tlbx ) + "macros" + filesep();
+
+listfic=listfiles(macrospath);
+%dir=[];
+for i=1:size(listfic,1)
+  rep=listfic(i,1);
+  if(isdir(macrospath+rep))
+    %dir($+1)=rep;
+  end
+end
+//figw=220; figh=160;
+//close(1)
+//figure(1,"position",[0 0 figw figh]);
+//htrig=uicontrol(1,"style","radiobutton","Min",0,"Max",1,"value",0,..
+//                    "position",[80 10 20 20]);
+//httrig=uititle(htrig,"free/trig","r")
+winId=waitbar('MMoDD loading');
+realtimeinit(0.3);
+tk=with_tk();
+num=size(%dir,1);
+for i=1:num
+  if ~(%dir(i,1)=="tk" & ~tk)
+    str=macrospath+%dir(i,1);
+    execstr('mmodd_'+%dir(i,1)+'_lib='+'lib('''+ str+'/'' )');
+    realtime(3*i/num)
+    waitbar(i/num,winId) 
+  end
+end
+clear macrospath;
+
+// load gateways
+// =============================================================================
+//mprintf("\tLoad gateways\n");
+//ilib_verbose(0);
+//exec(pathconvert(root_tlbx+"/sci_gateway/loader_gateway.sce",%f));
+
+// Load and add help chapter
+// =============================================================================
+//if or(getscilabmode() == ["NW";"STD"]) then
+//	mprintf("\tLoad help\n");
+//	path_addchapter = pathconvert(root_tlbx+"/jar");
+//	if ( isdir(path_addchapter) <> [] ) then
+//		add_help_chapter("Toolbox skeleton", path_addchapter, %F);
+//		clear add_help_chapter;
+//	end
+//	clear path_addchapter;
+//end
+
+// Load demos
+// =============================================================================
+//if or(getscilabmode() == ["NW";"STD"]) then
+//	mprintf("\tLoad demos\n");
+//	pathdemos = pathconvert(root_tlbx+"/demos/toolbox_skeleton.dem.gateway.sce",%F,%T);
+//	add_demo("Toolbox skeleton",pathdemos);
+//	clear pathdemos add_demo;
+//end
+
+// menus additionnels
+if and(sciargs()<>"-nw")
+  %menupath=root_tlbx;
+  //delmenu('toolboxes');
+  //delmenu('Help');
+  //delmenu('Demos');
+  //delmenu('Editor');
+
+  delmenu('Mesh')
+  //addmenu('Mesh',['New mesh';'Load mesh';'View mesh';'Export mesh']);
+  addmenu('Mesh',['Load mesh';'View mesh']);
+  
+  //addmenu("Editor",list(2,"scipad"));
+  ///addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
+  //Mesh(1)="exec("""+%menupath+"/menu/Mesh_New.sce"");";
+  Mesh(1)="exec("""+%menupath+"/macros/menu/mesh_load.sci"");";
+  Mesh(2)="exec("""+%menupath+"/macros/menu/mesh_view.sci"");";
+  //Mesh(4)="exec("""+%menupath+"/menu/Mesh_Export.sce"");";
+  
+  delmenu('Variable');
+  addmenu('Variable',['View Var']);
+  
+  //Variable(1)="exec "+%menupath+"/menu/Var_New.sce;";
+  //Variable(2)="exec "+%menupath+"/menu/Var_Load.sce;";
+  Variable(1)="exec("""+%menupath+"/menu/Var_View.sce"");";
+  //Variable(4)="exec "+%menupath+"/menu/Var_Export.sce;";
+  
+  //if ~(grep(SCI,"scilab-3")==1)
+  //  addmenu("Editor",list(2,"scipad"));
+  //end
+  //addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
+
+end
+
+// definition of global var %exclud (using in function name)
+if ~isdef("%exclud")
+    global %exclud;
+    %exclud=who('get');
+    %exclud=%exclud(length(%exclud)>2);
+    %exclud=[%exclud;'%'];
+end	
+
+//clear root_tlbx;
+//clear etc_tlbx;
