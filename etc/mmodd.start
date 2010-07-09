@@ -41,6 +41,7 @@ for i=1:num
     realtime(3*i/num)
     waitbar(i/num,winId) 
   end
+  write(%io(2),'-------------------- '+%dir(i,1)+' loaded ---------------------');
 end
 clear macrospath;
 

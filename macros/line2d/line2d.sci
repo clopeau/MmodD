@@ -7,14 +7,14 @@ function %th=line2d(varargin)
 //    Coor : tableau des coordonnees 
 //    Seg  : tableau des indices des segments (liste chainee) 
     [lhs,rhs]=argn(0);
-    Id="";Coor=[];Seg=[];BndPerio=%f
+    %Id="";Coor=[];Seg=[];BndPerio=%f
     if rhs==1
       select typeof(varargin(1))
       case 'string'
-	Id=varargin(1)
+	%Id=varargin(1)
       case 'constant'
 	if size(varargin(1))~=2
-	  error('Les points doivent avoir 2 coordonnées')
+	  error('Les points doivent avoir 2 coordonnï¿½es')
 	  return
 	end
 	Coor=varargin(1)
@@ -37,6 +37,6 @@ function %th=line2d(varargin)
     
     
     %th=mlist(['line2d';'#';'Id';'Coor';'Seg';'BndPerio'],...
-	rand(),Id,Coor,Seg,BndPerio)
+	rand(),%Id,Coor,Seg,BndPerio)
     
 endfunction

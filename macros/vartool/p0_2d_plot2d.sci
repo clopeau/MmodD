@@ -1,7 +1,7 @@
 function p0_2d_plot2d(v)
     %th=evstr(v.geo);
     rect =[min(%th);max(%th)]';
-    xbasc()
+    clf()
     plot2d(0,0,0,strf="031",rect=rect);
     coulmax=256;
     xset("colormap",rgbcolor(coulmax))
