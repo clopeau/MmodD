@@ -1,4 +1,3 @@
-//
 // This file is released into the public domain
 
 mprintf("Start MMODD\n");
@@ -42,7 +41,6 @@ for i=1:num
     realtime(3*i/num)
     waitbar(i/num,winId) 
   end
-  write(%io(2),'-------------------- '+%dir(i,1)+' loaded ---------------------');
 end
 clear macrospath;
 
@@ -88,8 +86,8 @@ if and(sciargs()<>"-nw")
   //addmenu("Editor",list(2,"scipad"));
   ///addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
   //Mesh(1)="exec("""+%menupath+"/menu/Mesh_New.sce"");";
-  Mesh(1)="exec("""+%menupath+"/menu/Mesh_Load.sce"");";
-  Mesh(2)="exec("""+%menupath+"/menu/Mesh_View.sce"");";
+  Mesh(1)="exec("""+%menupath+"/macros/menu/mesh_load.sci"");";
+  Mesh(2)="exec("""+%menupath+"/macros/menu/mesh_view.sci"");";
   //Mesh(4)="exec("""+%menupath+"/menu/Mesh_Export.sce"");";
   
   delmenu('Variable');
