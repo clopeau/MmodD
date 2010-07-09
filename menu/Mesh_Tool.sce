@@ -38,10 +38,11 @@
  // Commande associe au Replot
 	 
    execstr(Replot+'_'+string(gwin)+...
-   '=''mesh_disp('+%_nams(%n)+',etat);''');
-    menu_mesh_disp(gwin,etat);
-      execstr('mesh_disp('+%_nams(%n)+',etat)');
+   '=''mesh_disp('+%_nams(%n)+',etat);menu_mesh_disp(gwin,etat);''');
+    
+    
+ execstr('mesh_disp('+%_nams(%n)+',etat);menu_mesh_disp(gwin,etat);');
  
  
   
-  menu_mesh_disp(gwin,etat); // affichage du Menu
+   // affichage du Menu
