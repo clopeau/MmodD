@@ -1,4 +1,4 @@
-%Nomimport=xgetfile('*');
+%Nomimport=uigetfile('*');
 
 if %Nomimport~=''
   %nc=['Scilab Variable'];
