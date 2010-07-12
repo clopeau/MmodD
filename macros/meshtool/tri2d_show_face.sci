@@ -19,8 +19,9 @@ function []=tri2d_show_face(th,ens)
  barx=sum(matrix(th.Coor(Edge(ens,:),1),-1,2),'c')/2;
  bary=sum(matrix(th.Coor(Edge(ens,:),2),-1,2),'c')/2;
  
- for i=1:length(ens)
-   xstring(barx(ens(i)),bary(ens(i)),string(ens(i)));
- end
+  xstring(barx(ens),bary(ens),string(ens)); 
+// for i=1:length(ens)
+  // xstring(barx(ens(i)),bary(ens(i)),string(ens(i)));
+// end
 
 endfunction

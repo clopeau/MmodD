@@ -1,5 +1,5 @@
 function []=tri3d_plot(th,col)
-// Mesh visualisation 
+ Mesh visualisation 
   [lhs,rhs]=argn(0);
   if rhs==1 
     col=1

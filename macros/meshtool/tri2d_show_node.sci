@@ -1,6 +1,6 @@
 function []=tri2d_show_node(th,ens)
 // affiche le numero des nodes sur le maillage 
-// (apres  mesh_plot) il est possible de désigner un sous ensemble
+// (apres  mesh_plot) il est possible de dï¿½signer un sous ensemble
 // th  : mesh
 // ens : sous ensemble de noeud
 
@@ -9,7 +9,8 @@ function []=tri2d_show_node(th,ens)
     ens=1:size(th);
   end
   ens=matrix(ens,-1,1)
-  for i=1:length(ens)
-    xstring(th.Coor(ens(i),1),th.Coor(ens(i),2),string(ens(i)));
-  end
+  xstring(th.Coor(ens,1),th.Coor(ens,2),string(ens));
+ // for i=1:length(ens)
+    //xstring(th.Coor(ens(i),1),th.Coor(ens(i),2),string(ens(i)));
+  //end
 endfunction
