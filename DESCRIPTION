@@ -4,7 +4,7 @@ Title: MMODD
 
 Summary: Finite element method simulation
 
-Version: 1.3
+Version: RC0
 
 Author: Thierry Clopeau 
 
@@ -17,13 +17,13 @@ Entity: UCBL
 
 WebSite: ?????
 
-License: CeCILL
+License: CeCILL2
 
 ScilabVersion: >= 5.2
 
 Depends: 
 
-Date: 2009-03-26
+Date: 2010-07-01
 
 Description: files to the new Docbook based format.
  
