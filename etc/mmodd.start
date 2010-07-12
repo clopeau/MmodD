@@ -82,8 +82,7 @@ if and(sciargs()<>"-nw")
   //delmenu('toolboxes');
   //delmenu('Help');
   //delmenu('Demos');
-  delmenu('Editor');
-
+  
   delmenu('Mesh')
   addmenu('Mesh',['New mesh';'Load mesh';'View mesh';'Export mesh']);
   //addmenu('Mesh',['Load mesh';'View mesh']);
@@ -94,8 +93,6 @@ if and(sciargs()<>"-nw")
   Mesh(2)="exec("""+%menupath+"/menu/Mesh_Load.sce"");";
   Mesh(3)="exec("""+%menupath+"/menu/Mesh_View.sce"");";
   Mesh(4)="exec("""+%menupath+"/menu/Mesh_Export.sce"");";
-  
-  
    delmenu('Variable');
   addmenu('Variable',['New Var';'Load Var';'View Var';'Export Var';]);
   
@@ -103,14 +100,20 @@ if and(sciargs()<>"-nw")
   Variable(2)="exec "+%menupath+"/menu/Var_load.sce;";
   Variable(3)="exec("""+%menupath+"/menu/Var_View.sce"");";
   Variable(4)="exec "+%menupath+"/menu/Var_Export.sce;";
-  
+   
+    
   if ~(grep(SCI,"scilab-3")==1)
-    addmenu("Editor",['Range';'editor';]);
-    Editor(1)="RangeSetting";
-    Editor(2)="xmesh";
+     delmenu("Editor");
+     addmenu("Editor",['Range';'editor';]);
+    //Editor(1)="RangeSetting";
+    Editor(2)="xmesh()";
   end
   //addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
-
+  delmenu('MmoddGUI')
+  addmenu('MmoddGUI')  
+   MmoddGUI="exec "+%menupath+"/menu/Mmoddgui.sce;";
+   
+  
 end
 
 // definition of global var %exclud (using in function name)
