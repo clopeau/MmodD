@@ -2,6 +2,7 @@
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // gestion du menu meshtools
 function []=mesh_disp(th,etat)
+  rac=typeof(th)
   clf();
   rect =[min(th)-0.05*abs(max(th)-min(th));max(th)+0.05*abs(max(th)-min(th))]';
   
@@ -13,5 +14,4 @@ function []=mesh_disp(th,etat)
   if etat(2) then execstr(rac+'_show_cell(th)'), end
   if etat(3) then execstr(rac+'_show_face(th)'), end
   if etat(6) then execstr(rac+'_show_rect(th)'), end
-
 endfunction
