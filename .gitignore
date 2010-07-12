@@ -13,6 +13,7 @@ jar/scilab_fr_FR_help.jar
 *.dylib
 names
 lib
+hs_err_pid*.log
 #
 # Generated files (Windows)
 #
