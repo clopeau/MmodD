@@ -105,7 +105,9 @@ if and(sciargs()<>"-nw")
   Variable(4)="exec "+%menupath+"/menu/Var_Export.sce;";
   
   if ~(grep(SCI,"scilab-3")==1)
-    addmenu("Editor",list(2,"editor"));
+    addmenu("Editor",['Range';'editor';]);
+    Editor(1)="RangeSetting";
+    Editor(2)="xmesh";
   end
   //addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
 
