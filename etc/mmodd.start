@@ -117,3 +117,5 @@ end
 
 //clear root_tlbx;
 //clear etc_tlbx;
+
+winclose(winId);
