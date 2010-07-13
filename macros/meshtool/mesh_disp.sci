@@ -2,7 +2,10 @@
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // gestion du menu meshtools
 function []=mesh_disp(th,etat)
-  clf();
+  //clf();
+  gwin=(max(winsid())+1);
+  xset('window',gwin);
+  xset("wdim",800,600);  
   rect =[min(th)-0.05*abs(max(th)-min(th));max(th)+0.05*abs(max(th)-min(th))]';
   
   plot2d(1,1,[1],"030"," ",rect(1:4));
