@@ -1,37 +1,35 @@
-Toolbox: toolbox_skeleton
+Toolbox: MMODD
 
-Title: Toolbox Skeleton
+Title: MMODD
 
-Summary: Skeleton of a valid atoms package
+Summary: Finite element method simulation
 
-Version: 1.3
+Version: RC0
 
-Author: Allan CORNET <allan.cornet@scilab.org>
+Author: Thierry Clopeau 
 
-Maintainer: Allan CORNET <allan.cornet@scilab.org>
- Pierre MARECHAL <pierre.marechal@scilab.org>
+Maintainer: 
 
-Category: biology - Robotic_2
- CatB - SScat2
- biology - modelisation_III
 
-Entity: Digiteo
+Category: modelisation
 
-WebSite: http://www.scilab.org
+Entity: UCBL
 
-License: CeCILL
+WebSite: ?????
+
+License: CeCILL2
 
 ScilabVersion: >= 5.2
 
 Depends: 
 
-Date: 2009-03-26
+Date: 2010-07-01
 
 Description: files to the new Docbook based format.
  
- install xmltodocbook
- - linux : unzip xmltodocbook.zip and exec builder.sce
- - windows : click on xmltodocbook-1.0.exe
+ install Atomsinstall
+ - linux : Atomsinstall mmodd.tar.gz
+ - windows : Atomsinstall mmodd.tar.gz
  load toolbox in scilab
  exec loader.sce
  

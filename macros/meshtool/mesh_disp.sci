@@ -2,7 +2,7 @@
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // gestion du menu meshtools
 function []=mesh_disp(th,etat)
-  //clf();
+  rac=typeof(th)
   gwin=(max(winsid())+1);
   xset('window',gwin);
   xset("wdim",800,600);  

@@ -1,4 +1,4 @@
-//function []=meshtool(th)
+function []=meshtool(th)
 
   rac=typeof(th)
   
@@ -60,6 +60,6 @@
     //getclick() // attention commande non commente
     xpause(10000) //pour ne pas avoir de temps cpu inutilement utilise
   end
-//endfunction
+endfunction
 
  
