@@ -2,11 +2,12 @@ function [] = menu()
   f=gcf();
   mmesh=uimenu(f,'label', 'Mesh');
    mplot=uimenu(f,'label','Plot');
-  
+  mvar=uimenu(f,'label','Var');
  // create an item on the menu bar
-   mmesh1=uimenu(mmesh,'label', 'New Mesh','callback','call(th=funcallbackel())' );
-    mplot1=uimenu(mplot,'label','Plot",'callback','call(funcallbackaff(gcf(),th,etat))');
-  endfunction
+   mmesh1=uimenu(mmesh,'label', 'New Mesh','callback','th=funcallbackel()' );
+    mplot1=uimenu(mplot,'label','Plot",'callback','funcallbackaff(th)');
+ // à faire   mvar1=uimenu(f,'label','View Var','callback')
+   endfunction
   
  function [] = funcallbackaff(f,th,etat)
    mesh_disp(th)
@@ -25,7 +26,7 @@ function [] = menu()
  
 f=figure();
    etat=[%f;%f;%f;%t;%t;%f]; // etat d'affichage :voir node, triangles et extremes
-call(menu())
+menu()
    
 
 
