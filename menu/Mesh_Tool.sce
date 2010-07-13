@@ -16,7 +16,7 @@
   //delmenu(gwin,'3D Rot.') //2d seulement
   //unsetmenu(gwin,'File',7) //close'=Objects')  
  etat=[%f;%f;%f;%t;%t;%f]; // etat d'affichage :voir node, triangles et extremes
-
+etat0=etat;//etat de reinitialisation
   // Commande associe au Menu Meshtool
   execstr(Number+'_'+string(gwin)+...
 	  '=[''etat(1)=~etat(1); if etat(1) then, '+rac+'_show_node('+%_nams(%n)+') ,end;... 
@@ -38,10 +38,10 @@
  // Commande associe au Replot
 	 
    execstr(Replot+'_'+string(gwin)+...
-   '=''mesh_disp('+%_nams(%n)+',etat);menu_mesh_disp(gwin,etat);''');
+   '=''mesh_disp('+%_nams(%n)+',etat0);menu_mesh_disp(gwin,etat0);etat=etat0''');
     
     
- execstr('mesh_disp('+%_nams(%n)+',etat);menu_mesh_disp(gwin,etat);');
+ execstr('mesh_disp('+%_nams(%n)+',etat0);menu_mesh_disp(gwin,etat0);etat=etat0');
  
  
   
