@@ -19,7 +19,7 @@ function th=xmesh()
 [lhs,rhs]=argn(0)
 gwin=xget("window");
 xset('default')
-xbasc()
+clf()
   Polyg=[];
   Polys=[];
   NbPolys=[];
@@ -31,7 +31,7 @@ xbasc()
   //disp('creation d''une nouvelle fenetre') ;
   //gwin = (max(winsid())+1);// genere un nouveau numero de fenetre
   //xset('window',gwin);// affiche la nouvelle fenetre
-  xbasc();
+  clf();
   // nouveaux coordonnees utilisateur
   xsetech([0 0 1 1],[-10 -10 10 10]);
 
@@ -54,7 +54,7 @@ xbasc()
   // definition du vecteur de callback
   execstr(Nom_de_Menu+'_' + string(gwin) + ActionPolygone);
   
-  addmenu(gwin,Nom_de_Menu,Sub_Menu,ActionPolygone);
+  addmenu(gwin,Nom_de_Menu,Sub_Menu,[0,ActionPolygone]);
   
   //Polys=[Polys,Polyg];
   //NbPolys=[NbPolys,size(Polyg,2)];
@@ -78,7 +78,7 @@ xbasc()
   execstr(Nom_de_Menu2+'_' + string(gwin) + ActionEdition);
 
 
-  addmenu(gwin,Nom_de_Menu2,Sub_Menu2,ActionEdition);
+  addmenu(gwin,Nom_de_Menu2,Sub_Menu2,[0,ActionEdition]);
 
 
   Nom_Menu3 = 'Maillage'
@@ -87,7 +87,7 @@ xbasc()
   execstr(Nom_de_Menu3+'_' + string(gwin) + ActionMaillage);
   th=tri2d('x');
 
-  addmenu(gwin,Nom_de_Menu3,Sub_Menu3,ActionMaillage);
+  addmenu(gwin,Nom_de_Menu3,Sub_Menu3,[0,ActionMaillage]);
   // menu Setting
   Setting='Setting'
   subStting=['Range';'iso View']
@@ -95,10 +95,10 @@ xbasc()
   execstr(Setting+'_'+string(gwin)+...
       '=[''[xmn,xmx,ymn,ymx]=RangeSetting(xmn,xmx,ymn,ymx);...
 	  rect=[xmn,ymn,xmx,ymx];...
-	  xbasc();...
+	  clf();...
 	  plot2d(rect(1),rect(2),-1,strf,'''' '''',rect,axisdata);...
 	  xgrid(4)'';...
-	  ''strf=''''031'''';xbasc();...
+	  ''strf=''''031'''';clf();...
 	  plot2d(rect(1),rect(2),-1,strf,'''' '''',rect,axisdata);...
 	  xgrid(4)'']')
   //definition de menu d'arret dans la fenetre graphique

@@ -9,7 +9,7 @@
   gwin=(max(winsid())+1);
   xset('window',gwin);
    xset("wdim",800,600)
-  //gwin=xget("window");
+  gwin=xget("window");
   // Menu deja existant par defaut  
   delmenu(gwin,'Edition') 
   delmenu(gwin,'?')
