@@ -1,17 +1,38 @@
 function th=square2d(x,y,nx,ny)
-// Creation d'un maillage grille sur un carre
-// syntaxe :
-// --------
+// Description
+// Create a mesh on a square
 //
-//  square2d()      : carre unit� a deux triangles
+// Calling sequence
 //
-//  square2d(nx,ny) : grille unit� a 2*nx*ny triangles
+//  square2d()   
 //
-//  square2d(x,y)   : x et y vecteurs d'affixes et d'ordonnes
+//  square2d(nx,ny) 
+//
+//  square2d(x,y) 
 //
 //  square2d([x_min,x_max],[y_min,y_max],nx,ny)   
 //
-// Le resultat possede 4 frontieres 'E' 'W' 'N' 'S'
+// Parameters
+// x and y : coordonates vectors
+// nx and nx : number of points in x and y
+//
+// Description
+// square2d returns a tri2d with a square geometry. 
+//
+// Each square2d contains four borders ('W','E','N','S') 
+//
+// Examples
+// th = square2d(15,20)
+// th = square2d(1:.02:2,4:0.4:6]
+// th.Coor
+// th.Tri
+// th.BndId
+// th.Bnd(2)
+//
+// See also 
+// tri2d
+
+
 
   [lhs,rhs]=argn();
   if rhs==0|x<2|y<2

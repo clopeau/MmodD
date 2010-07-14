@@ -54,18 +54,17 @@ clear macrospath;
 //mprintf("\tLoad gateways\n");
 //ilib_verbose(0);
 //exec(pathconvert(root_tlbx+"/sci_gateway/loader_gateway.sce",%f));
-
-// Load and add help chapter
+// Load and add help chapter
 // =============================================================================
-//if or(getscilabmode() == ["NW";"STD"]) then
-//	mprintf("\tLoad help\n");
-//	path_addchapter = pathconvert(root_tlbx+"/jar");
-//	if ( isdir(path_addchapter) <> [] ) then
-//		add_help_chapter("Toolbox skeleton", path_addchapter, %F);
-//		clear add_help_chapter;
-//	end
-//	clear path_addchapter;
-//end
+if or(getscilabmode() == ["NW";"STD"]) then
+	mprintf("\tLoad help\n");
+	path_addchapter = pathconvert(root_tlbx+"/jar");
+	if ( isdir(path_addchapter) <> [] ) then
+		add_help_chapter("Toolbox skeleton", path_addchapter, %F);
+		clear add_help_chapter;
+	end
+	clear path_addchapter;
+end
 
 // Load demos
 // =============================================================================
