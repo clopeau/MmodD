@@ -6,7 +6,8 @@ function []=var_disp(var,etat)
 //  rect =[min(var);max(var)]';
   
 //  plot2d(1,1,[1],"030"," ",rect(1:4));
-  
+
+    rac=typeof(var) 
   
     if etat(1) 
       execstr(rac+'_plot2d(var)')
