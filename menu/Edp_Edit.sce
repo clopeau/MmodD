@@ -1,5 +1,5 @@
 if isdef('new_pb')==%t
-  editvar new_edp;
+  editvar new_pb;
 else
   disp('   --- no variable ---');
 end

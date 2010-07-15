@@ -4,7 +4,7 @@ function []=menu_mesh_disp(gwin,etat)
   subNumb=['Show Node';'Show Cell';'Show Face'];
   Geom='Geom';
   subGeom=['unShow Cell';'Show Boundary';'Show Extrem']
-  Replot='Replot';
+  Replot='Reset';
   Exit='Exit';
   
   delmenu(gwin,Number);

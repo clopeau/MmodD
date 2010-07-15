@@ -5,9 +5,7 @@ function []=mesh_disp(th,etat)
   gwin=(max(winsid()));
   xset('window',gwin);
   rac=typeof(th)
-  gwin=(max(winsid())+1);
-  xset('window',gwin);
-  xset("wdim",800,600);  
+   
   rect =[min(th)-0.05*abs(max(th)-min(th));max(th)+0.05*abs(max(th)-min(th))]';
   
   plot2d(1,1,[1],"030"," ",rect(1:4));

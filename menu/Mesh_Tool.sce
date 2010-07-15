@@ -3,7 +3,7 @@
  
   Number='Number';
   Geom='Geom';
-  Replot='Replot';
+  Replot='Reset';
   File='File';
   troisD='3D Rot.';
 
@@ -49,8 +49,10 @@ execstr(Number+'_'+string(gwin)+...
   // Commande associe au Replot	 
    execstr(Replot+'_'+string(gwin)+...
    '=''mesh_disp('+%_nams(%n)+',etat0);menu_mesh_disp(gwin,etat0);''');     
-execstr('mesh_disp('+%_nams(%n)+',etat);menu_mesh_disp(gwin,etat);');
+   
+      // affichage du Menu
+   execstr('mesh_disp('+%_nams(%n)+',etat);menu_mesh_disp(gwin,etat);');
  
  
   
-   // affichage du Menu
+
