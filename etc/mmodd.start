@@ -47,7 +47,7 @@ end
 xpause(1000);
 
 
-clear macrospath;
+//clear macrospath; ------> RENVOYER APRES LE CHARGEMENT DE L'AIDE 
 
 // load gateways
 // =============================================================================
@@ -65,6 +65,48 @@ if or(getscilabmode() == ["NW";"STD"]) then
 	end
 	clear path_addchapter;
 end
+//----------Modif Dav (PI ETRE A SUPPRIMER)-----------------
+help_dir = get_absolute_file_path('builder_help.sce');
+
+listfic = listfiles(macrospath);
+//%dir=[];
+for i = 1:size(listfic,1)
+  rep = listfic(i,1);
+  if(isdir(macrospath+rep))
+    //%dir($+1) = rep;
+    execstr('help_from_sci('rep','help_dir')');
+  end
+end
+//execstr('help_from_sci(macro_dir,)');
+
+
+
+
+
+
+
+////winId=waitbar('MMoDD Help loading');
+//realtimeinit(0.3);
+//tk=with_tk();
+//num=size(%dir,1);
+//for i=1:num
+//  if ~(%dir(i,1)=="tk" & ~tk)
+//    //str=macrospath+%dir(i,1);
+//    //execstr('mmodd_'+%dir(i,1)+'_lib='+'lib('''+ str+'/'' )');
+//    execstr("help_from_sci("%dir(i,1)","root_tlbx"+"/help/"")");
+//    realtime(3*i/num);
+//    waitbar(i/num,winId) ;
+//  end
+//  write(%io(2),'-------------------- '+%dir(i,1)+'Help loaded ---------------------');
+//end
+//
+//xpause(1000);
+
+
+
+
+//----------FIN Modif Dav (PI ETRE A SUPPRIMER)-----------------
+clear macrospath;
 
 // Load demos
 // =============================================================================
