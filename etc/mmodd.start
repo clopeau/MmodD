@@ -94,20 +94,30 @@ if and(sciargs()<>"-nw")
   Mesh(3)="exec("""+%menupath+"/menu/Mesh_View.sce"");";
   Mesh(4)="exec("""+%menupath+"/menu/Mesh_Export.sce"");";
    delmenu('Variable');
-  addmenu('Variable',['New Var';'Load Var';'View Var';'Export Var';]);
+  addmenu('Variable',['New Var';'Load Var';'View Var';'Export Var';'Edit Var']);
   
   Variable(1)="exec "+%menupath+"/menu/Var_New.sce;";
   Variable(2)="exec "+%menupath+"/menu/Var_load.sce;";
   Variable(3)="exec("""+%menupath+"/menu/Var_View.sce"");";
   Variable(4)="exec "+%menupath+"/menu/Var_Export.sce;";
-   
-    
-  if ~(grep(SCI,"scilab-3")==1)
-     delmenu("Editor");
-     addmenu("Editor",['Range';'editor';]);
-    //Editor(1)="RangeSetting";
-    Editor(2)="xmesh()";
-  end
+  Variable(5)="exec "+%menupath+"/menu/Var_Edit.sce;"; 
+  
+   addmenu('Edp',['New edp';'Load edp';'View solution';'Export Var';'Edit edp']);
+  
+Edp(1)="exec "+%menupath+"/menu/Var_New.sce;";
+  Edp(2)="exec "+%menupath+"/menu/Var_load.sce;";
+  Edp(3)="exec("""+%menupath+"/menu/Var_View.sce"");";
+  Edp(4)="exec "+%menupath+"/menu/Var_Export.sce;";
+  Edp(5)="exec "+%menupath+"/menu/Edp_Edit.sce;"; 
+  
+  
+      
+//  if ~(grep(SCI,"scilab-3")==1)
+//     delmenu("Editor");
+//     addmenu("Editor",['Range';'editor';]);
+//    //Editor(1)="RangeSetting";
+//    Editor(2)="xmesh()";
+//  end
   //addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
   delmenu('MmoddGUI')
   addmenu('MmoddGUI')  
