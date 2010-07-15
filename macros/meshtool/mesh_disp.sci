@@ -2,6 +2,8 @@
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // gestion du menu meshtools
 function []=mesh_disp(th,etat)
+  gwin=(max(winsid()));
+  xset('window',gwin);
   rac=typeof(th)
   gwin=(max(winsid())+1);
   xset('window',gwin);
