@@ -54,7 +54,8 @@ xpause(1000);
 //mprintf("\tLoad gateways\n");
 //ilib_verbose(0);
 //exec(pathconvert(root_tlbx+"/sci_gateway/loader_gateway.sce",%f));
-// Load and add help chapter
+
+// Load and add help chapter
 // =============================================================================
 if or(getscilabmode() == ["NW";"STD"]) then
 	mprintf("\tLoad help\n");
@@ -66,17 +67,17 @@ if or(getscilabmode() == ["NW";"STD"]) then
 	clear path_addchapter;
 end
 //----------Modif Dav (PI ETRE A SUPPRIMER)-----------------
-help_dir = get_absolute_file_path('builder_help.sce');
-
-listfic = listfiles(macrospath);
-//%dir=[];
-for i = 1:size(listfic,1)
-  rep = listfic(i,1);
-  if(isdir(macrospath+rep))
-    //%dir($+1) = rep;
-    execstr('help_from_sci('rep','help_dir')');
-  end
-end
+//help_dir = get_absolute_file_path('builder_help.sce');
+//
+//listfic = listfiles(macrospath);
+////%dir=[];
+//for i = 1:size(listfic,1)
+//  rep = listfic(i,1);
+//  if(isdir(macrospath+rep))
+//    //%dir($+1) = rep;
+//    execstr('help_from_sci('rep','help_dir')');
+//  end
+//end
 //execstr('help_from_sci(macro_dir,)');
 
 
