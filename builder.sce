@@ -42,7 +42,6 @@ tbx_build_loader(TOOLBOX_NAME, toolbox_dir);
 tbx_build_cleaner(TOOLBOX_NAME, toolbox_dir);
 add_demo('Mmodd demo',toolbox_dir+'/demos/mini.dem.sce')
 
-// LIGNE VOLONTAIREMENT INUTILE
 // Clean variables
 // =============================================================================
 
