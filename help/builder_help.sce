@@ -1,6 +1,8 @@
 // Copyright INRIA 2008
 // This file is released into the public domain
 help_dir = get_absolute_file_path('builder_help.sce');
+help_dir_US = pathconvert( help_dir ) + "en_US" + filesep();
+
 //disp(pwd())
 func=['square2d.sci' 'macros/tri2d'
        ];
@@ -12,7 +14,8 @@ for i=1:nb(i)
   //disp('done!');
 end
   execstr('cd '+func(i,2));  
-  execstr('help_from_sci(func(i,1),help_dir)'); 
+  //execstr('help_from_sci(func(i,1),help_dir)'); 
+  execstr('help_from_sci(func(i,1),help_dir_US)');
 end
 //--New modif
 //xmltojar(help_dir);
