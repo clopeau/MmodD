@@ -1,15 +1,10 @@
 function th=square2d(x,y,nx,ny)
-// Description
 // Create a mesh on a square
 //
-// Calling sequence
-//
+// Calling Sequence
 //  square2d()   
-//
 //  square2d(nx,ny) 
-//
 //  square2d(x,y) 
-//
 //  square2d([x_min,x_max],[y_min,y_max],nx,ny)   
 //
 // Parameters
@@ -22,7 +17,7 @@ function th=square2d(x,y,nx,ny)
 // Each square2d contains four borders ('W','E','N','S') 
 //
 // Examples
-// th = square2d(15,20)
+// th = square2d(15,20)            
 // th = square2d(1:.02:2,4:0.4:6]
 // th.Coor
 // th.Tri
