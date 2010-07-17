@@ -144,12 +144,13 @@ if and(sciargs()<>"-nw")
   Variable(4)="exec "+%menupath+"/menu/Var_Export.sce;";
   Variable(5)="exec "+%menupath+"/menu/Var_Edit.sce;"; 
   
-   addmenu('Edp',['New edp';'Load edp';'View solution';'Export Var';'Edit edp']);
+  delmenu('Edp')
+   addmenu('Edp',['New edp';'Load edp';'View solution';'Export Edp';'Edit edp']);
   
 Edp(1)="exec "+%menupath+"/menu/Var_New.sce;";
-  Edp(2)="exec "+%menupath+"/menu/Var_load.sce;";
+  Edp(2)="exec "+%menupath+"/menu/Edp_Load.sce;";
   Edp(3)="exec("""+%menupath+"/menu/Var_View.sce"");";
-  Edp(4)="exec "+%menupath+"/menu/Var_Export.sce;";
+  Edp(4)="exec "+%menupath+"/menu/Edp_Export.sce;";
   Edp(5)="exec "+%menupath+"/menu/Edp_Edit.sce;"; 
   
   
@@ -180,3 +181,8 @@ end
 //clear etc_tlbx;
 
 close(winId);
+
+//création des variables temporaires pour le chargement
+//th=tri2d();
+//u=p1_2d(th);
+//pb=edp(th);

@@ -10,16 +10,16 @@ if bdr>2,
 
 
           
-          new_var=x_mdialog(['Variables definition';'Name:  '+new],['Geometry';'Equation'],['p1_2d';'-Laplace(u)=b*u+1']);
+          new_var=x_mdialog(['Variables definition';'Name:  '+new],['Geometry';'Equation'],['tri2d';'-Laplace(u)=b*u+1']);
 new_var=[new;new_var] ;         
           
       
    Boundary='Bnd'+string(1);
-  eq_bnd='Id=0';
+  eq_bnd='Id(u)=0';
    eq_type='D';
     for j=2:bdr
       Boundary=[Boundary;'Bnd'+string(j)];
-      eq_bnd=[eq_bnd;'Id=0'];
+      eq_bnd=[eq_bnd;'Id(u)=0'];
        eq_type=['D';eq_type];
           end     
               tri2d_show_bnd(th);
@@ -30,10 +30,14 @@ new_var=[new;new_var] ;
        end 
            new_pb=x_mdialog(['Boundary Definition';'D=diriclet';'N=neumann'],[Boundary],['Equation','type'],[eq_bnd, eq_type]);
 u=p1_2d(th) ;      
-new_edp=edp(u);
-new_edp.Id=new;
-new_edp.geo=new_pb(1);
-new_edp.eq=new_pb(2);
+pb=edp(u);
+pb.Id=string(new);
+pb.eq=new_var(3);
+for i=1:bdr 
+  pb.BndVal(i)=new_pb(i) ; 
+   pb.TypBnd(i)=new_pb(i+bdr)  ;
+end
+
 close();
 
 else

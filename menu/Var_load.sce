@@ -1,21 +1,29 @@
-%Nomimport=uigetfile('*');
-
-if %Nomimport~=''
-  %nc=['Scilab Variable'];
-  %n=x_choose(%nc,'Choose a Format','Cancel');
-  select %n
-  case 1
-    load(%Nomimport);
-  else
-    %nomvar=x_dialog('Chose a variable Name');
-    if %nomvar~=[]
-      ier=execstr(%nomvar+'=import'+%nc(%n)+'('''+%Nomimport+''')','errcatch');
-      if ier<>0 
-	disp('ERROR : Invalid File Format');
-      end
-    end
-    clear %nomvar
-  end
-  clear %n %nc
+SVDIR=pwd();
+if isdef('u')==%t,
+load(SVDIR+'/temp_var.VAR','u')
+  disp(' --- Variables loaded --- ');
+else 
+  disp(' --- No Variables ---');
 end
-clear %Nomimport
+//%Nomimport=uigetfile('*');
+//
+//if %Nomimport~=''
+//  %nc=['Scilab Variable'];
+//  %n=x_choose(%nc,'Choose a Format','Cancel');
+//  select %n
+//  case 1
+//    load(%Nomimport);
+//  else
+//    %nomvar=x_dialog('Chose a variable Name');
+//    if %nomvar~=[]
+//      ier=execstr(%nomvar+'=import'+%nc(%n)+'('''+%Nomimport+''')','errcatch');
+//      if ier<>0 
+//	disp('ERROR : Invalid File Format');
+//      end
+//    end
+//    clear %nomvar
+//  end
+//  clear %n %nc
+//end
+//clear %Nomimport
+//

@@ -1,9 +1,9 @@
-  delmenu('Fichier')
-  delmenu('Outils')
-  delmenu('edition')
-  delmenu('Mesh')
-  delmenu('Plot')
-  delmenu('Var')
+//  delmenu('Fichier')
+//  delmenu('Outils')
+//  delmenu('Edition')
+//  delmenu('Mesh')
+//  delmenu('Plot')
+//  delmenu('Var')
   
 function [] = menu()
   f=gcf();
