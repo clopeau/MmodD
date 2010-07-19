@@ -1,0 +1,23 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>square2d</title><link rel="stylesheet" href="javahelp.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="mmodd"><link rel="up" href="section_b9ac253a98fd44663db43d1375fd1dc7.html" title="Part&nbsp;I.&nbsp;mmodd"><link rel="prev" href="scilab_sum.html" title="scilab_sum"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="refentry" lang="en"><a name="square2d"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>square2d &#8212; Create a mesh on a square</p></div><div class="refsynopsisdiv"><h2>Calling Sequence</h2><pre class="synopsis">
+   //square2d()
+   square2d(nx,ny)
+   square2d(x,y)
+   square2d([x_min,x_max],[y_min,y_max],nx,ny)
+   
+   </pre></div><div class="refsection" lang="en"><a name="d0e150"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">x and y :</span></dt><dd><p> coordonates vectors</p></dd><dt><span class="term">nx and nx :</span></dt><dd><p> number of points in x and y</p></dd></dl></div></div><div class="refsection" lang="en"><a name="d0e166"></a><h2>Description</h2><p>
+square2d returns a tri2d with a square geometry.
+   </p><p>
+Each square2d contains four borders ('W','E','N','S')
+   </p><p>
+</p></div><div class="refsection" lang="en"><a name="d0e175"></a><h2>Examples</h2><pre class="programlisting">
+th = square2d(15,20)
+th = square2d(1:.02:2,4:0.4:6]
+th.Coor
+th.Tri
+th.BndId
+th.Bnd(2)
+th.E
+
+   </pre></div><div class="refsection" lang="en"><a name="d0e180"></a><h2>See also</h2><span class="simplelist"><a class="link" href="">tri2d</a></span></div></div></body></html>
