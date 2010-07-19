@@ -10,6 +10,7 @@ if rep==1
   th=square2d(nxy(1),nxy(2));
   th.Coor(:,1)=th.Coor(:,1)+xy(1);
   th.Coor(:,2)=th.Coor(:,2)+xy(2);
-else
-  disp('  --- Launching graphic mode ---');
+  disp(' --- Square2d Built ---')
+//else
+//  disp('  --- Launching graphic mode ---');
 end

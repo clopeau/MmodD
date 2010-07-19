@@ -1,11 +1,17 @@
+mode(-1)
 //SVDIR=pwd();
 SVDIR=uigetfile('*.MESH');
-if isdef('th')==%t,
-load(SVDIR,'th')
+if length(SVDIR)>0
+  if isdef('th')==%f,
+    th=square2d(2,2);
+  end
+  load(SVDIR,'th');
   disp(' --- Mesh loaded --- ');
-else 
-  disp(' --- No Mesh ---');
+else disp(' --- No Mesh Loaded ---');
 end
+//else 
+  //disp(' --- No Mesh ---');
+//end
 //%Nomimport=uigetfile('*');
 //
 //if %Nomimport~=''
