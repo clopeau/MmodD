@@ -27,7 +27,7 @@
 <refsynopsisdiv>
    <title>Calling Sequence</title>
    <synopsis>
-   square2d()
+   //square2d()
    square2d(nx,ny)
    square2d(x,y)
    square2d([x_min,x_max],[y_min,y_max],nx,ny)
