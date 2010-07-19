@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<book version='5.0-subset Scilab' xml:lang='fr_FR'>
+  <info xml:id='chapitre_d_aide_1_manual'>
+    <title>Chapitre d&apos;aide 1</title>
+  </info>
+
+<part xml:id='section_b9ac253a98fd44663db43d1375fd1dc7'>
+<title>Chapitre d&apos;aide 1</title>
+
+
+<refentry version='5.0-subset Scilab' xml:id='c_sub' xml:lang='en'>
+  <info>
+    <pubdate>$LastChangedDate: 2008-03-26 09:50:39 +0100 (mer., 26 mars 2008)
+    $</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>c_sub</refname>
+
+    <refpurpose>substraction from C</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <title>Calling Sequence</title>
+
+    <synopsis>a = c_sub(b,c)</synopsis>
+  </refsynopsisdiv>
+
+  <refsection>
+    <title>Description</title>
+
+    <para>Do a substraction.</para>
+
+    <para>Add here a paragraph of the function description </para>
+  </refsection>
+
+  <refsection>
+    <title>Examples</title>
+
+    <programlisting role='example'>c_sub(3,4)</programlisting>
+  </refsection>
+
+  <refsection>
+    <title>Authors</title>
+
+    <simplelist type='vert'>
+      <member>Allan CORNET</member>
+    </simplelist>
+  </refsection>
+</refentry>
+
+
+
+<refentry version='5.0-subset Scilab' xml:id='c_sum' xml:lang='en'>
+  <info>
+    <pubdate>$LastChangedDate: 2008-03-26 09:50:39 +0100 (mer., 26 mars 2008)
+    $</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>c_sum</refname>
+
+    <refpurpose>sum from C</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <title>Calling Sequence</title>
+
+    <synopsis>a = c_sum(b,c)</synopsis>
+  </refsynopsisdiv>
+
+  <refsection>
+    <title>Description</title>
+
+    <para>Do a sum.</para>
+
+    <para>Add here a paragraph of the function description </para>
+  </refsection>
+
+  <refsection>
+    <title>Examples</title>
+
+    <programlisting role='example'>c_sum(3,4)</programlisting>
+  </refsection>
+
+  <refsection>
+    <title>Authors</title>
+
+    <simplelist type='vert'>
+      <member>Allan CORNET</member>
+    </simplelist>
+  </refsection>
+</refentry>
+
+
+
+<refentry version='5.0-subset Scilab' xml:id='fortran_sum' xml:lang='en'>
+  <info>
+    <pubdate>$LastChangedDate: 2008-03-26 09:50:39 +0100 (mer., 26 mars 2008)
+    $</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>fortran_sum</refname>
+
+    <refpurpose>sum from fortran</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <title>Calling Sequence</title>
+
+    <synopsis>a = c_sum(b,c)</synopsis>
+  </refsynopsisdiv>
+
+  <refsection>
+    <title>Description</title>
+
+    <para>Do a sum.</para>
+
+    <para>Add here a paragraph of the function description</para>
+  </refsection>
+
+  <refsection>
+    <title>Examples</title>
+
+    <programlisting role='example'>fortran_sum(3,4)</programlisting>
+  </refsection>
+
+  <refsection>
+    <title>Authors</title>
+
+    <simplelist type='vert'>
+      <member>Allan CORNET</member>
+    </simplelist>
+  </refsection>
+</refentry>
+
+
+
+<refentry version='5.0-subset Scilab' xml:id='scilab_sum' xml:lang='en'>
+  <info>
+    <pubdate>$LastChangedDate: 2008-03-26 09:50:39 +0100 (mer., 26 mars 2008)
+    $</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>scilab_sum</refname>
+
+    <refpurpose>sum from scilab</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <title>Calling Sequence</title>
+
+    <synopsis>a = scilab_sum(b,c)</synopsis>
+  </refsynopsisdiv>
+
+  <refsection>
+    <title>Description</title>
+
+    <para>Do a sum.</para>
+
+    <para>Add here a paragraph of the function description </para>
+  </refsection>
+
+  <refsection>
+    <title>Examples</title>
+
+    <programlisting role='example'>scilab_sum(3,4)</programlisting>
+  </refsection>
+
+  <refsection>
+    <title>Authors</title>
+
+    <simplelist type='vert'>
+      <member>Allan CORNET</member>
+    </simplelist>
+  </refsection>
+</refentry>
+
+
+
+
+
+<refentry version='5.0-subset Scilab' xml:id='square2d' xml:lang='en'>
+
+  <info>
+    <pubdate>$LastChangedDate: 19-Juil-2010 $</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>square2d</refname><refpurpose>Create a mesh on a square</refpurpose>
+  </refnamediv>
+
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   //square2d()
+   square2d(nx,ny)
+   square2d(x,y)
+   square2d([x_min,x_max],[y_min,y_max],nx,ny)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>x and y :</term>
+      <listitem><para> coordonates vectors</para></listitem></varlistentry>
+   <varlistentry><term>nx and nx :</term>
+      <listitem><para> number of points in x and y</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+square2d returns a tri2d with a square geometry.
+   </para>
+   <para>
+Each square2d contains four borders (&apos;W&apos;,&apos;E&apos;,&apos;N&apos;,&apos;S&apos;)
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role='example'>
+th = square2d(15,20)
+th = square2d(1:.02:2,4:0.4:6]
+th.Coor
+th.Tri
+th.BndId
+th.Bnd(2)
+th.E
+
+   </programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type='inline'>
+   <member><link linkend='tri2d'>tri2d</link></member>
+   </simplelist>
+</refsection>
+</refentry>
+
+</part>
+</book>
