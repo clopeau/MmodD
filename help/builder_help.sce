@@ -11,4 +11,5 @@ end
 
 tbx_builder_help_lang("en_US", help_dir);
 tbx_builder_help_lang("fr_FR", help_dir);
+xmltohtml(help_dir_US);
 clear help_dir;

@@ -2,7 +2,7 @@ function th=square2d(x,y,nx,ny)
 // Create a mesh on a square
 //
 // Calling Sequence
-//  square2d()   
+//  //square2d()   
 //  square2d(nx,ny) 
 //  square2d(x,y) 
 //  square2d([x_min,x_max],[y_min,y_max],nx,ny)   
@@ -23,10 +23,10 @@ function th=square2d(x,y,nx,ny)
 // th.Tri
 // th.BndId
 // th.Bnd(2)
+// th.E
 //
 // See also 
 // tri2d
-
 
 
   [lhs,rhs]=argn();
