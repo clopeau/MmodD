@@ -1,6 +1,10 @@
 if isdef('pb')==%t
-  editvar pb.eq;
-  disp( ' --- please to confirm your choice in editor by pressing Enter then update and quit ---')
-else
+  if bdr==4
+    xedp(pb);
+  else
+    editvar pb.eq
+    editvar pb.BndVal
+  end
+  else
   disp('   --- no variable ---');
 end

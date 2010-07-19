@@ -1,7 +1,7 @@
-SVDIR=pwd();
-
+//SVDIR=pwd();
+SVDIR=uigetfile('*.MESH');
 if isdef('th')==%t,
-load(SVDIR+'/temp_var.MESH','th')
+load(SVDIR,'th')
   disp(' --- Mesh loaded --- ');
 else 
   disp(' --- No Mesh ---');

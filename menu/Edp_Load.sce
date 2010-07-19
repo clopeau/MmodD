@@ -1,6 +1,6 @@
-SVDIR=pwd();
+SVDIR=uigetfile('*.EDP');
 if isdef('pb')==%t,
-load(SVDIR+'/temp_var.EDP','pb')
+load(SVDIR,'pb')
   disp(' --- Equation definition loaded --- ');
 else 
   disp(' --- No Edp---');

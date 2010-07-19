@@ -1,6 +1,6 @@
-SVDIR=pwd();
+SVDIR=uigetfile('*.VAR');
 if isdef('u')==%t,
-load(SVDIR+'/temp_var.VAR','u')
+load(SVDIR,'u')
   disp(' --- Variables loaded --- ');
 else 
   disp(' --- No Variables ---');

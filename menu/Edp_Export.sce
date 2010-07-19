@@ -1,7 +1,7 @@
-SVDIR=pwd();
+SVDIR=uiputfile(["*.EDP","EPD files"]);
 unix 'mkdir TEMP';
 if isdef('pb')==%t,
-  save(SVDIR+'/temp_var.EDP',pb)
+  save(SVDIR,pb)
   disp(' --- Equation definition saved in TMP directory---')
 else 
   disp(' --- No Edp---')

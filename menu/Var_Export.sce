@@ -1,7 +1,7 @@
-SVDIR=pwd();
-unix 'mkdir TEMP';
+SVDIR=uiputfile(["*.VAR","VAR files"]);
+
 if isdef('u')==%t,
-  save(SVDIR+'/temp_var.VAR',u)
+  save(SVDIR,u)
   disp(' --- Variables saved in TMP directory---')
 else 
   disp(' --- No Variables---')

@@ -18,8 +18,8 @@
   delmenu(gwin,'?')
   delmenu(gwin,'Fichier')
   delmenu(gwin,'Outils')
-  delmenu(gwin,'Edition')
-  delmenu(gwin,'Replot')
+  //delmenu(gwin,'Edition')
+  //delmenu(gwin,'Replot')
     //delmenu(gwin,'3D Rot.') //2d seulement
   //unsetmenu(gwin,'File',7) //close'=Objects')  
  etat=[%f;%f;%f;%t;%t;%f]; // etat d'affichage :voir node, triangles et extremes

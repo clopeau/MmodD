@@ -6,6 +6,7 @@ function []=menu_mesh_disp(gwin,etat)
   subGeom=['unShow Cell';'Show Boundary';'Show Extrem']
   Replot='Reset';
   Exit='Exit';
+  disp(Replot)
   
   delmenu(gwin,Number);
   delmenu(gwin,Geom);

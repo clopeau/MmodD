@@ -1,6 +1,15 @@
-l1  = list('elements ',1,['toggle c1','toggle c2','toggle c3']);
-l2  = list('dimension',2,['toggle d1','toggle d2','toggle d3']);
-l3  = list('fonction',3,['toggle e1','toggle e2']);
-rep = x_choices('Toggle Menu',list(l1,l2,l3));
+l1  = list('Drawing Mode',1,['Square2d','Graphic Mode']);
+
+rep = x_choices('2D Geometry Definition',list(l1));
 
 
+if rep==1
+  temp=x_mdialog('square2d definition',[['x';'y']],[['number_points','origin_plot']],string([2 0;2 0]));
+  nxy=evstr([temp(1),temp(2)]);
+  xy=evstr([temp(1,2),temp(2,2)]);
+  th=square2d(nxy(1),nxy(2));
+  th.Coor(:,1)=th.Coor(:,1)+xy(1);
+  th.Coor(:,2)=th.Coor(:,2)+xy(2);
+else
+  disp('  --- Launching graphic mode ---');
+end

@@ -1,7 +1,6 @@
-SVDIR=pwd();
-unix 'mkdir TEMP';
+SVDIR=uiputfile(["*.MESH*","MESH files"]);
 if isdef('th')==%t,
-  save(SVDIR+'/temp_var.MESH',th)
+  save(SVDIR,th)
   disp(' --- Mesh saved in TMP directory---')
 else 
   disp(' --- No Mesh ---')
