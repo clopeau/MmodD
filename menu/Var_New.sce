@@ -10,7 +10,7 @@ if bdr>2,
 
 
           
-          new_var=x_mdialog(['Variables definition';'Name:  '+new],['Geometry';'Equation'],['tri2d';'-Laplace(u)=b*u+1']);
+          new_var=x_mdialog(['Variables definition';'Name:  '+new],['Geometry';'Equation'],['tri2d';'-Laplace(u)=1']);
 new_var=[new;new_var] ;         
           
       
@@ -39,7 +39,7 @@ for i=1:bdr
 end
 
 close();
-
+disp(' --- New equation ---')
 else
 disp(' --- input wrong boundary definition ----');
 end

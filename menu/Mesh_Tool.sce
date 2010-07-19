@@ -44,14 +44,15 @@ execstr(Number+'_'+string(gwin)+...
 	  ''etat(5)=~etat(5); if etat(5) then, '+rac+'_show_bnd('+%_nams(%n)+') ,end;...  
 	 '';...
 	  ''etat(6)=~etat(6); if etat(6) then, '+rac+'_show_rect('+%_nams(%n)+') ,end;...  
-	 '']');
+	  '']');
+	   // affichage du Menu
+   execstr('mesh_disp('+%_nams(%n)+',etat);menu_mesh_disp(gwin,etat);');
     
   // Commande associe au Replot	 
-   execstr(Replot+'_'+string(gwin)+...
+execstr(Replot+'_'+string(gwin)+...
    '=''mesh_disp('+%_nams(%n)+',etat0);menu_mesh_disp(gwin,etat0);''');     
    
-      // affichage du Menu
-   execstr('mesh_disp('+%_nams(%n)+',etat);menu_mesh_disp(gwin,etat);');
+     
  
  
   

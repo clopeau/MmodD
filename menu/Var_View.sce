@@ -10,11 +10,17 @@ if %_nams~=[]
   if %n>1
     %n=x_choose(%_nams+'  ('+evstr('typeof('+%_nams+')')+')',...
 	'Choose a mesh','Cancel');
-  end
-  
+end
+  if size(th.Coor,1)>4,
+  assemble(pb);
+  lsolve(pb);
   exec(%menupath+"/menu/Var_Tool.sce");
   disp('')
   clear %n  
+  else disp(' --- More points are required in the mesh to assemble --- ')
+  end;
+  
+  
 else  
   disp('------- No Variables  -------')
 end

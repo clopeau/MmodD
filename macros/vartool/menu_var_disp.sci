@@ -2,7 +2,7 @@ function []=menu_var_disp(gwin,etat)
 
   View='View';
   subView=['3d'];
-  Replot='Replot';
+  Replot='Reset';
 //  Exit='Exit';
   
   delmenu(gwin,View);

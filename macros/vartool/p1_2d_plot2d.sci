@@ -8,7 +8,7 @@ function p1_2d_plot2d(v)
     
     [np,nt]=size(%th);
     triangl=[(1:nt)'  %th.Tri  zeros(nt,1)]
-    if v.Node==[],disp('  --- no variable ---');bool=%f
+    if v.Node==[],disp(' --- No variable ---');bool=%f
     else
     zminmax=[min(v.Node),max(v.Node)];
     colorbar(zminmax(1),zminmax(2));

@@ -1,8 +1,16 @@
-SVDIR=uiputfile(["*.EDP","EPD files"]);
-unix 'mkdir TEMP';
-if isdef('pb')==%t,
-  save(SVDIR,pb)
-  disp(' --- Equation definition saved in TMP directory---')
+SVDIR=uiputfile(["*.EDP*","EDP files"]);
+if length(SVDIR)>0
+  if isdef('pb')==%t,
+    //étape intermédiaire permettant d'éviter de rajouter un .Mesh si le fichier est déjà un .var
+    Lecture=strsplit(SVDIR);
+    if strcat(Lecture($-4:$))=='.EDP',save(SVDIR,th)
+    else
+  save(SVDIR+'.EDP',th)
+     end
+ disp(' --- Equation definition saved in path: '+SVDIR)     
 else 
-  disp(' --- No Edp---')
+  disp(' --- No Edp Saved ---')
+  end
+  else disp(' --- No Edp Saved ---');
+
 end

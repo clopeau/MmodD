@@ -18,7 +18,7 @@
   
   // Commande associe au Menu 
   View='View';
-  Replot='Replot';
+  Replot='Reset';
  
   
   execstr(View+'_'+string(gwin)+...

@@ -1,10 +1,16 @@
-SVDIR=uiputfile(["*.VAR","VAR files"]);
-
-if isdef('u')==%t,
-  save(SVDIR,u)
-  disp(' --- Variables saved in TMP directory---')
+SVDIR=uiputfile(["*.EDP*","EDP files"]);
+if length(SVDIR)>0
+  if isdef('pb')==%t,
+    //étape intermédiaire permettant d'éviter de rajouter un .Mesh si le fichier est déjà un .var
+    Lecture=strsplit(SVDIR);
+    if strcat(Lecture($-4:$))=='.EDP',save(SVDIR,th)
+    else
+  save(SVDIR+'.EDP',th)
+     end
+ disp(' --- Equation definition saved in path: '+SVDIR)     
 else 
-  disp(' --- No Variables---')
+  disp(' --- No Edp Saved ---')
+  end
+  else disp(' --- No Edp Saved ---');
+
 end
-
-
