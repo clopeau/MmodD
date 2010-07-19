@@ -2,11 +2,11 @@
 
 <!--
  * 
- * This help file was generated from square2d.sci using help_from_sci().
+ * This help file was generated from line2d.sci using help_from_sci().
  * 
  -->
 
-<refentry version="5.0-subset Scilab" xml:id="square2d" xml:lang="en"
+<refentry version="5.0-subset Scilab" xml:id="line2d" xml:lang="en"
           xmlns="http://docbook.org/ns/docbook"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svg="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@
   </info>
 
   <refnamediv>
-    <refname>square2d</refname><refpurpose>Create a mesh on a square</refpurpose>
+    <refname>line2d</refname><refpurpose>Type declaration</refpurpose>
   </refnamediv>
 
 
@@ -27,10 +27,7 @@
 <refsynopsisdiv>
    <title>Calling Sequence</title>
    <synopsis>
-   //square2d()
-   square2d(nx,ny)
-   square2d(x,y)
-   square2d([x_min,x_max],[y_min,y_max],nx,ny)
+   line2d(varargin)
    
    </synopsis>
 </refsynopsisdiv>
@@ -38,20 +35,18 @@
 <refsection>
    <title>Parameters</title>
    <variablelist>
-   <varlistentry><term>x and y :</term>
-      <listitem><para> coordonates vectors</para></listitem></varlistentry>
-   <varlistentry><term>nx and nx :</term>
-      <listitem><para> number of points in x and y</para></listitem></varlistentry>
+   <varlistentry><term>varargin :</term>
+      <listitem><para> if string then it's the line2d 's identity and if matrix then it's line2d 's point coordinates</para></listitem></varlistentry>
    </variablelist>
 </refsection>
 
 <refsection>
    <title>Description</title>
    <para>
-square2d returns a tri2d with a square geometry.
-   </para>
-   <para>
-Each square2d contains four borders ('W','E','N','S')
+line2d returns an empty list if varagin is a string or a list that contains :
+Id : identity
+Coor : coordinates matrix
+Seg  : segment matrix
    </para>
    <para>
 </para>
@@ -60,13 +55,12 @@ Each square2d contains four borders ('W','E','N','S')
 <refsection>
    <title>Examples</title>
    <programlisting role="example"><![CDATA[
-th = square2d(15,20)
-th = square2d(1:.02:2,4:0.4:6]
-th.Coor
-th.Tri
-th.BndId
-th.Bnd(2)
-th.E
+a=line2d('name')
+a.Id
+b=line2d([1 1;2 2; 5 0;9 9])
+b.Id='my_line2d'
+b.Coor
+b.Seg
 
    ]]></programlisting>
 </refsection>
@@ -74,7 +68,7 @@ th.E
 <refsection>
    <title>See also</title>
    <simplelist type="inline">
-   <member><link linkend="tri2d">tri2d</link></member>
+   <member><link linkend="line3d">line3d</link></member>
    </simplelist>
 </refsection>
 </refentry>

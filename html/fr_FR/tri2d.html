@@ -1,0 +1,23 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>tri2d</title><link rel="stylesheet" href="html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.73.2"><link rel="start" href="index.html" title="Chapitre d'aide 1"><link rel="up" href="section_b9ac253a98fd44663db43d1375fd1dc7.html" title="Partie&nbsp;I.&nbsp;Chapitre d'aide 1"><link rel="prev" href="square2d.html" title="square2d"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">tri2d</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="square2d.html">Prev</a>&nbsp;</td><th width="60%" align="center">Partie&nbsp;I.&nbsp;Chapitre d'aide 1</th><td width="20%" align="right">&nbsp;</td></tr></table><hr></div><div class="refentry" lang="en"><a name="tri2d"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>tri2d &#8212; Type declaration</p></div><div class="refsynopsisdiv"><h2>Calling Sequence</h2><pre class="synopsis">
+   tri2d()
+   tri2d(name)
+   
+   </pre></div><div class="refsection" lang="en"><a name="d0e244"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term">name :</span></dt><dd><p> the tri2d's identity</p></dd></dl></div></div><div class="refsection" lang="en"><a name="d0e254"></a><h2>Description</h2><p>
+tri2d create a empty list that contains :
+id : identity ('' if no parameter given)
+Coor : mesh point's coordinates matrix
+Tri  : triangles matrix (the n points in the Tri matrix refers to the n-th row of the Coor matrix)
+BndId : vector of the border 's name
+Bnd : liste of the border points
+   </p><p>
+</p></div><div class="refsection" lang="en"><a name="d0e261"></a><h2>Examples</h2><pre class="programlisting">
+th=square2d(5,5)             // a square2d is a tri2d
+th.Id='my_square'
+th.Coor
+th.Tri
+th.BndId
+th.Bnd(2)
+th.E
+   </pre></div><div class="refsection" lang="en"><a name="d0e266"></a><h2>See also</h2><span class="simplelist"><a class="link" href="square2d.html" title="square2d">square2d</a></span></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="square2d.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="section_b9ac253a98fd44663db43d1375fd1dc7.html">Up</a></td><td width="40%" align="right">&nbsp;</td></tr><tr><td width="40%" align="left" valign="top">square2d&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;</td></tr></table></div></body></html>
