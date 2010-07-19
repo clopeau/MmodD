@@ -1,13 +1,31 @@
 function th=tri2d(nom)
-// declaration de type
-//-----------------------------------------------------------
-// type mesh
-//----------
-//    id : identite
-//    Coor : tableau des coordonnees des points du maillage colones en lignes
-//    Tri  : tableau des indices de triangles (sens positif) 
-//    BndId : table des noms frontières
-//    BndNode : liste des indices des points frontiere
+// Type declaration
+//
+// Calling Sequence
+// tri2d()
+// tri2d(name)
+//
+// Parameters
+// name : the tri2d's identity
+//
+// Description
+// tri2d create a empty list that contains :
+//    id : identity ('' if no parameter given) 
+//    Coor : mesh point's coordinates matrix
+//    Tri  : triangles matrix (the n points in the Tri matrix refers to the n-th row of the Coor matrix)
+//    BndId : vector of the border 's name
+//    Bnd : liste of the border points 
+//
+// Examples
+// th=square2d(5,5)             // a square2d is a tri2d
+// th.Id='my_square'
+// th.Coor
+// th.Tri
+// th.BndId
+// th.Bnd(2)
+// th.E
+// See also
+// square2d
     [lhs,rhs]=argn(0);
     if rhs==0
       nom="";

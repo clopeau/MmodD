@@ -1,12 +1,29 @@
 function %th=line2d(varargin)
-// declaration de type
-//-----------------------------------------------------------
-// type mesh
-//----------
-//    id : identite
-//    Coor : tableau des coordonnees 
-//    Seg  : tableau des indices des segments (liste chainee) 
-    [lhs,rhs]=argn(0);
+// Type declaration
+// 
+// Calling Sequence
+// line2d(varargin)
+// 
+// Parameters
+//  varargin : if string then it's the line2d 's identity and if matrix then it's line2d 's point coordinates 
+//
+// Description
+// line2d returns an empty list if varagin is a string or a list that contains :
+//    Id : identity
+//    Coor : coordinates matrix 
+//    Seg  : segment matrix 
+//
+// Examples
+// a=line2d('name')
+// a.Id
+// b=line2d([1 1;2 2; 5 0;9 9])
+// b.Id='my_line2d'
+// b.Coor
+// b.Seg
+//
+// See also
+// line3d
+   [lhs,rhs]=argn(0);
     %Id="";Coor=[];Seg=[];BndPerio=%f
     if rhs==1
       select typeof(varargin(1))
@@ -14,7 +31,7 @@ function %th=line2d(varargin)
 	%Id=varargin(1)
       case 'constant'
 	if size(varargin(1))~=2
-	  error('Les points doivent avoir 2 coordonn�es')
+	  error('Points must have two coordinates')
 	  return
 	end
 	Coor=varargin(1)

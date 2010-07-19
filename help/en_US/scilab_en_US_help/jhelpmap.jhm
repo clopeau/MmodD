@@ -8,6 +8,8 @@
    <mapID target="c_sub" url="c_sub.html"/>
    <mapID target="c_sum" url="c_sum.html"/>
    <mapID target="fortran_sum" url="fortran_sum.html"/>
+   <mapID target="line2d" url="line2d.html"/>
    <mapID target="scilab_sum" url="scilab_sum.html"/>
    <mapID target="square2d" url="square2d.html"/>
+   <mapID target="tri2d" url="tri2d.html"/>
 </map>

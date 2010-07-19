@@ -137,6 +137,71 @@
 
 
 
+
+
+<refentry version='5.0-subset Scilab' xml:id='line2d' xml:lang='en'>
+
+  <info>
+    <pubdate>$LastChangedDate: 19-Juil-2010 $</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>line2d</refname><refpurpose>Type declaration</refpurpose>
+  </refnamediv>
+
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   line2d(varargin)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>varargin :</term>
+      <listitem><para> if string then it&apos;s the line2d &apos;s identity and if matrix then it&apos;s line2d &apos;s point coordinates</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+line2d returns an empty list if varagin is a string or a list that contains :
+Id : identity
+Coor : coordinates matrix
+Seg  : segment matrix
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role='example'>
+a=line2d(&apos;name&apos;)
+a.Id
+b=line2d([1 1;2 2; 5 0;9 9])
+b.Id=&apos;my_line2d&apos;
+b.Coor
+b.Seg
+
+   </programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type='inline'>
+   <member><link linkend='line3d'>line3d</link></member>
+   </simplelist>
+</refsection>
+</refentry>
+
+
+
 <refentry version='5.0-subset Scilab' xml:id='scilab_sum' xml:lang='en'>
   <info>
     <pubdate>$LastChangedDate: 2008-03-26 09:50:39 +0100 (mer., 26 mars 2008)
@@ -245,6 +310,74 @@ th.E
    <title>See also</title>
    <simplelist type='inline'>
    <member><link linkend='tri2d'>tri2d</link></member>
+   </simplelist>
+</refsection>
+</refentry>
+
+
+
+
+
+<refentry version='5.0-subset Scilab' xml:id='tri2d' xml:lang='en'>
+
+  <info>
+    <pubdate>$LastChangedDate: 19-Juil-2010 $</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>tri2d</refname><refpurpose>Type declaration</refpurpose>
+  </refnamediv>
+
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   tri2d()
+   tri2d(name)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>name :</term>
+      <listitem><para> the tri2d&apos;s identity</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+tri2d create a empty list that contains :
+id : identity (&apos;&apos; if no parameter given)
+Coor : mesh point&apos;s coordinates matrix
+Tri  : triangles matrix (the n points in the Tri matrix refers to the n-th row of the Coor matrix)
+BndId : vector of the border &apos;s name
+Bnd : liste of the border points
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role='example'>
+th=square2d(5,5)             // a square2d is a tri2d
+th.Id=&apos;my_square&apos;
+th.Coor
+th.Tri
+th.BndId
+th.Bnd(2)
+th.E
+   </programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type='inline'>
+   <member><link linkend='square2d'>square2d</link></member>
    </simplelist>
 </refsection>
 </refentry>

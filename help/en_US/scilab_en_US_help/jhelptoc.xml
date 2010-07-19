@@ -8,8 +8,10 @@
          <tocitem target="c_sub" text="c_sub"/>
          <tocitem target="c_sum" text="c_sum"/>
          <tocitem target="fortran_sum" text="fortran_sum"/>
+         <tocitem target="line2d" text="line2d"/>
          <tocitem target="scilab_sum" text="scilab_sum"/>
          <tocitem target="square2d" text="square2d"/>
+         <tocitem target="tri2d" text="tri2d"/>
       </tocitem>
    </tocitem>
 </toc>
