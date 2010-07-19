@@ -7,7 +7,6 @@ func=[ '../macros/tri2d/square2d.sci'
        '../macros/tri2d/tri2d.sci'
        '../macros/line2d/line2d.sci'];
 list_func=['square2d' 'tri2d' 'line2d'];
-disp(pwd())
 for i=1:size(func,1)
 mdelete('en_US/'+ list_func(i) + '.xml');
 end
