@@ -1,0 +1,25 @@
+# Lines beginning with # are comments.
+
+8 6
+
+-0.2 0.0
+
+0.5 0.0
+
+1.0 0.5
+
+1.0 1.0
+
+-0.2 1.0
+
+0.5 0.5
+
+0.72 0.0
+
+1.0 0.28
+
+polyline r 1 b 1 5 2 3 4 0 1
+
+circle b 2 r 1 0.45 5
+
+bezier r 1 b 1 1 2 6 7 
