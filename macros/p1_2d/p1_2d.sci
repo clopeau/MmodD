@@ -26,6 +26,9 @@ function [out]=p1_2d(%th,%fonction)
 // square2d
 // tri2d
 // line3d
+//
+// Authors
+// Clopeau T., Delanoue D., Ndeffo M. and Smatti S.
 
 // Fonction de definition generique de type "q1parallelle"
 // Node est le seul champ 

@@ -27,7 +27,9 @@ function th=square2d(x,y,nx,ny)
 //
 // See also 
 // tri2d
-
+// 
+// Authors
+// Clopeau T., Delanoue D., Ndeffo M. and Smatti S. 
 
   [lhs,rhs]=argn();
   if rhs==0|x<2|y<2

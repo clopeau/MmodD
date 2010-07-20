@@ -77,4 +77,11 @@ th.E
    <member><link linkend="tri2d">tri2d</link></member>
    </simplelist>
 </refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Clopeau T., Delanoue D., Ndeffo M. and Smatti S.</member>
+   </simplelist>
+</refsection>
 </refentry>

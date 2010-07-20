@@ -26,6 +26,9 @@ function [out]=p1_1d(%th,%fonction)
 // p1_2d
 // square2d
 // tri2d
+//
+// Authors
+// Clopeau T., Delanoue D., Ndeffo M. and Smatti S.
 
 // Node est le seul champ 
    [lhs,rhs]=argn(0);

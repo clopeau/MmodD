@@ -23,6 +23,9 @@ function %th=line3d(varargin)
 //
 // See also
 // line2d
+//
+// Authors
+// Clopeau T., Delanoue D., Ndeffo M. and Smatti S.
 
 // declaration de type
 //-----------------------------------------------------------

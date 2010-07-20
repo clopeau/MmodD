@@ -38,7 +38,8 @@ libskeleton_fortran.c
 .DS_Store 
 #
 # Generated help directories
-#html/*
+#
+html/*
 help/scilab_fr_FR_help/*
 help/fr_FR/scilab_fr_FR_help/*
 help/en_US/scilab_en_US_help/*

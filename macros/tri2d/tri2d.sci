@@ -24,8 +24,13 @@ function th=tri2d(nom)
 // th.BndId
 // th.Bnd(2)
 // th.E
+//
 // See also
 // square2d
+//
+// Authors
+// Clopeau T., Delanoue D., Ndeffo M. and Smatti S.
+
     [lhs,rhs]=argn(0);
     if rhs==0
       nom="";

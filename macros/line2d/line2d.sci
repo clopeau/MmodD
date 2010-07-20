@@ -23,6 +23,10 @@ function %th=line2d(varargin)
 //
 // See also
 // line3d
+//
+// Authors
+// Clopeau T., Delanoue D., Ndeffo M. and Smatti S.
+
    [lhs,rhs]=argn(0);
     %Id="";Coor=[];Seg=[];BndPerio=%f
     if rhs==1

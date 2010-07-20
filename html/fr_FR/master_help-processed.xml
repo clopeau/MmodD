@@ -69,6 +69,13 @@ b.Seg
    <member><link linkend='line3d'>line3d</link></member>
    </simplelist>
 </refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type='vert'>
+   <member>Clopeau T., Delanoue D., Ndeffo M. and Smatti S.</member>
+   </simplelist>
+</refsection>
 </refentry>
 
 
@@ -132,6 +139,13 @@ b.Seg
    <title>See also</title>
    <simplelist type='inline'>
    <member><link linkend='line2d'>line2d</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type='vert'>
+   <member>Clopeau T., Delanoue D., Ndeffo M. and Smatti S.</member>
    </simplelist>
 </refsection>
 </refentry>
@@ -203,6 +217,13 @@ p.geo
    <member><link linkend='tri2d'>tri2d</link></member>
    </simplelist>
 </refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type='vert'>
+   <member>Clopeau T., Delanoue D., Ndeffo M. and Smatti S.</member>
+   </simplelist>
+</refsection>
 </refentry>
 
 
@@ -271,6 +292,13 @@ p.geo
    <member><link linkend='square2d'>square2d</link></member>
    <member><link linkend='tri2d'>tri2d</link></member>
    <member><link linkend='line3d'>line3d</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type='vert'>
+   <member>Clopeau T., Delanoue D., Ndeffo M. and Smatti S.</member>
    </simplelist>
 </refsection>
 </refentry>
@@ -344,6 +372,13 @@ th.E
    <member><link linkend='tri2d'>tri2d</link></member>
    </simplelist>
 </refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type='vert'>
+   <member>Clopeau T., Delanoue D., Ndeffo M. and Smatti S.</member>
+   </simplelist>
+</refsection>
 </refentry>
 
 
@@ -403,6 +438,7 @@ th.Tri
 th.BndId
 th.Bnd(2)
 th.E
+
    </programlisting>
 </refsection>
 
@@ -410,6 +446,13 @@ th.E
    <title>See also</title>
    <simplelist type='inline'>
    <member><link linkend='square2d'>square2d</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type='vert'>
+   <member>Clopeau T., Delanoue D., Ndeffo M. and Smatti S.</member>
    </simplelist>
 </refsection>
 </refentry>
