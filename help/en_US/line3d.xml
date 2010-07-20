@@ -2,11 +2,11 @@
 
 <!--
  * 
- * This help file was generated from line2d.sci using help_from_sci().
+ * This help file was generated from line3d.sci using help_from_sci().
  * 
  -->
 
-<refentry version="5.0-subset Scilab" xml:id="line2d" xml:lang="en"
+<refentry version="5.0-subset Scilab" xml:id="line3d" xml:lang="en"
           xmlns="http://docbook.org/ns/docbook"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svg="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@
   </info>
 
   <refnamediv>
-    <refname>line2d</refname><refpurpose>Type declaration</refpurpose>
+    <refname>line3d</refname><refpurpose>Type declaration</refpurpose>
   </refnamediv>
 
 
@@ -27,7 +27,7 @@
 <refsynopsisdiv>
    <title>Calling Sequence</title>
    <synopsis>
-   line2d(varargin)
+   line3d(varargin)
    
    </synopsis>
 </refsynopsisdiv>
@@ -57,8 +57,8 @@ Seg  : segment matrix
    <programlisting role="example"><![CDATA[
 a=line2d('name')
 a.Id
-b=line2d([1 1;2 2; 5 0;9 9])
-b.Id='my_line2d'
+b=line2d([1 1 8;2 2 6; 5 0 0;9 9 18])
+b.Id='my_line3d'
 b.Coor
 b.Seg
 
@@ -68,7 +68,7 @@ b.Seg
 <refsection>
    <title>See also</title>
    <simplelist type="inline">
-   <member><link linkend="line3d">line3d</link></member>
+   <member><link linkend="line2d">line2d</link></member>
    </simplelist>
 </refsection>
 </refentry>

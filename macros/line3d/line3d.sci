@@ -1,4 +1,29 @@
 function %th=line3d(varargin)
+// Type declaration
+// 
+// Calling Sequence
+// line3d(varargin)
+// 
+// Parameters
+//  varargin : if string then it's the line2d 's identity and if matrix then it's line2d 's point coordinates 
+//
+// Description
+// line2d returns an empty list if varagin is a string or a list that contains :
+//    Id : identity
+//    Coor : coordinates matrix 
+//    Seg  : segment matrix 
+//
+// Examples
+// a=line2d('name')
+// a.Id
+// b=line2d([1 1 8;2 2 6; 5 0 0;9 9 18])
+// b.Id='my_line3d'
+// b.Coor
+// b.Seg
+//
+// See also
+// line2d
+
 // declaration de type
 //-----------------------------------------------------------
 // type mesh

@@ -5,11 +5,10 @@
 <toc version="1.0">
    <tocitem target="d0e1" text="mmodd">
       <tocitem target="section_b9ac253a98fd44663db43d1375fd1dc7" text="mmodd">
-         <tocitem target="c_sub" text="c_sub"/>
-         <tocitem target="c_sum" text="c_sum"/>
-         <tocitem target="fortran_sum" text="fortran_sum"/>
          <tocitem target="line2d" text="line2d"/>
-         <tocitem target="scilab_sum" text="scilab_sum"/>
+         <tocitem target="line3d" text="line3d"/>
+         <tocitem target="p1_1d" text="p1_1d"/>
+         <tocitem target="p1_2d" text="p1_2d"/>
          <tocitem target="square2d" text="square2d"/>
          <tocitem target="tri2d" text="tri2d"/>
       </tocitem>

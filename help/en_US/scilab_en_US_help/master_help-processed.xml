@@ -8,141 +8,12 @@
 <title>mmodd</title>
 
 
-<refentry version='5.0-subset Scilab' xml:id='c_sub' xml:lang='en'>
-  <info>
-    <pubdate>$LastChangedDate: 2008-03-26 09:50:39 +0100 (mer., 26 mars 2008)
-    $</pubdate>
-  </info>
-
-  <refnamediv>
-    <refname>c_sub</refname>
-
-    <refpurpose>substraction from C</refpurpose>
-  </refnamediv>
-
-  <refsynopsisdiv>
-    <title>Calling Sequence</title>
-
-    <synopsis>a = c_sub(b,c)</synopsis>
-  </refsynopsisdiv>
-
-  <refsection>
-    <title>Description</title>
-
-    <para>Do a substraction.</para>
-
-    <para>Add here a paragraph of the function description </para>
-  </refsection>
-
-  <refsection>
-    <title>Examples</title>
-
-    <programlisting role='example'>c_sub(3,4)</programlisting>
-  </refsection>
-
-  <refsection>
-    <title>Authors</title>
-
-    <simplelist type='vert'>
-      <member>Allan CORNET</member>
-    </simplelist>
-  </refsection>
-</refentry>
-
-
-
-<refentry version='5.0-subset Scilab' xml:id='c_sum' xml:lang='en'>
-  <info>
-    <pubdate>$LastChangedDate: 2008-03-26 09:50:39 +0100 (mer., 26 mars 2008)
-    $</pubdate>
-  </info>
-
-  <refnamediv>
-    <refname>c_sum</refname>
-
-    <refpurpose>sum from C</refpurpose>
-  </refnamediv>
-
-  <refsynopsisdiv>
-    <title>Calling Sequence</title>
-
-    <synopsis>a = c_sum(b,c)</synopsis>
-  </refsynopsisdiv>
-
-  <refsection>
-    <title>Description</title>
-
-    <para>Do a sum.</para>
-
-    <para>Add here a paragraph of the function description </para>
-  </refsection>
-
-  <refsection>
-    <title>Examples</title>
-
-    <programlisting role='example'>c_sum(3,4)</programlisting>
-  </refsection>
-
-  <refsection>
-    <title>Authors</title>
-
-    <simplelist type='vert'>
-      <member>Allan CORNET</member>
-    </simplelist>
-  </refsection>
-</refentry>
-
-
-
-<refentry version='5.0-subset Scilab' xml:id='fortran_sum' xml:lang='en'>
-  <info>
-    <pubdate>$LastChangedDate: 2008-03-26 09:50:39 +0100 (mer., 26 mars 2008)
-    $</pubdate>
-  </info>
-
-  <refnamediv>
-    <refname>fortran_sum</refname>
-
-    <refpurpose>sum from fortran</refpurpose>
-  </refnamediv>
-
-  <refsynopsisdiv>
-    <title>Calling Sequence</title>
-
-    <synopsis>a = c_sum(b,c)</synopsis>
-  </refsynopsisdiv>
-
-  <refsection>
-    <title>Description</title>
-
-    <para>Do a sum.</para>
-
-    <para>Add here a paragraph of the function description</para>
-  </refsection>
-
-  <refsection>
-    <title>Examples</title>
-
-    <programlisting role='example'>fortran_sum(3,4)</programlisting>
-  </refsection>
-
-  <refsection>
-    <title>Authors</title>
-
-    <simplelist type='vert'>
-      <member>Allan CORNET</member>
-    </simplelist>
-  </refsection>
-</refentry>
-
-
-
 
 
 <refentry version='5.0-subset Scilab' xml:id='line2d' xml:lang='en'>
 
   <info>
-    <pubdate>$LastChangedDate: 19-Juil-2010 $</pubdate>
+    <pubdate>$LastChangedDate: 20-Juil-2010 $</pubdate>
   </info>
 
   <refnamediv>
@@ -202,45 +73,206 @@ b.Seg
 
 
 
-<refentry version='5.0-subset Scilab' xml:id='scilab_sum' xml:lang='en'>
+
+
+<refentry version='5.0-subset Scilab' xml:id='line3d' xml:lang='en'>
+
   <info>
-    <pubdate>$LastChangedDate: 2008-03-26 09:50:39 +0100 (mer., 26 mars 2008)
-    $</pubdate>
+    <pubdate>$LastChangedDate: 20-Juil-2010 $</pubdate>
   </info>
 
   <refnamediv>
-    <refname>scilab_sum</refname>
-
-    <refpurpose>sum from scilab</refpurpose>
+    <refname>line3d</refname><refpurpose>Type declaration</refpurpose>
   </refnamediv>
 
-  <refsynopsisdiv>
-    <title>Calling Sequence</title>
 
-    <synopsis>a = scilab_sum(b,c)</synopsis>
-  </refsynopsisdiv>
 
-  <refsection>
-    <title>Description</title>
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   line3d(varargin)
+   
+   </synopsis>
+</refsynopsisdiv>
 
-    <para>Do a sum.</para>
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>varargin :</term>
+      <listitem><para> if string then it&apos;s the line2d &apos;s identity and if matrix then it&apos;s line2d &apos;s point coordinates</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
 
-    <para>Add here a paragraph of the function description </para>
-  </refsection>
+<refsection>
+   <title>Description</title>
+   <para>
+line2d returns an empty list if varagin is a string or a list that contains :
+Id : identity
+Coor : coordinates matrix
+Seg  : segment matrix
+   </para>
+   <para>
+</para>
+</refsection>
 
-  <refsection>
-    <title>Examples</title>
+<refsection>
+   <title>Examples</title>
+   <programlisting role='example'>
+a=line2d(&apos;name&apos;)
+a.Id
+b=line2d([1 1 8;2 2 6; 5 0 0;9 9 18])
+b.Id=&apos;my_line3d&apos;
+b.Coor
+b.Seg
 
-    <programlisting role='example'>scilab_sum(3,4)</programlisting>
-  </refsection>
+   </programlisting>
+</refsection>
 
-  <refsection>
-    <title>Authors</title>
+<refsection>
+   <title>See also</title>
+   <simplelist type='inline'>
+   <member><link linkend='line2d'>line2d</link></member>
+   </simplelist>
+</refsection>
+</refentry>
 
-    <simplelist type='vert'>
-      <member>Allan CORNET</member>
-    </simplelist>
-  </refsection>
+
+
+
+
+<refentry version='5.0-subset Scilab' xml:id='p1_1d' xml:lang='en'>
+
+  <info>
+    <pubdate>$LastChangedDate: 20-Juil-2010 $</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>p1_1d</refname><refpurpose>Type declaration</refpurpose>
+  </refnamediv>
+
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   p1_1d(th)
+   p1_1d(th,fonction)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>th :</term>
+      <listitem><para> a tri2d, a square2d etc</para></listitem></varlistentry>
+   <varlistentry><term>function :</term>
+      <listitem><para> a string (&apos;x/2&apos;)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+p1_1_d is a list that contains
+Id : the p1_1d &apos;s identity
+Node : the p1_1d &apos;s point coordinates
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role='example'>
+th = square2d(4,5)
+th.Id=&apos;my_th&apos;
+p=p1_1d(th,&apos;2*x^2&apos;)
+p.Id
+p.Node
+p.geo
+
+   </programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type='inline'>
+   <member><link linkend='p1_2d'>p1_2d</link></member>
+   <member><link linkend='square2d'>square2d</link></member>
+   <member><link linkend='tri2d'>tri2d</link></member>
+   </simplelist>
+</refsection>
+</refentry>
+
+
+
+
+
+<refentry version='5.0-subset Scilab' xml:id='p1_2d' xml:lang='en'>
+
+  <info>
+    <pubdate>$LastChangedDate: 20-Juil-2010 $</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>p1_2d</refname><refpurpose>Type declaration</refpurpose>
+  </refnamediv>
+
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   p1_2d(th)
+   p1_2d(th,fonction)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>th :</term>
+      <listitem><para> a tri2d, a square2d etc</para></listitem></varlistentry>
+   <varlistentry><term>function :</term>
+      <listitem><para> a string (&apos;x/2+y^2&apos;)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+p1_1_d is a list that contains
+Id : the p1_1d &apos;s identity
+Node : the p1_1d &apos;s point coordinates
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role='example'>
+th = square2d(4,5)
+th.Id=&apos;my_th&apos;
+p=p1_2d(th,&apos;2*x^2 +y^3&apos;)
+p.Id
+p.Node
+p.geo
+
+   </programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type='inline'>
+   <member><link linkend='p1_2d'>p1_2d</link></member>
+   <member><link linkend='square2d'>square2d</link></member>
+   <member><link linkend='tri2d'>tri2d</link></member>
+   <member><link linkend='line3d'>line3d</link></member>
+   </simplelist>
+</refsection>
 </refentry>
 
 
@@ -250,7 +282,7 @@ b.Seg
 <refentry version='5.0-subset Scilab' xml:id='square2d' xml:lang='en'>
 
   <info>
-    <pubdate>$LastChangedDate: 19-Juil-2010 $</pubdate>
+    <pubdate>$LastChangedDate: 20-Juil-2010 $</pubdate>
   </info>
 
   <refnamediv>
@@ -321,7 +353,7 @@ th.E
 <refentry version='5.0-subset Scilab' xml:id='tri2d' xml:lang='en'>
 
   <info>
-    <pubdate>$LastChangedDate: 19-Juil-2010 $</pubdate>
+    <pubdate>$LastChangedDate: 20-Juil-2010 $</pubdate>
   </info>
 
   <refnamediv>

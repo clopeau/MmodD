@@ -5,11 +5,10 @@
 <map version="1.0">
    <mapID target="d0e1" url="index.html"/>
    <mapID target="section_b9ac253a98fd44663db43d1375fd1dc7" url="section_b9ac253a98fd44663db43d1375fd1dc7.html"/>
-   <mapID target="c_sub" url="c_sub.html"/>
-   <mapID target="c_sum" url="c_sum.html"/>
-   <mapID target="fortran_sum" url="fortran_sum.html"/>
    <mapID target="line2d" url="line2d.html"/>
-   <mapID target="scilab_sum" url="scilab_sum.html"/>
+   <mapID target="line3d" url="line3d.html"/>
+   <mapID target="p1_1d" url="p1_1d.html"/>
+   <mapID target="p1_2d" url="p1_2d.html"/>
    <mapID target="square2d" url="square2d.html"/>
    <mapID target="tri2d" url="tri2d.html"/>
 </map>
