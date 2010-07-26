@@ -2,20 +2,19 @@ Toolbox: MMODD
 
 Title: MMODD
 
-Summary: Finite element method simulation
+Summary: MMODD is a tool for solving two-dimensional linear partial differential equations by finite element methods.
 
-Version: RC0
+Version: Alpha-0
 
 Author: Thierry Clopeau 
 
-Maintainer: 
+Maintainer: Thierry Clopeau
 
+Category: Modeling
 
-Category: modelisation
+Entity: University Claude Bernard Lyon
 
-Entity: UCBL
-
-WebSite: ?????
+WebSite: 
 
 License: CeCILL2
 
@@ -23,14 +22,7 @@ ScilabVersion: >= 5.2
 
 Depends: 
 
-Date: 2010-07-01
+Date: 2010-07-206
 
 Description: files to the new Docbook based format.
- 
- install Atomsinstall
- - linux : Atomsinstall mmodd.tar.gz
- - windows : Atomsinstall mmodd.tar.gz
- load toolbox in scilab
- exec loader.sce
- 
- help xmltodocbook 
+
