@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function A = %D2(x)
 n = length(x)
 h = x(2:n)-x(1:n-1)

@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function  %edp_p(%u)
   write(%io(2),' Type '+typeof(%u)+' Nom : '+string(%u.Id));
   write(%io(2),'');

@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function %uloc=lsolve_edp(pb,opt)
     [lhs,rhs]=argn(0);
     typeedp=evstr('typeof('+pb.var+')');

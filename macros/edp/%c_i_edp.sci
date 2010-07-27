@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function v = %c_i_edp(varargin)
 ind = varargin(1);
 ll = matrix(varargin($-1),1,-1);

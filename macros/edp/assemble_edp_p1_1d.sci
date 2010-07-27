@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function %in=assemble_edp_p1_1d(%in,opt)
   %Penal=1e10;
   [rhs,lhs]=argn(0);

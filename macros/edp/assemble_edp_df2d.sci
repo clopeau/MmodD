@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function %in=assemble_edp_df2d(%in,opt)
   // separation de l'equation
   ind=strindex(%in.eq,'=')
