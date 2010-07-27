@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function [txt,tps]=assemble(%in,opt)
 // opt option de differenciation d'assemblage du 1er et second membre
 // par defaut les 2 sont assembles

@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function Det=det2d(Coor,Tri)
   index=[2 3; 3 1; 1 2]';
   nt=size(Tri,1);
