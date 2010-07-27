@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 SVDIR=uiputfile(["*.MESH*","MESH files"]);
 if length(SVDIR)>0
   if isdef('th')==%t,

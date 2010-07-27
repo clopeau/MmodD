@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - S. Smatti
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 ////  delmenu('Fichier')
 ////  delmenu('Outils')
 ////  delmenu('Edition')

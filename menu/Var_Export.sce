@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 SVDIR=uiputfile(["*.EDP*","EDP files"]);
 if length(SVDIR)>0
   if isdef('pb')==%t,

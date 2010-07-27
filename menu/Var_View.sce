@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 %_nams=who('get');
 %ind=evstr('type('+%_nams+')');
 %_nams=%_nams(%ind==17);

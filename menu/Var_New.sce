@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 new=x_dialog('Please Enter a Name',['write there']);
 
 bdr=length(th.Bnd);
