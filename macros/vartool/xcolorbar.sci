@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function [gwin]=xcolorbar(zmin,zmax)
 // fonction d'affichage de la barre des couleurs
 // dans une fenêtre separe

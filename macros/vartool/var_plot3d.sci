@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function var_plot3d(th,v,rect,grid,scale)
 // affichage 3d de variables (hauteur,mapping, ou vecteurs3d)
 // th : mesh  possede que 2 ou 3 dimension 

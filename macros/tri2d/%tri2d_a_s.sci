@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function th=%tri2d_a_s(th,s)
   dim=size(th.Coor,'c')
   np=size(th);

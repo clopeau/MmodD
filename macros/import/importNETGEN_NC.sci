@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function th=importNETGEN_NC(nombase)
     // lecture des fichiers de sortie NETGEN 4.3
     // fichier nombase.vol

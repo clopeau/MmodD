@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Clopeau T., Delanoue D., Ndeffo M. and Smatti S.
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function th=square2d(x,y,nx,ny)
 // Create a mesh on a square
 //

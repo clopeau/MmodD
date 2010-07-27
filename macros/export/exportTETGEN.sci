@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function exportTETGEN(fname,th)
    // exporte a partir d un maillage decomposition polhedrique dans tetgen
    // Tetgen 1.3 .node .face .ele

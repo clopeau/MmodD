@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function %u=interpol_p1_1d(%u,%fonction)
     // recherche des variables cartésiennes
     if grep(%fonction,'x')~=[]

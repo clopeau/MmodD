@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function A= ConvDx_p1_1d_p1_1d(%kk,%u)
     %th=evstr(%u.geo);
     if typeof(%kk)=='p1_1d'

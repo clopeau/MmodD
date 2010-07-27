@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function  th=bamg_poly(polyg,nvert)
 // pôle polygone polyg.corner : liste des coins
 // nvert : nombre de points par segment

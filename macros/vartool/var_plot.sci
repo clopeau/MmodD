@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function var_plot(th,v,rect,grid,scale,colorbar,z)
 // affichage 2d de variables (contour ou vecteur)
 // th : mesh ne possede que 2 dimension (autrement utiliser ...3d)

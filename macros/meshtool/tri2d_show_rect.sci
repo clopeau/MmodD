@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function []=tri2d_show_rect(th)
 // rect => fenetre de visualisation affiche les extremaux
   rect =[min(th);max(th)]';

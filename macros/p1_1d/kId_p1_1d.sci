@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function M = kId_p1_1d(%kk,%u,opt)
    [lhs,rhs]=argn(0);
    if rhs==2 then

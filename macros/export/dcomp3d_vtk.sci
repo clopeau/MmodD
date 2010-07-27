@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function  dcomp3d_vtk(u,%v)
 // foncton d'export d'une dcomp3d
   [np,nf,nc]=size(%v);

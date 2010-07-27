@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function p0_2d_plot2d(v)
     %th=evstr(v.geo);
     rect =[min(%th);max(%th)]';

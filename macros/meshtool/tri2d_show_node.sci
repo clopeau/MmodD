@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function []=tri2d_show_node(th,ens)
 // affiche le numero des nodes sur le maillage 
 // (apres  mesh_plot) il est possible de d�signer un sous ensemble

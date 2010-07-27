@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function [np,nt]=%line3d_size(th,opt)
 // np : nombre de points
 // nt : nombre de tringles

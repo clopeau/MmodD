@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function th=tsquare2d(x,y,nx,ny)
 // Creation d'un maillage grille sur un carre
 // syntaxe :
