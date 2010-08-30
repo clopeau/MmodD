@@ -1,0 +1,11 @@
+extern void ilu0_(int * n, double * a, int * ja, int * ia, double * alu, int * jlu, int * ju, int * iw, int * ierr);
+extern void ilut_(int * n, double * a, int * ja, int * ia, int * lfil, double * droptol, double * alu, int * jlu, int * ju, int * iwk, double * w, int * jw, int * ierr);
+extern void ilutp_(int * n, double * a, int * ja, int * ia, int * lfil,double * droptol, double * permtol, int * mbloc, double * alu, int * jlu, int * ju, int * iwk, double * w, int * jw, int * iperm, int * ierr);
+extern void iluk_(int * n, double * a, int * ja, int * ia, int * lfil, double * alu, int * jlu, int * ju, int * levs, int * iwk, double * w, int * jw, int * ierr);
+extern void ilud_(int * n, double * a, int * ja, int * ia, double * alph, double * tol,double * alu, int * jlu, int * ju, int * iwk, double * w, int * jw, int * ierr);
+extern void iludp_(int * n, double * a, int * ja, int * ia, double * alph, double * droptol, double * permtol, int * mbloc, double * alu, int * jlu, int * ju, int * iwk, double * w, int * jw, int * iperm, int * ierr);
+extern void milu0_(int * n, double * a, int * ja, int * ia, double * alu, int * jlu, int * ju, int * iw, int * ierr);
+extern void lusol_(int * n, double * y, double * x, double * alu, int * jlu, int * ju);
+extern void lutsol_(int * n, double * y, double * x, double * alu, int * jlu, int * ju);
+extern void pgmres_(int * n, int * kry, double * rhs, double * sol, double * w, double * eps, int *niter, int * iout,double * a, int * icol , int * ia, double * alu, int * jlu, int * ju, int * ierr);
+extern void runrc_(int * n, double * rhs, double * sol, int * ipar, double * fpar, double * w ,double * a, int * icol , int * ia, double * alu, int * jlu, int * ju, int * method, int * iout);
