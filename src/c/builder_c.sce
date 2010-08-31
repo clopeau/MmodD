@@ -2,7 +2,10 @@ src_c_path = get_absolute_file_path('builder_c.sce');
 
 CFLAGS = "-I" + src_c_path;
 
-tbx_build_src(['Sci2spk','inf_rl','inf_rc','pivot_patern','pivot_real','pivot_complex'], ['conv.c','sort.c'], 'c', ..
+functions_c=['lband';'eltm';'Spk2sci';'spluget';'Sci2spk'];//'NewSpk'];//;''*NewSpk']';'*Sci2spk'
+files_c=functions_c+'.c';
+//,'inf_rl','inf_rc','pivot_patern','pivot_real','pivot_complex'
+tbx_build_src([functions_c], [files_c], 'c', ..
               src_c_path, '', '', CFLAGS);
 
 clear tbx_build_src;
