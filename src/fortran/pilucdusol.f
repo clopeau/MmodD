@@ -1,9 +1,5 @@
-#include <ilupackmacros.h>
-
-
-
         subroutine PILUCDUSOL(n, nB, y, x, alu, jlu, ju)
-        FLOAT x(n), y(nB), alu(*)
+        DOUBLE PRECISION x(n), y(nB), alu(*)
         integer n, nB, jlu(*), ju(n+1)
 c-----------------------------------------------------------------------
 c
@@ -35,7 +31,7 @@ c----------------------------------------------------------------------*
 c local variables
 c
         integer i,j,k
-        FLOAT buff
+        DOUBLE PRECISION buff
 c
 c forward solve. Note that U is stored by rows!
 c
