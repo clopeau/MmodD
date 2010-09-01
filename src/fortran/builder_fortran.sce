@@ -1,6 +1,6 @@
 //functions_f=['ilut','ilu0','lusol','piluc',..
 //'milu0',,..
-//,'pgmres','runrc','iluc','iters','pilucsol',..
+//,'pgmres','runrc','iluc','pilucsol',..
 //'ilucsol','pilucdusol'];
 //Files_f=findfiles(get_absolute_file_path('builder_fortran.sce'),'*.f');
 functions_f=['ilucsol','distdot','qsort2','qqsort'];
