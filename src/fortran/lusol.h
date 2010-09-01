@@ -1,0 +1,1 @@
+extern void lusol_(int * n, double * y, double * x, double * alu, int * jlu, int * ju);

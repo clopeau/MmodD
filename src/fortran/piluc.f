@@ -4,8 +4,8 @@ c-----------------------------------------------------------------------
       implicit none 
       integer n,iwk,nLU,p(n),invq(n),
      +        ja(*),ia(n+1),jlu(iwk),ju(n),jw(*),lfilv(2),ierr,param
-      doubleprecision droptols(3),condest
-      doubleprecision a(*),alu(iwk),w(*)
+      double precision droptols(3),condest
+      double precision a(*),alu(iwk),w(*)
 c----------------------------------------------------------------------*
 c!*           *** PILUC, PARTIAL ILUC preconditioner ***               *
 c                                                                      *
@@ -1512,8 +1512,8 @@ c        save number of nonzeros in row k (non-Tismenetsky case)
 c        keep a pointer to the first space behind the regular part of L
          jw(nb+k)=j
 c        sort regular part and epsilon size part separately
-         call qsort(alu(i),jlu(i),jw(n+1),j-i)
-         call qsort(alu(j),jlu(j),jw(n+1),len-j+i)
+         call qsort2(alu(i),jlu(i),jw(n+1),j-i)
+         call qsort2(alu(j),jlu(j),jw(n+1),len-j+i)
 c        shift size for the U part
          m=ju(k)-jlu(k)-len
 
@@ -1660,8 +1660,8 @@ c        save number of nonzeros in column k (non-Tismenetsky case)
          jw(nd+k)=j
 c        sort regular part and epsilon size part separately
          i=ju(k)
-         call qsort(alu(i),jlu(i),jw(n+1),j-ju(k))
-         call qsort(alu(j),jlu(j),jw(n+1),jlu(k+1)-j)
+         call qsort2(alu(i),jlu(i),jw(n+1),j-ju(k))
+         call qsort2(alu(j),jlu(j),jw(n+1),jlu(k+1)-j)
 
 
 c        -----   update diagonal entries   -----

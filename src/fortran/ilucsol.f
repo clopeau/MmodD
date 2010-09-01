@@ -1,5 +1,5 @@
         subroutine ilucsol(n, y, x, alu, jlu, ju)
-        doubleprecision  x(n), y(n), alu(*)
+        double precision  x(n), y(n), alu(*)
         integer n, jlu(*), ju(n+1)
 c-----------------------------------------------------------------------
 c

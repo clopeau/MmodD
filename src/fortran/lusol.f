@@ -1,3 +1,40 @@
+c----------------------------------------------------------------------c
+c                          S P A R S K I T                             c
+c----------------------------------------------------------------------c
+c                   ITERATIVE SOLVERS MODULE                           c
+c----------------------------------------------------------------------c
+c This Version Dated: August 13, 1996. Warning: meaning of some        c
+c ============ arguments have changed w.r.t. earlier versions. Some    c
+c              Calling sequences may also have changed                 c
+c----------------------------------------------------------------------c 
+c Contents:                                                            c
+c-------------------------preconditioners------------------------------c 
+c                                                                      c
+c ILUT    : Incomplete LU factorization with dual truncation strategy  c
+c ILUTP   : ILUT with column  pivoting                                 c
+c ILUD    : ILU with single dropping + diagonal compensation (~MILUT)  c
+c ILUDP   : ILUD with column pivoting                                  c
+c ILUK    : level-k ILU                                                c
+c ILU0    : simple ILU(0) preconditioning                              c
+c MILU0   : MILU(0) preconditioning                                    c
+c                                                                      c
+c----------sample-accelerator-and-LU-solvers---------------------------c 
+c                                                                      c
+c PGMRES  : preconditioned GMRES solver                                c
+c LUSOL   : forward followed by backward triangular solve (Precond.)   c
+c LUTSOL  : solving v = (LU)^{-T} u (used for preconditioning)         c
+c                                                                      c
+c-------------------------utility-routine------------------------------c
+c                                                                      c 
+c QSPLIT  : quick split routine used by ilut to sort out the k largest c
+c           elements in absolute value                                 c
+c                                                                      c
+c----------------------------------------------------------------------c
+c                                                                      c 
+c Note: all preconditioners are preprocessors to pgmres.               c
+c usage: call preconditioner then call pgmres                          c
+c                                                                      c
+c----------------------------------------------------------------------c
 subroutine lusol(n, y, x, alu, jlu, ju)
         real*8 x(n), y(n), alu(*)
 	integer n, jlu(*), ju(*)
@@ -48,3 +85,4 @@ c
 c----------------end of lusol ------------------------------------------
 c-----------------------------------------------------------------------
 	end
+

@@ -1,19 +1,17 @@
-        subroutine qqsort(val,ind,stack,n,ord)
-
+        subroutine qsort2(val,ind,stack,n)
         double precision val(n)
-        integer ind(n),stack(n),n,ord(*)
+        integer ind(n),stack(n),n
 c-----------------------------------------------------------------------
-c     does a quick-sort of an integer array with respect to the given
-c     'ord' relation.
+c     does a quick-sort of an integer array.
 c     on input val(1:n), is a real array, ind(1:n) is an integer array
 c     on output ind(1:n) is permuted such that its elements are in 
 c               increasing order. val(1:n) is an real array which 
 c               permuted in the same way as ind(*).
-c 
-c     QQSORT computes a total ordering 
-c     written by Matthias Bollhoefer, 2003
+c
+c  code taken from SPARSKIT of Yousef Saad.
+c  adapted by Matthias Bollhoefer for the complex case
 c-----------------------------------------------------------------------
-        double precision valtmp
+        doubleprecision valtmp
         integer indtmp, key, first, last,top
 c-----
         top=0
@@ -26,7 +24,7 @@ c
         mid = first
         key = ind(mid)
         do 2 j=first+1, last
-           if (ord(ind(j)) .lt. ord(key)) then
+           if (ind(j) .lt. key) then
               mid = mid+1
 c     interchange entries at position j and mid
               valtmp = val(mid)
@@ -74,5 +72,5 @@ c     test for while loop
         goto 1
  999    return
         end
-c----------------end-of-qqsort------------------------------------------
+c----------------end-of-qsort2------------------------------------------
 c-----------------------------------------------------------------------
