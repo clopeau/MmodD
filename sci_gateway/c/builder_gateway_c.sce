@@ -19,7 +19,7 @@ Files=Files';
 
 tbx_build_gateway('itsolve_c', ['c_'+functions 'int'+functions], [Files], ..
                   get_absolute_file_path('builder_gateway_c.sce'), ..
-                  ['../../src/c/libSci2spk'],'',includes_src_c);
+                  ['../../src/c/liblband'],'',includes_src_c);
 
 clear WITHOUT_AUTO_PUTLHSVAR;
 
