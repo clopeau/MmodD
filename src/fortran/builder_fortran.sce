@@ -1,4 +1,4 @@
-
+builder_f_path=get_absolute_file_path('builder_fortran.sce');
 Files_f=findfiles(get_absolute_file_path('builder_fortran.sce'),'*.f');
 
 
@@ -35,12 +35,9 @@ Files_f=["amuxd.f";"uppdir.f"
 "ilucupdate.f"
 "silucupdate.f"
 "ilucsol.f"
-"iluc.f"
 "ilud.f"
 "iludp.f"
 "iluk.f"
-"ilut.f"
-"ilutp.f"
 "ldsolc.f"
 "ldsol.f"
 "ldsoll.f"
@@ -49,22 +46,26 @@ Files_f=["amuxd.f";"uppdir.f"
 "lusol.f"
 "lutsol.f"
 "milu0.f"
-"mpgmres.f"
-"pgmres.f"
 "pilucdusol.f"
 "piluclist.f"
 "piluclsol.f"
 "pilucsol.f"
 "pilucupdate.f"
+"mpgmres.f"
+"ilut.f"
+"runrc.f"
 "piluc.f"
-"tfqmr.f"
+"ilutp.f"
+"iluc.f"
 "udsolc.f"
 "udsol.f"
 "usolc.f"
 "usol.f"
-"runrc.f"];
+"pgmres.f"
+"tfqmr.f"];
 
 oldF=Files_f;
+toto=1:50;
 Files_f=Files_f(toto);
 functions_f=Files_f;
 for i=1:size(Files_f,1)
