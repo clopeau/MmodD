@@ -1,4 +1,5 @@
 #include <stack-c.h>
+#include <sci_mem_alloc.h>
 #include <math.h>
 
 extern SciSparse *NewSpk(it,m,n,nel)
