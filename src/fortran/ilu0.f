@@ -1,6 +1,6 @@
-	subroutine ilu0(n, a, ja, ia, alu, jlu, ju, iw, ierr)
-	implicit real*8 (a-h,o-z)
-	real*8 a(*), alu(*)
+        subroutine ilu0(n, a, ja, ia, alu, jlu, ju, iw, ierr)
+        implicit DOUBLE PRECISION (a-h,o-z)
+        DOUBLE PRECISION a(*), alu(*)
         integer ja(*), ia(*), ju(*), jlu(*), iw(*)
 c------------------ right preconditioner ------------------------------*
 c                    ***   ilu(0) preconditioner.   ***                *

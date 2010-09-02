@@ -1,4 +1,4 @@
-subroutine qsplit(a,ind,n,ncut)
+      subroutine qsplit(a,ind,n,ncut)
         real*8 a(n)
         integer ind(n), n, ncut
 c-----------------------------------------------------------------------

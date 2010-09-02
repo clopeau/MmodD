@@ -1,4 +1,4 @@
- SUBROUTINE amux(n,x,y,a,ja,ia) 
+      SUBROUTINE amux(n,x,y,a,ja,ia) 
       IMPLICIT NONE
 c     ---------------------------------------
 c     DECLARATION DES VARIABLES DES ARGUMENTS

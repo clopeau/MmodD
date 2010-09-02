@@ -1,4 +1,4 @@
-SUBROUTINE lsolc(n,x,y,al,jal,ial)
+      SUBROUTINE lsolc(n,x,y,al,jal,ial)
       IMPLICIT NONE
 c     ---------------------------------------
 c     DECLARATION DES VARIABLES DES ARGUMENTS

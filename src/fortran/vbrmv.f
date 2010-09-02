@@ -1,4 +1,4 @@
-SUBROUTINE vbrmv(nr,nc,ia,ja,ka,a,kvstr,kvstc,x,b)
+      SUBROUTINE vbrmv(nr,nc,ia,ja,ka,a,kvstr,kvstc,x,b)
       IMPLICIT NONE
 c     ---------------------------------------
 c     DECLARATION DES VARIABLES DES ARGUMENTS

@@ -311,7 +311,7 @@ c     increasing order
 c        row i is empty
          if (k.le.0) goto 991
 
-         call qsort(a(j),ja(j),jw(n+1),k)
+         call qsort2(a(j),ja(j),jw(n+1),k)
 
 c        column indices are out of range
          if (ja(j).lt.1 .or. ja(j+k-1).gt.n) goto 991
@@ -1009,8 +1009,8 @@ c           simple case
 c        keep a pointer to the first space behind the regular part of L
          jw(n3+k)=j
 c        sort regular part and epsilon size part separately
-         call qsort(alu(i),jlu(i),jw(n+1),j-i)
-         call qsort(alu(j),jlu(j),jw(n+1),len-j+i)
+         call qsort2(alu(i),jlu(i),jw(n+1),j-i)
+         call qsort2(alu(j),jlu(j),jw(n+1),len-j+i)
 c        shift size for the U part
          m=ju(k)-jlu(k)-len
 
@@ -1143,8 +1143,8 @@ c        shifted by m
          jw(n4+k)=j
 c        sort regular part and epsilon size part separately
          i=ju(k)
-         call qsort(alu(i),jlu(i),jw(n+1),j-ju(k))
-         call qsort(alu(j),jlu(j),jw(n+1),jlu(k+1)-j)
+         call qsort2(alu(i),jlu(i),jw(n+1),j-ju(k))
+         call qsort2(alu(j),jlu(j),jw(n+1),jlu(k+1)-j)
 
 
 c        -----   update diagonal entries   -----
@@ -1767,139 +1767,5 @@ c
  994  ierr = -4
       return
 c----------------end-of-iluc--------------------------------------------
-c-----------------------------------------------------------------------
-      end
-
-
-      
-            
-      subroutine ilucupdate(n,k,alu,jlu,lnext,unext,Llist,Lfirst,      
-     +                      Ufirst,jw,len,w)
-c-----------------------------------------------------------------------
-      implicit none 
-      integer n,k,len
-      integer jlu(*),lnext(n),unext(n),Llist(k),Lfirst(k-1),Ufirst(k-1),
-     +        jw(2*n)
-      doubleprecision alu(*),w(n)
-c----------------------------------------------------------------------*
-c     update row k of the Schur complement (resp. column k)
-c
-c     n         size of the problem
-c     k         current step of the update procedure
-c     alu       numerical values
-c     jlu       associated indices
-c     lnext     pointers to the first space behind any column of L
-c     unext     pointers to the first space behind any row of U
-c     Llist     linked list for the nonzeros of L in row k
-c     Lfirst    first nonzero entry in L(k:n,i)
-c     Ufirst    first nonzero entry in U(i,k:n)
-c     jw        indices of nonzero entries and associated list
-c     len       length of this list
-c     w         numerical values
-
-      integer i,j,jj,l
-      doubleprecision x
-
-      i=Llist(k)
-c     while i>0
- 10      if (i.eq.0) goto 999
-c        does there exist an entry in L(k:n,i)?
-         jj=Lfirst(i)
-         if (jj.lt.lnext(i)) then
-c           if this is the case, is the first entry equal to k,
-c           otherwise we don't need to do an update because L(k,i)=0
-            if (jlu(jj).eq.k) then
-c              L(k,i)/D(i,i)
-               x=alu(jj)*alu(i)
-c              nonzeros in row i of U, start at position at least k
-               jj=Ufirst(i)
-c              if the first index is k, then we can skip it, since we
-c              don't have to recompute the diagonal entry
-               if (jj.lt.unext(i)) then
-                  j=jlu(jj)
-                  if (j.eq.k) jj=jj+1
-               end if
-
-c              innermost loop, update 
-               do 20 l=jj,unext(i)-1
-                  j=jlu(l)
-                  w(j)=w(j)-alu(l)*x
-                  if (jw(j).eq.0) then
-                     len=len+1
-                     jw(j)=len
-                     jw(n+len)=j
-                  end if
- 20            continue
-               
-            end if 
-         end if
-         i=Llist(i)
-      goto 10
-c     end while
- 999  return
-c----------------end-of-ilucupdate--------------------------------------
-c-----------------------------------------------------------------------
-      end
-
-
-
-
-
-      subroutine iluclist(n,k,startk,jlu,jnext,Ulist,Ufirst)
-c-----------------------------------------------------------------------
-      implicit none 
-      integer n,k,startk
-      integer jlu(*),jnext(n),Ulist(n),Ufirst(k)
-c-----------------------------------------------------------------------
-c     update linked lists of U (resp. L)
-c
-c     n         size of the problem
-c     k         current step of the update procedure
-c     startk    start of row k of U
-c     jlu       index array
-c     jnext     pointers to the first space behind any row of U
-c     Ulist     linked list for the nonzeros of U in column k
-c     Ufirst    first nonzero entry in U(i,k:n)
-
-      integer i,j,l
-      
-c     position of the first nonzero entry U(i,k) in column k. Note
-c     that U is stored by rows!
-      i=Ulist(k)
-c     while i>0
- 10      if (i.le.0) goto 20
-
-c        does there exist an entry in U(i,k:n)?
-         Ufirst(i)=Ufirst(i)+1
-         l=Ufirst(i)
-c        are there nonzeros leftover?
-         if (l.lt.jnext(i)) then
-            j=jlu(l)
-c           save the old successor of i
-            l=Ulist(i)
-c           add i to the linked list of column j
-            Ulist(i)=Ulist(j)
-            Ulist(j)=i
-c           restore the old successor
-            i=l
-         else
-            i=Ulist(i)
-         end if
-      goto 10
-c     end while
-
-c     first nonzero in new row k of U
- 20   i=k
-      Ufirst(i)=startk
-      l=Ufirst(i)
-c     if there are nonzeros leftover
-      if (l.lt.jnext(i)) then
-         j=jlu(l)
-c        add i to the linked list of column j
-         Ulist(i)=Ulist(j)
-         Ulist(j)=i
-      end if
-      return
-c----------------end-of-iluclist----------------------------------------
 c-----------------------------------------------------------------------
       end

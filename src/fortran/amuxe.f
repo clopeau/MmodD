@@ -1,4 +1,4 @@
-  SUBROUTINE amuxe(n,x,y,na,ncol,a,ja) 
+      SUBROUTINE amuxe(n,x,y,na,ncol,a,ja) 
       IMPLICIT NONE
 c     ---------------------------------------
 c     DECLARATION DES VARIABLES DES ARGUMENTS

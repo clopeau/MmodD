@@ -1,4 +1,4 @@
-        subroutine PILUCLSOL(n, nB, y, x, alu, jlu, ju)
+        subroutine piluclsol(n, nB, y, x, alu, jlu, ju)
         DOUBLE PRECISION x(n), y(nB), alu(*)
         integer n, nB,  jlu(*), ju(n+1)
 c-----------------------------------------------------------------------

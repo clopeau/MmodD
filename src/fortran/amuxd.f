@@ -1,4 +1,4 @@
- SUBROUTINE amuxd(n,x,y,diag,ndiag,idiag,ioff) 
+      SUBROUTINE amuxd(n,x,y,diag,ndiag,idiag,ioff) 
       IMPLICIT NONE
 c     ---------------------------------------
 c     DECLARATION DES VARIABLES DES ARGUMENTS

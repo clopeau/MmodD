@@ -1,4 +1,4 @@
-subroutine lutsol(n, y, x, alu, jlu, ju) 
+        subroutine lutsol(n, y, x, alu, jlu, ju) 
         real*8 x(n), y(n), alu(*)
 	integer n, jlu(*), ju(*)
 c-----------------------------------------------------------------------

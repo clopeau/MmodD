@@ -1,4 +1,4 @@
-SUBROUTINE ldsoll(n,x,y,al,jal,nlev,lev,ilev) 
+      SUBROUTINE ldsoll(n,x,y,al,jal,nlev,lev,ilev) 
       IMPLICIT NONE
 c     ---------------------------------------
 c     DECLARATION DES VARIABLES DES ARGUMENTS

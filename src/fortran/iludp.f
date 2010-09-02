@@ -1,4 +1,4 @@
-subroutine iludp(n,a,ja,ia,alph,droptol,permtol,mbloc,alu,
+      subroutine iludp(n,a,ja,ia,alph,droptol,permtol,mbloc,alu,
      *     jlu,ju,iwk,w,jw,iperm,ierr)
 c-----------------------------------------------------------------------
       implicit none

@@ -35,7 +35,7 @@ c Note: all preconditioners are preprocessors to pgmres.               c
 c usage: call preconditioner then call pgmres                          c
 c                                                                      c
 c----------------------------------------------------------------------c
-subroutine lusol(n, y, x, alu, jlu, ju)
+        subroutine lusol(n, y, x, alu, jlu, ju)
         real*8 x(n), y(n), alu(*)
 	integer n, jlu(*), ju(*)
 c-----------------------------------------------------------------------

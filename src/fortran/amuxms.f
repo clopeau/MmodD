@@ -1,4 +1,4 @@
- SUBROUTINE amuxms(n,x,y,a,ja)
+      SUBROUTINE amuxms(n,x,y,a,ja)
       IMPLICIT NONE
 c     ---------------------------------------
 c     DECLARATION DES VARIABLES DES ARGUMENTS

@@ -1,4 +1,4 @@
- SUBROUTINE amuxj(n,x,y,jdiag,a,ja,ia)
+      SUBROUTINE amuxj(n,x,y,jdiag,a,ja,ia)
       IMPLICIT NONE
 c     ---------------------------------------
 c     DECLARATION DES VARIABLES DES ARGUMENTS

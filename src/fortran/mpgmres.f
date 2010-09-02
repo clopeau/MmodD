@@ -6,7 +6,7 @@ c-----------------------------------------------------------------------
        integer n, np, imk, maxits, ierr, ja(*), ia(n+1), jlu(*)
      .         , ju(n),i,j,k,i1,k1,ii,jj,n1,its, kmax, iout
 	real*8 vv(n,*), rhs(*), sol(*), aa(*), alu(*),eps, ro, eps1
-	. ,dnrm2, ddot, epsmac ,gam
+     . ,dnrm2, ddot, epsmac ,gam
        
 c----------------------------------------------------------------------*
 c                                                                      *

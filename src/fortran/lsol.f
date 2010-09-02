@@ -1,4 +1,4 @@
- SUBROUTINE lsol(n,x,y,al,jal,ial)
+      SUBROUTINE lsol(n,x,y,al,jal,ial)
       IMPLICIT NONE
 c     ---------------------------------------
 c     DECLARATION DES VARIABLES DES ARGUMENTS

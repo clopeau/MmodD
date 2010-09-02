@@ -1,4 +1,4 @@
- subroutine cg(n, rhs, sol, ipar, fpar, w)
+      subroutine cg(n, rhs, sol, ipar, fpar, w)
       implicit none
       integer n, ipar(16)
       real*8 rhs(*), sol(*), fpar(16), w(n,*)

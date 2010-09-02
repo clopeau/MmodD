@@ -1,4 +1,4 @@
-subroutine ilud(n,a,ja,ia,alph,tol,alu,jlu,ju,iwk,w,jw,ierr)
+      subroutine ilud(n,a,ja,ia,alph,tol,alu,jlu,ju,iwk,w,jw,ierr)
 c-----------------------------------------------------------------------
       implicit none 
       integer n

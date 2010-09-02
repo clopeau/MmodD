@@ -1,4 +1,4 @@
- SUBROUTINE usolc(n,x,y,au,jau,iau)
+      SUBROUTINE usolc(n,x,y,au,jau,iau)
       IMPLICIT NONE
 c     ---------------------------------------
 c     DECLARATION DES VARIABLES DES ARGUMENTS

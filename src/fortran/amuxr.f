@@ -1,4 +1,4 @@
-SUBROUTINE atmuxr(m,n,x,y,a,ja,ia)
+      SUBROUTINE atmuxr(m,n,x,y,a,ja,ia)
       IMPLICIT NONE
 c     ---------------------------------------
 c     DECLARATION DES VARIABLES DES ARGUMENTS
