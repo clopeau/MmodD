@@ -110,8 +110,8 @@ c-------------- compute initial residual vector --------------
  21    continue
 c-------------------------------------------------------------
  20    ro = dnrm2(n, vv, 1)
-       if (iout .gt. 0 .and. its .eq. 0)
-     *      write(iout, 199) its, ro
+c       if (iout .gt. 0 .and. its .eq. 0)
+c     *      write(iout, 199) its, ro
        if (ro .eq. 0.0d0) goto 999
        t = 1.0d0/ ro
        do 210 j=1, n
@@ -172,8 +172,8 @@ c
        hh(i,i) = c(i)*hh(i,i) + s(i)*hh(i1,i)
        ro = abs(rs(i1))
  131   format(1h ,2e14.4)
-       if (iout .gt. 0)
-     *      write(iout, 199) its, ro
+c       if (iout .gt. 0)
+c     *      write(iout, 199) its, ro
        if (i .lt. imk .and. (ro .gt. eps1))  goto 4
 c
 c     now compute solution. first solve upper triangular system.
