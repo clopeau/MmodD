@@ -1,6 +1,6 @@
 #include <stack-c.h>
 #include <math.h>
-extern SciSparse *NewSpk(int *it, int *n, int *m, int *nel);
+
 extern SciSparse *NewSpk(it,m,n,nel)
      int *m,*n,*nel,*it;
 {

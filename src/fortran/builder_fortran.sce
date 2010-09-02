@@ -1,16 +1,13 @@
-//functions_f=['ilut','ilu0','lusol','piluc',..
-//'milu0',,..
-//,'pgmres','runrc','iluc','pilucsol',..
-//'ilucsol','pilucdusol'];
+
 Files_f=findfiles(get_absolute_file_path('builder_fortran.sce'),'*.f');
 
 
-Files_f=["amuxd.f"
+Files_f=["amuxd.f";"uppdir.f"
 "amuxe.f"
 "amux.f"
 "amuxj.f"
 "amuxms.f"
-"amuxr.f"
+"atmuxr.f"
 "atmux.f"
 "implu.f"
 "mgsro.f"
@@ -63,7 +60,6 @@ Files_f=["amuxd.f"
 "tfqmr.f"
 "udsolc.f"
 "udsol.f"
-"uppdir.f"
 "usolc.f"
 "usol.f"
 "runrc.f"];
