@@ -13,16 +13,16 @@ extern Gatefunc intpgcnr;
 extern Gatefunc intpbcgstab;
 extern Gatefunc intpqmr;
 static GenericTable Tab[]={
-  {(Myinterfun)sci_gateway,intsplsolve,"fortran_splsolve"},
-  {(Myinterfun)sci_gateway,intspusolve,"fortran_spusolve"},
-  {(Myinterfun)sci_gateway,inttriangular,"fortran_triangular"},
-  {(Myinterfun)sci_gateway,intpgmres,"fortran_pgmres"},
-  {(Myinterfun)sci_gateway,intpgc,"fortran_pgc"},
-  {(Myinterfun)sci_gateway,intpbgc,"fortran_pbgc"},
-  {(Myinterfun)sci_gateway,intpdbgc,"fortran_pdbgc"},
-  {(Myinterfun)sci_gateway,intpgcnr,"fortran_pgcnr"},
-  {(Myinterfun)sci_gateway,intpbcgstab,"fortran_pbcgstab"},
-  {(Myinterfun)sci_gateway,intpqmr,"fortran_pqmr"},
+  {(Myinterfun)sci_gateway,intsplsolve,"splsolve"},
+  {(Myinterfun)sci_gateway,intspusolve,"spusolve"},
+  {(Myinterfun)sci_gateway,inttriangular,"triangular"},
+  {(Myinterfun)sci_gateway,intpgmres,"pgmres"},
+  {(Myinterfun)sci_gateway,intpgc,"pgc"},
+  {(Myinterfun)sci_gateway,intpbgc,"pbgc"},
+  {(Myinterfun)sci_gateway,intpdbgc,"pdbgc"},
+  {(Myinterfun)sci_gateway,intpgcnr,"pgcnr"},
+  {(Myinterfun)sci_gateway,intpbcgstab,"pbcgstab"},
+  {(Myinterfun)sci_gateway,intpqmr,"pqmr"},
 };
  
 int C2F(libitsolve_fortran)()
