@@ -342,14 +342,14 @@ c aluk             |U(k,k)|
 
       lfil =lfilv(1)
       lfils=lfilv(2)
-      print *,n,nLU,lfil,lfils
+c      print *,n,nLU,lfil,lfils
 
       if (lfil.lt.0) goto 994
 
 c     drop tolerances
       droptol=droptols(1)
       droptol2=droptols(2)/condest
-      print *,droptols(1),droptols(2),condest
+c      print *,droptols(1),droptols(2),condest
       maxcondest=1.0d0
 
 c     abbreviations

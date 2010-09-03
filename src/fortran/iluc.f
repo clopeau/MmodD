@@ -240,7 +240,7 @@ c
 c x,xp,xm,mup,mum  used for inverse-based dropping
 c
 c absaluk             |U(k,k)| 
-      print *, lfil,droptol
+c      print *, lfil,droptol
 
       if (lfil.lt.0) goto 994
 
@@ -267,40 +267,40 @@ c     0 standard, 1 inverse based
 c      print *,param
       i=param
       droptype=mod(i,2)
-      print *,'dropping  0 standard, 1 inverse : ',droptype
+c      print *,'dropping  0 standard, 1 inverse : ',droptype
 c
 c     bit 1
 c     should we shift zero pivots
 c     0 yes, 1 no
       i=i/2
       pivottype=mod(i,2)
-      print *,'zero pivots 0 oui, 1 non :',pivottype
+c      print *,'zero pivots 0 oui, 1 non :',pivottype
 c
 c     bit 2
 c     which kind of Schur complement do we use
 c     0 simple, 1 Tismenetsky-like
       i=i/2
       sctype=mod(i,2)
-      print *,'shur comp 0 simple 2 Timen : ',sctype
+c      print *,'shur comp 0 simple 2 Timen : ',sctype
 c     bit 3
 c     is any information about the inverse factors provided?
 c     0 no, 1 yes
       i=i/2
       invinfo=mod(i,2)
-      print *,'inversefactor : ',invinfo
+c      print *,'inversefactor : ',invinfo
 
 c     bit 4
 c     is an improved estimate desired?
 c     0 no, 1 yes
       i=i/2
       improved=mod(i,2)
-      print *,' improved: ',improved
+c      print *,' improved: ',improved
 c     bit 5
 c     is a diagonal compensation desired
 c     0 no, 1 yes
       i=i/2
       milu=mod(i,2)
-      print *,' milu : ',milu
+c      print *,' milu : ',milu
 
 
 c     ensure that the entries of A in any row are sorted in 
@@ -1730,11 +1730,11 @@ c        end main loop
 
 
       ierr = 0
-      if (pivottype.eq.0 .and. zeropivots.gt.0) then
+c      if (pivottype.eq.0 .and. zeropivots.gt.0) then
 c      if (zeropivots.gt.0) then
-         write (6,'(A,I6,A)') '!!! Warning: ',zeropivots,
-     +         ' zero pivots occured and have been shifted away!!!'
-      end if
+c         write (6,'(A,I6,A)') '!!! Warning: ',zeropivots,
+c     +         ' zero pivots occured and have been shifted away!!!'
+c      end if
       return
 c     END regular routine
 

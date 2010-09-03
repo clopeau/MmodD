@@ -30,8 +30,8 @@ c     ---------------------------------
      .         i, its
       DOUBLE PRECISION 
      .         res
-      SAVE 
-     .         its,res
+c      SAVE 
+c     .         its,res
  
       its=0
       res=0.0d0
@@ -114,7 +114,7 @@ c     ----------------------------
 c     SORTIE DES RESIDUS A L'ECRAN
 c     ----------------------------
       if (ipar(7).ne.its) then
-         WRITE(iout,110) its, real(res)
+c         WRITE(iout,110) its, real(res)
          its=ipar(7)
       endif
       res=fpar(5)
@@ -135,30 +135,30 @@ c
         CALL lutsol(n,wk(ipar(8)),wk(ipar(9)),au,jau,ju)
         goto 10
 c
-      else if (ipar(1).le.0) then
-        if (ipar(1).eq.0) then
-           print *, 'Test de convergence satisfait par le solveur.'
-        else if (ipar(1).eq.-1) then
-           print *, 'Nombre d''iterations maximun atteint.'
-        else if (ipar(1).eq.-2) then
-           print *, 'Espace memoire insuffisant pour le solveur.'
-           print *, 'Espace memoire doit avoir au moins ', ipar(4)
-     .          , ' elements.'
-        else if (ipar(1).eq.-3) then
-           print *, 'Arret brutal du solveur iteratif.'
-        else
-           print *, 'Solveur iteratif termine. code =', ipar(1)
-        endif
+c      else if (ipar(1).le.0) then
+c        if (ipar(1).eq.0) then
+c           print *, 'Test de convergence satisfait par le solveur.'
+c        else if (ipar(1).eq.-1) then
+c           print *, 'Nombre d''iterations maximun atteint.'
+c        else if (ipar(1).eq.-2) then
+c           print *, 'Espace memoire insuffisant pour le solveur.'
+c           print *, 'Espace memoire doit avoir au moins ', ipar(4)
+c     .          , ' elements.'
+c        else if (ipar(1).eq.-3) then
+c           print *, 'Arret brutal du solveur iteratif.'
+c        else
+c           print *, 'Solveur iteratif termine. code =', ipar(1)
+c        endif
       endif
 c     
 c     time=dtime(dt)
 c
-        WRITE (*,110) ipar(7), real(fpar(6))
-        WRITE (*,*) '* Code renvoye =', ipar(1)
-     .              , ' Vitesse de convergence =', fpar(7)
+c        WRITE (*,110) ipar(7), real(fpar(6))
+c        WRITE (*,*) '* Code renvoye =', ipar(1)
+c     .              , ' Vitesse de convergence =', fpar(7)
 
       return
- 110  format(1x,i6,1x,e12.5)
+c 110  format(1x,i6,1x,e12.5)
       end
 
 
