@@ -4,14 +4,14 @@ if MSDOS then
 else
   includes_src_c = '-I' + get_absolute_file_path('builder_gateway_fortran.sce') + '../../src/c';
 end
-
+if c_link('libitsolve_fortran'),ulink;end;
 functions=['splsolve';'spusolve';'triangular';...
 	'pgmres';'pgc';'pbgc';'pdbgc';'pgcnr';...
-	'pbcgstab';'pqmr'];//'shurgmres';'mshurgmres'];
+	'pbcgstab';'pqmr';'shurgmres';'mshurgmres'];
 
 Files='int'+functions+'.c';
 Files=Files';
-if c_link('itsolve_fortran'),ulink;end;
+
 exec '../../src/c/loader.sce';
 tbx_build_gateway('itsolve_fortran', [functions 'int'+functions], [Files], ..
                   get_absolute_file_path('builder_gateway_fortran.sce'), ..
