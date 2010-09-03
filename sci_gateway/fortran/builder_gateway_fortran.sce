@@ -12,7 +12,7 @@ functions=['splsolve';'spusolve';'triangular';...
 Files='int'+functions+'.c';
 Files=Files';
 
-tbx_build_gateway('itsolve_fortran', ['fortran_'+functions 'int'+functions], [Files], ..
+tbx_build_gateway('itsolve_fortran', [functions 'int'+functions], [Files], ..
                   get_absolute_file_path('builder_gateway_fortran.sce'), ..
                   ['../../src/c/liblband'],'',includes_src_c);
                   
