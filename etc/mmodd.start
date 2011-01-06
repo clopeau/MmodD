@@ -179,7 +179,20 @@ if ~isdef("%exclud")
     %exclud=who('get');
     %exclud=%exclud(length(%exclud)>2);
     %exclud=[%exclud;'%'];
-end	
+end
+
+// choice of OS and definition of global var %execpath
+global %execpath;
+if MSDOS
+  %execpath=root_tlbx+"\Win32\";
+else
+  %os=unix_g('uname');
+  if %os=="Linux"
+    %execpath=root_tlbx+"/Linux64/";
+  else 
+    %execpath=root_tlbx+"/MacIntel32/";
+  end
+end
 
 //clear root_tlbx;
 //clear etc_tlbx;
