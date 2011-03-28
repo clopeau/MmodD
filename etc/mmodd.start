@@ -53,9 +53,10 @@ xpause(1000);
 // =============================================================================
 mprintf("\tLoad gateways\n");
 ilib_verbose(0);
-//exec(pathconvert(root_tlbx+"/src/loader_src.sce",%f));
-//exec(pathconvert(root_tlbx+"/sci_gateway/loader_gateway.sce",%f));
-
+if ~MSDOS
+   exec(pathconvert(root_tlbx+"/src/loader_src.sce",%f));
+   exec(pathconvert(root_tlbx+"/sci_gateway/loader_gateway.sce",%f));
+end
 // Load and add help chapter
 // =============================================================================
 if or(getscilabmode() == ["NW";"STD"]) then
