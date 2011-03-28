@@ -1,10 +1,10 @@
-Toolbox: MMODD
+Toolbox: MmodD
 
-Title: MMODD
+Title: MmodD Modular Modeling
 
 Summary: MMODD is a tool for solving two-dimensional linear partial differential equations by finite element methods.
 
-Version: Alpha-0
+Version: 0.0
 
 Author: Thierry Clopeau 
 
