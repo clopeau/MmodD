@@ -1,4 +1,5 @@
 // Copyright INRIA 2008
+// Copyright 2011 Thierry Clopeau
 // This file is released into the public domain
 help_dir = get_absolute_file_path('builder_help.sce');
 help_dir_US = pathconvert( help_dir ) + "en_US" + filesep();
@@ -9,6 +10,7 @@ func=[ '../macros/tri2d/square2d.sci'
        '../macros/p1_1d/p1_1d.sci'
        '../macros/p1_2d/p1_2d.sci'
        '../macros/line3d/line3d.sci'];
+func=help_dir+"/"+func;
 list_func=['square2d' 'tri2d' 'line2d' 'p1_1d' 'p1_2d' 'line3d'];
 for i=1:size(func,1)
 mdelete('en_US/'+ list_func(i) + '.xml');

@@ -27,7 +27,7 @@ end
 // =============================================================================
 
 if ~with_module('development_tools') then
-  error(msprintf(gettext('%s module not installed."),'development_tools'));
+  error(msprintf(gettext('%s module not installed.'),'development_tools'));
 end
 
 // Action
@@ -39,7 +39,7 @@ if ~ MSDOS
   tbx_builder_src(toolbox_dir);
   tbx_builder_gateway(toolbox_dir);
 end
-tbx_builder_help(toolbox_dir);
+//tbx_builder_help(toolbox_dir);
 tbx_build_loader(TOOLBOX_NAME, toolbox_dir);
 tbx_build_cleaner(TOOLBOX_NAME, toolbox_dir);
 add_demo('Mmodd demo',toolbox_dir+'/demos/mini.dem.sce')
