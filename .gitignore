@@ -15,6 +15,7 @@ jar/scilab_fr_FR_help.jar
 names
 lib
 hs_err_pid*.log
+libitsolve_fortran.c
 #
 # Generated files (Windows)
 #
