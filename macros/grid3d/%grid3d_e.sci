@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function  [ind,ind1]=%grid3d_e(varargin)
 // fonction d''extraction de grille
 // les frontieres sont

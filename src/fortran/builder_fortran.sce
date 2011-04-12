@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 Files_f=findfiles(get_absolute_file_path('builder_fortran.sce'),'*.f');
 functions_f=Files_f;
 for i=1:size(Files_f,1)

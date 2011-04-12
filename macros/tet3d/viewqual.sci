@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function v=prod_vect(v1,v2)
 v=zeros(v1);
 v(:,1)=v1(:,2).*v2(:,3)-v1(:,3).*v2(:,2);

@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function A=Dx_p1_3d(%u)
   %th=evstr(%u.geo);
   [nf,nt]=size(%th);

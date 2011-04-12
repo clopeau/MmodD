@@ -1,6 +1,14 @@
-//By Dream Team: ****** Thierry Clopeau, Delanoue David, Marcel Ndeffo, Sofian Smatti ******
+// Copyright (C) 2010-11 - Thierry Clopeau
+// Copyright (C) 2010 - Delanoue David
+// Copyright (C) 2010 - Marcel Ndeffo
+// Copyright (C) 2010 - Sofian Smatti
+//
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution. The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
-// This file is released into the public domain
 
 mode(-1);
 lines(0);

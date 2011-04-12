@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function [out]=p1_3d(%th,%fonction)
 // Fonction de definition generique de type "q1parallelle"
 // Node est le seul champ 

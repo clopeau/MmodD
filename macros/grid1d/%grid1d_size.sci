@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function [nx,ny]=%grid1d_size(%tmp,%opt)
 // fonction size
 // taille de la grille

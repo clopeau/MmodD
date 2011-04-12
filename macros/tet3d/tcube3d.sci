@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function th=tcube3d(x,y,z)
 // Creation d'un maillage grille sur un cube
 // syntaxe :

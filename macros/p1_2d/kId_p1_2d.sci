@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function B=kId_p1_2d(%kk,%u)
     if typeof(%kk)=='p1_2d'
       %kk=p0(%kk)

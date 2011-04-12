@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function %grid2d_p(G)
 
   write(%io(2),'Type grid2d : '+G.id+'  '+string(length(G.x))...

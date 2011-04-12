@@ -1,3 +1,7 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
 
 src_dir = get_absolute_file_path("builder_src.sce");
 //gateway=ls(src_dir+'sci_gateway/*.c')';

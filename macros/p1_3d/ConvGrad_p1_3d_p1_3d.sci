@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function %A=ConvGrad_p1_3d_p1_3d(%u,%c)
    %th=evstr(%c.geo);
    [n,nt]=size(%th);

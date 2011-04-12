@@ -1,5 +1,7 @@
-//Clopeau Thierry, Delanoue David, Ndeffo Marcel & Smatti Sofian
-// This file is released into the public domain
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
 
 //
 // buildmacros.sce --
