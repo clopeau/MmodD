@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 sci_gateway_dir = get_absolute_file_path('builder_gateway.sce');
 
 tbx_builder_gateway_lang('fortran', sci_gateway_dir);

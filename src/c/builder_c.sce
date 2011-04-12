@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 src_c_path = get_absolute_file_path('builder_c.sce');
 
 CFLAGS = "-I" + src_c_path;

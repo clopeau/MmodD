@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 if MSDOS then
   // to manage long pathname
   includes_src_c = '-I""' + get_absolute_file_path('builder_gateway_fortran.sce') + '../../src/c""';
