@@ -116,15 +116,15 @@ clear macrospath;
 
 // Load demos
 // =============================================================================
-//if or(getscilabmode() == ["NW";"STD"]) then
-//	mprintf("\tLoad demos\n");
-//	pathdemos = pathconvert(root_tlbx+"/demos/toolbox_skeleton.dem.gateway.sce",%F,%T);
-//	add_demo("Toolbox skeleton",pathdemos);
-//	clear pathdemos add_demo;
-//end
+if or(getscilabmode() == ["NW";"STD"]) then
+    mprintf("\tLoad demos\n");
+    pathdemos = pathconvert(root_tlbx+"/demos/MmodD.dem.gateway.sce",%F,%T);
+    add_demo("MmodD",pathdemos);
+    clear pathdemos add_demo;
+end
 
 // menus additionnels
-if and(sciargs()<>"-nw")
+if or(getscilabmode() == ["NW";"STD"])
   %menupath=root_tlbx;
   //delmenu('toolboxes');
   //delmenu('Help');
