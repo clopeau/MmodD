@@ -1,4 +1,4 @@
-// Copyright (C) 20111 - Thierry Clopeau
+// Copyright (C) 2011 - Thierry Clopeau
 //
 // This file must be used under the terms of the CeCILL.
 // This source file is licensed as described in the file COPYING, which
