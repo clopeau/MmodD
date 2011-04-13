@@ -1,4 +1,7 @@
 // Copyright (C) 2010 - Thierry Clopeau
+// Copyright (C) 2010 - Delanoue David
+// Copyright (C) 2010 - Marcel Ndeffo
+// Copyright (C) 2010 - Sofian Smatti
 // 
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
@@ -88,10 +91,6 @@ end
 
 
 
-
-
-
-
 ////winId=waitbar('MMoDD Help loading');
 //realtimeinit(0.3);
 //tk=with_tk();
@@ -170,12 +169,8 @@ Edp(1)="exec "+%menupath+"/menu/Var_New.sce;";
 //    //Editor(1)="RangeSetting";
 //    Editor(2)="xmesh()";
 //  end
-  //addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
-  delmenu('MmoddGUI')
-  addmenu('MmoddGUI')  
-   MmoddGUI="exec "+%menupath+"/menu/Mmoddgui.sce;";
-   
-  
+//addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
+
 end
 
 // definition of global var %exclud (using in function name)
@@ -204,7 +199,3 @@ end
 
 close(winId);
 
-//création des variables temporaires pour le chargement
-//th=tri2d();
-//u=p1_2d(th);
-//pb=edp(th);
