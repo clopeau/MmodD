@@ -7,10 +7,10 @@
 // http://www.cecill.info 
 
 
-mprintf("Start MMODD\n");
+mprintf("Start MmodD\n");
 
 if isdef("toolbox_mmodd") then
-	warning("Toolbox MMODD is already loaded");
+	warning("Toolbox MmodD is already loaded");
 	return;
 end
 
@@ -31,27 +31,22 @@ for i=1:size(listfic,1)
     %dir($+1)=rep;
   end
 end
-//figw=220; figh=160;
-//close(1)
-//figure(1,"position",[0 0 figw figh]);
-//htrig=uicontrol(1,"style","radiobutton","Min",0,"Max",1,"value",0,..
-//                    "position",[80 10 20 20]);
-//httrig=uititle(htrig,"free/trig","r")
-winId=waitbar('MMoDD loading');
-realtimeinit(0.3);
-tk=with_tk();
+
+if or(getscilabmode() == ["NW";"STD"]) 
+  winId=waitbar('MMoDD loading');
+  realtimeinit(0.3);
+end
+
 num=size(%dir,1);
 for i=1:num
-  if ~(%dir(i,1)=="tk" & ~tk)
     str=macrospath+%dir(i,1);
     execstr('mmodd_'+%dir(i,1)+'_lib='+'lib('''+ str+'/'' )');
     realtime(3*i/num);
-    waitbar(i/num,winId) ;
-  end
-  write(%io(2),'-------------------- '+%dir(i,1)+' loaded ---------------------');
+    if or(getscilabmode() == ["NW";"STD"]) 
+        waitbar(i/num,winId) ;
+    end   
+    write(%io(2),'          - macros  '+%dir(i,1)+' loaded');
 end
-
-xpause(1000);
 
 
 //clear macrospath; ------> RENVOYER APRES LE CHARGEMENT DE L'AIDE 
@@ -70,7 +65,7 @@ if or(getscilabmode() == ["NW";"STD"]) then
 	mprintf("\tLoad help\n");
 	path_addchapter = pathconvert(root_tlbx+"/jar");
 	if ( isdir(path_addchapter) <> [] ) then
-		add_help_chapter("Toolbox skeleton", path_addchapter, %F);
+		add_help_chapter("MmodD", path_addchapter, %F);
 		clear add_help_chapter;
 	end
 	clear path_addchapter;
@@ -88,29 +83,6 @@ end
 //  end
 //end
 //execstr('help_from_sci(macro_dir,)');
-
-
-
-////winId=waitbar('MMoDD Help loading');
-//realtimeinit(0.3);
-//tk=with_tk();
-//num=size(%dir,1);
-//for i=1:num
-//  if ~(%dir(i,1)=="tk" & ~tk)
-//    //str=macrospath+%dir(i,1);
-//    //execstr('mmodd_'+%dir(i,1)+'_lib='+'lib('''+ str+'/'' )');
-//    execstr("help_from_sci("%dir(i,1)","root_tlbx"+"/help/"")");
-//    realtime(3*i/num);
-//    waitbar(i/num,winId) ;
-//  end
-//  write(%io(2),'-------------------- '+%dir(i,1)+'Help loaded ---------------------');
-//end
-//
-//xpause(1000);
-
-
-
-
 //----------FIN Modif Dav (PI ETRE A SUPPRIMER)-----------------
 clear macrospath;
 
