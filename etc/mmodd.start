@@ -32,7 +32,7 @@ for i=1:size(listfic,1)
   end
 end
 
-if or(getscilabmode() == ["NW";"STD"]) 
+if getscilabmode() == ["STD"]
   winId=waitbar('MMoDD loading');
   realtimeinit(0.3);
 end
@@ -42,14 +42,12 @@ for i=1:num
     str=macrospath+%dir(i,1);
     execstr('mmodd_'+%dir(i,1)+'_lib='+'lib('''+ str+'/'' )');
     realtime(3*i/num);
-    if or(getscilabmode() == ["NW";"STD"]) 
+    if getscilabmode() == ["STD"] 
         waitbar(i/num,winId) ;
     end   
     write(%io(2),'          - macros  '+%dir(i,1)+' loaded');
 end
 
-
-//clear macrospath; ------> RENVOYER APRES LE CHARGEMENT DE L'AIDE 
 
 // load gateways
 // =============================================================================
@@ -59,6 +57,7 @@ if ~MSDOS
    exec(pathconvert(root_tlbx+"/src/loader_src.sce",%f));
    exec(pathconvert(root_tlbx+"/sci_gateway/loader_gateway.sce",%f));
 end
+
 // Load and add help chapter
 // =============================================================================
 if or(getscilabmode() == ["NW";"STD"]) then
@@ -70,21 +69,7 @@ if or(getscilabmode() == ["NW";"STD"]) then
 	end
 	clear path_addchapter;
 end
-//----------Modif Dav (PI ETRE A SUPPRIMER)-----------------
-//help_dir = get_absolute_file_path('builder_help.sce');
-//
-//listfic = listfiles(macrospath);
-////%dir=[];
-//for i = 1:size(listfic,1)
-//  rep = listfic(i,1);
-//  if(isdir(macrospath+rep))
-//    //%dir($+1) = rep;
-//    execstr('help_from_sci('rep','help_dir')');
-//  end
-//end
-//execstr('help_from_sci(macro_dir,)');
-//----------FIN Modif Dav (PI ETRE A SUPPRIMER)-----------------
-clear macrospath;
+
 
 // Load demos
 // =============================================================================
@@ -95,8 +80,9 @@ if or(getscilabmode() == ["NW";"STD"]) then
     clear pathdemos add_demo;
 end
 
-// menus additionnels
-if or(getscilabmode() == ["NW";"STD"])
+// menus additionnals
+// =============================================================================
+if getscilabmode() == ["STD"]
   %menupath=root_tlbx;
   //delmenu('toolboxes');
   //delmenu('Help');
@@ -121,10 +107,10 @@ if or(getscilabmode() == ["NW";"STD"])
 //  Variable(4)="exec "+%menupath+"/menu/Var_Export.sce;";
 //  Variable(5)="exec "+%menupath+"/menu/Var_Edit.sce;"; 
   
-  delmenu('Edp')
+   delmenu('Edp')
    addmenu('Edp',['New edp';'Edit edp';'Export Edp';'Load edp']);
   
-Edp(1)="exec "+%menupath+"/menu/Var_New.sce;";
+  Edp(1)="exec "+%menupath+"/menu/Var_New.sce;";
   Edp(4)="exec "+%menupath+"/menu/Edp_Load.sce;";
   //Edp(3)="exec("""+%menupath+"/menu/Var_View.sce"");";
   Edp(3)="exec "+%menupath+"/menu/Edp_Export.sce;";
@@ -134,18 +120,13 @@ Edp(1)="exec "+%menupath+"/menu/Var_New.sce;";
   delmenu('Post_Processing')
   
   addmenu('Post_Processing',['View solution'])
-   Post_Processing(1)="exec("""+%menupath+"/menu/Var_View.sce"");";
-//  if ~(grep(SCI,"scilab-3")==1)
-//     delmenu("Editor");
-//     addmenu("Editor",['Range';'editor';]);
-//    //Editor(1)="RangeSetting";
-//    Editor(2)="xmesh()";
-//  end
-//addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
+  Post_Processing(1)="exec("""+%menupath+"/menu/Var_View.sce"");";
 
 end
 
 // definition of global var %exclud (using in function name)
+// =============================================================================
+
 if ~isdef("%exclud")
     global %exclud;
     %exclud=who('get');
@@ -154,6 +135,8 @@ if ~isdef("%exclud")
 end
 
 // choice of OS and definition of global var %execpath
+// =============================================================================
+
 global %execpath;
 if MSDOS
   %execpath=root_tlbx+"\Win32\";
@@ -169,5 +152,7 @@ end
 //clear root_tlbx;
 //clear etc_tlbx;
 
-close(winId);
+if getscilabmode() == ["STD"]
+   close(winId);
+end
 

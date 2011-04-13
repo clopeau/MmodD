@@ -13,8 +13,8 @@
 mode(-1);
 lines(0);
 
-TOOLBOX_NAME  = "mmodd";
-TOOLBOX_TITLE = "mmodd";
+TOOLBOX_NAME  = "Mmodd";
+TOOLBOX_TITLE = "Modular Modeling";
 toolbox_dir = get_absolute_file_path("builder.sce");
 
 // Check Scilab's version
@@ -47,10 +47,9 @@ if ~ MSDOS
   tbx_builder_src(toolbox_dir);
   tbx_builder_gateway(toolbox_dir);
 end
-//tbx_builder_help(toolbox_dir);
+tbx_builder_help(toolbox_dir);
 tbx_build_loader(TOOLBOX_NAME, toolbox_dir);
 tbx_build_cleaner(TOOLBOX_NAME, toolbox_dir);
-add_demo('Mmodd demo',toolbox_dir+'/demos/mini.dem.sce')
 
 // Clean variables
 // =============================================================================
