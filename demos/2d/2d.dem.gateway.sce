@@ -6,13 +6,8 @@
 // are also available at
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
-
-
-demopath = get_absolute_file_path("MmodD.dem.gateway.sce");
-
-subdemolist = ["2d problem","2d/2d.dem.gateway.sce";..
-               "3d problem","inprogress.sce";..
-	       "Benchmark" , "inprogress.sce"];
+demopath = get_absolute_file_path("2d.dem.gateway.sce");
+subdemolist = ["Getting started","geting_started.sce"];
 
 subdemolist(:,2) = demopath + subdemolist(:,2);
 clear demopath;
