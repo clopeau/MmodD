@@ -46,7 +46,7 @@ atomsDisp(msprintf("\tInstalling %s (%s) ...",packages, ...
 
 // Create needed directories
 // =========================================================================
-Atoms_system_directory  = atomsPath("system" ,"user");
+atoms_system_directory  = atomsPath("system" ,"user");
 atoms_install_directory = atomsPath("install","user");
 
 directories2create = [  atoms_system_directory ;   ..
@@ -61,20 +61,34 @@ for i=1:size(directories2create,"*")
 end
 // Readind description
 // =========================================================================
-package_description = atomsDESCRIPTIONread(mmodd_dir + "DESCRIPTION")
-package=package_description("MmodD");
+package_description = atomsDESCRIPTIONread(mmodd_dir + "DESCRIPTION");
 package_name="MmodD";
-package_version = getfield(1,package);
+//package=package_description("MmodD");
+package=package_description;
+//package_version = getfield(1,package);
+package_summary=getfield(3,package.packages.MmodD);
 new_package_description = atomsDESCRIPTIONaddField( ..
                 package, ..
                 package_name,        ..
-                package_version,     ..
+                package_summary.Version,     ..
                 "fromRepositery",     ..
                 mmodd_dir);
     
 
-
  sysdir=atomsPath("system" ,"user");
+ 
+// //bug ou choix de programmation
+// //les packages d'une version antérieure (par ex:5.2.2 ) sont souvent présents dans le dossiser temporaire
+// //lors de l'installation d'une nouvelle version: ces dossiers ne sont pas supprimés, pour qu'on puisse toujours charger les modules installés?
+// //du coup load packages doit parcourir chacun des dossiers temporaires recherchant celui qui contient "packages"
+// sysdir_Sci=strsplit(sysdir,strindex(sysdir,'Scilab')+5);
+// sysdir_version=findfiles(sysdir_Sci(1));
+// for i=1:size(sysdir_version,1)
+//     if fileinfo(sysdir_Sci(1)+'\'+sysdir_version(i)+'\.atoms\packages')~=[]
+//         load(sysdir_Sci(1)+'\'+sysdir_version(i)+'\.atoms\packages');
+//     end
+// end
+
 load(sysdir+"packages");
 
 
