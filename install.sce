@@ -71,11 +71,12 @@ else
 	  "I"];
   installed_deps(package_name+" - "+package_summary.Version) = [];
 
-  autoloaded = [autoloaded ["MmodD" package_summary.Version "user"]];
+  autoloaded = [autoloaded; ["MmodD" package_summary.Version "user"]];
   
   atomsSaveInstalled(installed,section);
   atomsSaveInstalleddeps(installed_deps,section);
   atomsAutoloadSave(autoloaded,section);
+  atomsInstallRegister(package_name,package_summary.Version,"I","user");
 end
 
 
