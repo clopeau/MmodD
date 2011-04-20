@@ -25,8 +25,8 @@ macrospath = pathconvert( root_tlbx ) + "macros" + filesep();
 
 listfic=listfiles(macrospath);
 %dir=[];
-for i=1:size(listfic,1)
-  rep=listfic(i,1);
+for ii=1:size(listfic,1)
+  rep=listfic(ii,1);
   if(isdir(macrospath+rep))
     %dir($+1)=rep;
   end
@@ -38,14 +38,14 @@ if getscilabmode() == ["STD"]
 end
 
 num=size(%dir,1);
-for i=1:num
-    str=macrospath+%dir(i,1);
-    execstr('mmodd_'+%dir(i,1)+'_lib='+'lib('''+ str+'/'' )');
-    realtime(3*i/num);
+for ii=1:num
+    str=macrospath+%dir(ii,1);
+    execstr('mmodd_'+%dir(ii,1)+'_lib='+'lib('''+ str+'/'' )');
+    realtime(3*ii/num);
     if getscilabmode() == ["STD"] 
-        waitbar(i/num,winId) ;
+        waitbar(ii/num,winId) ;
     end   
-    write(%io(2),'          - macros  '+%dir(i,1)+' loaded');
+    write(%io(2),'          - macros  '+%dir(ii,1)+' loaded');
 end
 
 
