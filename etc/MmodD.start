@@ -14,7 +14,7 @@ if isdef("toolbox_mmodd") then
 	return;
 end
 
-etc_tlbx  = get_absolute_file_path("mmodd.start");
+etc_tlbx  = get_absolute_file_path("MmodD.start");
 etc_tlbx  = getshortpathname(etc_tlbx);
 root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
 
@@ -32,20 +32,11 @@ for ii=1:size(listfic,1)
   end
 end
 
-if getscilabmode() == ["STD"]
-  winId=waitbar('MMoDD loading');
-  realtimeinit(0.3);
-end
-
 num=size(%dir,1);
 for ii=1:num
     str=macrospath+%dir(ii,1);
     execstr('mmodd_'+%dir(ii,1)+'_lib='+'lib('''+ str+'/'' )');
-    realtime(3*ii/num);
-    if getscilabmode() == ["STD"] 
-        waitbar(ii/num,winId) ;
-    end   
-    write(%io(2),'          - macros  '+%dir(ii,1)+' loaded');
+//    write(%io(2),'          - macros  '+%dir(ii,1)+' loaded');
 end
 
 
@@ -152,7 +143,5 @@ end
 //clear root_tlbx;
 //clear etc_tlbx;
 
-if getscilabmode() == ["STD"]
-   close(winId);
-end
+
 

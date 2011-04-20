@@ -13,7 +13,7 @@
 mode(-1);
 lines(0);
 
-TOOLBOX_NAME  = "Mmodd";
+TOOLBOX_NAME  = "MmodD";
 TOOLBOX_TITLE = "Modular Modeling";
 toolbox_dir = get_absolute_file_path("builder.sce");
 
