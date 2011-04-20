@@ -3,7 +3,9 @@
 #
 # fichiers emacs
 *~
-loader.sce
+sci_gateway/fortran/loader.sce
+src/c/loader.sce
+src/fortran/loader.sce
 cleaner.sce
 loader_gateway.sce
 cleaner_gateway.sce
