@@ -7,15 +7,9 @@
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
 
-lines(-1);
+
 // script to install MmodD from the local repertory
-packages="MmodD";
-version="0.0";
-
-MyPWD=pwd();
-
-// the source directory is not copied...
-// =========================================================================
+lines(-1);
 mmodd_dir=get_absolute_file_path("install.sce");
 
 // build from source
@@ -28,21 +22,6 @@ if ~ exists("atomsinternalslib") then
      load("SCI/modules/atoms/macros/atoms_internals/lib");
 end
 
-// Get scilab version (needed for later)
-// =========================================================================
-sciversion = strcat(string(getversion("scilab")) + ".");
-
-
-// Operating system detection + Architecture detection
-// =========================================================================
-[OSNAME,ARCH,LINUX,MACOSX,SOLARIS,BSD] = atomsGetPlatform();
-
-
-// Complete packages matrix with empty columns
-// =========================================================================
-
-atomsDisp(msprintf("\tInstalling %s (%s) ...",packages, ...
-		   version));
 
 // Create needed directories
 // =========================================================================
@@ -59,39 +38,45 @@ for i=1:size(directories2create,"*")
 		    directories2create(i)));
   end
 end
+
 // Readind description
 // =========================================================================
 package_description = atomsDESCRIPTIONread(mmodd_dir + "DESCRIPTION");
 package_name="MmodD";
-//package=package_description("MmodD");
-package=package_description;
-//package_version = getfield(1,package);
-package_summary=getfield(3,package.packages.MmodD);
-new_package_description = atomsDESCRIPTIONaddField( ..
-                package, ..
-                package_name,        ..
-                package_summary.Version,     ..
-                "fromRepositery",     ..
-                mmodd_dir);
-    
+package_summary=getfield(3,package_description.packages.MmodD);
+section="user";
 
- sysdir=atomsPath("system" ,"user");
- 
-// //bug ou choix de programmation
-// //les packages d'une version antérieure (par ex:5.2.2 ) sont souvent présents dans le dossiser temporaire
-// //lors de l'installation d'une nouvelle version: ces dossiers ne sont pas supprimés, pour qu'on puisse toujours charger les modules installés?
-// //du coup load packages doit parcourir chacun des dossiers temporaires recherchant celui qui contient "packages"
-// sysdir_Sci=strsplit(sysdir,strindex(sysdir,'Scilab')+5);
-// sysdir_version=findfiles(sysdir_Sci(1));
-// for i=1:size(sysdir_version,1)
-//     if fileinfo(sysdir_Sci(1)+'\'+sysdir_version(i)+'\.atoms\packages')~=[]
-//         load(sysdir_Sci(1)+'\'+sysdir_version(i)+'\.atoms\packages');
-//     end
-// end
+// load installed packages (a struct)
+// =========================================================================
+installed = atomsLoadInstalledStruct(section);
 
-load(sysdir+"packages");
+// Load the installed_deps (a struct)
+// =========================================================================
+installed_deps = atomsLoadInstalleddeps(section);
+
+// Does the SCIHOME/atoms/autoloaded exist, if yes load it
+// =========================================================================
+autoloaded = atomsAutoloadLoad(section);
 
 
+if isfield(installed,package_name+" - "+package_summary.Version) then
+  // This package is already registered
+  disp("MmodD is already installed... Nothing to do...")
+else
+  installed(package_name+" - "+package_summary.Version)=[ ..
+	  package_name ;..
+	  package_summary.Version ;..
+	  strncpy(mmodd_dir,length(mmodd_dir)-1) ;..
+	  "user";..
+	  "I"];
+  installed_deps(package_name+" - "+package_summary.Version) = [];
+
+  autoloaded = [autoloaded ["MmodD" package_summary.Version "user"]];
+  
+  atomsSaveInstalled(installed,section);
+  atomsSaveInstalleddeps(installed_deps,section);
+  atomsAutoloadSave(autoloaded,section);
+end
 
 
- 
+
