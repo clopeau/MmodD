@@ -14,7 +14,7 @@ Category: Modeling
 
 Entity: University Claude Bernard Lyon
 
-WebSite: 
+WebSite: http://mmodd.univ-lyon1.fr/projects/mmodd
 
 License: CeCILL2
 
@@ -22,7 +22,7 @@ ScilabVersion: >= 5.2
 
 Depends: 
 
-Date: 2010-07-206
+Date: 2010-07-20
 
 Description: files to the new Docbook based format.
 
