@@ -21,6 +21,6 @@ Files=Files';
 
 tbx_build_gateway('itsolve_fortran', [functions 'int'+functions], [Files], ..
                   get_absolute_file_path('builder_gateway_c.sce'), ..
-                  ['../../src/fortran/libilu0';'../../src/c/liblband'],'',includes_src_c);
+                  ['../../src/fortran/libSparskit';'../../src/c/libScilin'],'',includes_src_c);
                   
 clear tbx_build_gateway;
