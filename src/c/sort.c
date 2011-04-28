@@ -1,3 +1,15 @@
+/* Copyright (C) 2005 - INRIA - Sage Group (IRISA)
+// Copyright (C) 2011 - Thierry Clopeau
+
+//This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution.  The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+*/
+
+
+
 static int inf_rl(int *I,int *J,int k,int i,int j);
 static int inf_rc(int *I,int *J,int k,int i,int j);
 static int pivot_patern(int *I,int *J,int n);
