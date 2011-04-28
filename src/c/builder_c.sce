@@ -11,7 +11,7 @@ functions_c=['lband';'eltm';'Spk2sci';'spluget';'Sci2spk'];
 
 files_c=functions_c+'.c';
 tbx_build_src([functions_c], [files_c], 'c', ..
-              src_c_path, '', '', CFLAGS);
+    src_c_path, '', '', CFLAGS,'','','Scilin');
 
 clear tbx_build_src;
 clear src_c_path;
