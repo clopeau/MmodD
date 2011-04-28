@@ -19,7 +19,7 @@ libitsolve_fortran.c
 #
 # Generated files (Windows)
 #
-*.Dll
+*.dll
 *.def
 *.obj
 Makelib.mak
