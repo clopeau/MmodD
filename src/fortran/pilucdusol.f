@@ -1,4 +1,13 @@
-        subroutine pilucdusol(n, nB, y, x, alu, jlu, ju)
+c----------------------------------------------------------------------c
+c                          S P A R S K I T                             c
+c----------------------------------------------------------------------c
+c                   ITERATIVE SOLVERS MODULE                           c
+c----------------------------------------------------------------------c
+c This Version Dated: August 13, 1996. Warning: meaning of some        c
+c ============ arguments have changed w.r.t. earlier versions. Some    c
+c              Calling sequences may also have changed                 c
+c----------------------------------------------------------------------c 
+      subroutine pilucdusol(n, nB, y, x, alu, jlu, ju)
         DOUBLE PRECISION x(n), y(nB), alu(*)
         integer n, nB, jlu(*), ju(n+1)
 c-----------------------------------------------------------------------

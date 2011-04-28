@@ -1,17 +1,12 @@
-c     RUNRC.f
-c     +-----------------------------------------------------------------+
-c     |  Fonction  : GESTION DES DIFFERENTS SOLVEURS POUR solv*=4       |
-c     +-----------------------------------------------------------------+
-c     |  Liste des variables :                                          |
-c     |  Entrees   :                                                    |
-c     |  Sorties   :                                                    |
-c     |                                                                 |
-c     +-----------------------------------------------------------------+ 
-c     |  Appele par:                                                    |
-c     |  Appelle   :                                                    |
-c     |                                                                 |
-c     |  Date      :                                                    |
-c     +-----------------------------------------------------------------+
+c      Copyright (C) 2010-11 - Thierry Clopeau
+c      This file must be used under the terms of the CeCILL.
+c      This source file is licensed as described in the file COPYING, which
+c      you should have received as part of this distribution. The terms
+c      are also available at
+c      http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+
+
+
       SUBROUTINE runrc(n,rhs,sol,ipar,fpar,wk
      .                ,a,ja,ia,au,jau,ju
      .                ,methode,iout)
