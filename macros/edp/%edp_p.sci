@@ -4,7 +4,7 @@
 // http://www.cecill.info 
 
 function  %edp_p(%u)
-  write(%io(2),' Type '+typeof(%u)+' Nom : '+string(%u.Id));
+  write(%io(2),' Type '+typeof(%u)+' Id : '+string(%u.Id));
   write(%io(2),'');
   write(%io(2),' Geometry  :   '+%u.geo+'   ('+evstr('typeof('+%u.geo+')')+')');
   write(%io(2),' Variable  :   '+%u.var+'   ('+evstr('typeof('+%u.var+')')+')');
