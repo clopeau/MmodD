@@ -20,8 +20,8 @@ root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
 
 // define mmodd_path
 //==========================================
-global %mmodd_path
-%mmodd_path=root_tlbx
+global %mmodd_path;
+%mmodd_path=root_tlbx;
 
 //Load  functions library
 // =============================================================================
