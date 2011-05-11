@@ -7,7 +7,7 @@
 // http://www.cecill.info 
 
 
-mprintf("Start MmodD\n");
+mprintf("Start MmodD\t Type MmodD for the GUI\n");
 
 if isdef("toolbox_mmodd") then
 	warning("Toolbox MmodD is already loaded");
@@ -17,6 +17,11 @@ end
 etc_tlbx  = get_absolute_file_path("MmodD.start");
 etc_tlbx  = getshortpathname(etc_tlbx);
 root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
+
+// define mmodd_path
+//==========================================
+global %mmodd_path
+%mmodd_path=root_tlbx
 
 //Load  functions library
 // =============================================================================
@@ -69,50 +74,6 @@ if or(getscilabmode() == ["NW";"STD"]) then
     pathdemos = pathconvert(root_tlbx+"/demos/MmodD.dem.gateway.sce",%F,%T);
     add_demo("MmodD",pathdemos);
     clear pathdemos add_demo;
-end
-
-// menus additionnals
-// =============================================================================
-if getscilabmode() == ["STD"]
-  %menupath=root_tlbx;
-  //delmenu('toolboxes');
-  //delmenu('Help');
-  //delmenu('Demos');
-  
-  delmenu('Mesh')
-  addmenu('Mesh',['New mesh';'View mesh';'Load mesh';'Export mesh']);
-  //addmenu('Mesh',['Load mesh';'View mesh']);
-  //delmenu('Editor')
-  //addmenu("Editor",list(2,"editor"));
-  //addmenu("Help",["Help browser","Apropos","Configure"],list(2,"help_menu"));
-  Mesh(1)="exec("""+%menupath+"/menu/Mesh_New.sce"");";
-  Mesh(3)="exec("""+%menupath+"/menu/Mesh_Load.sce"");";
-  Mesh(2)="exec("""+%menupath+"/menu/Mesh_View.sce"");";
-  Mesh(4)="exec("""+%menupath+"/menu/Mesh_Export.sce"");";
-   delmenu('Variable');
-//  addmenu('Variable',['New Var';'Load Var';'View Var';'Export Var';'Edit Var']);
-//  
-//  Variable(1)="exec "+%menupath+"/menu/Var_New.sce;";
-//  Variable(2)="exec "+%menupath+"/menu/Var_load.sce;";
-//  Variable(3)="exec("""+%menupath+"/menu/Var_View.sce"");";
-//  Variable(4)="exec "+%menupath+"/menu/Var_Export.sce;";
-//  Variable(5)="exec "+%menupath+"/menu/Var_Edit.sce;"; 
-  
-   delmenu('Edp')
-   addmenu('Edp',['New edp';'Edit edp';'Export Edp';'Load edp']);
-  
-  Edp(1)="exec "+%menupath+"/menu/Var_New.sce;";
-  Edp(4)="exec "+%menupath+"/menu/Edp_Load.sce;";
-  //Edp(3)="exec("""+%menupath+"/menu/Var_View.sce"");";
-  Edp(3)="exec "+%menupath+"/menu/Edp_Export.sce;";
-  Edp(2)="exec "+%menupath+"/menu/Edp_Edit.sce;"; 
-  
-  
-  delmenu('Post_Processing')
-  
-  addmenu('Post_Processing',['View solution'])
-  Post_Processing(1)="exec("""+%menupath+"/menu/Var_View.sce"");";
-
 end
 
 // definition of global var %exclud (using in function name)
