@@ -6,10 +6,14 @@
 // are also available at
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
-demopath = get_absolute_file_path("2d.dem.gateway.sce");
-subdemolist = ["Getting started","geting_started.sce";..
-	"Square Hole","SquareHole2d.sce";..
-	"Mesh Reading","mesh_read.sce"];
-
-subdemolist(:,2) = demopath + subdemolist(:,2);
-clear demopath;
+lines(0);
+global %mmodd_path
+th2d=read_tri2d_NETGEN(%mmodd_path+"/demos/2d/Mesh_example/NETGEN_squarehole.vol")
+u2d=p1(th2d);
+pb2d=edp(u2d);
+pb2d.eq="-Laplace(u2d)=x+10*y";
+pb2d.f1="Id(u2d)=y"
+pb2d.f2="Dn(u2d)=0"
+pb2d.f2="Dn(u2d)+2*Id(u2d)=x+y"
+assemble(pb2d)
+lsolve(pb2d)
