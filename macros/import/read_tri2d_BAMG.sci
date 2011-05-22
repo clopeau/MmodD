@@ -3,8 +3,10 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function th=importBAMG(nombase)
-
+function th=read_tri2d_BAMG(nombase)
+   // import mesh from BAMG file
+   // file extension .msh
+   // 2d 
 
    th=tri2d(nombase);
    u=file('open',nombase,'old');

@@ -1,12 +1,13 @@
-// Copyright (C) 2010 - Thierry Clopeau
+// Copyright (C) 2011 - Thierry Clopeau
 // 
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function th=importGRUMMP(nombase)
-  // import des maillags GRUMMP
-  
-   u=file('open',nombase+'.vmesh','unknown');
+function th=read_tet3d_GRUMMP(nombase)
+   // import mesh from GRUMMP
+   // file extension .vmesh
+   // 3d file
+   u=file('open',nombase,'old');
    th=tet3d(nombase)
    // n(1) : ncells
    // n(2) : nfaces

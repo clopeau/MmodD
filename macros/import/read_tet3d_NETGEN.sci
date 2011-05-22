@@ -3,15 +3,14 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function th=importNETGEN(nombase)
-    // lecture des fichiers de sortie NETGEN 4.3
-    // fichier nombase.vol
-    //
+function th=read_tet3d_NETGEN(nombase)
+    // read output file from NETGEN 4.3
+    // file .vol exetension
+    // 3d
 
-    u=file('open',nombase+'.vol','unknown');
+    u=file('open',nombase,'old');
     
-    
-    //---------- Lecture de la dimension ------------
+    //---------- Lecture of dimension space ------------
     ligne=""
     while grep(ligne,"dimension")==[]
       ligne=read(u,1,1,'(a)');
@@ -19,7 +18,7 @@ function th=importNETGEN(nombase)
     n=read(u,1,1);
     nt=n+1;
     if n==2
-      th=tri2d(nombase);
+      error('Wrong dimension of input mesh, use read_tri2d_NETGEN function')
     else
       th=tet3d(nombase);
     end
@@ -38,7 +37,8 @@ function th=importNETGEN(nombase)
       th.BndId(i)='f'+string(num(i));
       th.Bnd(i)=tmp(ind==num(i),:);
     end
-   th.BndId=th.BndId';
+    th.BndId=th.BndId';
+    
     //---------- Tetrahedres ------------
     ligne=""
     while grep(ligne,"volume")==[]
@@ -48,13 +48,6 @@ function th=importNETGEN(nombase)
     tmp=read(u,nv,6);
     th.TetId=tmp(:,1);
     th.Tet=tmp(:,3:6);
-    
-    //---------- Segments ------------
-    while grep(ligne,"edge")==[]
-      ligne=read(u,1,1,'(a)');
-    end
-    ns=read(u,1,1);
-
     
     //---------- Points --------------
     while grep(ligne,"points")==[]

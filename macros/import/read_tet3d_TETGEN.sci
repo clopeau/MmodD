@@ -3,12 +3,13 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function th=importTETGEN(nombase)
-    // lecture des fichiers de sortie standarts de tetgen1.2c
-    // fichier nombase.node (neuds)
-    //                .ele (connection tetrahedre)
-    //------------- A faire ----------------
-    //                .face (triangulation de face)
+function th=read_tet3d_TETGEN(nombase)
+    // the nombas is without the extension (multiple file)
+    // files:
+    //         nombase.node (nodes)
+    //                .ele (tetrahedron)
+    //------------- To do ----------------
+    //                .face (face triangles)
     //
     th=tet3d(nombase)
     u=file('open',nombase+'.node','unknown')
@@ -82,22 +83,6 @@ function th=importTETGEN(nombase)
       end
     end
     clear Face
-    
-    //
-    u=file('open',nombase+'.out','unknown');
-    [np,nt,nf]=size(th);
-    fprintf(u,'%i %i %i 0\n',np,nt,nf);
-    //  Coordonnes
-    fprintf(u,'%1.16E  %1.16E %1.16E\n',th.Coor);
-    fprintf(u,'%i %i %i %i %i\n',th.Tet,th.TetId)
-    // face
-    fprintf(u,'%i %i %i %i\n',th.Tri,th.TriId);
-    file('close',u);
-
-    unix(%execu+'/tet2tri -i '+nombase+'.out -o '+nombase+'.t2t')
-    u=file('open',nombase+'.t2t','unknown');
-    th.Tet2Tri=read(u,-1,4);
-    file('close',u);
     
     th.Det=det(th);
     th.size=[size(th.Coor,1),size(th.Tet,1),size(th.Tri,1)]

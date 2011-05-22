@@ -3,9 +3,13 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function th=importMESH(nombase)
+function th=read_GMF(nombase)
+   // read from GMF file format 
+   // ref projet Gamma INRIA
+   // using by lot of software like MEDIT...
+   // 2d et 3d 
 
-   u=file('open',nombase+'.mesh','unknown');
+   u=file('open',nombase,'old');
    
    //-----    Lecture de dimension : 2 ou 3d -----------
    
