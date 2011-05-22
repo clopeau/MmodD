@@ -8,12 +8,12 @@
 
 lines(0);
 global %mmodd_path
-th3d=importNETGEN(%mmodd_path+"/demos/3d/cone")
+th3d=read_tet3d_NETGEN(%mmodd_path+"/demos/3d/Mesh_example/NETGEN_cone.vol")
 u3d=p1(th3d);
 pb3d=edp(u3d);
 pb3d.eq="-Laplace(u3d)=x+10*z*y";
 pb3d.f1="Id(u3d)=z"
 pb3d.f2="Dn(u3d)=0"
 pb3d.f2="Dn(u3d)+2*Id(u3d)=x+y"
-assemble(pb3d)
+assemble(pb3d);
 lsolve(pb3d)

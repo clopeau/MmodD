@@ -7,7 +7,9 @@
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
 demopath = get_absolute_file_path("3d.dem.gateway.sce");
-subdemolist = ["Getting started","geting_started.sce"];
+subdemolist = ["Getting started","geting_started.sce";..
+	"Truncate Cone","Cone3d.sce";..
+	"Mesh Reading","mesh_read.sce"];
 
 subdemolist(:,2) = demopath + subdemolist(:,2);
 clear demopath;
