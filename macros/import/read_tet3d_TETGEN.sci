@@ -12,7 +12,7 @@ function th=read_tet3d_TETGEN(nombase)
     //                .face (face triangles)
     //
     th=tet3d(nombase)
-    u=file('open',nombase+'.node','unknown')
+    u=file('open',nombase+'.node','old')
     n='#'
     while grep(n,'#')~=[]
       n=read(u,1,1,'(a)');
@@ -30,7 +30,7 @@ function th=read_tet3d_TETGEN(nombase)
     th.Coor=Node(:,2:4);
     clear Node
     
-    u=file('open',nombase+'.ele','unknown')
+    u=file('open',nombase+'.ele','old')
     n='#'
     while grep(n,'#')~=[]
        n=read(u,1,1,'(a)');
@@ -49,7 +49,7 @@ function th=read_tet3d_TETGEN(nombase)
     end
     clear Tet
     
-    u=file('open',nombase+'.face','unknown')
+    u=file('open',nombase+'.face','old')
     n='#'
     while grep(n,'#')~=[]
        n=read(u,1,1,'(a)');
