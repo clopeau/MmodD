@@ -30,7 +30,7 @@ function th=read_tri2d_NETGEN(nombase)
     end
     nf=read(u,1,1);
     tmp=read(u,nf,8);
-    th.Dom=tmp(:,2);
+    th.TriId=tmp(:,2);
     th.Tri=tmp(:,6:8);
      
     //---------- edges ------------

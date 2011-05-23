@@ -45,7 +45,7 @@ function th=read_tri2d_BAMG(nombase)
    // on ne récupere que le premier sous domaine !
    // attention 
    th.Tri=tmp(:,1:3);
-   th.Dom=tmp(:,4);
+   th.TriId=tmp(:,4);
 
    file('close',u);
    
