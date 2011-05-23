@@ -48,6 +48,7 @@ function th=read_tet3d_NETGEN(nombase)
     tmp=read(u,nv,6);
     th.TetId=tmp(:,1);
     th.Tet=tmp(:,3:6);
+    th.Dom=tmp(:,1);
     
     //---------- Points --------------
     while grep(ligne,"points")==[]
