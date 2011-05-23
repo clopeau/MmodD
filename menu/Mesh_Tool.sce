@@ -21,7 +21,7 @@
   // Menu deja existant par defaut  
   delmenu(gwin,'Edition') 
   delmenu(gwin,'?')
-  delmenu(gwin,'Fichier')
+  //delmenu(gwin,'Fichier')
   delmenu(gwin,'Outils')
   //delmenu(gwin,'Edition')
   //delmenu(gwin,'Replot')

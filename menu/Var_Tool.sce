@@ -12,7 +12,7 @@
   xset("wdim",800,600)
   //gwin=xget("window");
   // Menu deja existant par defaut  
-  delmenu(gwin,'Fichier')
+  //delmenu(gwin,'Fichier')
   delmenu(gwin,'Outils')
   delmenu(gwin,'Edition') 
   delmenu(gwin,'Edit') 
