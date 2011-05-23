@@ -21,6 +21,6 @@ function Cell_vtk(u,%v)
   fprintf(u,'SCALARS '+nomvar+' float 1\n');
   fprintf(u,"LOOKUP_TABLE default\n");
   fprintf(u,"%g\n ",%v.Cell);
-pause
+
 endfunction
   
