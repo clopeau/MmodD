@@ -93,6 +93,7 @@ function th=square2d(x,y,nx,ny)
    // Reordonnancement des triangles 
    [tmp,i]=lex_sort(th.Tri); clear tmp;
    th.Tri=th.Tri(i,:);
+   th.TriId=ones(th.Tri(:,1));
    //-------
    //  BndId
    //------- 
