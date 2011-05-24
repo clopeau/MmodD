@@ -6,7 +6,7 @@
 function th=read_tri2d_GMSH(nombase)
    // function to import automatically from file coming from gmsh
    
-   u=file('open',nombase,'unknown');
+   u=file('open',nombase,'old');
    //u=mopen(nombase)
    //-----    Lecture de dimension : 2 ou 3d -----------
    nbli=0
