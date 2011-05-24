@@ -58,7 +58,14 @@ function th=read_tri2d_NETGEN(nombase)
 	end
 	th.Bnd(cpt)=bd;
       else
-	error("2d read NETGEN File :Not implemented contact me or write it!")
+	bd=zeros(length(a1)+1,1);
+	bd(1)=ed(1,1);
+	bd(2)=ed(1,2);
+	for j=3:length(a1)+1;
+	  k=find(ed(:,1)==bd(j-1))
+	  bd(j)=ed(k,2);
+	end
+	th.Bnd(cpt)=bd;	
       end
     end
     
