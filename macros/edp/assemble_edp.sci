@@ -17,6 +17,8 @@ function %in=assemble_edp(%in,opt)
     end
     //nom_edp=name(%in);
     timer();
+    funcprot(0)
     execstr('%in=assemble_edp_'+typeof(evstr(%in.var))+'(%in,opt)')
+    funcprot(1)
 endfunction
   
