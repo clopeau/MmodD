@@ -7,6 +7,7 @@
 // buildmacros.sce --
 // Builder for the Modular Modeling
 //
+funcprot(0)
 macrospath=get_absolute_file_path("buildmacros.sce");
 listfic=listfiles(macrospath);
 %dir=[];
@@ -20,5 +21,6 @@ end
 for i=1:size(%dir,1)
   tbx_build_macros(TOOLBOX_NAME,macrospath+%dir(i));
 end
+funcprot(1)
 
 //clear tbx_build_macros,files,listfic,%dir,rep,i;
