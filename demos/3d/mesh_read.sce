@@ -15,3 +15,9 @@ write(%io(2),'Reading TETGEN file :');
 filem = demopath+'Mesh_example/TETGEN_codecasa.1';
 th_TETGEN = read_tet3d_TETGEN(filem);
 disp(th_TETGEN);
+
+write(%io(2),'Reading GMSH file :');
+filem = demopath+'Mesh_example/GMSH_cube.msh';
+th_GMSH = read_tet3d_GMSH(filem);
+disp(th_GMSH);
+
