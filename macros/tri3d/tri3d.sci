@@ -9,9 +9,9 @@ function th=tri3d(varargin)
 //    BndId : table des noms frontières
 //    BndNode : liste des indices des points frontiere
     [lhs,rhs]=argn(0);
-    Id="";Coor=[];Tri=[];
+    id="";Coor=[];Tri=[];
     if rhs==1
-      Id=varargin(1);
+      id=varargin(1);
     else
       Tri=varargin(1)(varargin(2));
       tmp=unique(Tri);
@@ -22,6 +22,6 @@ function th=tri3d(varargin)
     end
     
     th=mlist(['tri3d';'#';'Id';'Coor';'Tri';'BndId';'Bnd';'BndPerio'],...
-	rand(),Id,Coor,Tri,[],list(),[])
+	rand(),id,Coor,Tri,[],list(),[])
     
 endfunction

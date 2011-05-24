@@ -13,6 +13,6 @@ function []=tet3d_plot(th)
   end
   
   
-  legends(th.BndId',1:Col-1,4)
+  legends(th.BndId',1:col-1,4)
 
 endfunction
