@@ -22,3 +22,11 @@ filem = demopath+'Mesh_example/NETGEN_square2d.vol';
 write(%io(2),filem);
 th_NETGEN2 = read_tri2d_NETGEN(filem);
 disp(th_NETGEN);
+
+write(%io(2),'Reading another 2d GMSH file :');
+filem = demopath+'Mesh_example/GMSH_squarehole2d.msh';
+write(%io(2),filem);
+th_GMSH = read_tri2d_GMSH(filem);
+disp(th_GMSH);
+
+
