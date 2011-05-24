@@ -1,0 +1,50 @@
+// =============================================================================
+// Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+// Copyright (C) - 2009 - INRIA - Sylvestre LEDRU
+//
+//  This file is distributed under the same license as the Scilab package.
+// =============================================================================;
+
+global %mmodd_path;
+path=%mmodd_path+"\demos\2d\Mesh_example/NETGEN_squarehole.vol";
+
+th_NETGEN = read_tri2d_NETGEN(path);
+if th_NETGEN.Id <> path then bugmes();quit;end
+if th_NETGEN.BndId <> ['f1' 'f2'] then bugmes();quit;end
+
+[a,b]=size(th_NETGEN);
+if [a,b] <> [344 616] then bugmes();quit;end
+
+border_number=length(th_NETGEN.Bnd);
+if border_number <> 2 then bugmes();quit;end
+
+border=size(th_NETGEN.Bnd(1));
+if border <> [40 1] then bugmes();quit;end
+
+[c,d]=size(th_NETGEN.Coor);
+if [c,d] <> [a 2] then bugmes();quit;end
+
+[e,f]=size(th_NETGEN.Tri);
+if [e,f] <> [b 3] then bugmes();quit;end
+
+
+
+computed = th_NETGEN.Coor(1);
+expected = 0;
+if abs(computed-expected)>%eps then bugmes();quit;end
+
+computed = th_NETGEN.Coor(2);
+expected = 0.1999999999999965;
+if abs(computed-expected)>%eps then bugmes();quit;end
+
+computed = th_NETGEN.Coor(100);
+expected = 0.8999999999999996;
+if abs(computed-expected)>%eps then bugmes();quit;end
+
+computed = th_NETGEN.Coor(200);
+expected = 0.9302289348387563;
+if abs(computed-expected)>%eps then bugmes();quit;end
+
+computed = th_NETGEN.Coor(344);
+expected = 0.5797047010066846;
+if abs(computed-expected)>%eps then bugmes();quit;end

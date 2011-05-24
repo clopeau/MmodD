@@ -1,0 +1,50 @@
+// =============================================================================
+// Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+// Copyright (C) - 2009 - INRIA - Sylvestre LEDRU
+//
+//  This file is distributed under the same license as the Scilab package.
+// =============================================================================;
+
+global %mmodd_path;
+path=%mmodd_path+"\demos\2d\Mesh_example/BAMG_octogone.msh";
+
+th_Bamg = read_tri2d_BAMG(path);
+if th_Bamg.Id <> path then bugmes();quit;end
+if th_Bamg.BndId <> ['f1'] then bugmes();quit;end
+
+[a,b]=size(th_Bamg);
+if [a,b] <> [358 650] then bugmes();quit;end
+
+border_number=length(th_Bamg.Bnd);
+if border_number <> 1 then bugmes();quit;end
+
+border=size(th_Bamg.Bnd(1));
+if border <> [65 1] then bugmes();quit;end
+
+[c,d]=size(th_Bamg.Coor);
+if [c,d] <> [a 2] then bugmes();quit;end
+
+[e,f]=size(th_Bamg.Tri);
+if [e,f] <> [b 3] then bugmes();quit;end
+
+
+
+computed = th_Bamg.Coor(1);
+expected = 1;
+if abs(computed-expected)>%eps then bugmes();quit;end
+
+computed = th_Bamg.Coor(2);
+expected = 0.707106781187;
+if abs(computed-expected)>%eps then bugmes();quit;end
+
+computed = th_Bamg.Coor(100);
+expected = 0.853553399959;
+if abs(computed-expected)>%eps then bugmes();quit;end
+
+computed = th_Bamg.Coor(200);
+expected = -0.801038097498;
+if abs(computed-expected)>%eps then bugmes();quit;end
+
+computed = th_Bamg.Coor(358);
+expected = -0.0956166302744;
+if abs(computed-expected)>%eps then bugmes();quit;end
