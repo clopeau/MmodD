@@ -26,7 +26,6 @@ function VCell_vtk(u,%v)
   Var2dCell=['p0_2d']
   if grep(Var2dCell,ttype)~=[]&(dim==2)
     fprintf(u,"%g %g 0.\n ",%v.Cell);
-    pause
   end
   
   Var3dCell=['p0_3d' 'p0_2d']

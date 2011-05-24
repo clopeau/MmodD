@@ -23,7 +23,7 @@ function th=square2d(x,y,nx,ny)
 //
 // Examples
 // th = square2d(15,20)            
-// th = square2d(1:.02:2,4:0.4:6]
+// th = square2d(1:.02:2,4:0.4:6)
 // th.Coor
 // th.Tri
 // th.BndId
@@ -37,35 +37,32 @@ function th=square2d(x,y,nx,ny)
 // Clopeau T., Delanoue D., Ndeffo M. and Smatti S. 
 
   [lhs,rhs]=argn();
-  if rhs==0|x<2|y<2
-    disp("---- Warning: need argument greater than 2  ----");
-                        // carre unite 4 nodes 2 triangles
+  if rhs==0
+    // carre unite 4 nodes 2 triangles
     x=0;nx=2;
     y=0;ny=2;
 
-elseif rhs==2 
-if y>1&x>1
-    if length(x)==1 & length(y)==1 // carre unite de nx,ny points par ligne 
-      nx=x;
-      ny=y;
+  elseif rhs==2 
+    if length(x)==1 & length(y)==1 // carre unite de nx,ny points par ligne
+      nx=max(x,2);
+      ny=max(y,2);
       x=linspace(0,1,nx)';
       y=linspace(0,1,ny)';
     elseif length(x)>1 & length(y)>1
       nx=length(x);x=matrix(x,-1,1);
       ny=length(y);y=matrix(y,-1,1);
     else
-      error('Bad arguments in square function');
+      error('Bad arguments in square2d function');
       return
     end
   elseif rhs==4&length(x)==2&length(y)==2&length(nx)==1&length(ny)==1
     x=linspace(x(1),x(2),nx)';
     y=linspace(y(1),y(2),ny)';
   else
-    error('Bad arguments in square function');
+    error('Bad arguments in square2d function');
     return
-    end
   end
-  
+
    th=tri2d("square2d");
    //-------
    // Coor
@@ -96,6 +93,7 @@ if y>1&x>1
    // Reordonnancement des triangles 
    [tmp,i]=lex_sort(th.Tri); clear tmp;
    th.Tri=th.Tri(i,:);
+   th.TriId=ones(th.Tri(:,1));
    //-------
    //  BndId
    //------- 

@@ -4,7 +4,7 @@
 // http://www.cecill.info 
 
 function []=tri3d_plot(th,col)
- Mesh visualisation 
+// Mesh visualisation 
   [lhs,rhs]=argn(0);
   if rhs==1 
     col=1
@@ -12,7 +12,7 @@ function []=tri3d_plot(th,col)
   n=size(th);
   index=[1 2; 2 3; 3 1]'
   
-  x=[];y=[];z=[];color=[];
+  x=[];y=[];z=[];mycolor=[];
   ed=gsort(th.Tri,'c','i');
   p=size(ed,1);
   spEdge=sparse([1 1],%f,[n,n]);
@@ -24,11 +24,10 @@ function []=tri3d_plot(th,col)
   x=[x,matrix(th.Coor(ed,1),-1,2)'];
   y=[y,matrix(th.Coor(ed,2),-1,2)'];
   z=[z,matrix(th.Coor(ed,3),-1,2)'];
-  color=[color,col(ones(1,p))];
-  f = gca();
-  f.color_map = coolcolormap(32)
-    
-  param3d1(x,y,list(z,color),flag=[4,2]);
-  legends(th.Id,color,4)
+  mycolor=[mycolor,col(ones(1,p))];
+  //f = gca();
+  //f.color_map = coolcolormap(32)
+  param3d1(x,y,list(z,mycolor),flag=[4,2]);
+  //legends(th.Id,mycolor,4)
 
 endfunction
