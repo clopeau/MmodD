@@ -1,4 +1,4 @@
-// Copyright (C) 2010 - Thierry Clopeau
+// Copyright (C) 2011 - Thierry Clopeau
 // 
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
@@ -39,12 +39,12 @@ function th=read_tri2d_GMSH(nombase)
    file('close',u);
 
    iTri=tmp(:,2)==2;
-   th.Tri=tmp(iTri,7:9);
+   th.Tri=tmp(iTri,6:8);
    th.TriId=tmp(iTri,5)
    clear iTri
    
    iseg=tmp(:,2)==1;
-   Ed=tmp(iseg,7:8);
+   Ed=tmp(iseg,6:7);
    edId=tmp(iseg,5);
    nbd=unique(edId);
    cpt=0;
@@ -68,7 +68,7 @@ function th=read_tri2d_GMSH(nombase)
        bd(1)=ed(1,1);
        bd(2)=ed(1,2);
        for j=3:length(a1)+1;
-	 k=find(ed(:,1)==bd(j-1))
+	 k=find(ed(:,1)==bd(j-1));
 	 bd(j)=ed(k,2);
        end
        th.Bnd(cpt)=bd; 
