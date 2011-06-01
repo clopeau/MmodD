@@ -45,7 +45,7 @@ if getscilabmode() == ["STD"]
   addmenu('Post_Processing',['View solution'])
   Post_Processing(1)="exec("""+%mmodd_path+"/menu/Var_View.sce"");";
 
-  [Mesh,Edp,Post_Processing]=resume(Mesh,Edp,Post_Processing)
+  [Mesh,Edp,Post_Processing,%mmodd_path]=resume(Mesh,Edp,Post_Processing,%mmodd_path)
 end
 
 endfunction
