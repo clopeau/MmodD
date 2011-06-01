@@ -13,6 +13,8 @@ function []=tri2d_plot2d(%th)
 	Title=%th.Id
   end
 
+  //---- Domain ploting ----------
+
   NbDom=unique(%th.TriId)
 
   my_plot2d= gcf();
@@ -40,5 +42,20 @@ function []=tri2d_plot2d(%th)
 
     xfpolys(x,y,my_Color(num_Color)*ones(1,nbTriang));
   end
- 
+  
+  //---- Boundary ploting ----------
+  %nbd=length(%th.Bnd)
+  my_Color=round(linspace(128,64,%nbd));
+  xset("thickness",3) 
+  for i=1:%nbd
+    %xy=%th.Coor(%th.Bnd(i),:);
+    plot2d(%xy(:,1),%xy(:,2),my_Color(i))
+  end
+  legends( "Bdry "+%th.BndId,my_Color,opt=2)
+  xset("thickness",1) 
+  
+  //---- Title ------------
+  
+ [%np,%nt]=size(%th);
+  xtitle(Title+" : "+string(%np)+" points"+"  "+string(%nt)+" triangles")
 endfunction
