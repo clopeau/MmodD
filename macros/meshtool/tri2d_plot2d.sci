@@ -17,6 +17,7 @@ function []=tri2d_plot2d(%th)
 
   NbDom=unique(%th.TriId)
 
+  clf();
   my_plot2d= gcf();
   my_plot2d.color_map=jetcolormap(256)
 
