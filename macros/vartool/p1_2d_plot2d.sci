@@ -6,8 +6,8 @@
 function p1_2d_plot2d(%v)
     bool=%t
 
-    %th=evstr(v.geo); 
-    
+    %th=evstr(%v.geo); 
+   
     xy_min=min(%th);
     xy_max=max(%th);
     clf();
@@ -24,7 +24,7 @@ function p1_2d_plot2d(%v)
       colorbar(zminmax(1),zminmax(2));
       fec(%th.Coor(:,1),%th.Coor(:,2),triangl,full(%v.Node),...
 	  strf="031",rect=[xy_min',xy_max'],zminmax=zminmax)
-      xtitle(name(%v)+' : '+v.Id)
+      xtitle(name(%v)+' : '+%v.Id)
     end
     if bool==%f,
       xset("font",1,5);
