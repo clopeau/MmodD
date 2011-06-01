@@ -15,12 +15,12 @@ if %_nams~=[]
   if %n>1
     %n=x_choose(%_nams+'  ('+evstr('typeof('+%_nams+')')+')',...
 	'Choose a mesh','Cancel');
-end
- //mesh_tool(%n)
- global %mmodd_path
- exec(%mmodd_path+"/menu/Mesh_Tool.sce");
+  end
+  if %n>0
+    execstr('meshtool('+%_nams(%n)+');');
+  end
   clear %n
-  disp('')
+
 else  
   disp('------- No mesh  -------')
 end
