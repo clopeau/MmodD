@@ -16,8 +16,9 @@ if %_nams~=[]
     %n=x_choose(%_nams+'  ('+evstr('typeof('+%_nams+')')+')',...
 	'Choose a mesh','Cancel');
   end
-  global %mmodd_path
-  exec(%mmodd_path+"/menu/Var_Tool.sce");
+  if %n>0
+     execstr('vartool('+%_nams(%n)+');');
+  end
   clear %n  
 else 
   disp('------- No Variables  -------')
