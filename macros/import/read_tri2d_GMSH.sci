@@ -7,16 +7,18 @@ function th=read_tri2d_GMSH(nombase)
    // function to import automatically from file coming from gmsh
    
    u=file('open',nombase,'old');
-   //u=mopen(nombase)
-   //-----    Lecture de dimension : 2 ou 3d -----------
-   nbli=0
+   
    ligne=""
+   while grep(ligne,"$MeshFormat")==[]
+     ligne=read(u,1,1,'(a)');
+   end
+   version=read(u,1,1);
+   
    while grep(ligne,"$Nodes")==[]
      ligne=read(u,1,1,'(a)');
-     nbli=nbli+1;
    end
-   nbvert=read(u,1,1);nbli=nbli+1;
-   tmp=read(u,nbvert,4);nbli=nbli+nbvert;
+   nbvert=read(u,1,1);
+   tmp=read(u,nbvert,4);
    if and(tmp(:,4)==0)
      th=tri2d('mesh file '+nombase+' '+date());
      th.Coor=tmp(:,2:3);
@@ -27,9 +29,8 @@ function th=read_tri2d_GMSH(nombase)
    
    while grep(ligne,"$Elements")==[]
      ligne=read(u,1,1,'(a)')
-     nbli=nbli+1;
    end
-   nel=read(u,1,1);nbli=nbli+1;
+   nel=read(u,1,1);
    tmp=zeros(nel,9);
    for i=1:nel
      tt=evstr('['+read(u,1,1,'(a)')+']');
@@ -39,12 +40,24 @@ function th=read_tri2d_GMSH(nombase)
    file('close',u);
 
    iTri=tmp(:,2)==2;
-   th.Tri=tmp(iTri,6:8);
+   if version==2.1
+     th.Tri=tmp(iTri,7:9);
+   elseif version==2.2
+     th.Tri=tmp(iTri,6:8);
+   else
+     error('GMSH Mesh Format unknown in read_tri2d_GMSH')
+   end
    th.TriId=tmp(iTri,5)
    clear iTri
    
    iseg=tmp(:,2)==1;
-   Ed=tmp(iseg,6:7);
+   if version==2.1
+     Ed=tmp(iseg,7:8);
+   elseif version==2.2
+     Ed=tmp(iseg,6:7);
+   else
+     error('GMSH Mesh Format unknown in read_tri2d_GMSH')
+   end
    edId=tmp(iseg,5);
    nbd=unique(edId);
    cpt=0;
