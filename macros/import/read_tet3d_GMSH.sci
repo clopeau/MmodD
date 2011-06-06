@@ -39,7 +39,7 @@ function th=read_tet3d_GMSH(nombase)
    
    file('close',u);
 
-   iTet=tmp(:,2)==4;*
+   iTet=tmp(:,2)==4;
    if version==2.1
      th.Tet=tmp(iTet,7:10);
    elseif version==2.2
