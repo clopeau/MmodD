@@ -109,9 +109,9 @@ else
     %execpath=root_tlbx+"/Linux64/";
     //--- search paraview
     [rep,stat]=unix_g("echo $PATH");
-    ppt=[0, strindex(rep,':'), length(rep)+1]
+    ppt=[0, strindex(rep,':'), length(rep)+1];
     for i=1:length(ppt)-1;
-      if grep(ls(part(rep,ppt(i)+1:ppt(i+1)-1)),'paraview')<>[];;
+      if grep(ls(part(rep,ppt(i)+1:ppt(i+1)-1)),'paraview')<>[];
 	%paraview_path=part(rep,ppt(i)+1:ppt(i+1)-1);
       end
     end
