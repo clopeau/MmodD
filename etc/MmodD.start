@@ -86,18 +86,41 @@ if ~isdef("%exclud")
     %exclud=[%exclud;'%'];
 end
 
-// choice of OS and definition of global var %execpath
+// choice of OS and definition
+// of global var %execpath and other external path applications
 // =============================================================================
 
-global %execpath;
-if MSDOS
+global %execpath; //obsolete
+global %paraview_path;
+%paraview_path=[];
+if MSDOS  
   %execpath=root_tlbx+"\Win32\";
+  //--- search paraview
+  for Disk=['C','D','E','F','G','H','I','J'] //to much...
+    Dirs=ls(Disk+":\Program Files\");
+    if grep(Dirs,'ParaView')<>[]
+      %paraview_path=Disk+":\Program Files\"+Dirs(grep(Dirs,'ParaView'))+'\';
+      %paraview_path=%paraview_path+'\bin';
+    end
+  end
 else
   %os=unix_g('uname');
   if %os=="Linux"
     %execpath=root_tlbx+"/Linux64/";
+    //--- search paraview
+    [rep,stat]=unix_g("echo $PATH");
+    ppt=[0, strindex(rep,':'), length(rep)+1]
+    for i=1:length(ppt)-1;
+      if grep(ls(part(rep,ppt(i)+1:ppt(i+1)-1)),'paraview')<>[];;
+	%paraview_path=part(rep,ppt(i)+1:ppt(i+1)-1);
+      end
+    end
   else 
     %execpath=root_tlbx+"/MacIntel32/";
+    //--- search paraview
+    if grep(ls('/Applications'),'paraview.app')<>[]
+      %paraview_path="/Applications/paraview.app/Contents/MacOS/";
+    end
   end
 end
 
