@@ -4,44 +4,47 @@
 // http://www.cecill.info 
 
 function p1_2d_plot3d(%v)
+   // must be changed to admit tri3d mesh
+   //
     %th=evstr(%v.geo);
     mi=min(%v.Node); ma=max(%v.Node);
-    rect =[min(%th);mi;max(%th);ma]';
-    flag=[2,1,4];
-    ebox=rect([1 4 2 5 3 6]);
-    xx=matrix(full(%th.Coor(%th.Tri,1)),-1,3)';
-    yy=matrix(full(%th.Coor(%th.Tri,2)),-1,3)';
-    zz=matrix(full(%v.Node(%th.Tri)),-1,3)';
+    
+    xx=matrix(%th.Coor(%th.Tri,1),-1,3)';
+    yy=matrix(%th.Coor(%th.Tri,2),-1,3)';
+    if typeof(%th)=="tri2d"
+      zz=matrix(%v.Node(%th.Tri),-1,3)';
+      coul=zz;
+      rect =[min(%th);mi;max(%th);ma]';
+      ebox=rect([1 4 2 5 3 6]);
+    else
+      zz=matrix(%th.Coor(%th.Tri,3),-1,3)';
+      coul=matrix(%v.Node(%th.Tri),-1,3)';
+      ebox=matrix([min(%th),max(%th)]',-1,1)'
+    end
  
     clf()
     coulmax=256;
     f=gcf()  
     f.color_map = jetcolormap(256)
     colorbar(mi,ma);
-    coul=zz
     if mi~=ma
       coul=round((coulmax-1)*(coul-mi)/(ma-mi))+1;
     else
       coul=round(coulmax/2)*ones(coul(1,:));
     end
     
-// plot3d1([xx xx($:-1:1,:)],[yy yy($:-1:1,:)],..
-//[zz,zz($:-1:1,:)],flag=flag,ebox=ebox)
     index=[1 3 2]
-
-    plot3d1(xx,yy,zz,flag=flag,ebox=ebox)
-    plot3d1(xx(index,:),yy(index,:),zz(index,:)+0.001,flag=flag,ebox=ebox)
-
-    //plot3d([xx xx($:-1:1,:)],[yy yy($:-1:1,:)],..
-    //list([zz,zz($:-1:1,:)],[coul,coul($:-1:1,:)]),flag=flag,ebox=ebox)
-    //plot3d(xx,yy,list(zz,coul),flag=[0,0,0]);
-    //plot3d1(xx,yy,list(zz,coul),flag=flag,ebox=ebox)
-    //plot3d1(xx,yy,zz,flag=[0,0,0])
- 
+    plot3d(xx,yy,list(zz,coul),flag=[2,1,4],ebox=ebox)
+    if typeof(%th)=="tri2d"
+      plot3d(xx(index,:),yy(index,:),..
+	     list(zz(index,:)+max(0.0001,0.0001*(ma-mi)),coul(index,:))..
+	     ,flag=[2,1,4],ebox=ebox)
+    end
     xtitle(name(%v)+' : '+%v.Id)
 
-    
-    m=uimenu('label','2d View');
-    m1=uimenu(m,'label','Turn in 2d','callback','p1_2d_plot2d('+name(%v)+')')
+    if typeof(%th)=="tri2d"
+      m=uimenu('label','2d View');
+      m1=uimenu(m,'label','Turn in 2d','callback','p1_2d_plot2d('+name(%v)+')')
+    end
 endfunction
   
