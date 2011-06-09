@@ -5,11 +5,12 @@
 
 function []=vartool(%var)
  
-  %type=typeof(%var)
+  %type=typeof(%var);
+  %dim=typeof(evstr(%var.geo));
 
-  if grep(%type,'2d')<>[]
+  if grep(%dim,'2d')<>[]
 	ierr=execstr(%type+'_plot2d(%var)','errcatch');
-  elseif grep(%type,'3d')<>[]
+  elseif grep(%dim,'3d')<>[]
 	ierr=execstr(%type+'_plot3d(%var)','errcatch');
   end
  
