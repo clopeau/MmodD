@@ -65,6 +65,11 @@ function th=tcube3d(x,y,z)
     end
   end 
   
+ // Faces orientation
+  for i=[1 2 3 5 6]
+    th.Bnd(i)=th.Bnd(i)(:,[2 1 3]);
+  end
+  
   th.TetId=ones(size(th.Tet,1),1);
 endfunction
  
