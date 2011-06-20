@@ -36,10 +36,13 @@ else
   // on Windows
   filename=TMPDIR+'\out.vtk';
   execstr('exportVTK(filename,'+arg+')')
-  [rep,stat]=unix_g(pathconvert(paraview_path)+'\'+"paraview.exe --data="+filename+" &");
+  ActualDir=pwd();
+  chdir(%paraview_path)
+  [rep,stat]=unix_g("paraview.exe --data="+filename+" &");
   if stat<>0
     error("Problem with ParaView");
   end
+  chdir(ActualDir);
 end
      
 endfunction
