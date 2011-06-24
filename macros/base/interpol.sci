@@ -6,6 +6,7 @@
 function interpol(%u,%fonction)
    %nomvar=name(%u);
    if type(%fonction)==10
+      %fonction=matrix( %fonction,-1,1);
      %fonction=strsubst(%fonction,' ','')
    end
    
