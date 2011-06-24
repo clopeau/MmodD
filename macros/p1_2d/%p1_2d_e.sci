@@ -11,7 +11,7 @@ function %out=%p1_2d_e(varargin)
       if type(varargin(1))==1
 	%out=p1_2d();
 	%out.geo=%v.geo
-	%out.Node=%v.Node(varargin(1),:);
+	%out.Node=%v.Node(:,varargin(1));
       else
 	%out=p1_1d();
 	%out.geo=%v.geo
