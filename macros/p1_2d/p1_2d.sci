@@ -39,12 +39,12 @@ function [out]=p1_2d(%th,%fonction)
 // Node est le seul champ 
    [lhs,rhs]=argn(0);
    if rhs==0
-     out=mlist(['p1_2d';'#';'Id';'geo';'Node'],rand(),"","",[]);
+     out=mlist(['p1_2d';'#';'Id';'geo';'Node';'Time'],rand(),"","",[],[]);
    elseif rhs==1
      %fonction="";
-     out=mlist(['p1_2d';'#';'Id';'geo';'Node'],rand(),%fonction,name(%th),[]);     
+     out=mlist(['p1_2d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name(%th),[],[]);     
    elseif rhs==2
-     out=mlist(['p1_2d';'#';'Id';'geo';'Node'],rand(),%fonction,name(%th),[]);   
+     out=mlist(['p1_2d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name(%th),[],[]);   
      interpol(out,%fonction);
    end
 endfunction
