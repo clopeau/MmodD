@@ -7,11 +7,13 @@ function [out]=p1_3d(%th,%fonction)
 // Fonction de definition generique de type "q1parallelle"
 // Node est le seul champ 
    [lhs,rhs]=argn(0);
-   if rhs==1
+   if rhs==0
+     out=mlist(['p1_3d';'#';'Id';'geo';'Node';'Time'],rand(),"","",[],[]);
+   elseif rhs==1
      %fonction="";
-   end
-   out=mlist(['p1_3d';'#';'Id';'geo';'Node'],rand(),%fonction,name(%th),[]);   
-   if rhs==2
+     out=mlist(['p1_3d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name(%th),[],[]);     
+   elseif rhs==2
+     out=mlist(['p1_3d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name(%th),[],[]);   
      interpol(out,%fonction);
    end
-endfunction
+ endfunction
