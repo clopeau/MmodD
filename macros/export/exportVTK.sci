@@ -9,10 +9,10 @@ function exportVTK(varargin)
 //------------  preambule ------------
 
    filename=varargin(1)
-   u=file('open',filename,'unknown')
-   fprintf(u,'# vtk DataFile Version 3.0');
-   fprintf(u,'vtk output');
-   fprintf(u,'ASCII');
+   %u=file('open',filename,'unknown')
+   fprintf(%u,'# vtk DataFile Version 3.0');
+   fprintf(%u,'vtk output');
+   fprintf(%u,'ASCII');
 
 //------- recherche de la geometrie --------
 
@@ -29,13 +29,13 @@ function exportVTK(varargin)
     if ~boogeo
       //-------- Cas particulier de dcomp3d ------------
       if typeof(varargin(2))=='dcomp3d'
-	dcomp3d_vtk(u,varargin(2))
+	dcomp3d_vtk(%u,varargin(2))
       else
-	t=typeof(evstr(varargin(2).geo))
+	%type=typeof(evstr(varargin(2).geo))
 	if typeof(varargin(2))=='RT' 
-	  execstr(t+'_vtk(u,evstr(varargin(2).geo),RT)')
+	  execstr(%type+'_vtk(u,evstr(varargin(2).geo),RT)')
 	else
-	  execstr(t+'_vtk(u,evstr(varargin(2).geo))')
+	  execstr(%type+'_vtk(u,evstr(varargin(2).geo))')
 	end
       end
     end
@@ -55,7 +55,7 @@ function exportVTK(varargin)
 	[nv,ddim]=size(varargin(i));
 	if ddim==1
 	  if ~booscal
-	    fprintf(u,'POINT_DATA '+string(size(varargin(i))));
+	    fprintf(%u,'POINT_DATA '+string(size(varargin(i))));
 	    booscal=%t
 	  end
 	  Node_vtk(u,varargin(i));
@@ -70,10 +70,10 @@ function exportVTK(varargin)
 	[nv,ddim]=size(varargin(i));
 	if ddim~=1
 	  if ~booscal
-	    fprintf(u,'POINT_DATA '+string(size(varargin(i))));
+	    fprintf(%u,'POINT_DATA '+string(size(varargin(i))));
 	    booscal=%t
 	  end
-	  VNode_vtk(u,varargin(i))
+	  VNode_vtk(%u,varargin(i))
 	end
       end
     end
@@ -90,10 +90,10 @@ function exportVTK(varargin)
 	if ddim==1
 	  if ~booscal
 	    nc=size(evstr(varargin(i).geo),'c');
-	    fprintf(u,'CELL_DATA '+string(nc));
+	    fprintf(%u,'CELL_DATA '+string(nc));
 	    booscal=%t
 	  end
-	  Cell_vtk(u,varargin(i));
+	  Cell_vtk(%u,varargin(i));
 	end
       end       
     end
@@ -106,10 +106,10 @@ function exportVTK(varargin)
 	 if ddim~=1
 	   if ~booscal
 	     nc=size(evstr(varargin(i).geo),'c');
-	     fprintf(u,'CELL_DATA '+string(nc));
+	     fprintf(%u,'CELL_DATA '+string(nc));
 	     booscal=%t
 	   end
-	   VCell_vtk(u,varargin(i));
+	   VCell_vtk(%u,varargin(i));
 	 end
        end  
      end
@@ -123,10 +123,10 @@ function exportVTK(varargin)
 	if ddim==1
 	  if ~booscal
 	    nc=size(evstr(varargin(i).geo),'c');
-	    fprintf(u,'CELL_DATA '+string(nc));
+	    fprintf(%u,'CELL_DATA '+string(nc));
 	    booscal=%t
 	  end
-	  CellRT_vtk(u,varargin(i));
+	  CellRT_vtk(%u,varargin(i));
 	end
       end      
     end
@@ -134,7 +134,7 @@ function exportVTK(varargin)
     
 //---------------- cloture ---------------      
 
-   file('close',u);
+   file('close',%u);
 
   
 endfunction
