@@ -1,9 +1,9 @@
-// Copyright (C) 2010 - Thierry Clopeau
+// Copyright (C) 2011 - Thierry Clopeau
 // 
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function th=%tri2d_a_s(th,s)
+function th=%s_a_tri2d(s,th)
   dim=size(th.Coor,'c')
   np=size(th);
   
@@ -26,11 +26,11 @@ function th=%tri2d_a_s(th,s)
       txt(1)='tri3d';
       setfield(1,txt,th);
     else
-      error('Bad dimension argument in %tri2d_a_s');
+      error('Bad dimension argument in %s_a_tri2d');
     end
       
   else
-    error('Bad dimension argument in %tri2d_a_s');
+    error('Bad dimension argument in %s_a_tri2d');
   end
   
 endfunction
