@@ -5,5 +5,7 @@
 
 function %in1=%p1_2d_a_s(%in1,%s)
      %in1.Node=%in1.Node+%s;
+     %in1.#=rand(1);
+     %in1.Id=addf(%in1.Id,string(%s));
 endfunction
    

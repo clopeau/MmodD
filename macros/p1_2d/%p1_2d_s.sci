@@ -6,5 +6,6 @@
 function %in=%p1_2d_s(%in)
     %in.Node=-%in.Node;
     %in.#=rand();
+    %in.Id=subf("0",%in.Id)
 endfunction
   
