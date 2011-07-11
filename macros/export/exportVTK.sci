@@ -21,7 +21,7 @@ function exportVTK(varargin)
     boogeo=%f
     for i=2:rhs
       if grep(geoconnue,typeof(varargin(i)))~=[]&(~boogeo)
-        execstr(typeof(varargin(i))+'_vtk(u,varargin(i))');
+        execstr(typeof(varargin(i))+'_vtk(%u,varargin(i))');
         boogeo=%t
       end
     end
@@ -33,9 +33,9 @@ function exportVTK(varargin)
       else
 	%type=typeof(evstr(varargin(2).geo))
 	if typeof(varargin(2))=='RT' 
-	  execstr(%type+'_vtk(u,evstr(varargin(2).geo),RT)')
+	  execstr(%type+'_vtk(%u,evstr(varargin(2).geo),RT)')
 	else
-	  execstr(%type+'_vtk(u,evstr(varargin(2).geo))')
+	  execstr(%type+'_vtk(%u,evstr(varargin(2).geo))')
 	end
       end
     end
