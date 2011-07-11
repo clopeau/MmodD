@@ -1,3 +1,8 @@
+// Copyright (C) 2010 - Thierry Clopeau
+// 
+// This file must be used under the term of the CeCILL
+// http://www.cecill.info 
+
 function %in1=%s_m_p0_3d(%s,%in1)
      [ns,ms]=size(%s);
      [n1s,m1s]=size(%in1.Cell);
