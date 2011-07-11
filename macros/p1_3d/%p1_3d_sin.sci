@@ -6,5 +6,6 @@
 function %in1=%p1_3d_sin(%in1)
      %in1.Node=sin(%in1.Node);
      %in1.#=rand(1);
+     %in1.Id="sin("+%in1.Id+")";
 endfunction
    
