@@ -16,12 +16,13 @@ function th=tri3d(varargin)
       Tri=varargin(1)(varargin(2));
       tmp=unique(Tri);
       Coor=varargin(1).Coor(tmp,:);
+      CoorID=varargin(1).CoorId(tmp,:);
       tmp2=spzeros(max(tmp),1);
       tmp2(tmp)=(1:length(tmp))'
       Tri=matrix(full(tmp2(Tri)),-1,3)
     end
     
-    th=mlist(['tri3d';'#';'Id';'Coor';'Tri';'BndId';'Bnd';'BndPerio'],...
-	rand(),id,Coor,Tri,[],list(),[])
+    th=mlist(['tri3d';'#';'Id';'Coor';'CoorId';'Tri';'BndId';'Bnd';'BndPerio'],...
+	rand(),id,Coor,Coor.Id,Tri,[],list(),[])
     
 endfunction
