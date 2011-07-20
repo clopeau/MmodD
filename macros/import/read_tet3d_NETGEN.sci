@@ -55,7 +55,7 @@ function th=read_tet3d_NETGEN(nombase)
     end
     np=read(u,1,1);
     th.Coor=read(u,np,3);
-    
+    th.CoorId=(1:np)';
     file('close',u);
     
     

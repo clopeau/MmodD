@@ -28,6 +28,7 @@ function th=read_tet3d_TETGEN(nombase)
     file('close',u);
     
     th.Coor=Node(:,2:4);
+    th.CoorId=Node(:,1);
     clear Node
     
     u=file('open',nombase+'.ele','old')

@@ -20,6 +20,7 @@ function th=read_tri2d_BAMG(nombase)
    nbvert=read(u,1,1);
    tmp=read(u,nbvert,3);
    th.Coor=tmp(:,1:2);
+   th.CoorId=(1:nbvert)';
 
    //----- les aretes
    ligne=""

@@ -16,6 +16,7 @@ function th=read_tet3d_GRUMMP(nombase)
    n=read(u,1,4)
    // Lecture des Coordonnes
    th.Coor=read(u,n(4),3);
+   th.CoorId=(1:n(4))';
    // Lecture des face
    tmp1=read(u,n(2),5)
    // Lecture cellules

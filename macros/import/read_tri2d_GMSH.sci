@@ -22,6 +22,7 @@ function th=read_tri2d_GMSH(nombase)
    if and(tmp(:,4)==0)
      th=tri2d('mesh file '+nombase+' '+date());
      th.Coor=tmp(:,2:3);
+     th.CoorId=tmp(:,1);
    else
      file('close',u);
      error('This GMSH file is a 3d mesh, use read_tet3d_GMSH function')

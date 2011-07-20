@@ -25,6 +25,7 @@ function th=read_tet3d_GMSH(nombase)
    else
      th=tet3d('mesh file '+nombase+' '+date());
      th.Coor=tmp(:,2:4);
+     th.CoorId=tmp(:,1);
    end
    
    while grep(ligne,"$Elements")==[]
