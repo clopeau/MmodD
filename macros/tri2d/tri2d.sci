@@ -41,7 +41,7 @@ function th=tri2d(nom)
       nom="";
     end
     
-    th=mlist(['tri2d';'#';'Id';'Coor';'Tri';'TriId';'BndId';'Bnd';'BndPerio'],...
-	rand(),nom,[],[],[],[],list(),[])
+    th=mlist(['tri2d';'#';'Id';'Coor';'CoorId;'Tri';'TriId';'BndId';'Bnd';'BndPerio'],...
+	rand(),nom,[],[],[],[],[],list(),[])
     
 endfunction
