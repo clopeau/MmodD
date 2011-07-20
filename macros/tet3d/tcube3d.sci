@@ -24,6 +24,7 @@ function th=tcube3d(x,y,z)
   y=matrix(y(:,ones(nz,1)),-1,1);
   z=matrix(g.z(:,ones(nx*ny,1))',-1,1);
   th.Coor=[x y z];
+  th.CoorId=(1:nx*ny*nz)';
   clear x y z
   
   Base= [1 1 1 1 2 2 2 2;

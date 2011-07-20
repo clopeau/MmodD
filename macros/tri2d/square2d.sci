@@ -69,6 +69,7 @@ function th=square2d(x,y,nx,ny)
    //-------
  
    th.Coor=[matrix(x(:,ones(y)),-1,1),matrix(y(:,ones(x))',-1,1)];
+   th.CoorId=(1:nx*ny)';
    //-------
    //  Tri
    //-------
