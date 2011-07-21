@@ -58,7 +58,7 @@ function exportVTK(varargin)
 	    fprintf(%u,'POINT_DATA '+string(size(varargin(i))));
 	    booscal=%t
 	  end
-	  Node_vtk(u,varargin(i));
+	  Node_vtk(%u,varargin(i));
 	end
       end
     end
