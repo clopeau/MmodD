@@ -11,6 +11,7 @@ function interpol(%u,%fonction)
    end
    
    %u=evstr('interpol_'+typeof(%u)+'(%u,'''+%fonction+''')')
+   %u.Id=%fonction
    //execstr('interpol_'+typeof(%u)+'('+name(%u)+','''+%fonction+''')');
    execstr('['+%nomvar+']=return(%u);');
 endfunction
