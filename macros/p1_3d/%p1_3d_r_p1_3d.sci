@@ -8,7 +8,7 @@ function %in1=%p1_3d_r_p1_3d(%in1,%in2)
      %in1.#=rand(1);
      ierr=execstr('%in1.Id=rdivf(%in1.Id,%in2.Id)','errcatch');
      if ierr>0
-       ierr=execstr('%in1.Id=%in1.Id+''/''+%in2.Id','errcatch');
+       ierr=execstr('%in1.Id=''(''+%in1.Id+'')/(''+%in2.Id+'')''','errcatch');
      end
 endfunction
    
