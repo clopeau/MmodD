@@ -21,7 +21,7 @@ end
 //----------------------------------------------
 global %paraview_path;
 if %paraview_path==[]
-  error("Paraview is not fund, install it or check your $PATH environnement variable.");
+  error("Paraview is not found, install it or check your $PATH environnement variable.");
 end
 
 if ~MSDOS
@@ -30,7 +30,7 @@ if ~MSDOS
   execstr('exportVTK(filename,'+arg+')')
   [rep,stat]=unix_g(%paraview_path+'/'+"paraview --data="+filename+" &");
   if stat<>0
-    error("Paraview is not fund, install it or check your $PATH environnement variable.");
+    error("Paraview is not found, install it or check your $PATH environnement variable.");
   end
 else
   // on Windows
