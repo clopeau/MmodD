@@ -22,5 +22,9 @@ function %in1=%s_m_p0_3d(%s,%in1)
        error('inconsistent multiplication');
      end
      %in1.#=rand(1);
+     ierr=execstr('%in1.Id=mulf(string(%s),%in1.Id)','errcatch');
+     if ierr>0
+       ierr=execstr('%in1.Id=string(%s)+''*''+%in1.Id','errcatch');
+     end
      
 endfunction
