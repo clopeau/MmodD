@@ -6,6 +6,9 @@
 function %in1=%p0_2d_r_p0_2d(%in1,%in2)
      %in1.Cell=%in1.Cell./%in2.Cell;
      %in1.#=rand(1);
-     %in1.Id=rdivf(%in1.Id,%in2.Id);
+     ierr=execstr('%in1.Id=rdivf(%in1.Id,%in2.Id)','errcatch');
+     if ierr>0
+       ierr=execstr('%in1.Id=%in1.Id+''/''+%in2.Id','errcatch');
+     end
 endfunction
    
