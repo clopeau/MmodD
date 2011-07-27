@@ -6,6 +6,9 @@
 function %in1=%p1_3d_s_s(%in1,%s)
      %in1.Node=%in1.Node-%s;
      %in1.#=rand(1);
-     %in1.Id=subf(%in1.Id,string(%s));
+     ierr=execstr('%in1.Id=subf(%in1.Id,string(%s))','errcatch');
+     if ierr>0
+       ierr=execstr('%in1.Id=%in1.Id+''-''+string(%s)','errcatch');
+     end
 endfunction
    
