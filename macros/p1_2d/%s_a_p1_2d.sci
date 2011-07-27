@@ -6,6 +6,9 @@
 function %in1=%s_a_p1_2d(%s,%in1)
      %in1.Node=%in1.Node+%s;
      %in1.#=rand(1);
-     %in1.Id=addf(string(%s),%in1.Id);
+     ierr=execstr('%in1.Id=addf(string(%s),%in1.Id)','errcatch');
+     if ierr>0
+       ierr=execstr('%in1.Id=string(%s)+''+''+%in1.Id','errcatch');
+     end
 endfunction
    
