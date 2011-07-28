@@ -30,18 +30,18 @@ macrospath = pathconvert( root_tlbx ) + "macros" + filesep();
 
 listfic=listfiles(macrospath);
 %dir=[];
-for ii=1:size(listfic,1)
-  rep=listfic(ii,1);
+for %ii=1:size(listfic,1)
+  rep=listfic(%ii,1);
   if(isdir(macrospath+rep))
     %dir($+1)=rep;
   end
 end
 
 num=size(%dir,1);
-for ii=1:num
-    str=macrospath+%dir(ii,1);
-    execstr('mmodd_'+%dir(ii,1)+'_lib='+'lib('''+ str+'/'' )');
-//    write(%io(2),'          - macros  '+%dir(ii,1)+' loaded');
+for %ii=1:num
+    str=macrospath+%dir(%ii,1);
+    execstr('mmodd_'+%dir(%ii,1)+'_lib='+'lib('''+ str+'/'' )');
+//    write(%io(2),'          - macros  '+%dir(%ii,1)+' loaded');
 end
 
 
@@ -110,9 +110,9 @@ else
     //--- search paraview
     [rep,stat]=unix_g("echo $PATH");
     ppt=[0, strindex(rep,':'), length(rep)+1];
-    for i=1:length(ppt)-1;
-      if grep(ls(part(rep,ppt(i)+1:ppt(i+1)-1)),'paraview')<>[];
-	%paraview_path=part(rep,ppt(i)+1:ppt(i+1)-1);
+    for %ii=1:length(ppt)-1;
+      if grep(ls(part(rep,ppt(%ii)+1:ppt(%ii+1)-1)),'paraview')<>[];
+	%paraview_path=part(rep,ppt(%ii)+1:ppt(%ii+1)-1);
       end
     end
   else 
