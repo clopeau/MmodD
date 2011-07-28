@@ -11,6 +11,7 @@ function %out=%p1_2d_e(varargin)
       if type(varargin(1))==1
 	%out=p1_2d();
 	%out.geo=%v.geo
+	ierr=execstr('%out.Id=%v.Id(varargin(1))','errcatch');
 	%out.Node=%v.Node(:,varargin(1));
       else
 	%out=p1_1d();
@@ -19,11 +20,9 @@ function %out=%p1_2d_e(varargin)
 	%out.Node=%v.Node(evstr('%th(""'+varargin(1)+'"")'),:);
       end
     elseif rhs==3
-      %out=p1_2d();
-      %out.geo=%v.geo
-      %out.Node=%v.Node(varargin(1),varargin(2));
+      %out=%v.Node(varargin(1),varargin(2));
     else
-      error('Incorrect number of argument in %p1_e')
+      error('Incorrect number of argument in %p1_2d_e')
     end
 endfunction
   

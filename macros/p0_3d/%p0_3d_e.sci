@@ -3,26 +3,23 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function out = %p0_3d_e(varargin)
+function %out = %p0_3d_e(varargin)
    [lhs,rhs]=argn(0);
-   
-   in=varargin($);
-   
-   // Extraction avec 1 parmetre
-   //  cas "par composante vectorielle"
-   if rhs==2 & type(varargin(1))~=10
-     G=evstr(in.geo)
-     out=in.Cell(:,varargin(1))
-   // cas "par frontiere"  
-   elseif rhs==2 & type(varargin(1))==10
-     G=evstr(in.geo)
-     out=in.Cell(G(varargin(1)),:)
-   // cas "par composante vectorielle  et frontière"
-   elseif rhs==3
-     G=evstr(in.geo)
-     out=in.Cell(G(varargin(2)),varargin(1))
-   else
-     error('Extraction non-admise')
-   end   
+    // %v variable p0
+    %v=varargin($);
+    if rhs==2
+      if type(varargin(1))==1
+	%out=p0_3d();
+	%out.geo=%v.geo
+	ierr=execstr('%out.Id=%v.Id(varargin(1))','errcatch');
+	%out.Cell=%v.Cell(:,varargin(1));
+      else
+	error('Incorrect type of argument in %p0_3d_e')
+      end
+    elseif rhs==3
+      %out=%v.Cell(varargin(1),varargin(2));
+    else
+      error('Incorrect number of argument in %p0_3d_e')
+    end
           
 endfunction
