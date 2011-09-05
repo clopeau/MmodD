@@ -42,7 +42,9 @@ libskeleton_fortran.c
 # Generated help directories
 #
 html/
-help/scilab_fr_FR_help
+help/fr_FR
 help/fr_FR/scilab_fr_FR_help/
 help/en_US/scilab_en_US_help/
 help/en_US/scilab_fr_FR_help/
+# conserved
+!help/en_US/GettingStarted/*.xml

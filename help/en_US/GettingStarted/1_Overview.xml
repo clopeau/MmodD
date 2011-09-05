@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+
+<refentry version="5.0-subset Scilab" xml:id="Overview" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <info>
+    <pubdate>$LastChangedDate: 31-Mai-2011 $</pubdate>
+  </info>
+  <refnamediv>
+    <refname>Overview</refname>
+    <refpurpose>MmodD: Modular Modeling</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <mediaobject>
+      <imageobject>
+	<imagedata align="right" fileref="../Pictures/MmodD.png" />
+      </imageobject>
+    </mediaobject>
+    <title>Description</title>
+    <para> The MmodD project contains tools for the study and solution of partial differential equations (PDEs) in 2d and 3d. A set of command-line functions and a graphical user interface let you preprocess, solve, and postprocess generic PDEs. </para>
+ <title>Features</title>
+    <para>
+      <itemizedlist>
+        <listitem>Import mesh files from Netgen, Tetgen, gmsh.</listitem>
+        <listitem>Direct solver UMFPACK (including in scilab)</listitem>
+        <listitem>Iterative solver : Conjugate gradient, GMRES, Stabilized Bi-conjugated gradient.... (SPARSKIT)</listitem>
+        <listitem>Incomplete ILU preconditioner.</listitem>
+        <listitem>Export VTK files for Paraview, Vislt.</listitem>
+      </itemizedlist>
+    </para>
+  </refsynopsisdiv>
+  <refsection>
+    <title>Authors</title>
+    <simplelist type="vert">
+      <member>T.C.</member>
+    </simplelist>
+  </refsection>
+</refentry>

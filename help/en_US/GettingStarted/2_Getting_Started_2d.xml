@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * Help file.
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="Simple equation on a square (2d)" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <info>
+    <pubdate>$LastChangedDate: 27-juin-2011 $</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>Example on a square (2D)</refname>
+    <refpurpose>Let start with a very simple 2d example.</refpurpose>
+  </refnamediv>
+  
+  <refsynopsisdiv>
+    <title>Start MmodD</title>
+    <para>
+      First, we launch the toolbox tabs MmodD (case sensitive) by writing :
+    </para>
+    <programlisting role="example"><![CDATA[
+MmodD
+   ]]></programlisting>
+    <para>
+      Then, we can see the "MmodD" Menu on the right corner of the screen.
+    </para>
+  </refsynopsisdiv>
+  
+  <refsection>
+    <title>Create a simple mesh</title>
+    <para>
+      Initialize a simple mesh on a unit square, and name it 'th' :
+    </para>  
+    <programlisting role="example"><![CDATA[
+th=square2d(20,20)
+meshtool(th)
+   ]]></programlisting> 
+    <para>
+      The result is a mesh of 400 points and 722 triangles.
+    </para>    
+    
+    <variablelist>
+      <varlistentry><term>square2d :</term>
+	<listitem><para>It's a 2-dimensional square with 4 borders (North "N", South "S", East "E" and West "W").</para></listitem></varlistentry>
+    </variablelist>
+   <para>
+     <mediaobject> <imageobject> <imagedata align="center" fileref="../Pictures/square2d.png" /> </imageobject> </mediaobject>
+   </para>
+  </refsection>
+  
+  <refsection>
+    <title>Create a variable and an equation</title>
+    <para>
+      Define an empty variable of type p1 on the previous mesh :
+    </para> 
+    <programlisting role="example"><![CDATA[
+u=p1(th)
+   ]]></programlisting> 
+    <para>
+      Define a new problem associated with your new variable, and name this problem 'mypb' for example :
+    </para> 
+    <programlisting role="example"><![CDATA[
+mypb=edp(u)
+   ]]></programlisting> 
+    <para>
+      Then, you can choose an equation : 
+    </para>
+    <programlisting role="example"><![CDATA[
+mypb.eq="-Laplace(u)=1" 
+   ]]></programlisting>   
+    <para>
+      You can also change the boundary conditions :
+    </para>
+    <programlisting role="example"><![CDATA[
+mypb.S="Id(u)=1"
+mypb.E="Dn(u)=y"
+mypb.W="Dn(u)+Id(u)=sin(y)"  
+   ]]></programlisting>   
+    <para>
+      See other help topics to see the exact syntax to change the equations.
+    </para>
+  </refsection>
+  
+  <refsection>
+    <title>Assemble and Solve the equation</title>
+    <para>
+      Assemble the problem, before solving it :
+    </para>
+    <programlisting role="example"><![CDATA[
+assemble(mypb)
+lsolve(mypb)
+vartool(u)
+   ]]></programlisting> 
+    </refsection>
+
+    <refsection>
+      <title>See the result</title>
+   <para>
+     You can visualize the result by clicking on 'vartool' in the 'MmodD' menu.
+   </para>
+   <para>
+     <mediaobject> <imageobject> <imagedata align="center" fileref="../Pictures/vartool2d.png" /> </imageobject> </mediaobject>
+   </para>
+   <para>
+     You can visualize the result in 3 dimensions by clicking on the button 3D in the 'View' menu.
+   </para>
+   <para>
+     <mediaobject> <imageobject> <imagedata align="center" fileref="../Pictures/vartool2d3d.png" /> </imageobject> </mediaobject>
+   </para>
+   <para>
+     
+   </para>  
+    </refsection>
+    
+    <!--
+       *
+       * Il faut modifier la section See Also une fois que toute l'aide aura été écrite, pour rajouter les liens !!!!
+       *
+      -->
+    
+<refsection>
+  <title>See also</title>
+  <simplelist type="inline">
+    <member><link linkend="edp">edp</link></member>
+    <member><link linkend="assemble">assemble</link></member>
+    <member><link linkend="lsolve">lsolve</link></member>
+  </simplelist>
+</refsection>
+
+<refsection>
+  <title>Authors</title>
+  <simplelist type="vert">
+    <member>Pallotta Q.</member>
+   </simplelist>
+</refsection>
+</refentry>
+  
