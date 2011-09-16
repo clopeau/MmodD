@@ -1,10 +1,12 @@
-c      Copyright (C) 2010-11 - Thierry Clopeau
-c      This file must be used under the terms of the CeCILL.
-c      This source file is licensed as described in the file COPYING, which
-c      you should have received as part of this distribution. The terms
-c      are also available at
-c      http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
-
+c----------------------------------------------------------------------c
+c                          S P A R S K I T                             c
+c----------------------------------------------------------------------c
+c                   ITERATIVE SOLVERS MODULE                           c
+c----------------------------------------------------------------------c
+c This Version Dated: August 13, 1996. Warning: meaning of some        c
+c ============ arguments have changed w.r.t. earlier versions. Some    c
+c              Calling sequences may also have changed                 c
+c----------------------------------------------------------------------c
 
       FUNCTION distdot(n,x,ix,y,iy)
 c     ---------------------------------------
