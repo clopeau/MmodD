@@ -24,5 +24,6 @@ Depends:
 
 Date: 2010-07-20
 
-Description: files to the new Docbook based format.
+Description: MmodD : Modular Modeling is a toolbox under scilab.
+The MmodD project contains tools for the study and solution of partial differential equations (PDEs) in 2d and 3d. A set of command-line functions and a graphical user interface let you preprocess, solve, and postprocess generic PDEs for a broad range of engineering and science applications.
 
