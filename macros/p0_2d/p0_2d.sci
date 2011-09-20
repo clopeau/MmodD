@@ -7,9 +7,9 @@ function [out]=p0_2d(%th,%fonction)
      %fonction="";
    elseif rhs==1
      %fonction="";
-     %nam=name(%th);
+     %nam=name_mmodd(%th);
    else
-     %nam=name(%th);
+     %nam=name_mmodd(%th);
    end
    
    out=mlist(['p0_2d';'#';'Id';'geo';'Cell'],rand(),%fonction,%nam,[]);   

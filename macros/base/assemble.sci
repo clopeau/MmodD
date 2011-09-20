@@ -15,7 +15,7 @@ function [txt,tps]=assemble(%in,opt)
     else
       opt=matrix(opt,1,-1);
     end
-    nom_edp=name(%in);
+    nom_edp=name_mmodd(%in);
     timer();
     execstr('%in=assemble_'+typeof(%in)+'(%in,opt)')
     tps=timer();

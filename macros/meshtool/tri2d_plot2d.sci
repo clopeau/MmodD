@@ -8,7 +8,7 @@ function []=tri2d_plot2d(%th)
 // th : type tri2d
  
   if %th.Id==[]
-	Title=name(%th)
+	Title=name_mmodd(%th)
   else
 	Title=%th.Id
   end

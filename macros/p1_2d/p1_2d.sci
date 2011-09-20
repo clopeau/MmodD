@@ -42,9 +42,9 @@ function [out]=p1_2d(%th,%fonction)
      out=mlist(['p1_2d';'#';'Id';'geo';'Node';'Time'],rand(),"","",[],[]);
    elseif rhs==1
      %fonction="";
-     out=mlist(['p1_2d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name(%th),[],[]);     
+     out=mlist(['p1_2d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name_mmodd(%th),[],[]);     
    elseif rhs==2
-     out=mlist(['p1_2d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name(%th),[],[]);   
+     out=mlist(['p1_2d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name_mmodd(%th),[],[]);   
      interpol(out,%fonction);
    end
 endfunction

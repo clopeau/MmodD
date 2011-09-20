@@ -29,10 +29,10 @@ function p0_2d_plot2d(%v)
     yy=matrix(%th.Coor(%th.Tri,2),-1,3)';
     
     xfpolys([xx ; xx(1,:)],[yy ; yy(1,:)],coul');
-    xtitle(name(%v)+' : '+%v.Id)
+    xtitle(name_mmodd(%v)+' : '+%v.Id)
 
     m=uimenu('label','3d View');
-    m1=uimenu(m,'label','Turn in 3d','callback','p0_2d_plot3d('+name(%v)+')')
+    m1=uimenu(m,'label','Turn in 3d','callback','p0_2d_plot3d('+name_mmodd(%v)+')')
     
 endfunction
   

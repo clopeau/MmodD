@@ -9,7 +9,7 @@ function VCell_vtk(%u,%v)
     %v=p0(%v)
   end
   %ttype=typeof(%v);
-  %nomvar=name(%v);
+  %nomvar=name_mmodd(%v);
   if length(%nomvar)==0
     %nomvar='Vector_'+part(string(rand(1)*1000000),1:3);
   end

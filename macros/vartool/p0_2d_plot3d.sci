@@ -33,10 +33,10 @@ function p0_2d_plot3d(%v)
     //plot3d1(xx,yy,list(zz,coul),flag=flag,ebox=ebox)
     //plot3d1(xx,yy,zz,flag=[0,0,0])
  
-    xtitle(name(%v)+' : '+%v.Id)
+    xtitle(name_mmodd(%v)+' : '+%v.Id)
     
     m=uimenu('label','2d View');
-    m1=uimenu(m,'label','Turn in 2d','callback','p0_2d_plot2d('+name(%v)+')')
+    m1=uimenu(m,'label','Turn in 2d','callback','p0_2d_plot2d('+name_mmodd(%v)+')')
     
 endfunction
   

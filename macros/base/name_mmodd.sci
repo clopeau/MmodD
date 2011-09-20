@@ -1,9 +1,9 @@
-// Copyright (C) 2010 - Thierry Clopeau
+// Copyright (C) 2010-11 - Thierry Clopeau
 // 
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function %_nams=name(%in)
+function %_nams=name_mmodd(%in)
    %_nams=who('get');
    //%_nams=%_nams(%_vol>17);
    global %exclud

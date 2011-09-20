@@ -4,7 +4,7 @@
 // http://www.cecill.info 
 
 function interpol(%u,%fonction)
-   %nomvar=name(%u);
+   %nomvar=name_mmodd(%u);
    if type(%fonction)==10
       %fonction=matrix( %fonction,-1,1);
      %fonction=strsubst(%fonction,' ','')

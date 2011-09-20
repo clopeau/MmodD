@@ -42,9 +42,9 @@ function [out]=p1_1d(%th,%fonction)
      %fonction="";
    elseif rhs==1
      %fonction="";
-     %nam=name(%th);
+     %nam=name_mmodd(%th);
    else
-     %nam=name(%th);
+     %nam=name_mmodd(%th);
    end
    
    out=mlist(['p1_1d';'#';'Id';'geo';'Node'],rand(),%fonction,%nam,[]);   

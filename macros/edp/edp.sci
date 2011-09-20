@@ -4,7 +4,7 @@
 // http://www.cecill.info 
 
 function %pb = edp(%u)
-    %nomvar=name(%u);
+    %nomvar=name_mmodd(%u);
     %pb = mlist(['edp','#','Id','var','geo','eq','resol','A','b','flag',...
 	    'BndId','TypBnd','BndVal'],...
 	rand(),'',%nomvar,%u.geo,'','',[],[],[],list(),list(),list())

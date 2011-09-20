@@ -4,7 +4,7 @@
 // http://www.cecill.info 
 
 function Node_vtk(%u,%v)
-   %nomvar=name(%v);
+   %nomvar=name_mmodd(%v);
    if length(%nomvar)==0
      if length(%v.Id)==0
        %nomvar='mat'+part(string(rand(1)*1000000),1:3);

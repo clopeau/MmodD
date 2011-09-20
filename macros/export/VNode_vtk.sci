@@ -6,7 +6,7 @@
 function  VNode_vtk(%u,%v)
    [%n,%dim]=size(%v)   
    %ttype=typeof(%v)
-   %nomvar=name(%v);
+   %nomvar=name_mmodd(%v);
    if length(%nomvar)==0
      %nomvar='Vector_'+part(string(rand(1)*1000000),1:3);
    end

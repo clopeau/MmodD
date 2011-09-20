@@ -18,7 +18,7 @@ function xedp(%in)
 	valBnd(i)=%in.BndVal(i)
       end
       
-      txt=['   edp       :   '+name(%in);
+      txt=['   edp       :   '+name_mmodd(%in);
 	   'geometrie    :   '+%in.geo+'   ('+evstr('typeof('+%in.geo+')')+')';
 	   'variable     :   '+%in.var+'   ('+evstr('typeof('+%in.var+')')+')';
 	   ' ']
@@ -35,7 +35,7 @@ function xedp(%in)
        
     end
     
-    execstr('['+name(%in)+']=return(%in);');
+    execstr('['+name_mmodd(%in)+']=return(%in);');
  endfunction
   
   

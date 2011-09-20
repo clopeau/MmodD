@@ -40,11 +40,11 @@ function p1_2d_plot3d(%v)
 	     list(zz(index,:)+max(0.0001,0.0001*(ma-mi)),coul(index,:))..
 	     ,flag=[2,1,4],ebox=ebox)
     end
-    xtitle(name(%v)+' : '+%v.Id)
+    xtitle(name_mmodd(%v)+' : '+%v.Id)
 
     if typeof(%th)=="tri2d"
       m=uimenu('label','2d View');
-      m1=uimenu(m,'label','Turn in 2d','callback','p1_2d_plot2d('+name(%v)+')')
+      m1=uimenu(m,'label','Turn in 2d','callback','p1_2d_plot2d('+name_mmodd(%v)+')')
     end
 endfunction
   

@@ -11,9 +11,9 @@ function [out]=p1_3d(%th,%fonction)
      out=mlist(['p1_3d';'#';'Id';'geo';'Node';'Time'],rand(),"","",[],[]);
    elseif rhs==1
      %fonction="";
-     out=mlist(['p1_3d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name(%th),[],[]);     
+     out=mlist(['p1_3d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name_mmodd(%th),[],[]);     
    elseif rhs==2
-     out=mlist(['p1_3d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name(%th),[],[]);   
+     out=mlist(['p1_3d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name_mmodd(%th),[],[]);   
      interpol(out,%fonction);
    end
  endfunction

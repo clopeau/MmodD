@@ -6,7 +6,7 @@
 function Cell_gmv(u,%v)
   nomvar=strsubst(%v.Id,' ','')
   if nomvar==''
-    nomvar=name(%v);
+    nomvar=name_mmodd(%v);
   end
   [a,ierr]=evstr(nomvar);
   if nomvar==''|ierr==0

@@ -7,7 +7,7 @@ function Cell_vtk(%u,%v)
   if typeof(%v)=='p1nc3d'
     %v=p0(%v)
   end
-  %nomvar=name(%v);
+  %nomvar=name_mmodd(%v);
   if length(%nomvar)==0
     if length(%v.Id)==0
       %nomvar='mat'+part(string(rand(1)*1000000),1:3);
