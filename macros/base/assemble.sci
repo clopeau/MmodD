@@ -15,11 +15,11 @@ function [txt,tps]=assemble(%in,opt)
     else
       opt=matrix(opt,1,-1);
     end
-    nom_edp=name_mmodd(%in);
+    nom_pde=name_mmodd(%in);
     timer();
     execstr('%in=assemble_'+typeof(%in)+'(%in,opt)')
     tps=timer();
     txt='Assembling process : '+string(tps)+' secondes';
-    execstr('['+nom_edp+']=return(%in);');
+    execstr('['+nom_pde+']=return(%in);');
 endfunction
   

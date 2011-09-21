@@ -3,7 +3,7 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function %in=assemble_edp(%in,opt)
+function %in=assemble_pde(%in,opt)
 // opt option de differenciation d'assemblage du 1er et second membre
 // par defaut les 2 sont assembles
 // opt=1 : 1 er membre
@@ -15,10 +15,10 @@ function %in=assemble_edp(%in,opt)
     else
       opt=matrix(opt,1,-1);
     end
-    //nom_edp=name(%in);
+    //nom_pde=name(%in);
     timer();
     funcprot(0)
-    execstr('%in=assemble_edp_'+typeof(evstr(%in.var))+'(%in,opt)')
+    execstr('%in=assemble_pde_'+typeof(evstr(%in.var))+'(%in,opt)')
     funcprot(1)
 endfunction
   

@@ -70,7 +70,7 @@ u=p1(th)
       Define a new problem associated with your new variable, and name this problem 'mypb' for example :
     </para> 
     <programlisting role="example"><![CDATA[
-mypb=edp(u)
+mypb=pde(u)
    ]]></programlisting> 
     <para>
       Then, you can choose an equation : 
@@ -131,7 +131,7 @@ vartool(u)
 <refsection>
   <title>See also</title>
   <simplelist type="inline">
-    <member><link linkend="edp">edp</link></member>
+    <member><link linkend="pde">pde</link></member>
     <member><link linkend="assemble">assemble</link></member>
     <member><link linkend="lsolve">lsolve</link></member>
   </simplelist>

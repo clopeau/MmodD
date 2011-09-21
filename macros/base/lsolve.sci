@@ -7,12 +7,12 @@ function [txt,tps]=lsolve(%pb,%method)
     [lhs,rhs]=argn(0);
     timer()
     select typeof(%pb)
-      // --------------------- EDP ---------------------
-    case 'edp'
+      // --------------------- PDE ---------------------
+    case 'pde'
       if rhs==2
-	uloc=lsolve_edp(%pb,%method)
+	uloc=lsolve_pde(%pb,%method)
       else
-	uloc=lsolve_edp(%pb)
+	uloc=lsolve_pde(%pb)
       end
       tps=timer();
       txt='Solving process : '+string(tps)+' secondes';

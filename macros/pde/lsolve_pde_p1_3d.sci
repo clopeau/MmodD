@@ -3,7 +3,7 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function [%uloc]=lsolve_edp_p1_2d(%pb,%opt)
+function [%uloc]=lsolve_pde_p1_3d(%pb,%opt)
     [lhs,rhs]=argn();
     %th=evstr(%pb.geo);
     [nf,nt]=size(evstr(%pb.geo));

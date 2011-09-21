@@ -10,7 +10,7 @@ lines(0);
 global %mmodd_path
 th2d=read_tri2d_NETGEN(%mmodd_path+"/demos/2d/Mesh_example/NETGEN_squarehole.vol")
 u2d=p1(th2d);
-pb2d=edp(u2d);
+pb2d=pde(u2d);
 pb2d.eq="-Laplace(u2d)=x+10*y";
 pb2d.f1="Id(u2d)=y"
 pb2d.f2="Dn(u2d)=0"

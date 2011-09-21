@@ -3,7 +3,7 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function v = %l_i_edp(varargin)
+function v = %l_i_pde(varargin)
 ind = varargin(1);
 l = varargin($-1);
 v = varargin($);

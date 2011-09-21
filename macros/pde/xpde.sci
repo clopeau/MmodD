@@ -3,11 +3,11 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function xedp(%in)
+function xpde(%in)
 
     rect=typeof(%in)
 
-    if rect=='edp'
+    if rect=='pde'
       
       listBnd=evstr(%in.geo+'.BndId');
       nbnd=size(listBnd,'*')
@@ -18,7 +18,7 @@ function xedp(%in)
 	valBnd(i)=%in.BndVal(i)
       end
       
-      txt=['   edp       :   '+name_mmodd(%in);
+      txt=['   pde       :   '+name_mmodd(%in);
 	   'geometrie    :   '+%in.geo+'   ('+evstr('typeof('+%in.geo+')')+')';
 	   'variable     :   '+%in.var+'   ('+evstr('typeof('+%in.var+')')+')';
 	   ' ']

@@ -3,9 +3,9 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function %pb = edp(%u)
+function %pb = pde(%u)
     %nomvar=name_mmodd(%u);
-    %pb = mlist(['edp','#','Id','var','geo','eq','resol','A','b','flag',...
+    %pb = mlist(['pde','#','Id','var','geo','eq','resol','A','b','flag',...
 	    'BndId','TypBnd','BndVal'],...
 	rand(),'',%nomvar,%u.geo,'','',[],[],[],list(),list(),list())
     for i=evstr(%u.geo+'.BndId')

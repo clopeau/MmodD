@@ -4,12 +4,12 @@
 // http://www.cecill.info 
 
 
-function uloc=lsolve_edp(%pb,%opt)
+function uloc=lsolve_pde(%pb,%opt)
     [lhs,rhs]=argn();
     
     if rhs==2
-      execstr('[uloc]=lsolve_edp_'+typeof(evstr(%pb.var))+'(%pb,%opt)');
+      execstr('[uloc]=lsolve_pde_'+typeof(evstr(%pb.var))+'(%pb,%opt)');
     else
-      execstr('[uloc]=lsolve_edp_'+typeof(evstr(%pb.var))+'(%pb)');
+      execstr('[uloc]=lsolve_pde_'+typeof(evstr(%pb.var))+'(%pb)');
     end   
 endfunction

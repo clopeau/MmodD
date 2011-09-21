@@ -3,7 +3,7 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function  %edp_p(%u)
+function  %pde_p(%u)
   write(%io(2),' Type '+typeof(%u)+' Id : '+string(%u.Id));
   write(%io(2),'');
   write(%io(2),' Geometry  :   '+%u.geo+'   ('+evstr('typeof('+%u.geo+')')+')');

@@ -3,7 +3,13 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function %in=assemble_edp_df2d(%in,opt)
+function %in=assemble_pde_p1_1d(%in,opt)
+  %Penal=1e10;
+  [rhs,lhs]=argn(0);
+  if rhs==1
+    opt=1:2
+  end
+
   // separation de l'equation
   ind=strindex(%in.eq,'=')
   pmbr=part(%in.eq,1:ind-1);
@@ -17,7 +23,11 @@ function %in=assemble_edp_df2d(%in,opt)
     for i=1:length(%in.BndId)
       ind=strindex(%in.BndVal(i),'=')
       ppmbr=part(%in.BndVal(i),1:ind-1);
-      ppmbr=strsubst(ppmbr,'Dn('+%in.var+')','Dn('+%in.var+','''+%in.BndId(i)+''')')
+      if grep(ppmbr,'Dn('+%in.var+')')~=[]
+	ppmbr=strsubst(ppmbr,'Dn('+%in.var+')','Dn('+%in.var+','''+%in.BndId(i)+''')')
+      else
+	ppmbr=string(%Penal)+'*('+ppmbr+')';
+      end      
       ppmbr=strsubst(ppmbr,'Id('+%in.var+')','Id('+%in.var+','''+%in.BndId(i)+''')')
       %in.A=%in.A+evstr(ppmbr);
     end
@@ -26,7 +36,7 @@ function %in=assemble_edp_df2d(%in,opt)
   // second membre
   if find(opt==2)~=[]
     %in.b=[];
-    b=evstr('df2d('+%in.geo+','''+smbr+''')');
+    b=evstr('p1_1d('+%in.geo+','''+smbr+''')');
     %in.b=b.Node
     clear b
     for i=1:length(%in.BndId)
@@ -34,14 +44,20 @@ function %in=assemble_edp_df2d(%in,opt)
     end
     
     for i=1:length(%in.BndId)
-      ind=strindex(%in.BndVal(i),'=')
+      ind=strindex(%in.BndVal(i),'=');
+      ppmbr=part(%in.BndVal(i),1:ind-1);        
       ssmbr=part(%in.BndVal(i),ind+1:length(%in.BndVal(i)));
-      execstr('Gloc=grid2d('+%in.geo+','''+%in.BndId(i)+''')');
-      bloc=evstr('df2d(Gloc,'''+string(ssmbr)+''')');
+      bloc=evstr(string(ssmbr));     
       ind=evstr(%in.geo+'('''+%in.BndId(i)+''')');
-      %in.b(ind)=%in.b(ind)+bloc.Node
+
+      if grep(ppmbr,'Dn('+%in.var+')')~=[]
+	%PP=1;
+      else
+	%PP=%Penal;
+      end
+      %in.b(ind)=%in.b(ind)+%PP*bloc;
     end
   end
-    
+
 endfunction
 

@@ -3,7 +3,7 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function %in=assemble_edp_p1_3d(%in,opt)
+function %in=assemble_pde_p1_3d(%in,opt)
   %Penal=1e10
   // separation de l'equation
   ind=strindex(%in.eq,'=')
