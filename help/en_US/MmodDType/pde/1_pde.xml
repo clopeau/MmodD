@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="pde" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <info>
+    <pubdate>$LastChangedDate: 07-Juil-2011 $</pubdate>
+  </info>
+
+  <refnamediv>
+    <refname>pde</refname><refpurpose>Generic class for a symbolic description of second order PDE.</refpurpose>
+  </refnamediv>
+
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   mypb=pde(u)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>u :</term>
+      <listitem><para> variable must be P1 variable (p1_2d or p1_3d)</para></listitem></varlistentry>
+   <varlistentry><term>mypb.Id :</term>
+      <listitem><para> string - Identity of the pde</para></listitem></varlistentry>
+   <varlistentry><term>mypb.eq :</term>
+      <listitem><para> string - Literal symbolic PDE in the domain</para></listitem></varlistentry>
+   <varlistentry><term>mypb.[BdryName] :</term>
+      <listitem><para> string - Literal symbolic boundary condition on the boundary [BdryName]</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+By default pde returns simple Laplacian equation with homogeneous Dirichlet boundary condition.
+   </para>
+   <para>
+<latex>
+\begin{cases}
+- \Delta u = 1 &amp; \text { in } \Omega \\
+u=0  &amp; \text { on } \partial\Omega
+\end{cases}
+</latex>
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+th=square2d(20,20) // square mesh with cardinals boundaries "W", "E", "N" and "S"
+u=p1(th)
+mypb=pde(u)
+mypb.Id='my problem'
+mypb.eq='-Laplace(u)=x+y'
+mypb.E='Dn(u)=sin(x+y)'
+mypb.S='Dn(u)+3*Id(u)=1'
+mypb.N='Id(u)=x'
+assemble(mypb)
+lsolve(mypb)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Allowed Syntaxe</title>
+  <para>On the domain : mypb.eq="First_Member=Second_Member"
+   <variablelist>
+   <varlistentry><term>First_Member</term>
+      <listitem><para> Symbolique expression of matrix (see Symbolique operator) for example "-2*Laplace(u)-Dx(u)+3*Id(u)",  </para></listitem></varlistentry>
+   <varlistentry><term> Second_Member</term>
+      <listitem><para> Symbolique expression of variable of the same type than the unknow combining with cartesians coordinate variables ("x", "y" and in 3d "z") example "2*f+x*sin(y)" where f is a variable defining on the mesh </para></listitem></varlistentry>
+   </variablelist>
+</para>
+
+  <para>On the boundary : mypb.[BdryName]="First_Member=Second_Member"
+   <variablelist>
+   <varlistentry><term>First_Member</term>
+      <listitem><para> Allowed expression is a combination of "Dn" natural flux of the divergence form of the equation on the domain and "Id" the identity, example "Dn(u)+3*Id(u)" (Robin condition), "Id(u)" (Dirichlet condition) or "Dn(u)" (Neumann condition)   </para></listitem></varlistentry>
+   <varlistentry><term> Second_Member</term>
+      <listitem><para> Symbolique expression of variable living on the boundary combining with cartesians coordinate variables ("x", "y" and in 3d "z") example "u.S+x^2+sin(y)" where u is a variable defining on the mesh </para></listitem></varlistentry>
+   </variablelist>
+</para>
+</refsection>
+
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="lsolve">lsolve</link></member>
+   <member><link linkend="assemble">assemble</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>T.C.</member>
+   </simplelist>
+</refsection>
+</refentry>
