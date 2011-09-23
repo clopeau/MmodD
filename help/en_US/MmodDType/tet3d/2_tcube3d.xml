@@ -23,7 +23,7 @@
    <title>Calling Sequence</title>
    <synopsis>
    th=tcube3d(nx,ny,nz)
-   mhtcube3d(x,y,z)
+   mh=tcube3d(x,y,z)
    </synopsis>
 </refsynopsisdiv>
 
