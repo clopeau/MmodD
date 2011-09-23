@@ -49,4 +49,6 @@ help/en_US/scilab_fr_FR_help/
 # conserved
 !help/en_US/GettingStarted/*.xml
 !help/en_US/MmodDType/pde/*.xml
+!help/en_US/MmodDType/tri2d/*.xml
+!help/en_US/MmodDType/tet3d/*.xml
 
