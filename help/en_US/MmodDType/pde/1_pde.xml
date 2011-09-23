@@ -105,6 +105,7 @@ lsolve(mypb)
    <simplelist type="inline">
    <member><link linkend="lsolve">lsolve</link></member>
    <member><link linkend="assemble">assemble</link></member>
+   <member><link linkend="p1">p1</link></member>
    </simplelist>
 </refsection>
 

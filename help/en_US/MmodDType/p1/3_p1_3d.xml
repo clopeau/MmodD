@@ -14,7 +14,7 @@
           xmlns:db="http://docbook.org/ns/docbook">
 
   <refnamediv>
-    <refname>tri2d</refname><refpurpose>Class for 3d linear simplicial element</refpurpose>
+    <refname>p1_3d</refname><refpurpose>Class for 3d linear simplicial element</refpurpose>
   </refnamediv>
 
 <refsynopsisdiv>

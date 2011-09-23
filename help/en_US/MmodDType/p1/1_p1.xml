@@ -14,7 +14,7 @@
           xmlns:db="http://docbook.org/ns/docbook">
 
   <refnamediv>
-    <refname>tri2d</refname><refpurpose>Linear simplicial element</refpurpose>
+    <refname>p1</refname><refpurpose>Linear simplicial element</refpurpose>
   </refnamediv>
 
 <refsynopsisdiv>
@@ -26,17 +26,18 @@
 </refsynopsisdiv>
 
 <refsection>
-   <title>Parameters</title>
-   <variablelist>
-   <varlistentry><term>th :</term>
+  <title>Parameters</title>
+  <variablelist>
+    <varlistentry><term>th :</term>
       <listitem><para>a 2d or 3d mesh of type tri2d or tet3d </para></listitem></varlistentry>
     <varlistentry><term>string_expression :</term>
       <listitem><para>a string corresponding to an expression to be interpolated on the point of the mesh</para></listitem></varlistentry>
-   </variablelist>
- <varlistentry><term>u :</term>
-      <listitem><para>a p1_2d or p1_3d variable</para></listitem></varlistentry>
+    <varlistentry><term>u :</term>
+      <listitem><para>a p1_2d or p1_3d variable</para></listitem>
+    </varlistentry>
+  </variablelist>
 </refsection>
-
+  
 <refsection>
    <title>Description</title>
    <para>
