@@ -17,7 +17,7 @@
   </info>
 
   <refnamediv>
-    <refname>pde</refname><refpurpose>Generic class for a symbolic description of second order PDE.</refpurpose>
+    <refname>pde</refname><refpurpose>Class for a symbolic description of second order PDE.</refpurpose>
   </refnamediv>
 
 

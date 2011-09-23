@@ -14,12 +14,8 @@
           xmlns:mml="http://www.w3.org/1998/Math/MathML"
           xmlns:db="http://docbook.org/ns/docbook">
 
-  <info>
-    <pubdate>$LastChangedDate: 12-Juil-2011 $</pubdate>
-  </info>
-
   <refnamediv>
-    <refname>tet3d</refname><refpurpose>Type declaration</refpurpose>
+    <refname>tet3d</refname><refpurpose>Class for 3d unstructured tetraedral mesh</refpurpose>
   </refnamediv>
 
 
@@ -27,9 +23,8 @@
 <refsynopsisdiv>
    <title>Calling Sequence</title>
    <synopsis>
-   tet3d()
-   tet3d(name)
-   
+   th=tet3d()
+   thtet3d(name)
    </synopsis>
 </refsynopsisdiv>
 
@@ -47,25 +42,23 @@
 tet3d create a empty list that contains :
    </para>
    <para>
-id : identity ('' if no parameter given)
+id : a string identity (empty string by default)
    </para>
    <para>
-Coor : mesh point's coordinates matrix
+Coor : a npx3 mesh point's coordinates matrix
    </para>
    <para>
-Tet : tetraedes matrix (the n points in the Tet matrix refers to the n-th row of the Coor matrix)
+Tet : a ntx4 points index matrix
    </para>
    <para>
-TetId : number of domaine.
+TetId : a ntx1 domaine indicator matrix
    </para>
    <para>
 BndId : string vector of the border's name
    </para>
    <para>
-Bnd : list of the border points
+Bnd : list of the border triangles by boundary
    </para>
-   <para>
-</para>
 </refsection>
 
 <refsection>
@@ -78,7 +71,6 @@ th.Tet
 th.BndId
 th.Bnd(2)
 th.E
-
    ]]></programlisting>
 </refsection>
 
@@ -86,14 +78,13 @@ th.E
    <title>See also</title>
    <simplelist type="inline">
    <member><link linkend="tcube3d">tcube3d</link></member>
-   <member><link linkend="tri3d">tri3d</link></member>
    </simplelist>
 </refsection>
 
 <refsection>
    <title>Authors</title>
    <simplelist type="vert">
-   <member>Thierry Clopeau., Aurelie Adele.</member>
+   <member>Thierry Clopeau, Aurelie Adele.</member>
    </simplelist>
 </refsection>
 </refentry>
