@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="p1" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>tri2d</refname><refpurpose>Linear simplicial element</refpurpose>
+  </refnamediv>
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   u=p1(th)
+   u=p1(th,string_expression)
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>th :</term>
+      <listitem><para>a 2d or 3d mesh of type tri2d or tet3d </para></listitem></varlistentry>
+    <varlistentry><term>string_expression :</term>
+      <listitem><para>a string corresponding to an expression to be interpolated on the point of the mesh</para></listitem></varlistentry>
+   </variablelist>
+ <varlistentry><term>u :</term>
+      <listitem><para>a p1_2d or p1_3d variable</para></listitem></varlistentry>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+     p1 create a typed list containing :
+   </para>
+   <para>
+     id   : a string identity (empty string by default or string_expression )
+   </para>
+   <para>
+     geo  : a string of the name of the mesh
+   </para>
+   <para>
+     Node : a npx1 node values
+   </para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+th=square2d(5,5)             // square2d is a tri2d
+u=p1(th,'sin(x)/(1+xy)')
+vartool(u)
+mh=tcube3d(10,10,10)
+v=p1(mh)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="tri2d">tri2d</link></member>
+   <member><link linkend="p1_2d">p1_2d</link></member>
+   <member><link linkend="tet3d">tet3d</link></member>
+   <member><link linkend="p1_3d">p1_3d</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>T. C.</member>
+   </simplelist>
+</refsection>
+</refentry>
