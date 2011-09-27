@@ -11,11 +11,11 @@ lines(0)
 write(%io(2),'')
 write(%io(2),'')
 write(%io(2),'       +++++++++++++++++++++++++++++++++++++');
-write(%io(2),'       +         Getting Started 2d        +');
+write(%io(2),'       +         Getting Started 3d        +');
 write(%io(2),'       +++++++++++++++++++++++++++++++++++++');
 write(%io(2),'')
 write(%io(2),'')
-write(%io(2),'-->th=square2d(20,20)    \\ Mesh definition');
+write(%io(2),'-->th=tcube3d(20,20,20)  \\ Mesh definition');
 th=square2d(20,20);
 disp(th);
 write(%io(2),'')
@@ -33,10 +33,14 @@ disp(pb);
 write(%io(2),'')
 write(%io(2),'-->pb.S=""Id(u)=1"";       \\ Boundaries conditions');
 write(%io(2),'-->pb.E=""Dn(u)=y"";');
-write(%io(2),'-->pb.W=""Dn(u)+Id(u)=sin(y)""');
+write(%io(2),'-->pb.W=""Dn(u)+Id(u)=sin(y)"";');
+write(%io(2),'-->pb.U=""Id(u)=1+x"";');
+write(%io(2),'-->pb.D=""Id(u)=1+x""')
 pb.S="Id(u)=1"
 pb.E="Dn(u)=y"
-pb.W="Dn(u)+Id(u)=sin(y)"
+pb.W="Dn(u)+Id(u)=sin(y)"   
+pb.U="Id(u)=1+x"
+pb.D="Id(u)=1+x"
 disp(pb);
 write(%io(2),'')
 write(%io(2),'-->assemble(pb)          \\ Assembling process');
