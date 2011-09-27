@@ -7,7 +7,7 @@
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
 demopath = get_absolute_file_path("2d.dem.gateway.sce");
-subdemolist = ["Getting started","geting_started.sce";..
+subdemolist = ["Getting started","getting_started.sce";..
 	"Square Hole","SquareHole2d.sce";..
 	"Mesh Reading","mesh_read.sce"];
 
