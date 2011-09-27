@@ -20,7 +20,7 @@ write(%io(2),'-->th=square2d(12,13)    \\ Mesh definition');
 th=square2d(12,13);
 disp(th);
 write(%io(2),'')
-write(%io(2),'-->meshtool(th)          \\Mesh visualisation')
+write(%io(2),'-->meshtool(th)          \\ Mesh visualisation')
 scf();
 meshtool(th)
 write(%io(2),'')
