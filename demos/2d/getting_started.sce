@@ -11,7 +11,7 @@ lines(0)
 write(%io(2),'')
 write(%io(2),'')
 write(%io(2),'       +++++++++++++++++++++++++++++++++++++');
-write(%io(2),'       +         Getting Started 2d        +');
+write(%io(2),'       +  MmodD    Getting Started 2d      +');
 write(%io(2),'       +++++++++++++++++++++++++++++++++++++');
 write(%io(2),'')
 write(%io(2),'')
