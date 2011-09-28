@@ -2,7 +2,8 @@ Toolbox: MmodD
 
 Title: MmodD Modular Modeling
 
-Summary: MMODD is a tool for solving two or three-dimensional linear partial differential equations by finite element methods.
+Summary: MMODD is a tool for solving two or three-dimensional linear partial differential
+ equations by finite element methods.
 
 Version: 0.0
 
@@ -24,8 +25,8 @@ Depends:
 
 Date: 2010-07-20
 
-Description: The MmodD project -Modular Modeling- contains tools for the study and solution of partial
- differential equations (PDEs) in 2d and 3d. A set of command-line functions and a graphical user 
- interface let you preprocess, solve, and postprocess generic PDEs for a broad range of engineering 
- and science applications.
+Description: The MmodD project -Modular Modeling- contains tools for the study and solution
+ of partial differential equations (PDEs) in 2d and 3d. A set of command-line functions and
+ a graphical user interface let you preprocess, solve, and postprocess generic PDEs for a 
+ broad range of engineering and science applications.
 
