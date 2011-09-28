@@ -8,8 +8,9 @@
 
 demopath = get_absolute_file_path("2d.dem.gateway.sce");
 subdemolist = ["Getting started","getting_started.sce";..
-	"Square Hole","SquareHole2d.sce";..
-	"Mesh Reading","mesh_read.sce"];
+	       "Square hole","SquareHole2d.sce";..
+	       "Electric Potential","Potelec2d.sce";...
+	       "Format mesh reading","mesh_read.sce"];
 
 subdemolist(:,2) = demopath + subdemolist(:,2);
 clear demopath;
