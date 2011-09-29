@@ -11,12 +11,12 @@ lines(0)
 write(%io(2),'')
 write(%io(2),'')
 write(%io(2),'       +++++++++++++++++++++++++++++++++++++');
-write(%io(2),'       +         Getting Started 3d        +');
+write(%io(2),'       +    MmodD   Getting Started 3d     +');
 write(%io(2),'       +++++++++++++++++++++++++++++++++++++');
 write(%io(2),'')
 write(%io(2),'')
 write(%io(2),'-->th=tcube3d(20,20,20)  \\ Mesh definition');
-th=square2d(20,20);
+th=tcube3d(20,20,20);
 disp(th);
 write(%io(2),'')
 write(%io(2),'-->meshtool(th)          \\ Mesh visualisation')
@@ -29,7 +29,6 @@ disp(u);
 write(%io(2),'')
 write(%io(2),'-->pb=pde(u)             \\ Problem definition');
 pb=pde(u)
-disp(pb);
 write(%io(2),'')
 write(%io(2),'-->pb.S=""Id(u)=1"";       \\ Boundaries conditions');
 write(%io(2),'-->pb.E=""Dn(u)=y"";');
