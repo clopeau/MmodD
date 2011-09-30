@@ -9,6 +9,7 @@
 demopath = get_absolute_file_path("3d.dem.gateway.sce");
 subdemolist = ["Getting started","getting_started.sce";..
 	"Truncate Cone","Cone3d.sce";..
+	"Thermic exchanger","ThermicEchanger.sce";..
 	"Mesh Reading","mesh_read.sce"];
 
 subdemolist(:,2) = demopath + subdemolist(:,2);

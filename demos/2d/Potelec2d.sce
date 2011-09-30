@@ -42,7 +42,7 @@ k=p0(th,'0')
 k.Cell(th.TriId==1)=1e3
 k.Cell(th.TriId==2)=1e-3
 write(%io(2),'')
-write(%io(2),'-->pb.eq=''-kLaplace(k,u)=0'';   \\ Main equation')
+write(%io(2),'-->pb.eq=''-kLaplace(k,u)=0'';   \\ Main equation');
 pb.eq='-kLaplace(k,u)=0';
 write(%io(2),'')
 write(%io(2),'-->pb.f1=''Id(u)=0'';            \\Boundaries conditions')
