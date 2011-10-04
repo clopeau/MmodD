@@ -14,7 +14,7 @@
           xmlns:db="http://docbook.org/ns/docbook">
 
   <refnamediv>
-    <refname>p1</refname><refpurpose>Linear simplicial element</refpurpose>
+    <refname>p1</refname><refpurpose>Initialise linear simplicial element.</refpurpose>
   </refnamediv>
 
 <refsynopsisdiv>
@@ -41,16 +41,16 @@
 <refsection>
    <title>Description</title>
    <para>
-     p1 create a typed list containing :
+     This function create a typed list of fields :
    </para>
    <para>
-     id   : a string identity (empty string by default or string_expression )
+     Id   : a string identity (empty string by default or string_expression )
    </para>
    <para>
      geo  : a string of the name of the mesh
    </para>
    <para>
-     Node : a npx1 node values
+     Node : a real array of node values
    </para>
 </refsection>
 
@@ -58,7 +58,7 @@
    <title>Examples</title>
    <programlisting role="example"><![CDATA[
 th=square2d(5,5)             // square2d is a tri2d
-u=p1(th,'sin(x)/(1+xy)')
+u=p1(th,'sin(x)/(1+x*y)')
 vartool(u)
 mh=tcube3d(10,10,10)
 v=p1(mh)

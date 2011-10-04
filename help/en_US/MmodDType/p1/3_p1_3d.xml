@@ -14,7 +14,7 @@
           xmlns:db="http://docbook.org/ns/docbook">
 
   <refnamediv>
-    <refname>p1_3d</refname><refpurpose>Class for 3d linear simplicial element</refpurpose>
+    <refname>p1_3d</refname><refpurpose>Initialise a 3d linear simplicial element.</refpurpose>
   </refnamediv>
 
 <refsynopsisdiv>
@@ -39,10 +39,10 @@
 <refsection>
    <title>Description</title>
    <para>
-     p1_3d create a typed list containing :
+     This function create a typed list of fields :
    </para>
    <para>
-     id   : a string identity (empty string by default or string_expression )
+     Id   : a string identity (empty string by default or string_expression )
    </para>
    <para>
      geo  : a string of the name of the mesh
@@ -56,7 +56,7 @@
    <title>Examples</title>
    <programlisting role="example"><![CDATA[
 mh=tcube3d(5,5,5) 
-u=p1_3d(mh,'sin(x+z)/(1+xy)')
+u=p1_3d(mh,'sin(x+z)/(1+x*y)')
    ]]></programlisting>
 </refsection>
 

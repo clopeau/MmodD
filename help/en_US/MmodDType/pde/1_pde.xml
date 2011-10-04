@@ -17,7 +17,7 @@
   </info>
 
   <refnamediv>
-    <refname>pde</refname><refpurpose>Class for a symbolic description of second order PDE.</refpurpose>
+    <refname>pde</refname><refpurpose>Initialise a symbolic description of second order PDE.</refpurpose>
   </refnamediv>
 
 
@@ -26,7 +26,6 @@
    <title>Calling Sequence</title>
    <synopsis>
    mypb=pde(u)
-   
    </synopsis>
 </refsynopsisdiv>
 
@@ -83,7 +82,23 @@ lsolve(mypb)
   <para>On the domain : mypb.eq="First_Member=Second_Member"
    <variablelist>
    <varlistentry><term>First_Member</term>
-      <listitem><para> Symbolique expression of matrix (see Symbolique operator) for example "-2*Laplace(u)-Dx(u)+3*Id(u)",  </para></listitem></varlistentry>
+      <listitem><para> Linear combinaison of symbolique expression for example "-2*Laplace(u)-Dx(u)+3*Id(u)" 
+</para>
+<para>Available symbols</para>
+<informaltable border="1">
+   <tr><td>Laplace(u)</td><td><latex>\Delta u</latex></td></tr>
+   <tr><td> kLaplace(k,u) </td><td><latex>div(k\nabla u)</latex></td></tr>
+   <tr><td>Id(u)</td><td><latex>u</latex></td></tr>
+   <tr><td>Dx(u)</td><td><latex>\frac{\partial u}{\partial x}</latex></td></tr>
+   <tr><td>Dy(u)</td><td><latex>\frac{\partial u}{\partial y}</latex></td></tr>
+   <tr><td>Dz(u)</td><td><latex>\frac{\partial u}{\partial z}</latex></td></tr>
+   <tr><td>ConvGrad(v,u)*</td> <td><latex>v.\nabla u</latex></td></tr>
+   <tr><td>ConvDx(v,u)</td><td><latex>v\frac{\partial u}{\partial x}</latex></td></tr>
+   <tr><td>ConvDy(v,u)</td><td><latex>v\frac{\partial u}{\partial y}</latex></td></tr>
+   <tr><td>ConvDz(v,u)</td><td><latex>v\frac{\partial u}{\partial z}</latex></td></tr>
+</informaltable>
+<para>v must be a vector</para>
+</listitem></varlistentry>
    <varlistentry><term> Second_Member</term>
       <listitem><para> Symbolique expression of variable of the same type than the unknow combining with cartesians coordinate variables ("x", "y" and in 3d "z") example "2*f+x*sin(y)" where f is a variable defining on the mesh </para></listitem></varlistentry>
    </variablelist>
