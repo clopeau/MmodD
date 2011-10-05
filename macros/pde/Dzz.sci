@@ -3,8 +3,6 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function l = Neumann(varargin)
-l = list();
-l(1) = 'Neumann';
-l(2) = varargin(1);
+function A = Dzz(u)
+ execstr('A = Dzz_'+typeof(u)+'(u)')
 endfunction

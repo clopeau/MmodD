@@ -3,6 +3,6 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function A = D2x(u)
-   execstr('A = D2x_'+typeof(u)+'(u)');
+function A = Dxx(u)
+   execstr('A = Dxx_'+typeof(u)+'(u)');
 endfunction
