@@ -5,7 +5,7 @@
  *
  -->
 
-<refentry version="5.0-subset Scilab" xml:id="square2d" xml:lang="en"
+<refentry version="5.0-subset Scilab" xml:id="read_tri2d_BAMG" xml:lang="en"
           xmlns="http://docbook.org/ns/docbook"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svg="http://www.w3.org/2000/svg"
@@ -15,7 +15,7 @@
 
 
   <refnamediv>
-    <refname>square2d</refname><refpurpose>Create a triangular 2d mesh on a square</refpurpose>
+    <refname>read_tri2d_BAMG</refname><refpurpose>Read from file a tri2d mesh</refpurpose>
   </refnamediv>
 
 
@@ -23,48 +23,32 @@
 <refsynopsisdiv>
    <title>Calling Sequence</title>
    <synopsis>
-   th=square2d(nx,ny)
-   mh=square2d(x,y)
-   fh=square2d([x_min,x_max],[y_min,y_max],nx,ny)
+   th=read_tri2d_BAMG(File_Name)
    </synopsis>
 </refsynopsisdiv>
 
 <refsection>
    <title>Parameters</title>
    <variablelist>
-   <varlistentry><term>x and y :</term>
-      <listitem><para> coordonates vectors</para></listitem></varlistentry>
-   <varlistentry><term>nx and nx :</term>
-      <listitem><para> number of points in x and y</para></listitem></varlistentry>
+   <varlistentry><term>th</term>
+      <listitem><para>output tri2d variable</para></listitem></varlistentry>
+   <varlistentry><term>File_Name</term>
+      <listitem><para>a string, name of the BAMG file</para></listitem></varlistentry>
    </variablelist>
 </refsection>
 
 <refsection>
    <title>Description</title>
    <para>
-square2d returns a tri2d mesh with a square geometry with four cardinals boundary : 'W','E','N' and 'S'.
-   </para>
-</refsection>
-
-<refsection>
-   <title>Examples</title>
-   <programlisting role="example"><![CDATA[
-th = square2d(15,20)
-th = square2d(1:.02:2,4:0.4:6)
-th.Coor
-th.Tri
-th.BndId
-th.Bnd(2)
-th.E
-meshtool(th)
-   ]]></programlisting>
+This function import as a tri2d variable a mesh containing in a file produced by  BAMG
+ (see http://www.ann.jussieu.fr/hecht/ftp/bamg/)  </para>
 </refsection>
 
 <refsection>
    <title>See also</title>
    <simplelist type="inline">
    <member><link linkend="tri2d">tri2d</link></member>
-   <member><link linkend="read_tri2d_BAMG">tri2d</link></member>
+   <member><link linkend="square2d">tri2d</link></member>
    <member><link linkend="read_tri2d_GMSH">tri2d</link></member>
    <member><link linkend="read_tri2d_NETGEN">tri2d</link></member>
    </simplelist>
@@ -73,7 +57,7 @@ meshtool(th)
 <refsection>
    <title>Authors</title>
    <simplelist type="vert">
-   <member>Clopeau T., Delanoue D., Ndeffo M. and Smatti S.</member>
+   <member>T.C.</member>
    </simplelist>
 </refsection>
 </refentry>

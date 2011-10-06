@@ -15,7 +15,7 @@
           xmlns:db="http://docbook.org/ns/docbook">
 
   <refnamediv>
-    <refname>tet3d</refname><refpurpose>Class for 3d unstructured tetraedral mesh</refpurpose>
+    <refname>tet3d</refname><refpurpose>Initialise a 3d unstructured tetraedral mesh variable</refpurpose>
   </refnamediv>
 
 
@@ -24,7 +24,7 @@
    <title>Calling Sequence</title>
    <synopsis>
    th=tet3d()
-   thtet3d(name)
+   th=tet3d(name)
    </synopsis>
 </refsynopsisdiv>
 
@@ -78,6 +78,9 @@ th.E
    <title>See also</title>
    <simplelist type="inline">
    <member><link linkend="tcube3d">tcube3d</link></member>
+   <member><link linkend="read_tet3d_GMSH">read_tet3d_GMSH</link></member>
+   <member><link linkend="read_tet3d_NETGEN">read_tet3d_NETGEN</link></member>
+   <member><link linkend="read_tet3d_TETGEN">read_tet3d_TETGEN</link></member>
    </simplelist>
 </refsection>
 

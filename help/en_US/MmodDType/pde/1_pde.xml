@@ -89,6 +89,7 @@ lsolve(mypb)
    <tr><td>Laplace(u)</td><td><latex>\Delta u</latex></td></tr>
    <tr><td> kLaplace(k,u) </td><td><latex>div(k\nabla u)</latex></td></tr>
    <tr><td>Id(u)</td><td><latex>u</latex></td></tr>
+   <tr><td>kId(k,u)</td><td><latex>ku</latex></td></tr>
    <tr><td>Dx(u)</td><td><latex>\frac{\partial u}{\partial x}</latex></td></tr>
    <tr><td>Dy(u)</td><td><latex>\frac{\partial u}{\partial y}</latex></td></tr>
    <tr><td>Dz(u)</td><td><latex>\frac{\partial u}{\partial z}</latex></td></tr>
@@ -100,7 +101,7 @@ lsolve(mypb)
 <para>v must be a vector</para>
 </listitem></varlistentry>
    <varlistentry><term> Second_Member</term>
-      <listitem><para> Symbolique expression of variable of the same type than the unknow combining with cartesians coordinate variables ("x", "y" and in 3d "z") example "2*f+x*sin(y)" where f is a variable defining on the mesh </para></listitem></varlistentry>
+      <listitem><para> Symbolique expression of variable of the same type than the unknow combining with cartesians coordinates variables ("x", "y" and in 3d "z") example "2*f+x*sin(y)" where f is a variable defining on the mesh </para></listitem></varlistentry>
    </variablelist>
 </para>
 

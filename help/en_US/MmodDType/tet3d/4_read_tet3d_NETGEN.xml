@@ -5,7 +5,7 @@
  *
  -->
 
-<refentry version="5.0-subset Scilab" xml:id="tcube3d" xml:lang="en"
+<refentry version="5.0-subset Scilab" xml:id="read_tet3d_NETGEN" xml:lang="en"
           xmlns="http://docbook.org/ns/docbook"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svg="http://www.w3.org/2000/svg"
@@ -13,8 +13,9 @@
           xmlns:mml="http://www.w3.org/1998/Math/MathML"
           xmlns:db="http://docbook.org/ns/docbook">
 
+
   <refnamediv>
-    <refname>tcube3d</refname><refpurpose>Create a tetrahedral 3d mesh on a cube</refpurpose>
+    <refname>read_tet3d_NETGEN</refname><refpurpose>Read from file a tet3d mesh</refpurpose>
   </refnamediv>
 
 
@@ -22,49 +23,33 @@
 <refsynopsisdiv>
    <title>Calling Sequence</title>
    <synopsis>
-   th=tcube3d(nx,ny,nz)
-   mh=tcube3d(x,y,z)
+   th=read_tet3d_NETGEN(File_Name)
    </synopsis>
 </refsynopsisdiv>
 
 <refsection>
    <title>Parameters</title>
    <variablelist>
-   <varlistentry><term>x y and z :</term>
-      <listitem><para> coordonates vectors</para></listitem></varlistentry>
-   <varlistentry><term>nx ny and nz :</term>
-      <listitem><para> number of points in x y and z</para></listitem></varlistentry>
+   <varlistentry><term>th</term>
+      <listitem><para>output tet3d variable</para></listitem></varlistentry>
+   <varlistentry><term>File_Name</term>
+      <listitem><para>a string, name of the NETGEN file</para></listitem></varlistentry>
    </variablelist>
 </refsection>
 
 <refsection>
    <title>Description</title>
    <para>
-tcube3d returns a tet3d mesh with a cube geometry.
-Each tcube3d contains six borders 'E' (East),'W' (West),'N' (Nord),'S' (Sud),'U'(Up),'D' (Down).
-   </para>
-</refsection>
-
-<refsection>
-   <title>Examples</title>
-   <programlisting role="example"><![CDATA[
-th = tcube3d(15,20,5)
-th = tcube3d(0:0.05:1,0:0.2:1,0:0.1:1))
-th.Coor
-th.Tet
-th.BndId
-th.Bnd(2)
-th.E
-meshtool(th)
-   ]]></programlisting>
+This function import as a tet3d variable a mesh containing in a file produced by  NETGEN
+ (see http://www.hpfem.jku.at/netgen/)  </para>
 </refsection>
 
 <refsection>
    <title>See also</title>
    <simplelist type="inline">
    <member><link linkend="tet3d">tet3d</link></member>
+   <member><link linkend="tcube3d">tcube3d</link></member>
    <member><link linkend="read_tet3d_GMSH">read_tet3d_GMSH</link></member>
-   <member><link linkend="read_tet3d_NETGEN">read_tet3d_NETGEN</link></member>
    <member><link linkend="read_tet3d_TETGEN">read_tet3d_TETGEN</link></member>
    </simplelist>
 </refsection>
@@ -72,7 +57,7 @@ meshtool(th)
 <refsection>
    <title>Authors</title>
    <simplelist type="vert">
-   <member>Clopeau T., Delanoue D., Ndeffo M. and Smatti S.</member>
+   <member>T.C.</member>
    </simplelist>
 </refsection>
 </refentry>

@@ -19,7 +19,7 @@
   </info>
 
   <refnamediv>
-    <refname>lsolve</refname><refpurpose>Compute the numerical solution of a problem</refpurpose>
+    <refname>lsolve</refname><refpurpose>Compute the numerical solution of the given problem</refpurpose>
   </refnamediv>
 
 
