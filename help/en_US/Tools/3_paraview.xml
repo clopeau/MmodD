@@ -30,7 +30,7 @@
    <title>Parameters</title>
    <variablelist>
    <varlistentry><term>Var</term>
-      <listitem><para> can be a mesh (tri2d or tet3d) or an element (p1_2d or p1_3d)</para></listitem></varlistentry>
+      <listitem><para> Can be a mesh (tri2d or tet3d) or an element (p1_2d or p1_3d)</para></listitem></varlistentry>
    <varlistentry><term>Var1, Var2 ...</term>
      <listitem><para> Differents elements defining on the same mesh.
    </para></listitem></varlistentry>
@@ -40,7 +40,7 @@
 <refsection>
    <title>Description</title>
    <para>
-This function export the variables in VTK file format and call the external software paraview with tthe file in argument (see http://www.paraview.org/).
+This function export the variables in VTK file format and call the external software paraview with the file in argument (see http://www.paraview.org/).
    </para>
 </refsection>
 

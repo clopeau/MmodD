@@ -48,9 +48,9 @@ This function import as a tri2d variable a mesh containing in a file produced by
    <title>See also</title>
    <simplelist type="inline">
    <member><link linkend="tri2d">tri2d</link></member>
-   <member><link linkend="square2d">tri2d</link></member>
-   <member><link linkend="read_tri2d_BAMG">tri2d</link></member>
-   <member><link linkend="read_tri2d_NETGEN">tri2d</link></member>
+   <member><link linkend="square2d">square2d</link></member>
+   <member><link linkend="read_tri2d_BAMG">read_tri2d_BAMG</link></member>
+   <member><link linkend="read_tri2d_NETGEN">read_tri2d_NETGEN</link></member>
    </simplelist>
 </refsection>
 
