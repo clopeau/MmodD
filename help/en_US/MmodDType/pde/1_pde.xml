@@ -90,6 +90,9 @@ lsolve(mypb)
    <tr><td> kLaplace(k,u) </td><td><latex>div(k\nabla u)</latex></td></tr>
    <tr><td>Id(u)</td><td><latex>u</latex></td></tr>
    <tr><td>kId(k,u)</td><td><latex>ku</latex></td></tr>
+   <tr><td>Dxx(u)</td><td><latex>\frac{\partial^2 u}{\partial x^2}</latex></td></tr>
+   <tr><td>Dyy(u)</td><td><latex>\frac{\partial^2 u}{\partial y^2}</latex></td></tr>
+   <tr><td>Dzz(u)</td><td><latex>\frac{\partial^2 u}{\partial z^2}</latex></td></tr>
    <tr><td>Dx(u)</td><td><latex>\frac{\partial u}{\partial x}</latex></td></tr>
    <tr><td>Dy(u)</td><td><latex>\frac{\partial u}{\partial y}</latex></td></tr>
    <tr><td>Dz(u)</td><td><latex>\frac{\partial u}{\partial z}</latex></td></tr>
