@@ -7,7 +7,6 @@ function []=p1_3d_plot3d(%v)
 // Mesh visualisation 
   // tet3d
   // boundary
-  clf();
   my_plot3d = gcf();
   coulmax=256;
   my_plot3d.color_map=jetcolormap(coulmax);

@@ -22,7 +22,6 @@ function p1_2d_plot3d(%v)
       ebox=matrix([min(%th),max(%th)]',-1,1)'
     end
  
-    clf()
     coulmax=256;
     f=gcf()  
     f.color_map = jetcolormap(256)
@@ -42,9 +41,5 @@ function p1_2d_plot3d(%v)
     end
     xtitle(name_mmodd(%v)+' : '+%v.Id)
 
-    if typeof(%th)=="tri2d"
-      m=uimenu('label','2d View');
-      m1=uimenu(m,'label','Turn in 2d','callback','p1_2d_plot2d('+name_mmodd(%v)+')')
-    end
 endfunction
   

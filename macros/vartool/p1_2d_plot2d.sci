@@ -10,7 +10,7 @@ function p1_2d_plot2d(%v)
    
     xy_min=min(%th);
     xy_max=max(%th);
-    clf();
+
     my_plot2d= gcf();
     my_plot2d.color_map=jetcolormap(256)
     coulmax=256;
@@ -32,7 +32,5 @@ function p1_2d_plot2d(%v)
       xset("wdim",350,150);
     end
     
-    m=uimenu('label','3d View');
-    m1=uimenu(m,'label','Turn in 3d','callback','p1_2d_plot3d('+name_mmodd(%v)+')')
 endfunction
   
