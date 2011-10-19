@@ -13,10 +13,6 @@
           xmlns:mml="http://www.w3.org/1998/Math/MathML"
           xmlns:db="http://docbook.org/ns/docbook">
 
-  <info>
-    <pubdate>$LastChangedDate: 25-Juil-2011 $</pubdate>
-  </info>
-
   <refnamediv>
     <refname>assemble</refname><refpurpose> Construct the finite element linear system corresponding to the pde </refpurpose>
   </refnamediv>
@@ -51,7 +47,9 @@
       opt=2 : second member is assembled
     </para>
     <para>
-Rspectively the field 
+The matrix of the system is assembled and stored in the field pdeName.A
+Respectively the second member is stored in pdeName.b 
+Dirichlet boundary conditions are enforced by a penalty technique. 
     </para>
   </refsection>
   

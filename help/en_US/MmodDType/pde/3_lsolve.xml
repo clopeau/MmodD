@@ -14,10 +14,6 @@
           xmlns:mml="http://www.w3.org/1998/Math/MathML"
           xmlns:db="http://docbook.org/ns/docbook">
 
-  <info>
-    <pubdate>$LastChangedDate: 25-Juil-2011 $</pubdate>
-  </info>
-
   <refnamediv>
     <refname>lsolve</refname><refpurpose>Compute the numerical solution of the given problem</refpurpose>
   </refnamediv>
@@ -35,9 +31,9 @@
    <title>Parameters</title>
    <variablelist>
    <varlistentry><term>pb :</term>
-      <listitem><para> an pde, an elasticity... a stokes equation</para></listitem></varlistentry>
+      <listitem><para> an pde, an elasticity... a stokes equation.</para></listitem></varlistentry>
    <varlistentry><term>method :</term>
-      <listitem><para> string corresponding to an iterative method : 'gmres', 'cg', 'cgnr', 'bcg', 'pdbgc', 'pbcgstab', 'qmr'</para></listitem></varlistentry>
+      <listitem><para> string corresponding to an iterative method : 'gmres', 'cg', 'cgnr', 'bcg', 'pdbgc', 'pbcgstab', 'qmr'.</para></listitem></varlistentry>
    </variablelist>
 </refsection>
 
@@ -59,6 +55,7 @@ pb.eq='-Laplace(u)=1'
 assemble(pb)
 lsolve(pb)
 lsolve(pb,'gmres')
+vartool(u)
    ]]></programlisting>
 </refsection>
 
