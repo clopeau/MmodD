@@ -33,11 +33,11 @@ function p1_2d_plot3d(%v)
     end
     
     index=[1 3 2]
-    plot3d(xx,yy,list(zz,coul),flag=[2,1,4],ebox=ebox)
+    plot3d(xx,yy,list(zz,coul),flag=[-2,3,4],ebox=ebox)
     if typeof(%th)=="tri2d"
       plot3d(xx(index,:),yy(index,:),..
 	     list(zz(index,:)+max(0.0001,0.0001*(ma-mi)),coul(index,:))..
-	     ,flag=[2,1,4],ebox=ebox)
+	     ,flag=[-2,3,4],ebox=ebox)
     end
     xtitle(name_mmodd(%v)+' : '+%v.Id)
 

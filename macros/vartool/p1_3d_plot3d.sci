@@ -24,8 +24,8 @@ function []=p1_3d_plot3d(%v)
   x_min=min(%th);
   x_max=max(%th);
 
-  plot3d(x_min(1,ones(1,3)),x_min(2,ones(1,3)),x_min(3,ones(1,3)),flag=[2 ...
-		   1 4],ebox=matrix([x_min,x_max]',-1,1)')
+  plot3d(x_min(1,ones(1,3)),x_min(2,ones(1,3)),x_min(3,ones(1,3)),flag=[-2 ...
+		   3 4],ebox=matrix([x_min,x_max]',-1,1)')
 
   for fr=%th.BndId
     %fh=tri3d(%th,fr);
@@ -39,7 +39,7 @@ function []=p1_3d_plot3d(%v)
     else
       coul=round(coulmax/2)*ones(coul(1,:));
     end
-    plot3d(xx,yy,list(zz,coul));
+    plot3d(xx,yy,list(zz,coul),flag=[-2 3 4]);
   end  
 
 endfunction
