@@ -1,12 +1,11 @@
 tmp=lines();
 lines(0)
-continuer=%t
 stacksize('max')
+demopath = get_absolute_file_path("main.sce")
 
-while continuer
   n=x_choose(['test 2d' ; 'test 3d'],...
-      ['Choisir la dimension d''espace'],...
-      'Terminer')
+      ['Choose the space dimension'],...
+      'Cancel')
   if n==0, return ,end
   dim=n+1;
   ext=string(dim)+'d';
@@ -21,39 +20,39 @@ while continuer
 
   
   if ext=='2d'
-    lprob=['Laplacien et Conditions de Dirichlet homogene'
-	'Laplacien et Conditions de Dirichlet non-homogene'
-	'Laplacien et Conditions de Neuman nonhomogene Est'
-	'Laplacien et Conditions de Neuman nonhomogene Ouest'
-	'Laplacien et Conditions de Neuman nonhomogene Nord'
-	'Laplacien et Conditions de Neuman nonhomogene Sud'
-	'Laplacien et diffusion en x+, Dirichlet homogene'
-	'Laplacien et diffusion en y+, Dirichlet homogene']
+    lprob=['Laplacien with homogene dirichlet boudary conditions'
+	'Laplacien with non-homogene dirichlet boudary conditions'
+	'Laplacien with non-homogene Neuman nonhomogene Est'
+	'Laplacien with non-homogene Neuman nonhomogene West'
+	'Laplacien with non-homogene Neuman nonhomogene Nord'
+	'Laplacien with non-homogene Neuman nonhomogene Sud'
+	'Laplacien and diffusion in x+, Dirichlet homogene'
+	'Laplacien and diffusion in y+, Dirichlet homogene']
     
   else  
-    lprob=['Laplacien et Conditions de Dirichlet homogene'
-	'Laplacien et Conditions de Dirichlet non-homogene'
-	'Laplacien et Conditions de Neuman nonhomogene Est'
-	'Laplacien et Conditions de Neuman nonhomogene Ouest'
-	'Laplacien et Conditions de Neuman nonhomogene Nord'
-	'Laplacien et Conditions de Neuman nonhomogene Sud'
-	'Laplacien et Conditions de Neuman nonhomogene Bas'
-	'Laplacien et Conditions de Neuman nonhomogene Haut'
-	'Laplacien et diffusion en x+, Dirichlet homogene'
-	'Laplacien et diffusion en y+, Dirichlet homogene'
-	'Laplacien et diffusion en z+, Dirichlet homogene']
+    lprob=['Laplacien with homogene dirichlet boudary conditions'
+	   'Laplacien with non-homogene dirichlet boudary conditions'
+	   'Laplacien with non-homogene Neuman nonhomogene Est'
+	   'Laplacien with non-homogene Neuman nonhomogene West'
+	   'Laplacien with non-homogene Neuman nonhomogene Nord'
+	   'Laplacien with non-homogene Neuman nonhomogene Sud'
+	   'Laplacien with non-homogene Neuman nonhomogene Down'
+	   'Laplacien with non-homogene Neuman nonhomogene Up'
+	   'Laplacien and diffusion in x+, Dirichlet homogene'
+	   'Laplacien and diffusion in y+, Dirichlet homogene'
+	   'Laplacien and diffusion in z+, Dirichlet homogene']
   end    
     
-  np=x_choose(lprob,['Choisir le problème'],'Terminer')
+  np=x_choose(lprob,['Choose the problem'],'Cancel')
   if np==0, return ,end
   probl='pb'+ext+'_'+string(np)+'.sce';
   
   if ext=='2d' 
     val=[20;60;100;200;400;700]
   else
-    val=[10;15;20;25;35;50]
+    val=[10;15;20;25;30;35]
   end
-  val=evstr(x_dialog('entrer les nombre de pas d''espace',...
+  val=evstr(x_dialog('Grid sizes ',...
       '['+strcat(string(val),',')+']'))
   val=val';
   t_mesh=zeros(val)
@@ -74,7 +73,7 @@ while continuer
     t_mesh(i)=timer();
     write(%io(2),'Mesh Time        = '+string(t_mesh(i)))
     u=evstr(vtype+'(g)');
-    exec(probl);
+    exec(demopath+probl);
     
     if i==1, disp(pb); ,end
     
@@ -101,46 +100,43 @@ while continuer
   xset('window',0)
   xset("wdim",800,600) 
   clf()
-  //1er quart
-  xsetech([0,0,0.5,0.5]);
-  txt=['pde          :   '+name_mmodd(pb);
-      'geometrie    :   '+pb.geo+'   ('+evstr('typeof('+pb.geo+')')+')';
-      'variable      :   '+pb.var+'   ('+evstr('typeof('+pb.var+')')+')';
-      'equation      :   '+pb.eq]
+  //3eme quart
+  xsetech([0,0.5,0.5,0.5]);
+  txt=['pde        :   '+name_mmodd(pb);
+      'geometry   :   '+pb.geo+'   ('+evstr('typeof('+pb.geo+')')+')';
+      'variable   :   '+pb.var+'   ('+evstr('typeof('+pb.var+')')+')';
+      'equation   :   '; pb.eq]
   for i=1:size(g.BndId,'*')
-    txt=[txt;' - frontiere '+g.BndId(i)+' : '+pb.BndVal(i)]
+    txt=[txt;'boundary '+g.BndId(i)+' : '+pb.BndVal(i)]
   end
   
-  titlepage(txt)
+  xstring(0,0,txt)
+  //titlepage(txt)
+  t=get("hdl")   //get the handle of the newly created object
+
+  t.font_foreground=6;// change font properties
+  t.font_size=1;
+  t.font_style=0;
+  //t.font_style=5;
+
   //2eme quart
   xsetech([0.5,0,0.5,0.5]);
-  plot2d("ll",val^(dim),max([t_mesh,t_elementinit,t_assemble,t_solve],0.00001));
+  plot2d("ll",val^(dim),max([t_mesh,t_elementinit,t_assemble,t_solve],0.00001),[1,80,160,240]);
   plot2d("ll",val^(dim),max([t_mesh,t_elementinit,t_assemble,t_solve],0.00001),-4:-1,strf="000");
   legends(['Mesh Time','Init pde time','Assembling Time','Resolution Time'],-4:-1,4);
   xtitle('Execution Time',['nb of freedom'],'time (s)')
   
   //3eme quart
   xsetech([0.5,0.5,0.5,0.5]); 
-  if ext=='2d'
-    txt=['Calculs effectuées sur une grille';
-	'cartésienne de taille nxn';
-	'n='+strcat(string(val),',')]
-  else
-    txt=['Calculs effectuées sur une grille cartésienne';
-	'de taille nxnxn';
-	'n = '+strcat(string(val),',')]
-  end
-  
+
   execstr(typeof(evstr(pb.var))+'_plot3d('+pb.var+')');
   
-  //titlepage(txt)
-  //dernier
-  xsetech([0,0.5,0.5,0.5]);
+  //1er quart dernier
+  xsetech([0,0,0.5,0.5]);
+  
   plot2d("ll",val^(dim),err);
   plot2d("ll",val^(dim),err,-1,strf="000");
   xtitle('errors',['nb of freedom'],'error')
   
   
-  //xset("default")
-end
 
