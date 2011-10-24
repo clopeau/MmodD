@@ -13,7 +13,6 @@ function p0_2d_plot3d(%v)
     yy=matrix(%th.Coor(%th.Tri,2),-1,3)';
     zz=%v.Cell(:,[1 1 1])';
  
-    clf()
     coulmax=256;
     f=gcf()  
     f.color_map = jetcolormap(256)

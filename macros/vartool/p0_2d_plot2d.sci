@@ -7,7 +7,6 @@ function p0_2d_plot2d(%v)
     %th=evstr(%v.geo);
     x_min=min(%th);
     x_max=max(%th);
-    clf()
     my_plot2d= gcf();
     coulmax=256;
     my_plot2d.color_map=jetcolormap(coulmax)
