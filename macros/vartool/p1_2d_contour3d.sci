@@ -34,11 +34,14 @@ function p1_2d_contour3d(%v,%x)
     EdgeLevely=list();
     nlevel=0;
     for %lev=%x
-      %Bool=%v.Node<%lev;
-      %tri=matrix(%Bool(%th.Tri),-1,3);
+      %tri=%v.Node<%lev;
+      %tri=matrix(%tri(%th.Tri),-1,3);
+      %stri=sum(%tri,'c');
       // search triangle
-      %tri(sum(%tri,'c')==2,:)=~%tri(sum(%tri,'c')==2,:);
-      %ind=find(sum(%tri,'c')==1);
+      %ind= %stri==2;
+      %tri(%ind,:)=~%tri(%ind,:);
+      %stri(%ind)=1;
+      %ind=find(%stri==1);
       lindex=[2 3; 3 1; 1 2];
       %XX=[];%YY=[];
       for ii=1:3
@@ -53,7 +56,7 @@ function p1_2d_contour3d(%v,%x)
 		 %v.Node(%th.Tri(%ind_loc,lindex(ii,jj))));
 	    %XY=%th.Coor(%th.Tri(%ind_loc,ii),:)- ..
 		%bari(:,[1 1]).*(%th.Coor(%th.Tri(%ind_loc,ii),:)- ...
-			      %th.Coor(%th.Tri(%ind_loc,lindex(ii,jj),:),:));
+			      %th.Coor(%th.Tri(%ind_loc,lindex(ii,jj)),:));
 	    %X(:,jj)=%XY(:,1);
 	    %Y(:,jj)=%XY(:,2);
 	  end
