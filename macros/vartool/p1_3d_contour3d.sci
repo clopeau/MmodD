@@ -32,13 +32,17 @@ function p1_3d_contour3d(%v,%x)
     end
 
     for %lev=%x
-      %Bool=%v.Node<%lev;
-      %tet=matrix(%Bool(%th.Tet),-1,4);
+      %tet = %v.Node<%lev;
+      %tet = matrix(%tet(%th.Tet),-1,4);
+      %stet= sum(%tet,'c');
       //============================================
       // search 1 point less than or great then %lev 
       //============================================
-      %tet(sum(%tet,'c')==3,:)=~%tet(sum(%tet,'c')==3,:);
-      %ind=find(sum(%tet,'c')==1);
+      
+      %ind=(%stet==3);
+      %tet(%ind,:)=~%tet(%ind,:);
+      %stet(%ind)=1;
+      %ind=find(%stet==1);
       lindex=[2 3 4; 3 4 1; 4 1 2; 1 2 3];
       %XX=[];%YY=[];%ZZ=[]
       // ii position of unique point outside the level
@@ -55,7 +59,7 @@ function p1_3d_contour3d(%v,%x)
 		 %v.Node(%th.Tet(%ind_loc,lindex(ii,jj))));
 	    %XY=%th.Coor(%th.Tet(%ind_loc,ii),:)- ..
 		%bari(:,[1 1 1]).*(%th.Coor(%th.Tet(%ind_loc,ii),:)- ...
-			      %th.Coor(%th.Tet(%ind_loc,lindex(ii,jj),:),:));
+			      %th.Coor(%th.Tet(%ind_loc,lindex(ii,jj)),:));
 	    %X(:,jj)=%XY(:,1);
 	    %Y(:,jj)=%XY(:,2);
 	    %Z(:,jj)=%XY(:,3);
@@ -79,7 +83,7 @@ function p1_3d_contour3d(%v,%x)
       //============================================
       // search 2 points less than or great then %lev
       //============================================
-      %ind=find(sum(%tet,'c')==2);
+      %ind=find(%stet==2);
       %XX=[];%YY=[];%ZZ=[]
       // ii position of unique point outside the level
       ii =[1 2; 1 3;1 4]';
@@ -99,7 +103,7 @@ function p1_3d_contour3d(%v,%x)
 		  %v.Node(%th.Tet(%ind_loc,iic(k,i))));
 	      %XY=%th.Coor(%th.Tet(%ind_loc,ii(j,i)),:)- ..
 		  %bari(:,[1 1 1]).*(%th.Coor(%th.Tet(%ind_loc,ii(j,i)),:)- ...
-		  %th.Coor(%th.Tet(%ind_loc,iic(k,i),:),:));
+		  %th.Coor(%th.Tet(%ind_loc,iic(k,i)),:));
 	      %X(:,j+(k-1)*2)=%XY(:,1);
 	      %Y(:,j+(k-1)*2)=%XY(:,2);
 	      %Z(:,j+(k-1)*2)=%XY(:,3);
