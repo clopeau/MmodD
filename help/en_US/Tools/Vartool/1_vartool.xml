@@ -54,6 +54,12 @@ vartool(u)
    <simplelist type="inline">
    <member><link linkend="meshtool">meshtool</link></member>
    <member><link linkend="paraview">paraview</link></member>
+   <member><link linkend="p1_3d_plot3d">p1_3d_plot3d</link></member>
+   <member><link linkend="p1_3d_contour3d">p1_3d_contour3d</link></member>
+   <member><link linkend="p1_3d_slice">p1_3d_slice</link></member>
+   <member><link linkend="p1_3d_xslice">p1_3d_xslice</link></member>
+   <member><link linkend="p1_3d_yslice">p1_3d_yslice</link></member>
+   <member><link linkend="p1_3d_zslice">p1_3d_zslice</link></member>
    </simplelist>
 </refsection>
 

@@ -15,6 +15,9 @@ function []=p1_3d_plot3d(%v,cbar,theta,alpha,leg,flag,ebox)
    
    
    my_plot3d = gcf();
+   my_axes=gca();
+   NbChild=length(my_axes.children);
+   my_axes.hiddencolor=-1;
    old_imdraw=my_plot3d.immediate_drawing;
    my_plot3d.immediate_drawing="off"
 
@@ -59,9 +62,7 @@ function []=p1_3d_plot3d(%v,cbar,theta,alpha,leg,flag,ebox)
       coul=round(coulmax/2)*ones(coul(1,:));
     end
     execstr('plot3d(xx,yy,list(zz,coul),'+strcat(opts,',')+')');
-    my_gca=gca();
-    my_gca.hiddencolor=-1;
   end  
-
   my_plot3d.immediate_drawing=old_imdraw
+  glue(my_axes.children(NbChild+1:$));
 endfunction

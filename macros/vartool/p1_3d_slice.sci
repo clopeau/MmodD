@@ -3,19 +3,36 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function p1_3d_slice(%v,%x,%y,%z)
+function p1_3d_slice(%v,%x,%y,%z,cbar,theta,alpha,leg,flag,ebox)
     %th=evstr(%v.geo); 
-    //xy_min=min(%th);
-    //xy_max=max(%th);
-
-    my_plot2d= gcf();
-    my_plot2d.color_map=jetcolormap(256)
-    coulmax=256;
-    old_imdraw=my_plot2d.immediate_drawing;
-    my_plot2d.immediate_drawing="off"
-    
-    [np,nt]=size(%th);
-    // 
+    opts=[]
+    if exists('theta','local')==1 then opts=[opts,'theta=theta'],end
+    if exists('alpha','local')==1 then opts=[opts,'alpha=alpha'],end
+    if exists('leg'  ,'local')==1 then opts=[opts,'leg=leg']    ,end
+    if exists('flag' ,'local')==1 then opts=[opts,'flag=flag']  ,end
+    if exists('ebox' ,'local')==1  
+      opts=[opts,'ebox=ebox'] 
+    else
+      x_min=min(%th)';
+      x_max=max(%th)';
+      ebox=matrix([x_min;x_max],-1,1)'
+      opts=[opts,'ebox=ebox'];
+    end
+    // set graphic properties
+    my_plot3d = gcf();
+    my_axes=gca();
+    NbChild=length(my_axes.children);
+    my_axes.hiddencolor=-1;
+    old_imdraw=my_plot3d.immediate_drawing;
+    my_plot3d.immediate_drawing="off"
+    // test if the color map is a standard one (suppose to be of size 32)
+    if size(my_plot3d.color_map,1)==32
+      coulmax=256;
+      my_plot3d.color_map=jetcolormap(coulmax);
+    else
+      coulmax=size(my_plot3d.color_map,1);
+    end
+    // test empty Node
     if %v.Node==[]
       disp(' --- Empty variable ---');bool=%f
       xset("font",1,5);
@@ -23,7 +40,15 @@ function p1_3d_slice(%v,%x,%y,%z)
       xset("wdim",350,150);
       return
     end
-    
+    // colorbar
+    mi=min(%v.Node); ma=max(%v.Node);
+    if  exists('cbar','local')==1
+      if cbar=="on"
+	colorbar(mi,ma);
+      end
+    end
+   
+    // begin of the code
     zminmax=[min(%v),max(%v)];
     if ~exists('%x','local');
       xyzminmax=[min(%th),max(%th)];
@@ -83,9 +108,7 @@ function p1_3d_slice(%v,%x,%y,%z)
        end
        if %XX<>[]
 	 VNode=round(coulmax*(VNode-zminmax(1))/(zminmax(2)-zminmax(1)))
-	 plot3d(%XX,%YY,list(%ZZ,VNode),flag=[-2,2,4]);
-	 a=gce();
-	 a.hiddencolor=-1;
+	 execstr('plot3d(%XX,%YY,list(%ZZ,VNode),'+strcat(opts,',')+')');
        end
        //============================================
        // search 2 points less than or great then %lev
@@ -127,12 +150,12 @@ function p1_3d_slice(%v,%x,%y,%z)
        end
        if %XX<>[]
 	 VNode=round(coulmax*(VNode-zminmax(1))/(zminmax(2)-zminmax(1)))
-	 plot3d(%XX,%YY,list(%ZZ,VNode),flag=[-2,2,4]);
-	 a=gce();
-	 a.hiddencolor=-1;
+	 execstr('plot3d(%XX,%YY,list(%ZZ,VNode),'+strcat(opts,',')+')');
        end
      end
    end
-   my_plot2d.immediate_drawing=old_imdraw
+   
+    my_plot3d.immediate_drawing=old_imdraw;
+    glue(my_axes.children(NbChild+1:$));
 endfunction
   
