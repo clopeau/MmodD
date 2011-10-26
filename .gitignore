@@ -53,4 +53,4 @@ help/en_US/scilab_fr_FR_help/
 !help/en_US/MmodDType/tet3d/*.xml
 !help/en_US/MmodDType/p1/*.xml
 !help/en_US/Tools/*.xml
-
+!help/en_US/Tools/VarTool*.xml
