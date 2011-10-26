@@ -54,12 +54,12 @@ function p1_3d_contour3d(%v,%x)
 	  %Z=zeros(length(%ind_loc),3);
 	  for jj=1:3
 	    %bari=zeros(length(%ind_loc));
-	    %bari=(%v.Node(%th.Tet(%ind_loc,ii))-%lev)./ ..
-		(%v.Node(%th.Tet(%ind_loc,ii))- ..
-		 %v.Node(%th.Tet(%ind_loc,lindex(ii,jj))));
-	    %XY=%th.Coor(%th.Tet(%ind_loc,ii),:)- ..
-		%bari(:,[1 1 1]).*(%th.Coor(%th.Tet(%ind_loc,ii),:)- ...
-			      %th.Coor(%th.Tet(%ind_loc,lindex(ii,jj)),:));
+	    i_left = %th.Tet(%ind_loc,ii);
+	    i_right= %th.Tet(%ind_loc,lindex(ii,jj));
+	    %bari=(%v.Node(i_left)-%lev)./ ..
+		(%v.Node(i_left)- %v.Node(i_right));
+	    %XY=%th.Coor(i_left,:)- %bari(:,[1 1 1]).* ..
+		(%th.Coor(i_left,:)- %th.Coor(i_right,:));
 	    %X(:,jj)=%XY(:,1);
 	    %Y(:,jj)=%XY(:,2);
 	    %Z(:,jj)=%XY(:,3);
@@ -98,12 +98,12 @@ function p1_3d_contour3d(%v,%x)
 	  for j=1:2
 	    for k=1:2
 	      %bari=zeros(length(%ind_loc));
-	      %bari=(%v.Node(%th.Tet(%ind_loc,ii(j,i)))-%lev)./ ..
-		  (%v.Node(%th.Tet(%ind_loc,ii(j,i)))- ..
-		  %v.Node(%th.Tet(%ind_loc,iic(k,i))));
-	      %XY=%th.Coor(%th.Tet(%ind_loc,ii(j,i)),:)- ..
-		  %bari(:,[1 1 1]).*(%th.Coor(%th.Tet(%ind_loc,ii(j,i)),:)- ...
-		  %th.Coor(%th.Tet(%ind_loc,iic(k,i)),:));
+	      i_left = %th.Tet(%ind_loc,ii(j,i));
+	      i_right= %th.Tet(%ind_loc,iic(k,i));
+	      %bari=(%v.Node(i_left)-%lev)./ ..
+		  (%v.Node(i_left)- %v.Node(i_right));
+	      %XY=%th.Coor(i_left,:)- %bari(:,[1 1 1]).*..
+		  (%th.Coor(i_left,:)-%th.Coor(i_right,:));
 	      %X(:,j+(k-1)*2)=%XY(:,1);
 	      %Y(:,j+(k-1)*2)=%XY(:,2);
 	      %Z(:,j+(k-1)*2)=%XY(:,3);

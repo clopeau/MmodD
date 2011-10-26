@@ -64,7 +64,7 @@ function p1_3d_slice(%v,%x,%y,%z)
 	   for jj=1:3
 	     %bari  = zeros(length(%ind_loc));
 	     i_left = %th.Tet(%ind_loc,ii);
-	     i_right= %th.Tet(%ind_loc,lindex(ii,jj))
+	     i_right= %th.Tet(%ind_loc,lindex(ii,jj));
 	     %bari=(%th.Coor(i_left,dim)-%lev)./ ..
 		 (%th.Coor(i_left,dim)-%th.Coor(i_right,dim));
 	     %XY=%th.Coor(i_left,:)- ..
@@ -106,8 +106,8 @@ function p1_3d_slice(%v,%x,%y,%z)
 	   for j=1:2
 	     for k=1:2
 	       %bari=zeros(length(%ind_loc));
-	       i_left = %th.Tet(%ind_loc,ii(j,i))
-	       i_right= %th.Tet(%ind_loc,iic(k,i))
+	       i_left = %th.Tet(%ind_loc,ii(j,i));
+	       i_right= %th.Tet(%ind_loc,iic(k,i));
 	       %bari=(%th.Coor(i_left,dim)-%lev)./ ..
 		   (%th.Coor(i_left,dim)-%th.Coor(i_right,dim));
 	       %XY=%th.Coor(i_left,:)- ..
