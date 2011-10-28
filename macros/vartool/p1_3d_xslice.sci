@@ -11,14 +11,8 @@ function p1_3d_xslice(%v,%x,cbar,theta,alpha,leg,flag,ebox)
     if exists('alpha','local')==1 then opts=[opts,'alpha=alpha'],end
     if exists('leg'  ,'local')==1 then opts=[opts,'leg=leg']    ,end
     if exists('flag' ,'local')==1 then opts=[opts,'flag=flag']  ,end
-    if exists('ebox' ,'local')==1  
-      opts=[opts,'ebox=ebox'] 
-    else
-      x_min=min(%th)';
-      x_max=max(%th)';
-      ebox=matrix([x_min;x_max],-1,1)'
-      opts=[opts,'ebox=ebox'];
-    end
+    if exists('ebox' ,'local')==1 then opts=[opts,'ebox=ebox']  ,end
+
     // set graphic properties
     my_plot3d = gcf();
     my_axes=gca();
