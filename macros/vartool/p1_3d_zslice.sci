@@ -42,11 +42,12 @@ opts=[]
       end
     end
     
-
     // begin of the code
     zminmax=[min(%v),max(%v)];
-    if length(%x)==1 & int(%x)==%x & %x>0
-      xyzminmax=[min(th) max(th)]
+    xyzminmax=[min(th) max(th)]
+    if ~exists('%x','local');
+      %x=(xyzminmax(1,2)-xyzminmax(1,1))/2;
+    elseif length(%x)==1 & int(%x)==%x & %x>0
       %x=linspace(xyzminmax(3,1),xyzminmax(3,2),%x+2);
       %x=%x(2:$-1);
     end

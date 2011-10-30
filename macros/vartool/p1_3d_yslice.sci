@@ -50,7 +50,7 @@ function p1_3d_yslice(%v,%x,cbar,theta,alpha,leg,flag,ebox)
     if ~exists('%x','local');
       %x=(xyzminmax(1,2)-xyzminmax(1,1))/2;
     elseif length(%x)==1 & int(%x)==%x & %x>0
-      %x=linspace(xyzminmax(1,1),xyzminmax(1,2),%x+2);
+      %x=linspace(xyzminmax(2,1),xyzminmax(2,2),%x+2);
       %x=%x(2:$-1);
     end
     
