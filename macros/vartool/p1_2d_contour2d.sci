@@ -3,7 +3,7 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function p1_2d_contour2d(%v,%x,cbar,style,strf,leg,rect,nax,void)
+function p1_2d_contour2d(%v,%x,cbar,style,strf,leg,rect,nax,logflag,frameflag,axesflag)
      opts=[]
      if exists('style','local')==1 then opts=[opts,'style=style'],end
      if exists('strf','local')==1 then opts=[opts,'strf=strf'],end

@@ -3,18 +3,30 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function p1_2d_contour3d(%v,%x)
+function p1_2d_contour3d(%v,%x,cbar,theta,alpha,leg,flag,ebox)
     %th=evstr(%v.geo); 
-    //xy_min=min(%th);
-    //xy_max=max(%th);
-
-    my_plot2d= gcf();
-    my_plot2d.color_map=jetcolormap(256)
-    coulmax=256;
-    old_imdraw=my_plot2d.immediate_drawing;
-    my_plot2d.immediate_drawing="off"
     
-    [np,nt]=size(%th);
+    opts=[]
+    if exists('theta','local')==1 then opts=[opts,'theta=theta'],end
+    if exists('alpha','local')==1 then opts=[opts,'alpha=alpha'],end
+    if exists('leg'  ,'local')==1 then opts=[opts,'leg=leg']    ,end
+    if exists('flag' ,'local')==1 then opts=[opts,'flag=flag']  ,end
+    if exists('ebox' ,'local')==1 then opts=[opts,'ebox=ebox']  ,end
+    
+    // set graphic properties
+    my_plot3d = gcf();
+    my_axes.hiddencolor=-1;
+    old_imdraw=my_plot3d.immediate_drawing;
+    my_plot3d.immediate_drawing="off"
+    my_axes=gca();
+    NbChild=length(my_axes.children);
+    // test if the color map is a standard one (suppose to be of size 32)
+    if size(my_plot3d.color_map,1)==32
+      coulmax=256;
+      my_plot3d.color_map=jetcolormap(coulmax);
+    else
+      coulmax=size(my_plot3d.color_map,1);
+    end
     
     // 
     if %v.Node==[]
@@ -25,6 +37,15 @@ function p1_2d_contour3d(%v,%x)
       return
     end
 
+    // colorbar
+    mi=min(%v.Node); ma=max(%v.Node);
+    if  exists('cbar','local')==1
+      if cbar=="on"
+	colorbar(mi,ma);
+      end
+    end
+    
+    // begin of the code
     zminmax=[min(%v.Node),max(%v.Node)];
     if length(%x)==1 & int(%x)==%x & %x>0
       %x=linspace(zminmax(1),zminmax(2),%x+2);
@@ -81,8 +102,10 @@ function p1_2d_contour3d(%v,%x)
 	coul=coulmax/2;
       end
       n=size(EdgeLevelx(i),2);
-      param3d1(EdgeLevelx(i),EdgeLevely(i),list(%x(i)*ones(2,n),coul*ones(1,n)));
+      execstr('param3d1(EdgeLevelx(i),EdgeLevely(i),list(%x(i)*ones(2,n),coul*ones(1,n)),'+strcat(opts,',')+')');
     end
-    my_plot2d.immediate_drawing=old_imdraw
+    
+    my_plot3d.immediate_drawing=old_imdraw;
+    glue(my_axes.children(NbChild+1:$));
 endfunction
   

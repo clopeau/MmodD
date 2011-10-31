@@ -1,4 +1,4 @@
-// Copyright (C) 2010 - Thierry Clopeau
+// Copyright (C) 2011 - Thierry Clopeau
 // 
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
@@ -23,14 +23,13 @@ function p0_2d_plot2d(%v,cbar)
     end
     
     // color and colorbar
+     zminmax=[min(%v.Cell),max(%v.Cell)];
     if  exists('cbar','local')==1
       if cbar=="on"
 	colorbar(zminmax(1),zminmax(2));
       end
     end
-    
-    zminmax=[min(%v.Cell),max(%v.Cell)];
-    colorbar(zminmax(1),zminmax(2));
+
     if zminmax(1)~=zminmax(2)
       coul=int((coulmax-1)*(%v.Cell-zminmax(1))/(zminmax(2)-zminmax(1)))+1;
       coul(coul>coulmax)=0;

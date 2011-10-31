@@ -3,17 +3,17 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function p1_2d_plot2d(%v,cbar,style,strf,leg,rect,nax,void)
+function p1_2d_plot2d(%v,cbar,strf,leg,rect,nax)
   
     opts=[]
-    if exists('style','local')==1 then opts=[opts,'style=style'],end
+    //if exists('style','local')==1 then opts=[opts,'style=style'],end
     if exists('strf','local')==1 then opts=[opts,'strf=strf'],end
     if exists('leg','local')==1 then opts=[opts,'leg=leg'],end
     if exists('rect','local')==1 then opts=[opts,'rect=rect'],end
     if exists('nax','local')==1 then opts=[opts,'nax=nax'],end
-    if exists('logflag','local')==1 then opts=[opts,'logflag=logflag'],end
-    if exists('frameflag','local')==1 then opts=[opts,'frameflag=frameflag'],end
-    if exists('axesflag','local')==1 then opts=[opts,'axesflag=axesflag'],end
+    //if exists('logflag','local')==1 then opts=[opts,'logflag=logflag'],end
+    //if exists('frameflag','local')==1 then opts=[opts,'frameflag=frameflag'],end
+    //if exists('axesflag','local')==1 then opts=[opts,'axesflag=axesflag'],end
 	
     %th=evstr(%v.geo); 
 
