@@ -10,7 +10,7 @@
  * http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  -->
-<refentry version="5.0-subset Scilab" xml:id="p1_2d_plot3d" xml:lang="en"
+<refentry version="5.0-subset Scilab" xml:id="p0_2d_plot3d" xml:lang="en"
           xmlns="http://docbook.org/ns/docbook"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svg="http://www.w3.org/2000/svg"
@@ -19,17 +19,17 @@
           xmlns:db="http://docbook.org/ns/docbook">
 
   <refnamediv>
-    <refname>p1_2d_plot3d</refname>
+    <refname>p0_2d_plot3d</refname>
 
-    <refpurpose>Draw the triangular surface plot of p1_2d variable</refpurpose>
+    <refpurpose>Draw the triangular surface plot of p0_2d variable</refpurpose>
   </refnamediv>
 
   <refsynopsisdiv>
     <title>Calling Sequence</title>
 
     <synopsis>
-      p1_2d_plot3d(u,[cbar,theta,alpha,leg,flag,ebox])
-      p1_2d_plot3d(u,&lt;opt_args&gt;)
+      p0_2d_plot3d(u,[cbar,theta,alpha,leg,flag,ebox])
+      p0_2d_plot3d(u,&lt;opt_args&gt;)
     </synopsis>
   </refsynopsisdiv>
 
@@ -39,7 +39,7 @@
       <varlistentry>
         <term>u</term>
         <listitem>
-          <para>p1_2d non-empty variable defined on a <link linkend="tri2d">tri2d</link> or <link linkend="tri3d">tri3d</link> mesh.</para>
+          <para>p0_2d non-empty variable defined on a <link linkend="tri2d">tri2d</link> or <link linkend="tri3d">tri3d</link> mesh.</para>
         </listitem>
       </varlistentry>
 
@@ -295,7 +295,7 @@
  <refsection>
     <title>Description</title>
 
-    <para><literal>p1_2d_plot3d(u)</literal> draw the triangular
+    <para><literal>p0_2d_plot3d(u)</literal> draw the triangular
     surface of the mesh colored by the values of
     <literal>u</literal>. if <literal>u</literal> is defined on a 2d
     mesh (see <link linkend="tri2d">tri2d</link>), <literal>u</literal>
@@ -321,15 +321,15 @@
     <programlisting role="example"><![CDATA[ 
 scf()
 th=square2d(20,20);
-u=p1(th,'sin(2*%pi*x)*sin(2*%pi*y)')
-p1_2d_plot3d(u,cbar="on")
+u=p0(th,'sin(2*%pi*x)*sin(2*%pi*y)')
+p0_2d_plot3d(u,cbar="on")
  ]]></programlisting>
 
  <para>The result of the preceding example:</para>
 
     <mediaobject>
       <imageobject>
-        <imagedata align="center" fileref="../../Pictures/p1_2d_plot3d_1.png" />
+        <imagedata align="center" fileref="../../Pictures/p0_2d_plot3d_1.png" />
       </imageobject>
     </mediaobject>
 
@@ -337,8 +337,8 @@ p1_2d_plot3d(u,cbar="on")
     <programlisting role="example"><![CDATA[ 
 scf()
 th=square2d(12,20);
-u=p1(th,'x*y')
-p1_2d_plot3d(u,flag=[-2 3 4],ebox=[0 0.5 0; 1 1 1])
+u=p0(th,'x*y')
+p0_2d_plot3d(u,flag=[-2 3 4],ebox=[0 0.5 0; 1 1 1])
  ]]></programlisting>
 </refsection>
 
@@ -346,7 +346,7 @@ p1_2d_plot3d(u,flag=[-2 3 4],ebox=[0 0.5 0; 1 1 1])
 
     <mediaobject>
       <imageobject>
-        <imagedata align="center" fileref="../../Pictures/p1_2d_plot3d_2.png" />
+        <imagedata align="center" fileref="../../Pictures/p0_2d_plot3d_2.png" />
       </imageobject>
     </mediaobject>
 
@@ -356,9 +356,7 @@ p1_2d_plot3d(u,flag=[-2 3 4],ebox=[0 0.5 0; 1 1 1])
 
     <simplelist type="inline">
       <member><link linkend="vartool">vartool</link></member>
-      <member><link linkend="p1_2d_plot2d">p1_2d_plot2d</link></member>
-      <member><link linkend="p1_2d_contour2d">p1_2d_contour2d</link></member>
-      <member><link linkend="p1_2d_contour3d">p1_2d_contour3d</link></member>
+      <member><link linkend="p0_2d_plot2d">p0_2d_plot2d</link></member>
     </simplelist>
   </refsection>
 

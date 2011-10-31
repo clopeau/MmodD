@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * source : plot2d.xml
+ * Copyright (C) INRIA
+ * Copyright (C) 2009 - INRIA - Pierre Lando
+ * Copyright (C) 2011 - Thierry Clopeau
+ * This file must be used under the terms of the CeCILL.
+ * This source file is licensed as described in the file COPYING, which
+ * you should have received as part of this distribution.  The terms
+ * are also available at    
+ * http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ *
+ -->
+<refentry version="5.0-subset Scilab" xml:id="p1_2d_contour2d" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns4="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>p1_2d_contour2d</refname>
+
+    <refpurpose>Draw isocontours of p1_2d variable</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <title>Calling Sequence</title>
+    
+    <synopsis>
+      p1_2d_contour2d(u,[cbar,strf,leg,rect,nax])
+      p1_2d_contour2d(u,&lt;opt_args&gt;)
+    </synopsis>
+  </refsynopsisdiv>
+  
+  <refsection>
+    <title>Arguments</title>
+    <variablelist>
+      <varlistentry>
+        <term>u</term>
+        <listitem>
+          <para>p1_2d non-empty variable defined on a <link linkend="tri2d">tri2d</link> or <link linkend="tri3d">tri3d</link> mesh.</para>
+        </listitem>
+      </varlistentry>
+      
+      <varlistentry>
+        <term>&lt;opt_args&gt;</term>
+
+        <listitem>
+          <para>This represents a sequence of statements
+          <literal>key1=value1,key2=value2</literal>,... where
+          <literal>key1</literal>, <literal>key2,...</literal> can be one of
+          the following: cbar, strf, leg, rect, nax</para>
+
+          <variablelist>
+            <varlistentry>
+              <term>rect</term>
+
+              <listitem>
+                <para>sets the mimimal bounds requested for the plot. The
+                associated value should be a real vector with four entries:
+                <literal>[xmin,ymin,xmax,ymax]</literal>.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>nax</term>
+
+              <listitem>
+                <para>sets the axes labels and tics definition. The associated
+                value should be a real vector with four integer entries
+                <literal>[nx,Nx,ny,Ny].</literal></para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>leg</term>
+
+              <listitem>
+                <para>sets the curves captions. The associated value should be
+                a character string.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+      
+    </variablelist>
+  </refsection>
+  
+  <refsection>
+    <title>Description</title>
+
+    <para><literal>p1_2d_plot2d(u)</literal> draw the triangular
+     mesh colored by the values of
+    <literal>u</literal>. If Note that data can also be set
+    or get through the surface entity properties (see
+    surface_properties).</para>
+
+    <para>The optional arguments <literal>cbar, strf, leg, rect, nax</literal>, can be passed by a sequence of statements
+    <literal>key1=value1, key2=value2</literal>, ... In this case, the order
+    has no special meaning. </para>
+     <variablelist>
+      <varlistentry>
+        <term>rect</term>
+
+        <listitem>
+          <para>This option may be used to set the mimimal bounds requested
+          for the plot. If this option is specified, the associated value
+          should be a real vector with four entries:</para>
+
+          <para><literal>[xmin,ymin,xmax,ymax]</literal>.
+          <literal>xmin</literal> and <literal>xmax</literal> defines the
+          bounds on the abscissae while <literal>ymin</literal> and
+          <literal>ymax</literal> defines the bounds on the ordinates.</para>
+
+          <para>This argument may be used together with the
+          <literal>frameflag</literal> option to specify how the axes
+          boundaries are derived from the given <literal>rect</literal>
+          argument. If the <literal>frameflag</literal> option is not given,
+          it is supposed to be <literal>frameflag=7</literal>.</para>
+
+          <para>The axes boundaries can also be customized through the axes
+          entity properties (see axes_properties).</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>nax</term>
+
+        <listitem>
+          <para>This option may be used to specify the axes labels and tics
+          definition. The associated value should be a real vector with four integer entries
+          <literal>[nx,Nx,ny,Ny]</literal>.</para>
+
+          <para><literal>Nx</literal> gives the number of main tics to be used
+          on the x-axis (to use autoticks set it to -1), <literal>nx</literal> gives the number of
+          subtics to be drawn between two main x-axis tics.</para>
+
+          <para><literal>Ny</literal> and <literal>ny</literal> give similar
+          information for the y-axis.</para>
+
+          <para>If <literal>axesflag</literal> option is not set
+          <literal>nax</literal> option supposes that
+          <literal>axesflag</literal> option has been set to 9.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>leg</term>
+
+        <listitem>
+          <para>This option may be used to sets the curve captions. It must be
+          a string with the form <literal>"leg1@leg2@...."</literal> where
+          <literal>leg1</literal> , <literal>leg2</literal> , etc. are
+          respectively the captions of the first curve, of the second curve,
+          etc. The default is <literal> " "</literal>.</para>
+
+          <para>The curve captions are drawn on below the x-axis. This option
+          is not flexible enough, use the captions or legend functions preferably.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+</refsection>
+
+  <refsection>
+    <title>Examples</title>
+    <para>With a colorbar</para>
+    <programlisting role="example"><![CDATA[ 
+scf()
+th=square2d(50,50);
+u=p1(th,'sin(2*%pi*x)*sin(2*%pi*y)')
+p1_2d_contour2d(u,25)
+ ]]></programlisting>
+
+ <para>The result of the preceding example:</para>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="center" fileref="../../Pictures/p1_2d_contour2d_1.png" />
+      </imageobject>
+    </mediaobject>
+
+<para>With a delimited box, without edges on a mesh, isometric bounds</para>
+    <programlisting role="example"><![CDATA[ 
+scf()
+th=square2d(12,20);
+u=p1(th,'x*y')
+x=(0.1:0.01:1)^2;
+p1_2d_contour2d(u,x,rect=[0.5,0.5,1,1],cbar="on")
+ ]]></programlisting>
+</refsection>
+
+ <para>The result of the preceding example:</para>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="center" fileref="../../Pictures/p1_2d_contour2d_2.png" />
+      </imageobject>
+    </mediaobject>
+
+
+  <refsection role="see also">
+<title>See Also</title>
+
+    <simplelist type="inline">
+      <member><link linkend="vartool">vartool</link></member>
+      <member><link linkend="p1_2d_plot2d">p1_2d_plot2d</link></member>
+      <member><link linkend="p1_2d_plot3d">p1_2d_plot3d</link></member>
+      <member><link linkend="p1_2d_contour3d">p1_2d_contour3d</link></member>
+    </simplelist>
+  </refsection>
+
+  <refsection>
+    <title>Authors</title>
+
+    <para>T.C.</para>
+  </refsection>
+</refentry>

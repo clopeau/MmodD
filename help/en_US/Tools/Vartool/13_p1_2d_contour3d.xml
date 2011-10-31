@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * source : plot3d.xml
+ * source : plot3d.xml and param3d.xml
  * Copyright (C) ENPC - Jean-Philippe Chancelier
  * Copyright (C) 2011 - Thierry Clopeau
  * This file must be used under the terms of the CeCILL.
@@ -10,7 +10,7 @@
  * http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
  *
  -->
-<refentry version="5.0-subset Scilab" xml:id="p1_2d_plot3d" xml:lang="en"
+<refentry version="5.0-subset Scilab" xml:id="p1_2d_contour3d" xml:lang="en"
           xmlns="http://docbook.org/ns/docbook"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svg="http://www.w3.org/2000/svg"
@@ -19,17 +19,19 @@
           xmlns:db="http://docbook.org/ns/docbook">
 
   <refnamediv>
-    <refname>p1_2d_plot3d</refname>
+    <refname>p1_2d_contour3d</refname>
 
-    <refpurpose>Draw the triangular surface plot of p1_2d variable</refpurpose>
+    <refpurpose>Eleveted isolines of p1_2d variable</refpurpose>
   </refnamediv>
 
   <refsynopsisdiv>
     <title>Calling Sequence</title>
 
     <synopsis>
-      p1_2d_plot3d(u,[cbar,theta,alpha,leg,flag,ebox])
-      p1_2d_plot3d(u,&lt;opt_args&gt;)
+      p1_2d_contour3d(u,nlevel)
+      p1_2d_contour3d(u,values)
+      p1_2d_contour3d(u,nlevel,[cbar,theta,alpha,leg,flag,ebox])
+      p1_2d_contour3d(u,nlevel,&lt;opt_args&gt;)
     </synopsis>
   </refsynopsisdiv>
 
@@ -39,7 +41,21 @@
       <varlistentry>
         <term>u</term>
         <listitem>
-          <para>p1_2d non-empty variable defined on a <link linkend="tri2d">tri2d</link> or <link linkend="tri3d">tri3d</link> mesh.</para>
+          <para>p1_2d non-empty variable.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>nlevel</term>
+        <listitem>
+          <para>positive integer representing the number of values between the min and max </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>values</term>
+        <listitem>
+          <para>array of iso-values</para>
         </listitem>
       </varlistentry>
 
@@ -79,189 +95,144 @@
       </varlistentry>
 
       <varlistentry>
-        <term>flag</term>
-
+        <term>flag=[type,box]</term>
+	
         <listitem>
-          <para>a real vector of size three.
-          <literal>flag=[mode,type,box]</literal>.</para>
-
+          <para> <literal>type</literal> and <literal>box</literal> have the
+            same meaning as in <literal>param3d</literal>:</para>
+	  
           <variablelist>
             <varlistentry>
-              <term>mode</term>
-
-              <listitem>
-                <para>an integer (surface color).</para>
-
-                <variablelist>
-                  <varlistentry>
-                    <term>mode&gt;0</term>
-
-                    <listitem>
-                      <para>the surface is painted with color
-                      <literal>"mode"</literal> ; the boundary of the facet is
-                      drawn with current line style and color.</para>
-                    </listitem>
-                  </varlistentry>
-
-                  <varlistentry>
-                    <term>mode=0:</term>
-
-                    <listitem>
-                      <para>a mesh of the surface is drawn.</para>
-                    </listitem>
-                  </varlistentry>
-
-                  <varlistentry>
-                    <term>mode&lt;0:</term>
-
-                    <listitem>
-                      <para>the surface is painted with color
-                      <literal>"-mode"</literal> ; the boundary of the facet
-                      is not drawn.</para>
-
-                      <para>Note that the surface color treatement can be done
-                      using <literal>color_mode</literal> and
-                      <literal>color_flag</literal> options through the
-                      surface entity properties (see surface_properties).</para>
-                    </listitem>
-                  </varlistentry>
-                </variablelist>
-              </listitem>
-            </varlistentry>
-
-            <varlistentry>
               <term>type</term>
-
+	      
               <listitem>
                 <para>an integer (scaling).</para>
-
+		
                 <variablelist>
                   <varlistentry>
-                    <term>type=0:</term>
-
+                    <term>type=0</term>
+		    
                     <listitem>
                       <para>the plot is made using the current 3D scaling (set
-                      by a previous call to <literal>param3d</literal>,
-                      <literal>plot3d</literal>, <literal>contour</literal> or
-                      <literal>plot3d1</literal>).</para>
+			by a previous call to <literal>param3d</literal>,
+			<literal>plot3d</literal>, <literal>contour</literal> or
+			<literal>plot3d1</literal>).</para>
                     </listitem>
                   </varlistentry>
-
+		  
                   <varlistentry>
-                    <term>type=1:</term>
-
+                    <term>type=1</term>
+		    
                     <listitem>
                       <para>rescales automatically 3d boxes with extreme
-                      aspect ratios, the boundaries are specified by the value
-                      of the optional argument <literal>ebox</literal>.</para>
+			aspect ratios, the boundaries are specified by the value
+			of the optional argument <literal>ebox</literal>.</para>
                     </listitem>
                   </varlistentry>
-
+		  
                   <varlistentry>
-                    <term>type=2:</term>
-
+                    <term>type=2 </term>
+		    
                     <listitem>
                       <para>rescales automatically 3d boxes with extreme
-                      aspect ratios, the boundaries are computed using the
-                      given data.</para>
+			aspect ratios, the boundaries are computed using the
+			given data. <emphasis>This is the default
+			  value.</emphasis></para>
                     </listitem>
                   </varlistentry>
-
+		  
                   <varlistentry>
-                    <term>type=3:</term>
-
+                    <term>type=3</term>
+		    
                     <listitem>
                       <para>3d isometric with box bounds given by optional
-                      <literal>ebox</literal>, similarily to
-                      <literal>type=1</literal>.</para>
+			<literal>ebox</literal>, similarily to
+			<literal>type=1</literal>.</para>
                     </listitem>
                   </varlistentry>
-
+		  
                   <varlistentry>
-                    <term>type=4:</term>
-
+                    <term>type=4</term>
+		    
                     <listitem>
-                      <para>3d isometric bounds derived from the data, to
-                      similarily<literal>type=2</literal>.</para>
+                      <para>3d isometric bounds derived from the data,
+			similarily<literal> to type=2</literal>.</para>
                     </listitem>
                   </varlistentry>
-
+		  
                   <varlistentry>
-                    <term>type=5:</term>
-
+                    <term>type=5</term>
+		    
                     <listitem>
                       <para>3d expanded isometric bounds with box bounds given
-                      by optional <literal>ebox</literal>, similarily to
-                      <literal>type=1</literal>.</para>
+			by optional <literal>ebox</literal>, similarily to
+			<literal>type=1</literal>.</para>
                     </listitem>
                   </varlistentry>
-
+		  
                   <varlistentry>
-                    <term>type=6:</term>
-
+                    <term>type=6</term>
+		    
                     <listitem>
                       <para>3d expanded isometric bounds derived from the
-                      data, similarily to <literal>type=2</literal>.</para>
-
-                      <para>Note that axes boundaries can be customized
-                      through the axes entity properties (see 
-                      axes_properties).</para>
+			data, similarily to <literal>type=2</literal>.Note that
+			axes boundaries can be customized through the axes
+			entity properties (see axes_properties).</para>
                     </listitem>
                   </varlistentry>
                 </variablelist>
               </listitem>
             </varlistentry>
-
+	    
             <varlistentry>
               <term>box</term>
-
+	      
               <listitem>
                 <para>an integer (frame around the plot).</para>
-
+		
                 <variablelist>
                   <varlistentry>
-                    <term>box=0:</term>
-
+                    <term>box=0</term>
+		    
                     <listitem>
                       <para>nothing is drawn around the plot.</para>
                     </listitem>
                   </varlistentry>
-
+		  
                   <varlistentry>
-                    <term>box=1:</term>
-
+                    <term>box=1</term>
+		    
                     <listitem>
                       <para>unimplemented (like box=0).</para>
                     </listitem>
                   </varlistentry>
-
+		  
                   <varlistentry>
-                    <term>box=2:</term>
-
+                    <term>box=2</term>
+		    
                     <listitem>
                       <para>only the axes behind the surface are drawn.</para>
                     </listitem>
                   </varlistentry>
-
+		  
                   <varlistentry>
-                    <term>box=3:</term>
-
+                    <term>box=3</term>
+		    
                     <listitem>
                       <para>a box surrounding the surface is drawn and
-                      captions are added.</para>
+			captions are added.</para>
                     </listitem>
                   </varlistentry>
-
+		  
                   <varlistentry>
-                    <term>box=4:</term>
-
+                    <term>box=4</term>
+		    
                     <listitem>
-                      <para>a box surrounding the surface is drawn, captions
-                      and axes are added.</para>
-
-                      <para>Note that axes aspect can also be
-                      customized through the axes entity properties
-                      (see axes_properties).</para>
+                      <para>a box surrounding the surface is drawn,
+			captions and axes are added.Note that axes
+			aspect can also be customized through the axes
+			entity properties (see axes_properties).
+			<emphasis>This is the default value.</emphasis></para>
                     </listitem>
                   </varlistentry>
                 </variablelist>
@@ -270,10 +241,10 @@
           </variablelist>
         </listitem>
       </varlistentry>
-</varlistentry>
-     <varlistentry>
+      
+      <varlistentry>
         <term>ebox</term>
-
+	
         <listitem>
           <para>It specifies the boundaries of the plot as the vector
           <literal>[xmin,xmax,ymin,ymax,zmin,zmax]</literal>. This argument is
@@ -289,18 +260,20 @@
           (see axes_properties).</para>
         </listitem>
       </varlistentry>
+      </varlistentry>
     </variablelist>
-  </refsection>
+</refsection>
 
  <refsection>
     <title>Description</title>
 
-    <para><literal>p1_2d_plot3d(u)</literal> draw the triangular
-    surface of the mesh colored by the values of
-    <literal>u</literal>. if <literal>u</literal> is defined on a 2d
-    mesh (see <link linkend="tri2d">tri2d</link>), <literal>u</literal>
-    represente the z-axis component. If Note that data can also be set
-    or get through the surface entity properties (see
+    <para><literal>p1_2d_contour3d(u,nlevel)</literal> draw
+      elevated isolines of the variable<literal>u</literal>.
+      You can specified the number of level or values ( <literal>p1_2d_contour3d(u,values)</literal>
+      .</para>
+    <para>
+      Note that data can also be set or get
+    through the surface entity properties (see
     surface_properties).</para>
 
     <para>The optional arguments <literal>cbar, theta, alpha, leg ,flag,
@@ -320,25 +293,27 @@
     <para>With a colorbar</para>
     <programlisting role="example"><![CDATA[ 
 scf()
-th=square2d(20,20);
+th=square2d(50,50);
 u=p1(th,'sin(2*%pi*x)*sin(2*%pi*y)')
-p1_2d_plot3d(u,cbar="on")
+*sin(2*%pi*y)')
+p1_2d_contour3d(u,25)
  ]]></programlisting>
 
  <para>The result of the preceding example:</para>
 
     <mediaobject>
       <imageobject>
-        <imagedata align="center" fileref="../../Pictures/p1_2d_plot3d_1.png" />
+        <imagedata align="center" fileref="../../Pictures/p1_2d_contour3d_1.png" />
       </imageobject>
     </mediaobject>
 
 <para>With a delimited box, without edges on a mesh, isometric bounds</para>
     <programlisting role="example"><![CDATA[ 
 scf()
-th=square2d(12,20);
-u=p1(th,'x*y')
-p1_2d_plot3d(u,flag=[-2 3 4],ebox=[0 0.5 0; 1 1 1])
+th=square2d(40,40);
+u=p1(th,'sin(12*%pi*x)*x*y')
+x=(0:0.03:1)^2
+p1_2d_contour3d(u,x,flag=[2 4],ebox=[0. 0. -1; 1 1 1])
  ]]></programlisting>
 </refsection>
 
@@ -346,7 +321,7 @@ p1_2d_plot3d(u,flag=[-2 3 4],ebox=[0 0.5 0; 1 1 1])
 
     <mediaobject>
       <imageobject>
-        <imagedata align="center" fileref="../../Pictures/p1_2d_plot3d_2.png" />
+        <imagedata align="center" fileref="../../Pictures/p1_2d_contour3d_2.png" />
       </imageobject>
     </mediaobject>
 
@@ -357,8 +332,8 @@ p1_2d_plot3d(u,flag=[-2 3 4],ebox=[0 0.5 0; 1 1 1])
     <simplelist type="inline">
       <member><link linkend="vartool">vartool</link></member>
       <member><link linkend="p1_2d_plot2d">p1_2d_plot2d</link></member>
+      <member><link linkend="p1_2d_plot3d">p1_2d_plot3d</link></member>
       <member><link linkend="p1_2d_contour2d">p1_2d_contour2d</link></member>
-      <member><link linkend="p1_2d_contour3d">p1_2d_contour3d</link></member>
     </simplelist>
   </refsection>
 
