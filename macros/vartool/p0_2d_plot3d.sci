@@ -3,20 +3,44 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function p0_2d_plot3d(%v)
+function p0_2d_plot3d(%v,cbar,theta,alpha,leg,flag,ebox)
     %th=evstr(%v.geo);
+    opts=[]
+    if exists('theta','local')==1 then opts=[opts,'theta=theta'],end
+    if exists('alpha','local')==1 then opts=[opts,'alpha=alpha'],end
+    if exists('leg'  ,'local')==1 then opts=[opts,'leg=leg']    ,end
+    if exists('flag' ,'local')==1 then opts=[opts,'flag=flag']  ,end
+    if exists('ebox' ,'local')==1 then opts=[opts,'ebox=ebox']  ,end
+    
+    // set graphic properties
+    my_plot3d = gcf();
+    my_axes.hiddencolor=-1;
+    old_imdraw=my_plot3d.immediate_drawing;
+    my_plot3d.immediate_drawing="off"
+    // test if the color map is a standard one (suppose to be of size 32)
+    if size(my_plot3d.color_map,1)==32
+      coulmax=256;
+      my_plot3d.color_map=jetcolormap(coulmax);
+    else
+      coulmax=size(my_plot3d.color_map,1);
+    end
+
+    if %v.Cell==[]
+      disp(' --- Empty variable ---');
+      return
+    end
     mi=min(%v.Cell); ma=max(%v.Cell);
-    rect =[min(%th);mi;max(%th);ma]';
-    flag=[2,1,4];
-    ebox=rect([1 4 2 5 3 6]);
+    if  exists('cbar','local')==1
+      if cbar=="on"
+	colorbar(mi,ma);
+      end
+    end
+   
+    // begin of the code
     xx=matrix(%th.Coor(%th.Tri,1),-1,3)';
     yy=matrix(%th.Coor(%th.Tri,2),-1,3)';
     zz=%v.Cell(:,[1 1 1])';
  
-    coulmax=256;
-    f=gcf()  
-    f.color_map = jetcolormap(256)
-    colorbar(mi,ma);
     coul=zz(1,:)
     if mi~=ma
       coul=round((coulmax-1)*(coul-mi)/(ma-mi))+1;
@@ -24,18 +48,9 @@ function p0_2d_plot3d(%v)
       coul=round(coulmax/2)*ones(coul(1,:));
     end
     
-   // plot3d1([xx xx($:-1:1,:)],[yy yy($:-1:1,:)],..
-	//[zz,zz($:-1:1,:)],flag=flag,ebox=ebox)
-    plot3d([xx xx($:-1:1,:)],[yy yy($:-1:1,:)],..
-	list([zz,zz($:-1:1,:)],[coul,coul($:-1:1,:)]),flag=flag,ebox=ebox)
-    //plot3d(xx,yy,list(zz,coul),flag=[0,0,0]);
-    //plot3d1(xx,yy,list(zz,coul),flag=flag,ebox=ebox)
-    //plot3d1(xx,yy,zz,flag=[0,0,0])
- 
-    xtitle(name_mmodd(%v)+' : '+%v.Id)
-    
-    m=uimenu('label','2d View');
-    m1=uimenu(m,'label','Turn in 2d','callback','p0_2d_plot2d('+name_mmodd(%v)+')')
-    
+    execstr('plot3d([xx xx($:-1:1,:)],[yy yy($:-1:1,:)],..
+	list([zz,zz($:-1:1,:)],[coul,coul($:-1:1,:)]),'+strcat(opts,',')+')');
+
+    my_plot3d.immediate_drawing=old_imdraw;    
 endfunction
   

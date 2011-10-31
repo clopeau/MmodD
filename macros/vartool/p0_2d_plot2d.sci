@@ -3,16 +3,32 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function p0_2d_plot2d(%v)
+function p0_2d_plot2d(%v,cbar)
+    
     %th=evstr(%v.geo);
     x_min=min(%th);
     x_max=max(%th);
-    my_plot2d= gcf();
-    coulmax=256;
-    my_plot2d.color_map=jetcolormap(coulmax)
-    plot2d(x_min(1),x_min(2),frameflag=3,rect=[x_min',x_max']);
+    if %v.Cell==[]
+      disp(' --- Empty variable ---');
+      return
+    end
     
-    [np,nt]=size(%th);
+    my_plot2d= gcf();
+    // test if the color map is a standard one (suppose to be of size 32)
+    if size(my_plot2d.color_map,1)==32
+      coulmax=256;
+      my_plot2d.color_map=jetcolormap(coulmax);
+    else
+      coulmax=size(my_plot2d.color_map,1);
+    end
+    
+    // color and colorbar
+    if  exists('cbar','local')==1
+      if cbar=="on"
+	colorbar(zminmax(1),zminmax(2));
+      end
+    end
+    
     zminmax=[min(%v.Cell),max(%v.Cell)];
     colorbar(zminmax(1),zminmax(2));
     if zminmax(1)~=zminmax(2)
@@ -28,10 +44,6 @@ function p0_2d_plot2d(%v)
     yy=matrix(%th.Coor(%th.Tri,2),-1,3)';
     
     xfpolys([xx ; xx(1,:)],[yy ; yy(1,:)],coul');
-    xtitle(name_mmodd(%v)+' : '+%v.Id)
-
-    m=uimenu('label','3d View');
-    m1=uimenu(m,'label','Turn in 3d','callback','p0_2d_plot3d('+name_mmodd(%v)+')')
     
 endfunction
   
