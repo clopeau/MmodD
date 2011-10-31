@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * source : plot3d.xml
+ * Copyright (C) ENPC - Jean-Philippe Chancelier
+ * Copyright (C) 2011 - Thierry Clopeau
+ * This file must be used under the terms of the CeCILL.
+ * This source file is licensed as described in the file COPYING, which
+ * you should have received as part of this distribution.  The terms
+ * are also available at    
+ * http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+ *
+ -->
+<refentry version="5.0-subset Scilab" xml:id="p0_3d_zslice" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns4="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>p0_3d_zslice</refname>
+
+    <refpurpose>Orthogonal slice planes along z-axis direction of p0_3d variable</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <title>Calling Sequence</title>
+
+    <synopsis>
+      p0_3d_zslice(u)
+      p0_3d_zslice(u,nz)
+      p0_3d_zslice(u,z)
+      p0_3d_zslice(u,nz,[cbar,theta,alpha,leg,flag,ebox])
+      p0_3d_zslice(u,nz,&lt;opt_args&gt;)
+    </synopsis>
+  </refsynopsisdiv>
+
+<refsection>
+    <title>Arguments</title>
+    <variablelist>
+      <varlistentry>
+        <term>u</term>
+        <listitem>
+          <para>p0_3d non-empty variable.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>nz</term>
+        <listitem>
+          <para>Integer of number of slide.</para>
+        </listitem>
+      </varlistentry>
+
+       <varlistentry>
+        <term>z</term>
+        <listitem>
+          <para>Array of z-coordinates of slides</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>&lt;opt_args&gt;</term>
+        <listitem>
+          <para>This represents a sequence of statements <literal>key1=value1,
+          key2=value2</literal>,... where <literal>key1</literal>,
+          <literal>key2,...</literal> can be one of the following: cbar,theta,
+          alpha ,leg,flag,ebox (see definition below).</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>cbar</term>
+
+	<listitem>
+          <para>string "on" draw a colorbar</para>
+        </listitem>
+
+      <varlistentry>
+        <term>theta, alpha</term>
+
+        <listitem>
+          <para>real values giving in degree the spherical coordinates of the
+          observation point.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>leg</term>
+
+        <listitem>
+          <para>string defining the labels for each axis with @ as a field
+          separator, for example "X@Y@Z".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>flag</term>
+
+        <listitem>
+          <para>a real vector of size three.
+          <literal>flag=[mode,type,box]</literal>.</para>
+
+          <variablelist>
+            <varlistentry>
+              <term>mode</term>
+
+              <listitem>
+                <para>an integer (surface color).</para>
+
+                <variablelist>
+                  <varlistentry>
+                    <term>mode&gt;0</term>
+
+                    <listitem>
+                      <para>the surface is painted with color
+                      <literal>"mode"</literal> ; the boundary of the facet is
+                      drawn with current line style and color.</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term>mode=0:</term>
+
+                    <listitem>
+                      <para>a mesh of the surface is drawn.</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term>mode&lt;0:</term>
+
+                    <listitem>
+                      <para>the surface is painted with color
+                      <literal>"-mode"</literal> ; the boundary of the facet
+                      is not drawn.</para>
+
+                      <para>Note that the surface color treatement can be done
+                      using <literal>color_mode</literal> and
+                      <literal>color_flag</literal> options through the
+                      surface entity properties (see surface_properties).</para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>type</term>
+
+              <listitem>
+                <para>an integer (scaling).</para>
+
+                <variablelist>
+                  <varlistentry>
+                    <term>type=0:</term>
+
+                    <listitem>
+                      <para>the plot is made using the current 3D scaling (set
+                      by a previous call to <literal>param3d</literal>,
+                      <literal>plot3d</literal>, <literal>contour</literal> or
+                      <literal>plot3d1</literal>).</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term>type=1:</term>
+
+                    <listitem>
+                      <para>rescales automatically 3d boxes with extreme
+                      aspect ratios, the boundaries are specified by the value
+                      of the optional argument <literal>ebox</literal>.</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term>type=2:</term>
+
+                    <listitem>
+                      <para>rescales automatically 3d boxes with extreme
+                      aspect ratios, the boundaries are computed using the
+                      given data.</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term>type=3:</term>
+
+                    <listitem>
+                      <para>3d isometric with box bounds given by optional
+                      <literal>ebox</literal>, similarily to
+                      <literal>type=1</literal>.</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term>type=4:</term>
+
+                    <listitem>
+                      <para>3d isometric bounds derived from the data, to
+                      similarily<literal>type=2</literal>.</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term>type=5:</term>
+
+                    <listitem>
+                      <para>3d expanded isometric bounds with box bounds given
+                      by optional <literal>ebox</literal>, similarily to
+                      <literal>type=1</literal>.</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term>type=6:</term>
+
+                    <listitem>
+                      <para>3d expanded isometric bounds derived from the
+                      data, similarily to <literal>type=2</literal>.</para>
+
+                      <para>Note that axes boundaries can be customized
+                      through the axes entity properties (see 
+                      axes_properties).</para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>box</term>
+
+              <listitem>
+                <para>an integer (frame around the plot).</para>
+
+                <variablelist>
+                  <varlistentry>
+                    <term>box=0:</term>
+
+                    <listitem>
+                      <para>nothing is drawn around the plot.</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term>box=1:</term>
+
+                    <listitem>
+                      <para>unimplemented (like box=0).</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term>box=2:</term>
+
+                    <listitem>
+                      <para>only the axes behind the surface are drawn.</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term>box=3:</term>
+
+                    <listitem>
+                      <para>a box surrounding the surface is drawn and
+                      captions are added.</para>
+                    </listitem>
+                  </varlistentry>
+
+                  <varlistentry>
+                    <term>box=4:</term>
+
+                    <listitem>
+                      <para>a box surrounding the surface is drawn, captions
+                      and axes are added.</para>
+
+                      <para>Note that axes aspect can also be
+                      customized through the axes entity properties
+                      (see axes_properties).</para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+</varlistentry>
+     <varlistentry>
+        <term>ebox</term>
+
+        <listitem>
+          <para>It specifies the boundaries of the plot as the vector
+          <literal>[xmin,xmax,ymin,ymax,zmin,zmax]</literal>. This argument is
+          used together with <literal>type</literal> in
+          <literal>flag</literal> : if it is set to <literal>1</literal>,
+          <literal>3</literal> or <literal>5</literal> (see above to see the
+          corresponding behaviour). If <literal>flag</literal> is missing,
+          <literal>ebox</literal> is not taken into acoount.</para>
+
+          <para>Note that, when specified, the <literal>ebox</literal>
+          argument acts on the <literal>data_bounds</literal> field
+          that can also be reset through the axes entity properties
+          (see axes_properties).</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsection>
+
+ <refsection>
+    <title>Description</title>
+
+   <para><literal>p0_3d_zslice(u,nx)</literal> draw slices along the y
+    direction. Each value in the vector <literal>y</literal> defines a
+    slice plane in the y-axis direction.  Note that data can also be
+    set or get through the surface entity properties (see
+    surface_properties).</para>
+
+    <para>The optional arguments <literal>cbar, theta, alpha, leg ,flag,
+    ebox</literal>, can be passed by a sequence of statements
+    <literal>key1=value1, key2=value2</literal>, ... In this case, the order
+    has no special meaning. Note that all these optional arguments except
+    <literal>flag</literal> can be customized through the axes entity
+    properties (see axes_properties).  As described before,
+    the <literal>flag</literal> option deals with surface entity
+    properties for <literal>mode</literal> (see surface_properties)
+    and axes properties for <literal>type</literal>
+    and <literal>box</literal> (see axes_properties).</para>
+</refsection>
+
+  <refsection>
+    <title>Examples</title>
+    <para>With a colorbar</para>
+    <programlisting role="example"><![CDATA[ 
+scf()
+th=tcube3d(10,10,10);
+u=p0(th,'sin(2*%pi*x)*sin(2*%pi*y)*sin(2*%pi*z)')
+p0_3d_zslice(u,5)
+ ]]></programlisting>
+
+ <para>The result of the preceding example:</para>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="center" fileref="../../Pictures/p0_3d_zslice_1.png" />
+      </imageobject>
+    </mediaobject>
+
+<para>Without edges on a mesh, isometric bounds</para>
+    <programlisting role="example"><![CDATA[ 
+scf()
+th=tcube3d(15,15,15);
+u=p0(th,'sqrt(x+y)*z-z*x')
+y=0.1:0.2:0.9
+p0_3d_zslice(u,y,flag=[-2 3 4])
+ ]]></programlisting>
+</refsection>
+
+ <para>The result of the preceding example:</para>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="center" fileref="../../Pictures/p0_3d_zslice_2.png" />
+      </imageobject>
+    </mediaobject>
+
+
+  <refsection role="see also">
+<title>See Also</title>
+
+    <simplelist type="inline">
+      <member><link linkend="vartool">vartool</link></member>
+      <member><link linkend="p0_3d_slice">p1_3d_slice</link></member>
+      <member><link linkend="p0_3d_xslice">p1_3d_xslice</link></member>
+      <member><link linkend="p0_3d_yslice">p1_3d_yslice</link></member>
+    </simplelist>
+  </refsection>
+
+  <refsection>
+    <title>Authors</title>
+
+    <para>T.C.</para>
+  </refsection>
+</refentry>
