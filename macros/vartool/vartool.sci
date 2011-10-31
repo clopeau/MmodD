@@ -15,20 +15,20 @@ function []=vartool(%var,%view)
       m  = uimenu('label','3d View');
       m1 = uimenu(m,'label','Turn in 3d','callback','vartool('+ ...
 		  name_mmodd(%var)+',''3d'')')
-      ierr=execstr(%type+'_plot2d(%var)','errcatch');
+      ierr=execstr(%type+'_plot2d(%var,cbar=''on'')','errcatch');
     elseif %view=="2d"
       m  = uimenu('label','3d View');
       m1 = uimenu(m,'label','Turn in 3d','callback','vartool('+ ...
 		  name_mmodd(%var)+',''3d'')')
-      ierr=execstr(%type+'_plot2d(%var)','errcatch');
+      ierr=execstr(%type+'_plot2d(%var,cbar=''on'')','errcatch');
     else
       m  = uimenu('label','2d View');
       m1 = uimenu(m,'label','Turn in 2d','callback','vartool('+ ...
 		  name_mmodd(%var)+',''2d'')')
-      ierr=execstr(%type+'_plot3d(%var)','errcatch');
+      ierr=execstr(%type+'_plot3d(%var,cbar=''on'')','errcatch');
     end
   elseif grep(%dim,'3d')<>[]
-    ierr=execstr(%type+'_plot3d(%var)','errcatch');
+    ierr=execstr(%type+'_plot3d(%var,cbar=''on'')','errcatch');
   end
   
   if ierr>0
