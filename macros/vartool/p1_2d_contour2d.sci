@@ -3,29 +3,49 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function p1_2d_contour2d(%v,%x)
-    %th=evstr(%v.geo); 
-    //xy_min=min(%th);
-    //xy_max=max(%th);
+function p1_2d_contour2d(%v,%x,cbar,style,strf,leg,rect,nax,void)
+     opts=[]
+     if exists('style','local')==1 then opts=[opts,'style=style'],end
+     if exists('strf','local')==1 then opts=[opts,'strf=strf'],end
+     if exists('leg','local')==1 then opts=[opts,'leg=leg'],end
+     if exists('rect','local')==1 then opts=[opts,'rect=rect'],end
+     if exists('nax','local')==1 then opts=[opts,'nax=nax'],end
+     if exists('logflag','local')==1 then opts=[opts,'logflag=logflag'],end
+     if exists('frameflag','local')==1 then opts=[opts,'frameflag=frameflag'],end
+     if exists('axesflag','local')==1 then opts=[opts,'axesflag=axesflag'],end
+	
+  
+     %th=evstr(%v.geo); 
 
-    my_plot2d= gcf();
-    my_plot2d.color_map=jetcolormap(256)
-    coulmax=256;
-    old_imdraw=my_plot2d.immediate_drawing;
-    my_plot2d.immediate_drawing="off"
-    
-    [np,nt]=size(%th);
-    
-    // 
-    if %v.Node==[]
-      disp(' --- Empty variable ---');bool=%f
-      xset("font",1,5);
-      xstring(0,0,['Please enter';'a';'variable';'to avoid this message ...']);
-      xset("wdim",350,150);
-      return
-    end
-
-    zminmax=[min(%v.Node),max(%v.Node)];
+     if %v.Node==[]
+       disp(' --- Empty variable ---');
+       return
+     end
+     
+     // Graphic config
+     my_plot2d= gcf();
+     old_imdraw=my_plot2d.immediate_drawing;
+     my_plot2d.immediate_drawing="off"
+     my_axes=gca();
+     NbChild=length(my_axes.children);
+     
+     // test if the color map is a standard one (suppose to be of size 32)
+     if size(my_plot2d.color_map,1)==32
+       coulmax=256;
+       my_plot2d.color_map=jetcolormap(coulmax);
+     else
+       coulmax=size(my_plot2d.color_map,1);
+     end
+     
+     zminmax=[min(%v.Node),max(%v.Node)];
+     // color and colorbar
+     if  exists('cbar','local')==1
+       if cbar=="on"
+	 colorbar(zminmax(1),zminmax(2));
+       end
+     end
+        
+    // test on numder of level or values 
     if length(%x)==1 & int(%x)==%x & %x>0
       %x=linspace(zminmax(1),zminmax(2),%x+2);
       %x=%x(2:$-1);
@@ -73,7 +93,6 @@ function p1_2d_contour2d(%v,%x)
       end
     end
       
-    //colorbar(zminmax(1),zminmax(2));
     for i=1:nlevel
       if (zminmax(2)-zminmax(1))>0
 	coul=coulmax*(zminmax(2)-%x(i))/(zminmax(2)-zminmax(1))
@@ -81,8 +100,10 @@ function p1_2d_contour2d(%v,%x)
 	coul=coulmax/2;
       end
       n=size(EdgeLevelx(i),2);
-      plot2d(EdgeLevelx(i),EdgeLevely(i),coul*ones(1:n))
+      execstr('plot2d(EdgeLevelx(i),EdgeLevely(i),coul*ones(1:n),'+strcat(opts,',')+')');
     end
+    
     my_plot2d.immediate_drawing=old_imdraw
+    glue(my_axes.children(NbChild+1:$));
 endfunction
   
