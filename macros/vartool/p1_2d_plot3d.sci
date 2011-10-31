@@ -14,8 +14,6 @@ function p1_2d_plot3d(%v,cbar,theta,alpha,leg,flag,ebox)
     
     // set graphic properties
     my_plot3d = gcf();
-    my_axes=gca();
-    NbChild=length(my_axes.children);
     my_axes.hiddencolor=-1;
     old_imdraw=my_plot3d.immediate_drawing;
     my_plot3d.immediate_drawing="off"
