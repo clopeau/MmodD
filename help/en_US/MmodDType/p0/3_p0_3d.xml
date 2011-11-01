@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="p0_3d" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>p0_3d</refname><refpurpose>Initialise a 3d constant by tetrahedra element.</refpurpose>
+  </refnamediv>
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   u=p0_3d()
+   u=p0_3d(th)
+   u=p0_3d(th,string_expression)
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>th :</term>
+      <listitem><para>a 3d mesh of type tet3d</para></listitem></varlistentry>
+    <varlistentry><term>string_expression :</term>
+      <listitem><para>a string corresponding to an expression to be interpolated on the point of the mesh</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+     This function create a typed list of fields :
+   </para>
+   <para>
+     Id   : a string identity (empty string by default or string_expression )
+   </para>
+   <para>
+     geo  : a string of the name of the mesh
+   </para>
+   <para>
+     Node : a npx1 node values
+   </para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+mh=tcube3d(5,5,5) 
+u=p0_3d(mh,'sin(x+z)/(1+x*y)')
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="tet3d">tri2d</link></member>
+   <member><link linkend="p0">p0</link></member>
+   <member><link linkend="p0_2d">p0_2d</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>T. C.</member>
+   </simplelist>
+</refsection>
+</refentry>
