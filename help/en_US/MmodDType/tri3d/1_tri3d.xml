@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from tri2d.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="tri3d" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>tri2d</refname><refpurpose>Initialise a 3d unstructured triangular surfcae mesh</refpurpose>
+  </refnamediv>
+
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   th=tri3d()
+   mh=tri2d(name)
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>name :</term>
+      <listitem><para> a string, the tri3d's identity</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+     tri3d create a empty typed list containing :
+   </para>
+   <para>
+     Id   : a string identity (empty string by default)
+   </para>
+   <para>
+     Coor : a npx3 mesh point's coordinates matrix
+   </para>
+   <para>
+     Tri  : a ntx3 points index matrix
+   </para>
+     TriId: a ntx1 domaine indicator matrix
+   <para>
+     BndId: string vector of the border's name
+   </para>
+   <para>
+     Bnd  : list of the border points by boundary
+   </para>
+</refsection>
+
+<!--
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+th=square2d(5,5)             // a square2d is a tri2d
+th.Id='my_square'
+th.Coor
+th.Tri
+th.BndId
+th.Bnd(2)
+th.E
+   ]]></programlisting>
+</refsection>
+ -->
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="square2d">square2d</link></member>
+   <member><link linkend="read_tri2d_BAMG">read_tri2d_BAMG</link></member>
+   <member><link linkend="read_tri2d_GMSH">read_tri2d_GMSH</link></member>
+   <member><link linkend="read_tri2d_NETGEN">read_tri2d_NETGEN</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>T.C.</member>
+   </simplelist>
+</refsection>
+</refentry>
