@@ -129,8 +129,11 @@ demopath = get_absolute_file_path("main.sce")
   //3eme quart
   xsetech([0.5,0.5,0.5,0.5]); 
 
-  execstr(typeof(evstr(pb.var))+'_plot3d('+pb.var+')');
-  
+  if ext=='2d'
+    execstr(typeof(evstr(pb.var))+'_plot3d('+pb.var+')');
+  else
+    execstr(typeof(evstr(pb.var))+'_slice('+pb.var+',[0.2:0.2:0.8],[],[0.25 0.75],flag=[-2 3 4])');
+  end
   //1er quart dernier
   xsetech([0,0,0.5,0.5]);
   
