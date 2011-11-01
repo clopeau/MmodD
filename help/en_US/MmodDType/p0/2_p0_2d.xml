@@ -48,7 +48,7 @@
      geo  : a string of the name of the mesh
    </para>
    <para>
-     Node : a real array of node values
+     Cell : a real array of cell values
    </para>
 </refsection>
 

@@ -48,7 +48,7 @@
      geo  : a string of the name of the mesh
    </para>
    <para>
-     Node : a npx1 node values
+     Cell : a npx1 cell values
    </para>
 </refsection>
 
