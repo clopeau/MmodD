@@ -66,6 +66,17 @@ v=p1(mh)
 </refsection>
 
 <refsection>
+<title>Opertor overloading</title>
+<para>
+All algebraic operations, combinations with the usual functions are permitted.
+   </para>
+<programlisting role="example"><![CDATA[
+r=u^2+1+sqrt(1+abs(u))
+w=1/(v^2+1)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
    <title>See also</title>
    <simplelist type="inline">
    <member><link linkend="tri2d">tri2d</link></member>

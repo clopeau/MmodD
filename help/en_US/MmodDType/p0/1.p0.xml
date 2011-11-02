@@ -64,7 +64,16 @@ mh=tcube3d(10,10,10)
 v=p0(mh)
    ]]></programlisting>
 </refsection>
-
+<refsection>
+<title>Opertor overloading</title>
+<para>
+All algebraic operations, combinations with the usual functions are permitted.
+   </para>
+<programlisting role="example"><![CDATA[
+r=u^2+1+sqrt(1+abs(u))
+w=1/(v^2+1)
+   ]]></programlisting>
+</refsection>
 <refsection>
    <title>See also</title>
    <simplelist type="inline">
