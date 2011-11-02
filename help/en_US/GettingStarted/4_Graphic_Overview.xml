@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * Help file.
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="Graphic overview" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>Graphic overview</refname>
+    <refpurpose>Illustration of somme graphics possibilities</refpurpose>
+  </refnamediv>
+  
+  <refsection>
+    <title>In 2d with p1_2d variable</title>
+    <para>
+We start by defining a mesh and a p1_2d variable on it
+    </para>
+    <programlisting role="example"><![CDATA[
+th=square2d(40,40)
+u=p1(th,'sin(8*%pi*x)*(x^2+y^2)')
+   ]]></programlisting>
+    <para>
+      Then, we can use the <literal>vartool(u)</literal> commnand or 
+    </para>
+    <programlisting role="example"><![CDATA[
+scf()
+p1_2d_plot2d(u,cbar="on")
+scf()
+p1_2d_plot3d(u)
+   ]]></programlisting>
+    <para> for plot2d
+     <mediaobject> <imageobject> <imagedata align="center" fileref="../Pictures/graph_over_p1_2d_plot2d.png" /> </imageobject> </mediaobject>
+   </para>
+ <para> for plot3d
+     <mediaobject> <imageobject> <imagedata align="center" fileref="../Pictures/graph_over_p1_2d_plot3d.png" /> </imageobject> </mediaobject>
+   </para>
+   <para>
+     There are somme isolines possibility 
+    </para>
+ <programlisting role="example"><![CDATA[
+scf()
+p1_2d_contour2d(u,15)
+scf()
+p1_2d_contour3d(u,25)
+   ]]></programlisting>
+
+<para> for contour2d
+     <mediaobject> <imageobject> <imagedata align="center" fileref="../Pictures/graph_over_p1_2d_contour2d.png" /> </imageobject> </mediaobject>
+   </para>
+ <para> for contour3d
+     <mediaobject> <imageobject> <imagedata align="center" fileref="../Pictures/graph_over_p1_2d_contour3d.png" /> </imageobject> </mediaobject>
+   </para>
+  </refsection>
+  
+  <refsection>
+    <title>In 3d with p1_3d variable</title>
+    <para>
+     Let define a mesh and a p1_3d variable
+    </para>  
+    <programlisting role="example"><![CDATA[
+th=tcube3d(30,30,30)
+u3d=p1(th,'x^2+y^2+z^2')
+   ]]></programlisting> 
+    <para>
+A direct plot3d give
+    </para>    
+    <programlisting role="example"><![CDATA[
+scf()
+p1_3d_plot3d(u3d,cbar="on")
+   ]]></programlisting> 
+    <para> for plot3d
+     <mediaobject> <imageobject> <imagedata align="center" fileref="../Pictures/graph_over_p1_3d_plot3d.png" /> </imageobject> </mediaobject>
+   </para>
+<programlisting role="example"><![CDATA[
+p1_3d_slice(u3d,flag=[-1 3 0],alpha=76,theta=76)
+ ]]></programlisting> 
+    <para> for yslice
+     <mediaobject> <imageobject> <imagedata align="center" fileref="../Pictures/graph_over_p1_3d_slice.png" /> </imageobject> </mediaobject>
+   </para>
+<programlisting role="example"><![CDATA[
+p1_3d_yslice(u3d,5,flag=[-1 3 4])
+   ]]></programlisting> 
+    <para> for yslice
+     <mediaobject> <imageobject> <imagedata align="center" fileref="../Pictures/graph_over_p1_3d_yslice.png" /> </imageobject> </mediaobject>
+   </para>
+<programlisting role="example"><![CDATA[
+p1_3d_contour3d(u3d,10,flag=[-1 2 3],cbar="on")
+ ]]></programlisting> 
+    <para> for yslice
+     <mediaobject> <imageobject> <imagedata align="center" fileref="../Pictures/graph_over_p1_3d_contour3d.png" /> </imageobject> </mediaobject>
+   </para>
+    </refsection>
+
+    
+<refsection>
+  <title>See also</title>
+  <simplelist type="inline">
+   <member><link linkend="vartool">vartool</link></member>
+   <member><link linkend="p1_2d_plot2d">p1_2d_plot2d</link></member>
+   <member><link linkend="p1_2d_plot3d">p1_2d_plot3d</link></member>
+   <member><link linkend="p1_2d_contour2d">p1_2d_contour2d</link></member>
+   <member><link linkend="p1_2d_contour3d">p1_2d_contour3d</link></member>
+   <member><link linkend="p1_3d_plot3d">p1_3d_plot3d</link></member>
+   <member><link linkend="p1_3d_contour3d">p1_3d_contour3d</link></member>
+   <member><link linkend="p1_3d_slice">p1_3d_slice</link></member>
+   <member><link linkend="p1_3d_xslice">p1_3d_xslice</link></member>
+   <member><link linkend="p1_3d_yslice">p1_3d_yslice</link></member>
+   <member><link linkend="p1_3d_zslice">p1_3d_zslice</link></member>
+   <member><link linkend="p0_2d_plot2d">p0_2d_plot2d</link></member>
+   <member><link linkend="p0_2d_plot3d">p0_2d_plot3d</link></member>
+   <member><link linkend="p0_3d_slice">p1_3d_slice</link></member>
+   <member><link linkend="p0_3d_xslice">p1_3d_xslice</link></member>
+   <member><link linkend="p0_3d_yslice">p1_3d_yslice</link></member>
+   <member><link linkend="p0_3d_zslice">p1_3d_zslice</link></member>
+  </simplelist>
+</refsection>
+
+<refsection>
+  <title>Authors</title>
+  <simplelist type="vert">
+    <member>T.C.</member>
+   </simplelist>
+</refsection>
+</refentry>
+  
