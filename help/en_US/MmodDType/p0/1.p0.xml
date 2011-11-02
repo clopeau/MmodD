@@ -14,7 +14,7 @@
           xmlns:db="http://docbook.org/ns/docbook">
 
   <refnamediv>
-    <refname>p0</refname><refpurpose>Initialise constant element.</refpurpose>
+    <refname>p0</refname><refpurpose>Initialise piecewise constant element.</refpurpose>
   </refnamediv>
 
 <refsynopsisdiv>
@@ -50,7 +50,7 @@
      geo  : a string of the name of the mesh
    </para>
    <para>
-     Node : a real array of node values
+     Cell : a real array of cell values
    </para>
 </refsection>
 
