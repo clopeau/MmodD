@@ -95,7 +95,7 @@ function p1_2d_contour2d(%v,%x,cbar,style,strf,leg,rect,nax,logflag,frameflag,ax
       
     for i=1:nlevel
       if (zminmax(2)-zminmax(1))>0
-	coul=coulmax*(zminmax(2)-%x(i))/(zminmax(2)-zminmax(1))
+	coul=coulmax*(zminmax(1)-%x(i))/(zminmax(1)-zminmax(2))
       else
 	coul=coulmax/2;
       end

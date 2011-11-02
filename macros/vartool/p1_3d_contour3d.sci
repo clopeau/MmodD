@@ -95,7 +95,7 @@ function p1_3d_contour3d(%v,%x,cbar,theta,alpha,leg,flag,ebox)
       end
       if %XX<>[]
 	if (zminmax(2)-zminmax(1))>0
-	  coul=coulmax*(zminmax(2)-%lev)/(zminmax(2)-zminmax(1))
+	  coul=coulmax*(zminmax(1)-%lev)/(zminmax(1)-zminmax(2))
 	else
 	  coul=coulmax/2;
 	end
@@ -138,7 +138,7 @@ function p1_3d_contour3d(%v,%x,cbar,theta,alpha,leg,flag,ebox)
       end
       if %XX<>[]
 	if (zminmax(2)-zminmax(1))>0
-	  coul=coulmax*(zminmax(2)-%lev)/(zminmax(2)-zminmax(1))
+	  coul=coulmax*(zminmax(1)-%lev)/(zminmax(1)-zminmax(2))
 	else
 	  coul=coulmax/2;
 	end
