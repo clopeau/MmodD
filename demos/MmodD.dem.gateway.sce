@@ -10,9 +10,10 @@
 
 demopath = get_absolute_file_path("MmodD.dem.gateway.sce");
 
-subdemolist = ["2d problems","2d/2d.dem.gateway.sce";..
-               "3d problems","3d/3d.dem.gateway.sce";..
-	       "Benchmark" , "Bench/main.sce"];
+subdemolist = ["2d Problems","2d/2d.dem.gateway.sce";..
+	"2d Benchmarks" , "Bench/Bench2d.dem.gateway.sce";..
+	"3d Problems" , "3d/3d.dem.gateway.sce";..
+	"3d Benchmarks" , "Bench/Bench3d.dem.gateway.sce"];
 
 subdemolist(:,2) = demopath + subdemolist(:,2);
 clear demopath;
