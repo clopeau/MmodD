@@ -36,7 +36,7 @@ for i=1:length(val)
   end
   t_mesh(i)=timer();
   write(%io(2),'Mesh Time        = '+string(t_mesh(i)));
-  u=evstr(vtype+'(g)');
+  execstr('u='+vtype+'(g)');
   execstr(probl);
     
   if i==1, disp(pb); ,end
