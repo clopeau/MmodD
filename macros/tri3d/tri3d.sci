@@ -22,7 +22,8 @@ function th=tri3d(varargin)
       Tri=matrix(full(tmp2(Tri)),-1,3)
     end
     
-    th=mlist(['tri3d';'#';'Id';'Coor';'CoorId';'Tri';'BndId';'Bnd';'BndPerio'],...
-	rand(),id,Coor,CoorId,Tri,[],list(),[])
+    th=mlist(['tri3d';'#';'Id';'Coor';'CoorId';'Tri';'BndId';'Bnd';..
+	    'BndPerio';'Det';'Base_p1'],...
+	rand(),Id,Coor,CoorId,Tri,[],list(),[],[],list())
     
 endfunction

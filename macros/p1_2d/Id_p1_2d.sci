@@ -13,21 +13,13 @@ function B=Id_p1_2d(%u,opt)
      index=[2 3; 3 1; 1 2]';
      ci=1/24; 
      cid=1/12; 
-	
-     //------------- Calcul du déterminant ------------------------
-     Det=zeros(nt,1);
-     tmp=zeros(nt,1);
-     for i=1:3
-       tmp=%th.Coor(%th.Tri(:,index(1,i)),2)-...
-	   %th.Coor(%th.Tri(:,index(2,i)),2);
-       Det=Det+%th.Coor(%th.Tri(:,i),1).*tmp;
-     end
+	     
      B=spzeros(nf,nf);
      Diag=spzeros(nf,1);
      for i=1:3
-       Diag=Diag+sparse([%th.Tri(:,i),ones(nt,1)],Det*cid,[nf,1]);
+       Diag=Diag+sparse([%th.Tri(:,i),ones(nt,1)],%th.Det*cid,[nf,1]);
        for j=i+1:3
-	 B=B+sparse(%th.Tri(:,[i j]),Det*ci,[nf,nf])
+	 B=B+sparse(%th.Tri(:,[i j]),%th.Det*ci,[nf,nf])
        end
      end
      B=B+B'+diag(Diag)

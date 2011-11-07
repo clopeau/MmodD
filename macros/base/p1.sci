@@ -22,10 +22,11 @@ function out=p1(%g,%fonc)
     end    
   elseif  grep(geo2d,typeof(%g))~=[]
     if rhs==1
-      out=p1_2d(%g);
+      [out,%g]=p1_2d(%g);
     else
-      out=p1_2d(%g,%fonc)
+      [out,%g]=p1_2d(%g,%fonc)
     end
+    execstr('['+name_mmodd(%g)+']=return(%g);');
   elseif  grep(geo3d,typeof(%g))~=[]
     if rhs==1
       out=p1_3d(%g);

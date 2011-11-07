@@ -6,16 +6,8 @@
 function A=Laplace_p1_2d(%u)
   %th=evstr(%u.geo);
   [nf,nt]=size(%th);
-  index=[2 3; 3 1; 1 2]';
   //------------- Calcul du déterminant ---------------------------------------
-  invdet=zeros(nt,1);
-  tmp=zeros(nt,1);
-  for i=1:3
-      tmp=%th.Coor(%th.Tri(:,index(1,i)),2)- %th.Coor(%th.Tri(:,index(2,i)),2);
-      invdet=invdet+%th.Coor(%th.Tri(:,i),1).*tmp;
-    end
-  invdet=(-1/2) ./invdet;
-  clear tmp;
+  invdet=(-1/2) ./%th.Det
   //-------------- Assemblage -------------------------------------------------
   Tmp1=zeros(nt,2); // 1 ere fct de base
   Tmp2=zeros(nt,2); // 2 eme fcr de base
@@ -25,10 +17,7 @@ function A=Laplace_p1_2d(%u)
   
   for i=1:3
     // init fct de base i
-    Tmp1(:,1)=%th.Coor(%th.Tri(:,index(1,i)),2)-...
-	%th.Coor(%th.Tri(:,index(2,i)),2);
-    Tmp1(:,2)=%th.Coor(%th.Tri(:,index(2,i)),1)-...
-	  %th.Coor(%th.Tri(:,index(1,i)),1); 
+    Tmp1=%th.Base_p1(i);
     // Assemblage termes diagonal
     tmp=sum(Tmp1.^2,'c') .*invdet;
     
@@ -36,10 +25,7 @@ function A=Laplace_p1_2d(%u)
     //
     for j=i+1:3
       // init fonct de base j
-      Tmp2(:,1)=%th.Coor(%th.Tri(:,index(1,j)),2)-...
-	  %th.Coor(%th.Tri(:,index(2,j)),2);
-      Tmp2(:,2)=%th.Coor(%th.Tri(:,index(2,j)),1)-...
-	  %th.Coor(%th.Tri(:,index(1,j)),1);
+      Tmp2=%th.Base_p1(j);
       
       tmp=sum(Tmp1.*Tmp2,'c') .*invdet;
       
