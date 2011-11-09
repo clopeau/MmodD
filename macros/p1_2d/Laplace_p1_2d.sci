@@ -17,7 +17,7 @@ function A=Laplace_p1_2d(%u)
   
   for i=1:3
     // init fct de base i
-    Tmp1=%th.Base_p1(i);
+    Tmp1=%th.Shape_p1_Grad(i);
     // Assemblage termes diagonal
     tmp=sum(Tmp1.^2,'c') .*invdet;
     
@@ -25,7 +25,7 @@ function A=Laplace_p1_2d(%u)
     //
     for j=i+1:3
       // init fonct de base j
-      Tmp2=%th.Base_p1(j);
+      Tmp2=%th.Shape_p1_Grad(j);
       
       tmp=sum(Tmp1.*Tmp2,'c') .*invdet;
       

@@ -19,7 +19,7 @@ function th=tet3d(nom)
     end
     
     th=mlist(['tet3d';'#';'Id';'Coor';'CoorId';'Tet';'TetId';'Tri';...
-	    'TriId';'Tet2Tri';'BndId';'Bnd';'BndiTri';'Tmp';'Det';'size'],...
-	rand(),nom,[],[],[],[],[],[],[],[],list(),list(),list(),[],[])
+	    'TriId';'Tet2Tri';'BndId';'Bnd';'BndiTri';'Tmp';'Det';'size';'Shape_p1_Grad'],...
+	rand(),nom,[],[],[],[],[],[],[],[],list(),list(),list(),[],[],list())
     
 endfunction

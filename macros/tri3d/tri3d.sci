@@ -23,7 +23,7 @@ function th=tri3d(varargin)
     end
     
     th=mlist(['tri3d';'#';'Id';'Coor';'CoorId';'Tri';'BndId';'Bnd';..
-	    'BndPerio';'Det';'Base_p1'],...
+	    'BndPerio';'Det';'Shape_p1_Grad'],...
 	rand(),Id,Coor,CoorId,Tri,[],list(),[],[],list())
     
 endfunction

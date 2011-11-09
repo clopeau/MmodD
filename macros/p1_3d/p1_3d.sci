@@ -16,4 +16,22 @@ function [out]=p1_3d(%th,%fonction)
      out=mlist(['p1_3d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name_mmodd(%th),[],[]);   
      interpol(out,%fonction);
    end
+   
+    // Base Completion
+   %th.Det=det(%th);
+   [nf,nt]=size(%th);
+
+   index=[2 3; 3 1; 1 2]';
+   lindex=list([2 3 4],[1 3 4],[1 2 4],[1 2 3]);
+   Tmp=zeros(nt,3);
+   for i=1:4
+     for k=1:3
+       Tmp(:,k)=(-1)^(i+1) *det2d(%th.Coor(:,index(:,k)),%th.Tet(:,lindex(i)));
+     end
+     %th.Shape_p1_Grad(i)=Tmp;
+   end
+   clear Tmp  
+   if lhs<=1
+     execstr('['+name_mmodd(%th)+']=return(%th);');
+   end
  endfunction

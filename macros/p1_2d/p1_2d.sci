@@ -28,10 +28,10 @@ function [out,%th]=p1_2d(%th,%fonction)
 	   %th.Coor(%th.Tri(:,index(2,i)),2);
        Tmp(:,2)=%th.Coor(%th.Tri(:,index(2,i)),1)-...
 	   %th.Coor(%th.Tri(:,index(1,i)),1); 
-       %th.Base_p1(i)=Tmp;
+       %th.Shape_p1_Grad(i)=Tmp;
      end
-   else  // typeof(%th)=='tri3d'
-     error('---- To be defined !!!!! -------')
+   //else  // typeof(%th)=='tri3d'
+   //  error('---- To be defined !!!!! -------')
    end
      
    if lhs<=1

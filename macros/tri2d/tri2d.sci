@@ -10,7 +10,7 @@ function th=tri2d(nom)
     end
     
     th=mlist(['tri2d';'#';'Id';'Coor';'CoorId';'Tri';'TriId';..
-	    'BndId';'Bnd';'BndPerio';'Det';'Base_p1'],..
+	    'BndId';'Bnd';'BndPerio';'Det';'Shape_p1_Grad'],..
 	rand(),nom,[],[],[],[],[],list(),[],[],list())
     
 endfunction
