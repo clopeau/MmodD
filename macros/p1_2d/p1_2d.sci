@@ -17,24 +17,26 @@ function [out,%th]=p1_2d(%th,%fonction)
    end
    
    // Base Completion
-   %th.Det=det(%th);
-   [nf,nt]=size(%th);
+   if %th.Det==[] | size(%th.Det,1)~=size(%th.Tri,1)
+     %th.Det=det(%th);
+     [nf,nt]=size(%th);
 
-   if typeof(%th)=='tri2d'
-     index=[2 3; 3 1; 1 2]';
-     Tmp=zeros(nt,2);
-     for i=1:3
-       Tmp(:,1)=%th.Coor(%th.Tri(:,index(1,i)),2)-...
-	   %th.Coor(%th.Tri(:,index(2,i)),2);
-       Tmp(:,2)=%th.Coor(%th.Tri(:,index(2,i)),1)-...
-	   %th.Coor(%th.Tri(:,index(1,i)),1); 
-       %th.Shape_p1_Grad(i)=Tmp;
+     if typeof(%th)=='tri2d'
+       index=[2 3; 3 1; 1 2]';
+       Tmp=zeros(nt,2);
+       for i=1:3
+	 Tmp(:,1)=%th.Coor(%th.Tri(:,index(1,i)),2)-...
+		  %th.Coor(%th.Tri(:,index(2,i)),2);
+	 Tmp(:,2)=%th.Coor(%th.Tri(:,index(2,i)),1)-...
+		  %th.Coor(%th.Tri(:,index(1,i)),1); 
+	 %th.Shape_p1_Grad(i)=Tmp;
+       end
+       //else  // typeof(%th)=='tri3d'
+       //  error('---- To be defined !!!!! -------')
      end
-   //else  // typeof(%th)=='tri3d'
-   //  error('---- To be defined !!!!! -------')
-   end
      
-   if lhs<=1
-     execstr('['+name_mmodd(%th)+']=return(%th);');
+     if lhs<=1
+       execstr('['+name_mmodd(%th)+']=return(%th);');
+     end
    end
 endfunction
