@@ -5,12 +5,11 @@
 
 function %nams=name_mmodd(%in)
    %nams=who('get');
-   //global %exclud
+   global %exclud
    %nams(grep(%nams,'%'))=[];
+   %nams=setdiff(%nams,%exclud)
    %nams=%nams(evstr('type('+%nams+')')==17);
-   //%nams(grep(%nams,%exclud))=[]
-   //
-   //faster than %sel=typeof(%in) 
+   //   //faster than %sel=typeof(%in) 
    %sel=getfield(1,%in);
    %sel=%sel(1);
    %typn="";

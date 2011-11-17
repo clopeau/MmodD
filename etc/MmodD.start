@@ -83,7 +83,8 @@ if ~isdef("%exclud")
     global %exclud;
     %exclud=who('get');
     %exclud=%exclud(length(%exclud)>2);
-    %exclud=[%exclud;'%'];
+    %exclud(grep(%exclud,'%'))=[];
+    //%exclud=[%exclud;'%'];
 end
 
 // choice of OS and definition
