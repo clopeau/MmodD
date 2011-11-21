@@ -27,6 +27,8 @@ err=zeros(val);
 
 for i=1:length(val)
   n=val(i);
+  clear g u pb
+ 
   // Ecriture du probleme
   timer();
   if ext=='2d'
@@ -35,16 +37,15 @@ for i=1:length(val)
     g=evstr(grille+'(n,n+1,n+2)');
   end
   t_mesh(i)=timer();
-  write(%io(2),'Mesh Time        = '+string(t_mesh(i)));
+  
   execstr('u='+vtype+'(g)');
   execstr(probl);
-    
+  t_elementinit(i)=timer(); 
+  
   if i==1, disp(pb); ,end
     
-
   write(%io(2),'-------  n = '+string(n)+' --------');
-  
-  t_elementinit(i)=timer();
+  write(%io(2),'Mesh Time        = '+string(t_mesh(i)));
   write(%io(2),'Init pde Time    = '+string(t_elementinit(i)))  ;  
   u_ex=evstr(vtype+'(g,'''+sexacte+''')');
   timer();
