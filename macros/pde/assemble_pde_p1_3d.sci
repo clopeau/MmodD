@@ -15,7 +15,7 @@ function %in=assemble_pde_p1_3d(%in,opt)
   if find(opt==1)~=[]
     %in.A=[];
     %in.A=evstr(pmbr)
-    for i=1:length(%in.BndId)
+    for i=1:size(%in.BndId,'*')
       ind=strindex(%in.BndVal(i),'=')
       ppmbr=part(%in.BndVal(i),1:ind-1);
       if grep(ppmbr,'Dn('+%in.var+')')~=[]
@@ -39,7 +39,7 @@ function %in=assemble_pde_p1_3d(%in,opt)
     //  %in.b(evstr(%in.geo+'('''+%in.BndId(i)+''')'))=0
     //end
     
-    for i=1:size(%in.BndId)
+    for i=1:size(%in.BndId,'*')
       ind=strindex(%in.BndVal(i),'=')
       ssmbr=part(%in.BndVal(i),ind+1:length(%in.BndVal(i)));
       ppmbr=part(%in.BndVal(i),1:ind-1);

@@ -10,10 +10,9 @@ function  %pde_p(%u)
   write(%io(2),' Variable  :   '+%u.var+'   ('+evstr('typeof('+%u.var+')')+')');
   write(%io(2),' Equation  :   '+%u.eq);
   write(%io(2),' Boundary  :');
-  for i=1:length(%u.BndId)
+  for i=1:size(%u.BndId,'*')
     write(%io(2),'             '+%u.BndId(i)+' -> '+...
-	%u.TypBnd(i)+' '+string(%u.BndVal(i)));
+	+string(%u.BndVal(i)));
   end
   
 endfunction
-  

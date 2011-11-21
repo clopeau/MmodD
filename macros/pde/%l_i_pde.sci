@@ -8,7 +8,7 @@ ind = varargin(1);
 l = varargin($-1);
 v = varargin($);
 ctlr = 0;
-for k=1:length(v.BndId),
+for k=1:size(v.BndId,'*'),
  if (ind == v.BndId(k)) then
   v.BndId(k) = ind;
   v.TypBnd(k) = l(1);
