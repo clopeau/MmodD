@@ -3,7 +3,7 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function %th=line2d(varargin)
+function %th=line2d(%g,Bnd)
 // Type declaration
 // 
 // Calling Sequence
@@ -35,15 +35,15 @@ function %th=line2d(varargin)
    [lhs,rhs]=argn(0);
     %Id="";Coor=[];Seg=[];BndPerio=%f
     if rhs==1
-      select typeof(varargin(1))
+      select typeof(%g)
       case 'string'
-	%Id=varargin(1)
+	%Id=%g
       case 'constant'
-	if size(varargin(1))~=2
+	if size(%g)~=2
 	  error('Points must have two coordinates')
 	  return
 	end
-	Coor=varargin(1)
+	Coor=%g
 	Seg=(1:size(Coor,1))';
 	if and(Coor(1,:)==Coor($,:))
 	  BndPerio=%t;
@@ -52,8 +52,9 @@ function %th=line2d(varargin)
       end
       //------------ Extraction d'une geometrie ---------
     elseif rhs==2
-      Seg=varargin(1)(varargin(2))
-      Coor=varargin(1).Coor(Seg,:)
+      ind=grep(%g.BndId,Bnd)
+      Seg=%g.Bnd(ind)
+      Coor=%g.Coor(Seg,:)
       Seg=(1:size(Coor,1))';
       if and(Coor(1,:)==Coor($,:))
 	BndPerio=%t;

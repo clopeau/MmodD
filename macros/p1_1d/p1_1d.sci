@@ -49,6 +49,6 @@ function [out]=p1_1d(%th,%fonction)
    
    out=mlist(['p1_1d';'#';'Id';'geo';'Node'],rand(),%fonction,%nam,[]);   
    if rhs==2
-     interpol(out,%fonction);
+     out=interpol_p1_1d(out,%fonction);
    end
 endfunction
