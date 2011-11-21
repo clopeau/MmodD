@@ -8,8 +8,10 @@ function %pb = pde(%u)
     %pb = mlist(['pde','#','Id','var','geo','eq','resol','A','b','flag',...
 	    'BndId','TypBnd','BndVal'],...
 	rand(),'',%nomvar,%u.geo,'','',[],[],[],list(),list(),list())
-    for i=evstr(%u.geo+'.BndId')
-      %pb(i)='Id('+%nomvar+')=0'
+    execstr('BndId='+%u.geo+'.BndId')
+    for i=1:size(BndId,'*')
+      %pb.BndId(i)=BndId(i)
+      %pb.BndVal(i)='Id('+%nomvar+')=0'
     end
     %pb.eq='-Laplace('+%nomvar+')=1';
 endfunction
