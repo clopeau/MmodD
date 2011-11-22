@@ -1,4 +1,4 @@
-function th=tri3d(varargin)
+function th=tri3d(%g,Bnd)
 // declaration de type
 //-----------------------------------------------------------
 // type mesh
@@ -11,12 +11,13 @@ function th=tri3d(varargin)
     [lhs,rhs]=argn(0);
     id="";Coor=[];Tri=[];
     if rhs==1
-      id=varargin(1);
+      id=%g;
     else
-      Tri=varargin(1)(varargin(2));
+      ind=grep(%g.BndId,Bnd)
+      Tri=%g.Bnd(ind);
       tmp=unique(Tri);
-      Coor=varargin(1).Coor(tmp,:);
-      CoorId=varargin(1).CoorId(tmp,:);
+      Coor=%g.Coor(tmp,:);
+      CoorId=%g.CoorId(tmp,:);
       tmp2=spzeros(max(tmp),1);
       tmp2(tmp)=(1:length(tmp))'
       Tri=matrix(full(tmp2(Tri)),-1,3)
