@@ -14,7 +14,7 @@ function %in=assemble_pde_p1_3d(%in,opt)
   // matrice
   if find(opt==1)~=[]
     %in.A=[];
-    %in.A=evstr(pmbr)
+    execstr('%in.A='+pmbr)
     for i=1:size(%in.BndId,'*')
       ind=strindex(%in.BndVal(i),'=')
       ppmbr=part(%in.BndVal(i),1:ind-1);
@@ -25,15 +25,15 @@ function %in=assemble_pde_p1_3d(%in,opt)
 	ppmbr=string(%Penal)+'*('+ppmbr+')';
       end
       ppmbr=strsubst(ppmbr,'Id('+%in.var+')','Id('+%in.var+','''+%in.BndId(i)+''')')
-      %in.A=%in.A+evstr(ppmbr);
+      execstr('%in.A=%in.A+'+ppmbr);
     end
   end
 
   // second membre
   if find(opt==2)~=[]
     %in.b=[];
-    b=evstr('p1_3d('+%in.geo+','''+smbr+''')');
-    %in.b=evstr('Id('+%in.var+')')*b.Node
+    execstr('b=p1_3d('+%in.geo+','''+smbr+''')');
+    execstr('%in.b=Id_p1_3d('+%in.var+')*b.Node');
     clear b
     //for i=1:length(%in.BndId)
     //  %in.b(evstr(%in.geo+'('''+%in.BndId(i)+''')'))=0
@@ -50,8 +50,8 @@ function %in=assemble_pde_p1_3d(%in,opt)
       else
 	%PP=%Penal;
       end
-      ind=unique(evstr(%in.geo+'('''+%in.BndId(i)+''')'));
-      M=evstr('Id_p1_3d('+%in.var+','''+%in.BndId(i)+''')');
+      execstr('ind=unique('+%in.geo+'.Bnd(i))');
+      execstr('M=Id_p1_3d('+%in.var+','''+%in.BndId(i)+''')');
       %in.b(ind)=%in.b(ind)+%PP*M(ind,ind)*bloc.Node
     end
   end
