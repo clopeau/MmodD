@@ -1,4 +1,4 @@
-// Copyright (C) 2011 - Quentin Pallotta
+// Copyright (C) 2011 - Thierry Clopeau
 //
 // This file must be used under the terms of the CeCILL.
 // This source file is licensed as described in the file COPYING, which
@@ -6,7 +6,11 @@
 // are also available at
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
-test=square2d(3,3);
-if test.Id <> 'square2d' then pause, end
-if test.BndId <> ['W' 'E' 'N' 'S'] then pause, end
-if test.Bnd(1) <> [1;4;7] then pause, end
+meshgeo=tcube3d(20,20,20);
+u=p1(meshgeo);
+pb=pde(u);
+u_ex=p1(meshgeo,'cos(2*%pi*x)*cos(2*%pi*y)*cos(2*%pi*z)');
+pb=assemble_pde_p1_3d(pb,1:2);
+lsolve(pb);
+if max(abs(u-u_ex)) > 0.0495 then pause, end
+ 
