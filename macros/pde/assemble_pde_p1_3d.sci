@@ -44,7 +44,7 @@ function %in=assemble_pde_p1_3d(%in,opt)
       ssmbr=part(%in.BndVal(i),ind+1:length(%in.BndVal(i)));
       ppmbr=part(%in.BndVal(i),1:ind-1);
       execstr('Gloc=tri3d('+%in.geo+','''+%in.BndId(i)+''')');
-      bloc=evstr('p1_2d(Gloc,'''+string(ssmbr)+''')');
+      execstr('bloc=p1_2d(Gloc,'''+string(ssmbr)+''')');
       if grep(ppmbr,'Dn('+%in.var+')')~=[]
          %PP=1;
       else
