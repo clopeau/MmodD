@@ -6,7 +6,7 @@
 // =============================================================================;
 
 global %mmodd_path;
-path=%mmodd_path+"\demos\2d\Mesh_example/BAMG_octogone.msh";
+path=%mmodd_path+"/demos/2d/Mesh_example/BAMG_octogone.msh";
 
 th_Bamg = read_tri2d_BAMG(path);
 if th_Bamg.Id <> path then bugmes();quit;end

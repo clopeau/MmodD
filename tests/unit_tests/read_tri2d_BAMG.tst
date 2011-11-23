@@ -10,7 +10,7 @@
 // Initialize the global variable containing the path
 global %mmodd_path;
 // Creates the variable "path" containing the path of the file to test 
-path=%mmodd_path+"\demos\2d\Mesh_example/BAMG_octogone.msh";
+path=%mmodd_path+"/demos/2d/Mesh_example/BAMG_octogone.msh";
 
 // Execute the function on the previous file
 th_Bamg = read_tri2d_BAMG(path);

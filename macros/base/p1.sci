@@ -29,10 +29,11 @@ function out=p1(%g,%fonc)
     execstr('['+name_mmodd(%g)+']=return(%g);');
   elseif  grep(geo3d,typeof(%g))~=[]
     if rhs==1
-      out=p1_3d(%g);
+      [out,%g]=p1_3d(%g);
     else
-      out=p1_3d(%g,%fonc)
+      [out,%g]=p1_3d(%g,%fonc)
     end
+    execstr('['+name_mmodd(%g)+']=return(%g);');
   else
     error('--- unknow type of geometry !!! ----')
   end

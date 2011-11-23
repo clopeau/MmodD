@@ -6,7 +6,7 @@
 // =============================================================================;
 
 global %mmodd_path;
-path=%mmodd_path+"\demos\2d\Mesh_example/NETGEN_squarehole.vol";
+path=%mmodd_path+"/demos/2d/Mesh_example/NETGEN_squarehole.vol";
 
 th_NETGEN = read_tri2d_NETGEN(path);
 if th_NETGEN.Id <> path then bugmes();quit;end

@@ -10,7 +10,7 @@
 // Initialize the global variable containing the path
 global %mmodd_path;
 // Creates the variable "path" containing the path of the file to test 
-path=%mmodd_path+"\demos\2d\Mesh_example/NETGEN_squarehole.vol";
+path=%mmodd_path+"/demos/2d/Mesh_example/NETGEN_squarehole.vol";
 
 // Execute the function on the previous file
 th_NETGEN = read_tri2d_NETGEN(path);
