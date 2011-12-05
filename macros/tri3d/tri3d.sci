@@ -13,7 +13,7 @@ function th=tri3d(%g,Bnd)
     if rhs==1
       id=%g;
     else
-      ind=grep(%g.BndId,Bnd)
+      ind=find(%g.BndId==Bnd)
       Tri=%g.Bnd(ind);
       tmp=unique(Tri);
       Coor=%g.Coor(tmp,:);
