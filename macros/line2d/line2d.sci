@@ -52,7 +52,7 @@ function %th=line2d(%g,Bnd)
       end
       //------------ Extraction d'une geometrie ---------
     elseif rhs==2
-      ind=grep(%g.BndId,Bnd)
+      ind=find(%g.BndId==Bnd)
       Seg=%g.Bnd(ind)
       Coor=%g.Coor(Seg,:)
       Seg=(1:size(Coor,1))';

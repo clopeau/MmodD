@@ -9,10 +9,10 @@ ll = matrix(varargin($-1),1,-1);
 v = varargin($);
 ctlr = 0;
 for l=ll
-  k=grep(v.BndId,ind)
+  k=find(v.BndId==ind)
   if k~=[]
     v.BndId(k) = ind;
-    v.TypBnd(k) = '';
+    //v.TypBnd(k) = '';
     v.BndVal(k) = l;
     ctlr = 1;
   else

@@ -11,14 +11,14 @@ ctlr = 0;
 for k=1:size(v.BndId,'*'),
  if (ind == v.BndId(k)) then
   v.BndId(k) = ind;
-  v.TypBnd(k) = l(1);
+  //v.TypBnd(k) = l(1);
   v.BndVal(k) = l(2);
   ctlr = 1;
  end
 end
 if (ctlr == 0) then
 v.BndId($+1) = ind;
-v.TypBnd($+1) = l(1);
+//v.TypBnd($+1) = l(1);
 v.BndVal($+1) = l(2);
 end
 endfunction
