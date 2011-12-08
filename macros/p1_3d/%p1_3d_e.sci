@@ -8,8 +8,7 @@ function %out=%p1_3d_e(varargin)
    //%v=varargin($);
    if rhs==2
      if type(varargin(1))==1
-       %out=p1_3d();
-       %out.geo=varargin($).geo
+       execstr('%out=p1_3d('+varargin($).geo+')');
        ierr=execstr('%out.Id=varargin($).Id(varargin(1))','errcatch');
        %out.Node=varargin($).Node(:,varargin(1));
      else
