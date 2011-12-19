@@ -6,7 +6,7 @@
 %_nams=who('get');
 %ind=evstr('type('+%_nams+')');
 %_nams=%_nams(%ind==17);
-%geom_c=['grid2d' 'grid3d' 'tri2d' 'quad2d' 'tet3d' 'hex3d'];
+%geom_c=['grid2d' 'grid3d' 'tri2d' 'tri3' 'quad2d' 'tet3d' 'hex3d'];
 if %_nams~=[]
   %_nams=%_nams(grep(evstr('typeof('+%_nams+')'),%geom_c));
 end

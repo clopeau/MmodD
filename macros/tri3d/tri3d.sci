@@ -9,7 +9,7 @@ function th=tri3d(%g,Bnd)
 //    BndId : table des noms frontières
 //    BndNode : liste des indices des points frontiere
     [lhs,rhs]=argn(0);
-    id="";Coor=[];Tri=[];
+    id="";Coor=[];CoorId=[];Tri=[];TriId=[];
     if rhs==1
       id=%g;
     else
@@ -23,8 +23,7 @@ function th=tri3d(%g,Bnd)
       Tri=matrix(full(tmp2(Tri)),-1,3)
     end
     
-    th=mlist(['tri3d';'#';'Id';'Coor';'CoorId';'Tri';'BndId';'Bnd';..
-	    'BndPerio';'Det';'Shape_p1_Grad'],...
-	rand(),Id,Coor,CoorId,Tri,[],list(),[],[],list())
-    
+    th=mlist(['tri3d';'#';'Id';'Coor';'CoorId';'Tri';'TriId';'BndId';'Bnd';..
+	    'BndPerio';'Det';'Shape_p1_Grad'],..
+	rand(),id,Coor,CoorId,Tri,TriId,[],list(),[],[],list())    
 endfunction
