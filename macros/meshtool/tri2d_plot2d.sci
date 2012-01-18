@@ -41,7 +41,7 @@ function []=tri2d_plot2d(%th)
     x=[x;x(1,:)];
     y=[y;y(1,:)];
 
-    xfpolys(x,y,my_Color(num_Color)*ones(1,nbTriang));
+    plot3d(x,y,list(zeros(x),my_Color(num_Color)*ones(1,nbTriang)),alpha=0,theta=270)
   end
   
   //---- Boundary ploting ----------

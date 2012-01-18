@@ -25,9 +25,7 @@ function []=tri3d_plot3d(th,col)
   y=[y,matrix(th.Coor(ed,2),-1,2)'];
   z=[z,matrix(th.Coor(ed,3),-1,2)'];
   mycolor=[mycolor,col(ones(1,p))];
-  //f = gca();
-  //f.color_map = coolcolormap(32)
-  param3d1(x,y,list(z,mycolor));
-  //legends(th.Id,mycolor,4)
+
+  xsegs(x,y,z,mycolor);
 
 endfunction
