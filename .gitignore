@@ -47,12 +47,12 @@ help/fr_FR/scilab_fr_FR_help/
 help/en_US/scilab_en_US_help/
 help/en_US/scilab_fr_FR_help/
 # conserved
-!help/en_US/GettingStarted/*.xml
-!help/en_US/MmodDType/pde/*.xml
-!help/en_US/MmodDType/tri2d/*.xml
-!help/en_US/MmodDType/tri3d/*.xml
-!help/en_US/MmodDType/tet3d/*.xml
-!help/en_US/MmodDType/p1/*.xml
-!help/en_US/MmodDType/p0/*.xml
-!help/en_US/Tools/*.xml
-!help/en_US/Tools/Vartool/*.xml
+!help/en_US/1_GettingStarted/*.xml
+!help/en_US/2_MmodDType/pde/*.xml
+!help/en_US/2_MmodDType/tri2d/*.xml
+!help/en_US/2_MmodDType/tri3d/*.xml
+!help/en_US/2_MmodDType/tet3d/*.xml
+!help/en_US/2_MmodDType/p1/*.xml
+!help/en_US/2_MmodDType/p0/*.xml
+!help/en_US/3_Tools/*.xml
+!help/en_US/3_Tools/Vartool/*.xml
