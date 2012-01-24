@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<refentry version="5.0-subset Scilab" xml:id="Animal Coat Patterns" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+
+  <refnamediv>
+    <refname>2d reaction diffusion</refname>
+    <refpurpose>Reaction Diffusion Equations and Animal Coat Patterns</refpurpose>
+  </refnamediv>
+
+<refsection>
+<title>Introduction</title>
+<para>
+The distribution of spots and stripes on animals differs from species to species. We are interested here in a reaction-diffusion model. This type of model describes the spatial and temporal evolution of concentrations of one or more chemical species subjected to two processes. The first corresponds to the local chemical reactions, it means the transformation of chemical species, while the second represents the spatial distribution of chemical species, which is known as the diffusion process.
+The fundamental hypothesis of the model is: in a chemical reaction between two components, during the diffusion phenomenon of those components, we obtain spatial and temporal patterns more or less regular. The model is constituted on two components that diffuse and react. These two components are:
+<simplelist type="inline">
+    <member>
+      A: activator, which diffuses slowly, and is autocatalytic (causes the production itself).
+    </member>
+    <member>
+      B: inhibitor, which spreads rapidly, and its production is activated by the specie A, but inhibits the A production.
+    </member>
+</simplelist>
+</para>
+<para>
+By slowly and randomly diffusing , a peak concentration of A can occur somewhere. As A activates the production of B, a peak of inhibitor will also appear in the same place. However, because B diffuses much faster than A, the peak of inhibitor will spread, allowing the appearance of another peak of A in a sufficient distance from the first peak. It will form a steady state in which the space will be covered with the activator spots more or less regularly spaced. If A is a pigment (melanin for example), we obtain a spotted coat, the dark spots corresponding to the peaks of pigment A.
+</para>
+<para>
+We are going to simulate the spots distribution in domains, representing the bodies of animals, here based on the model of Turing (1952). 
+</para>
+</refsection>
+
+
+<refsection>
+<title>The model</title>
+<para>
+The system of equations of reaction-diffusion mechanism is in the form: 
+<latex>\quad  \partial_t c = f(c) + D \Delta c \quad  </latex> where  <latex>\quad  c \quad </latex>
+is the vector of morphogen concentrations,  <latex> \quad f \quad</latex> is the reaction kinetics and <latex>\quad D \quad</latex> is the diagonal matrix of positive constants diffusion coefficients.
+</para>
+
+<para>
+We are going to study the reaction between only 2 chemical species <latex>\quad A \quad</latex> and <latex>\quad B \quad</latex> on a spatial bounded domain  <latex>\quad \Omega </latex> .
+We have the system:
+</para>
+<para>
+<latex>
+\begin{cases}
+\partial_t A = F(A,B) + D_A \Delta A\\
+\partial_t B= G(A,B) + D_B \Delta B$
+\end{cases}
+</latex>
+</para>
+<para>
+where <latex>\quad F \quad</latex> and <latex>\quad G \quad</latex> are the kinetics, which will always be non linear. We take homegeneous Neumann as boundaries conditions (no-flux)
+</para>
+
+<para>
+We can use several kinetics models. We are using the real empirical model substrate-inhibition system, proposed by Thomas (1975) :
+</para>
+<para>
+<latex>
+\begin{cases}
+F(A,B) = k_1- k_2A - H(A,B) \\
+G(A,B) = k_3- k_4B - H(A,B) \\
+H(A,B) = (k_5AB) / (k_6 + k_7A + k_8A^2)
+\end{cases}
+</latex>
+</para>
+<para>
+where the <latex>\quad k_i \quad</latex> are positive rate constants.
+</para>
+<para>
+We proceed to variables changes which permit to obtain a simpler system. All parameters are dimensionless except <latex>\quad \gamma \quad</latex>  which is proportionnal to the linear size of the spatial domain.
+</para>
+<para>
+We obtain the following general system:
+</para>
+<para>
+<latex>
+\begin{cases}
+\partial_t u = \gamma f(u,v) + \Delta u\\
+\partial_t v = \gamma g(u,v) + d \Delta v
+\end{cases}
+</latex>
+with 
+<latex>
+\begin{array}{l} 
+f(u,v) = a - u - h(u,v) \\
+g(u,v) = \alpha (b - v) - h(u,v) \\
+h(u,v) = (\rho uv) / (1 + u + Ku^2) 
+\end{array}  </latex>
+</para>
+<para>
+We assume that the diffusion coefficients are independents of space and concentration. We take zero flux boundary condition, i.e. there is no exterior effects.
+</para>
+</refsection>
+
+<mediaobject> 
+        <imageobject> 
+        <imagedata align="center" fileref="../Pictures/mediumYellow.jpg" /> 
+        </imageobject> 
+        </mediaobject>
+
+<refsection>
+
+<title>Authors</title>
+	<simplelist type="inline">
+	<member>2012 - Paul-Edouard Bouvet</member>
+	<member>2012 - Nadège Chun Yuk Shan</member>
+	<member>2012 - Pauline Mazzocco</member>
+	<member>2012 - Marie Moncel</member>
+	<member>2012 - Anthony Vacher</member>
+	</simplelist>
+</refsection>
+
+</refentry>
