@@ -28,9 +28,7 @@ level=1
 delta=0.001
 NBrepet=100
 
-tmp=zeros(size(th),1);
-tmp(1:10:100)=20;
-init_u="tmp"
+init_u="5+x"
 init_v="5+40*sin(20*y+10*x)"
 
 exec(%path+"ReactDiff_Patterns.sce")
