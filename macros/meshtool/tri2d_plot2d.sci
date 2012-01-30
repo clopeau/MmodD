@@ -7,12 +7,6 @@ function []=tri2d_plot2d(%th)
 // Mesh visualisation
 // th : type tri2d
  
-  if %th.Id==[]
-	Title=name_mmodd(%th)
-  else
-	Title=%th.Id
-  end
-
   //---- Domain ploting ----------
 
   NbDom=unique(%th.TriId)
@@ -29,7 +23,7 @@ function []=tri2d_plot2d(%th)
   xy_max=max(%th);
 
   plot2d(xy_min(1),xy_min(2),frameflag=3,rect=[xy_min',xy_max']);
-  legends( "Domain "+string(NbDom),my_Color,opt=1)
+  
   for i=NbDom'
     num_Color=num_Color+1;
     Index = (%th.TriId==i);
@@ -45,18 +39,12 @@ function []=tri2d_plot2d(%th)
   end
   
   //---- Boundary ploting ----------
+  
   %nbd=length(%th.Bnd)
   my_Color=round(linspace(128,64,%nbd));
-  xset("thickness",3) 
   for i=1:%nbd
     %xy=%th.Coor(%th.Bnd(i),:);
     plot2d(%xy(:,1),%xy(:,2),my_Color(i))
   end
-  legends( "Bdry "+%th.BndId,my_Color,opt=2)
-  xset("thickness",1) 
-  
-  //---- Title ------------
-  
- [%np,%nt]=size(%th);
-  xtitle(Title+" : "+string(%np)+" points"+"  "+string(%nt)+" triangles")
+
 endfunction

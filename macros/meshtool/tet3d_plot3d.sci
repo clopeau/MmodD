@@ -23,6 +23,5 @@ function []=tet3d_plot3d(%th)
     tri3d_plot3d(tri3d(%th,fr),my_Color(col));
     col=col+1;
   end  
-  legends("Bdry "+%th.BndId',my_Color,4)
 
 endfunction
