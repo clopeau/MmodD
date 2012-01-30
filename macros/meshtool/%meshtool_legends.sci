@@ -110,8 +110,10 @@ function %meshtool_legends(BndId, ColorBnd, DomId, ColorDom)
       end
     end
   end
-  a.data_bounds=[0 ypos;1 1];
- 
+  
+  if ypos<0
+    a.data_bounds=[0 ypos;1 1];
+  end
  
   if id then f.immediate_drawing='on',end
 
