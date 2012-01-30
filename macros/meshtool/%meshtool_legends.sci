@@ -61,7 +61,10 @@ function %meshtool_legends(BndId, ColorBnd, DomId, ColorDom)
     box_x=0.1;
     ypos=ypos-rect(4);
     xpos=1.5*box_x
-    xstring(xpos,ypos,BndId);
+    nb=size(BndId,1)
+    for i=1:nb
+      xstring(xpos,ypos+(nb-i)*rect(4)/nb,BndId(i));
+    end
 // color boxes
     nbx=length(ColorBnd);
     h=rect(4)/nbx;
@@ -89,13 +92,15 @@ function %meshtool_legends(BndId, ColorBnd, DomId, ColorDom)
       ypos=ypos-2*rect(4);
       xstring(xpos,ypos,DomTitle);
 // Domains names
+      nbx=length(ColorDom);
       rect=xstringl(0,0,DomId,a.font_style,a.font_size)
       box_x=0.1;
       ypos=ypos-rect(4);
       xpos=1.5*box_x
-      xstring(xpos,ypos,DomId);   
+      for i=1:nbx
+	xstring(xpos,ypos+(nbx-i)*rect(4)/nbx,DomId(i));
+      end
 // color boxes
-      nbx=length(ColorDom);
       h=rect(4)/nbx;
       xpol=[0 box_x box_x 0];
       for i=1:nbx
@@ -105,7 +110,7 @@ function %meshtool_legends(BndId, ColorBnd, DomId, ColorDom)
       end
     end
   end
-  
+  a.data_bounds=[0 ypos;1 1];
  
  
   if id then f.immediate_drawing='on',end
