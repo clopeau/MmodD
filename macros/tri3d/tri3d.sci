@@ -21,6 +21,7 @@ function th=tri3d(%g,Bnd)
       tmp2=spzeros(max(tmp),1);
       tmp2(tmp)=(1:length(tmp))'
       Tri=matrix(full(tmp2(Tri)),-1,3)
+      TriId=ind*ones(tmp);
     end
     
     th=mlist(['tri3d';'#';'Id';'Coor';'CoorId';'Tri';'TriId';'BndId';'Bnd';..
