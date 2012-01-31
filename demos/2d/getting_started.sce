@@ -20,7 +20,6 @@ th=square2d(20,20);
 disp(th);
 write(%io(2),'')
 write(%io(2),'-->meshtool(th)          \\ Mesh visualisation')
-scf();
 meshtool(th)
 write(%io(2),'')
 write(%io(2),'-->u=p1(th)              \\ Variable definition');
@@ -48,6 +47,5 @@ txt=lsolve(pb)
 disp(txt)
 write(%io(2),'')
 write(%io(2),'-->vartool(u)            \\ Result visualisation')
-scf()
 vartool(u)
 lines(tmp(1));

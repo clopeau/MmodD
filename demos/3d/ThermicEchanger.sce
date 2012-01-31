@@ -40,7 +40,6 @@ th.BndId='f'+string(1:length(th.Bnd));
   
 write(%io(2),'')
 write(%io(2),'-->meshtool(th)            // Mesh visualisation')
-scf();
 meshtool(th)
 write(%io(2),'')
 write(%io(2),'-->// ----  Constant definitions ------')
@@ -97,7 +96,6 @@ write(%io(2),'')
 write(%io(2),'-->lsolve(pb)            // Linear resolution');
 txt=lsolve(pb);
 disp(txt);
-scf();
 write(%io(2),'')
 write(%io(2),'-->vartool(T)            // Result visualisation')
 vartool(T)

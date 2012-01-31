@@ -19,7 +19,6 @@ th_NETGEN = read_tet3d_NETGEN(filem);
 disp(th_NETGEN);
 write(%io(2),'')
 write(%io(2),'-->meshtool(th_NETGEN)            \\ Mesh visualisation')
-scf()
 meshtool(th_NETGEN)
 xtitle('NETGEN')
 
@@ -32,7 +31,6 @@ th_TETGEN = read_tet3d_TETGEN(filem);
 disp(th_TETGEN);
 write(%io(2),'')
 write(%io(2),'-->meshtool(th_TETGEN)            \\ Mesh visualisation')
-scf()
 meshtool(th_TETGEN)
 xtitle('TETGEN')
 
@@ -45,7 +43,6 @@ th_GMSH = read_tet3d_GMSH(filem);
 disp(th_GMSH);
 write(%io(2),'')
 write(%io(2),'-->meshtool(th_GMSH)            \\ Mesh visualisation')
-scf()
 meshtool(th_GMSH)
 xtitle('GMSH')
 

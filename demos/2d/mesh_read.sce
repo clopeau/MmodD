@@ -20,7 +20,6 @@ th_Bamg = read_tri2d_BAMG(filem);
 disp(th_Bamg);
 write(%io(2),'')
 write(%io(2),'-->meshtool(th_Bamg)            \\ Mesh visualisation')
-scf()
 meshtool(th_Bamg)
 
 write(%io(2),'')
@@ -32,7 +31,6 @@ th_NETGEN = read_tri2d_NETGEN(filem);
 disp(th_NETGEN);
 write(%io(2),'')
 write(%io(2),'-->meshtool(th_NETGEN)            \\ Mesh visualisation')
-scf()
 meshtool(th_NETGEN)
 
 write(%io(2),'')
@@ -44,7 +42,6 @@ th_NETGEN2 = read_tri2d_NETGEN(filem);
 disp(th_NETGEN2);
 write(%io(2),'')
 write(%io(2),'-->meshtool(th_NETGEN2)            \\ Mesh visualisation')
-scf()
 meshtool(th_NETGEN2)
 
 write(%io(2),'')
@@ -56,6 +53,5 @@ th_GMSH = read_tri2d_GMSH(filem);
 disp(th_GMSH);
 write(%io(2),'')
 write(%io(2),'-->meshtool(th_GMSH)            \\ Mesh visualisation')
-scf()
 meshtool(th_GMSH)
 lines(tmp(1));

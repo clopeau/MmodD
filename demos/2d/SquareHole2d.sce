@@ -21,7 +21,6 @@ th2d=read_tri2d_NETGEN(%mmodd_path+"/demos/2d/Mesh_example/NETGEN_squarehole.vol
 disp(th2d)
 write(%io(2),'')
 write(%io(2),'-->meshtool(th2d)            \\ Mesh visualisation')
-scf()
 meshtool(th2d)
 write(%io(2),'')
 write(%io(2),'-->u2d=p1(th2d)              \\ Variable definition');
@@ -47,7 +46,6 @@ write(%io(2),'')
 write(%io(2),'-->lsolve(pb2d)            \\ Linear resolution');
 txt=lsolve(pb2d)
 disp(txt)
-scf()
 write(%io(2),'')
 write(%io(2),'-->vartool(u2d)            \\ Result visualisation')
 vartool(u2d)

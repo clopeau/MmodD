@@ -24,7 +24,6 @@ th=read_tri2d_NETGEN(%mmodd_path+"/demos/2d/Mesh_example/geom_potelec2d.vol");
 disp(th)
 write(%io(2),'')
 write(%io(2),'-->meshtool(th)            \\ Mesh visualisation')
-scf();
 meshtool(th)
 write(%io(2),'')
 write(%io(2),'-->u=p1(th)              \\ Variable definition');
@@ -64,7 +63,6 @@ write(%io(2),'')
 write(%io(2),'-->lsolve(pb)            \\ Linear resolution');
 txt=lsolve(pb);
 disp(txt)
-scf();
 write(%io(2),'')
 write(%io(2),'-->vartool(u)            \\ Result visualisation')
 vartool(u)

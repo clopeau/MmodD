@@ -8,7 +8,8 @@ function []=vartool(%var,%view)
   %type=typeof(%var);
   %dim=typeof(evstr(%var.geo));
   
-  clf()
+  f=scf();
+  clf(f,'reset')
 
   if grep(%dim,'2d')<>[]
     if ~(exists("%view"))

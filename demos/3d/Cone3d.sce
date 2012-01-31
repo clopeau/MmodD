@@ -20,7 +20,6 @@ th3d=read_tet3d_NETGEN(%mmodd_path+"/demos/3d/Mesh_example/NETGEN_cone.vol");
 disp(th3d);
 write(%io(2),'')
 write(%io(2),'-->meshtool(th3d)          \\ Mesh visualisation')
-scf();
 meshtool(th3d)
 write(%io(2),'')
 write(%io(2),'-->u=p1(th3d)              \\ Variable definition');
@@ -49,6 +48,5 @@ txt=lsolve(pb3d)
 disp(txt)
 write(%io(2),'')
 write(%io(2),'-->vartool(u3d)            \\ Result visualisation')
-scf()
 vartool(u3d)
 lines(tmp(1));

@@ -59,9 +59,9 @@ LUpb2 = umf_lufact(pb2.A);
 
 t=0;
 
-h=scf(1);
-vartool(u);
+h=scf();
 h.color_map = DarkYellowColorMap(u,level)
+p1_2d_plot2d(u,cbar='on');
 xtitle('t='+string(t))
 
 for i=1:NBrepet
@@ -72,8 +72,9 @@ for i=1:NBrepet
   
   drawlater(); 
   h=gcf();
+  clf(h)
   h.color_map = DarkYellowColorMap(u,level);
-  vartool(u);
+  p1_2d_plot2d(u,cbar='on');
   xtitle('t='+string(t)+'  v_min '+string(min(v))+' v_max='+string(max(v)));
   drawnow();
   
