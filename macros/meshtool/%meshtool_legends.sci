@@ -41,6 +41,8 @@ function %meshtool_legends(BndId, ColorBnd, DomId, ColorDom)
   a.margins=[0 -0.2 a.margins(3:4)];
   a.clip_state='off';
 
+  // initialistion of the position
+  ypos=1;
 // Boundaries legends
   BndId=matrix(BndId,-1,1);
   ColorBnd=matrix(ColorBnd,-1,1);
@@ -87,7 +89,7 @@ function %meshtool_legends(BndId, ColorBnd, DomId, ColorDom)
       else
 	DomTitle="Domains"
       end   
-      rect=xstringl(0,0,BndTitle,a.font_style,a.font_size)
+      rect=xstringl(0,0,DomTitle,a.font_style,a.font_size)
       xpos=0.5-rect(3)/2;
       ypos=ypos-2*rect(4);
       xstring(xpos,ypos,DomTitle);
