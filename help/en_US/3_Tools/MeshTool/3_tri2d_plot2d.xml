@@ -40,7 +40,7 @@
       <varlistentry>
         <term>th</term>
         <listitem>
-          <para>tri2d mesh.</para>
+          <para><link linkend="tri2d">tri2d</link> mesh.</para>
         </listitem>
       </varlistentry>
       

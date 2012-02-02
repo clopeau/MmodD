@@ -40,7 +40,7 @@
       <varlistentry>
         <term>th</term>
         <listitem>
-          <para>tri3d mesh.</para>
+          <para><link linkend="tet3d">tet3d</link> mesh.</para>
         </listitem>
       </varlistentry>
       
@@ -312,8 +312,8 @@
   <refsection>
     <title>Description</title>
 
-    <para><literal>tri3d_plot2d(th)</literal> draw the triangular
-     mesh and boundaries colored by domains and mondaries values</para>
+    <para><literal>tet3d_plot2d(th)</literal> draw the triangular
+     boundaries mesh</para>
 
   </refsection>
 

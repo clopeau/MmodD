@@ -30,7 +30,7 @@
    <title>Parameters</title>
    <variablelist>
    <varlistentry><term>th</term>
-      <listitem><para> variable must be a mesh tri2d, tri3d or tet3d</para></listitem></varlistentry>
+      <listitem><para> variable must be a mesh <link linkend="tri2d">tri2d</link>, <link linkend="tri3d">tri3d</link>, or <link linkend="tet3d">tet3d</link></para></listitem></varlistentry>
    </variablelist>
 </refsection>
 
