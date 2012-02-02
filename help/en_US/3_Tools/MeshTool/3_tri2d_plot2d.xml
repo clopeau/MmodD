@@ -83,7 +83,7 @@
 	      
               <listitem>
 		<para>string defining the labels for each axis with @ as a field
-		  separator, for example "X@Y@Z".</para>
+		  separator, for example "X@Y".</para>
               </listitem>
 	    </varlistentry>
 	    
