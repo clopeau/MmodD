@@ -58,7 +58,7 @@ function []=tri2d_plot2d(%th,leg,flag,ebox,edge,boundary,domain,color_edge,color
       x=[x([1 3 2],:);x(1,:)];
       y=[y([1 3 2],:);y(1,:)];
       execstr("plot3d(x,y,list(zeros(x),my_Color(num_Color)*ones(1,nbTriang)),alpha=0,theta=270,"+..
-	  opts+")") 
+	  strcat(opts,',')+")") 
       //--- options  domain=="on"  edge=="on" 
       my_g=gca();
       my_g.z_ticks.labels=""  // remove z axis labels

@@ -12,6 +12,7 @@ function []=tet3d_plot3d(%th,theta,alpha,leg,flag,ebox,edge,boundary,domain,colo
   if exists('leg','local') ==1 then opts=[opts,'leg=leg']  ,  end
   if exists('flag','local')==1 then opts=[opts,'flag=flag'],  end
   if exists('ebox','local')==1 then opts=[opts,'ebox=ebox'],  end
+  if exists('edge','local')==1 then opts=[opts,'edge=edge'],  end
 
   my_plot3d = gcf();
   // test if the color map is a standard one (suppose to be of size 32)
@@ -36,7 +37,7 @@ function []=tet3d_plot3d(%th,theta,alpha,leg,flag,ebox,edge,boundary,domain,colo
     
     col=1
     for fr=%th.BndId
-      execstr("tri3d_plot3d(tri3d(%th,fr),color_dom=my_Color(col))");
+      execstr("tri3d_plot3d(tri3d(%th,fr),color_dom=my_Color(col),"+strcat(opts,',')+")");
       col=col+1;
     end  
   end

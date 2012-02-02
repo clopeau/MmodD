@@ -52,7 +52,7 @@ function []=tri3d_plot3d(%th,theta,alpha,leg,flag,ebox,edge,boundary,domain,colo
       y=[y([1 3 2],:);y(1,:)];
       z=[z([1 3 2],:);z(1,:)];
       execstr("plot3d(x,y,list(z,my_Color(num_Color)*ones(1,nbTriang)),"+..
-	  opts+")") 
+	  strcat(opts,',')+")") 
       //--- options  domain=="on"  edge=="on" 
       my_g=gca();
       my_g.children(1).hiddencolor=-1; // recto verso

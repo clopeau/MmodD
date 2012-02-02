@@ -56,3 +56,5 @@ help/en_US/scilab_fr_FR_help/
 !help/en_US/2_MmodDType/p0/*.xml
 !help/en_US/3_Tools/*.xml
 !help/en_US/3_Tools/Vartool/*.xml
+!help/en_US/3_Tools/MeshTool/*.xml
+!help/en_US/4_Gallery/*.xml

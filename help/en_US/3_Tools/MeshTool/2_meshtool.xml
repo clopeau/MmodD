@@ -30,14 +30,14 @@
    <title>Parameters</title>
    <variablelist>
    <varlistentry><term>th</term>
-      <listitem><para> variable must be a mesh tri2d or tet3d</para></listitem></varlistentry>
+      <listitem><para> variable must be a mesh tri2d, tri3d or tet3d</para></listitem></varlistentry>
    </variablelist>
 </refsection>
 
 <refsection>
    <title>Description</title>
    <para>
-This function plot the domain and the boundary of the given mesh.
+This interactive tool plot domains and boundaries of the given mesh.
    </para>
 </refsection>
 
