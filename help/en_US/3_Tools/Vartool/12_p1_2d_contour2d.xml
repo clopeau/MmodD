@@ -51,9 +51,17 @@
           <para>This represents a sequence of statements
           <literal>key1=value1,key2=value2</literal>,... where
           <literal>key1</literal>, <literal>key2,...</literal> can be one of
-          the following: cbar, strf, leg, rect, nax</para>
+          the following:</para>
 
           <variablelist>
+	    <varlistentry>
+              <term>cbar="on" or "off"</term>
+
+              <listitem>
+                <para>Display a color bar on the right</para>
+              </listitem>
+            </varlistentry>
+
             <varlistentry>
               <term>rect</term>
 

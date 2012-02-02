@@ -42,6 +42,12 @@
           <para>p0_2d non-empty variable defined on a <link linkend="tri2d">tri2d</link> or <link linkend="tri3d">tri3d</link> mesh.</para>
         </listitem>
       </varlistentry>
+      <varlistentry>
+        <term>cbar="on" or "off"</term>
+        <listitem>
+          <para>Display a color bar on the right</para>
+        </listitem>
+      </varlistentry>
     </variablelist>
 </refsection>
 
