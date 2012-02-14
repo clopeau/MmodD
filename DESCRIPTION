@@ -10,21 +10,21 @@ Author: Thierry Clopeau
 
 Maintainer: Thierry Clopeau
 
-Category: Modeling
+Category: Modeling and Control Tools
 
-Entity: University Claude Bernard Lyon
+Entity: University Claude Bernard Lyon I
 
-WebSite: http://mmodd.univ-lyon1.fr/projects/mmodd
+WebSite: http://mmodd.org
 
 License: CeCILL2
 
-ScilabVersion: >= 5.2
+ScilabVersion: >= 5.3
 
 Depends: 
 
 Date: 2010-07-20
 
-Description: The MmodD project -Modular Modeling- contains tools for the study and solution
+Description: The MmodD project -Modular Modeling- is a finite element toolbox for the study and solution
  of partial differential equations (PDEs) in 2d and 3d. A set of command-line functions and
  a graphical user interface let you preprocess, solve, and postprocess generic PDEs for a 
  broad range of engineering and science applications.

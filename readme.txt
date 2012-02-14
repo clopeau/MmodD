@@ -1,10 +1,5 @@
-MMODD
+MmodD : Modular Modeling is a finite element toolbox
+This toolbox is developed under the term of the CeCILL licence
+http://www.cecill.info 
 
-licence CECILL ...
-
-
-Please update this file to provide information about your toolbox:
-* what it is doing
-* the author
-* a few words about the license
-
+More details can be found on the official website http://mmodd.org
