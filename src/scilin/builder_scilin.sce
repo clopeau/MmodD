@@ -3,7 +3,7 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-src_c_path = get_absolute_file_path('builder_c.sce');
+src_c_path = get_absolute_file_path('builder_scilin.sce');
 
 CFLAGS = "-I" + src_c_path;
 
