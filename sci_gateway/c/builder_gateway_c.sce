@@ -5,8 +5,8 @@
 
 if MSDOS then
   // to manage long pathname
-  includes_src_c = '-I""' + get_absolute_file_path('builder_gateway_c.sce') + '../../src/c""'+' '..
-                  +'-I""' + get_absolute_file_path('builder_gateway_c.sce') + '../../src/fortran""' ;
+  includes_src_c = '-I""' + get_absolute_file_path('builder_gateway_c.sce') + '../../src/scilin""'+' '..
+                  +'-I""' + get_absolute_file_path('builder_gateway_c.sce') + '../../src/sparskit""' ;
 else
   includes_src_c = '-I' + get_absolute_file_path('builder_gateway_c.sce') + '../../src/scilin'+' '..
                   +'-I' + get_absolute_file_path('builder_gateway_c.sce') + '../../src/sparskit';
