@@ -3,13 +3,15 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
+locpath=get_absolute_file_path('builder_gateway_sparskit.sce')
+
 if MSDOS then
   // to manage long pathname
-  includes_src_c = '-I""' + get_absolute_file_path('builder_gateway_c.sce') + '../../src/scilin""'+' '..
-                  +'-I""' + get_absolute_file_path('builder_gateway_c.sce') + '../../src/sparskit""' ;
+  includes_src_c = '-I""' + locpath + '../../src/scilin""'+' '..
+                  +'-I""' + locpath + '../../src/sparskit""' ;
 else
-  includes_src_c = '-I' + get_absolute_file_path('builder_gateway_c.sce') + '../../src/scilin'+' '..
-                  +'-I' + get_absolute_file_path('builder_gateway_c.sce') + '../../src/sparskit';
+  includes_src_c = '-I' + locpath + '../../src/scilin'+' '..
+                  +'-I' + locpath + '../../src/sparskit';
 end
 if c_link('libitsolve_fortran'),ulink;end;
 functions=['splsolve';'spusolve';'triangular';...
@@ -20,7 +22,7 @@ Files='int'+functions+'.c';
 Files=Files';
 
 tbx_build_gateway('itsolve_fortran', [functions 'int'+functions], [Files], ..
-                  get_absolute_file_path('builder_gateway_c.sce'), ..
+                  locpath, ..
                   ['../../src/sparskit/libSparskit';'../../src/scilin/libScilin'],'',includes_src_c);
                   
 clear tbx_build_gateway;
