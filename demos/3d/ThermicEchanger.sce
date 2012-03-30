@@ -20,8 +20,6 @@ write(%io(2),'       +++++++++++++++++++++++++++++++++++++');
 write(%io(2),'')
 write(%io(2),'')
 
-write(%io(2),'')
-write(%io(2),'-->th=read_tet3d_NETGEN(""ThermicExchanger.vol"");');
 th=read_tet3d_NETGEN(%mmodd_path+"/demos/3d/Mesh_example/ThermicExchanger.vol");
 disp(th)
 // Modification of boundaries
@@ -38,44 +36,25 @@ for i=35:-1:7
 end
 th.BndId='f'+string(1:length(th.Bnd));
   
-write(%io(2),'')
-write(%io(2),'-->meshtool(th)            // Mesh visualisation')
+//  Mesh visualisation
 meshtool(th)
-write(%io(2),'')
-write(%io(2),'-->// ----  Constant definitions ------')
-write(%io(2),'-->T0=273+100;  //Average temperature of micro processor (Kelvin)')
-write(%io(2),'-->Tinf=273+20; //Average outside temperature ')
-write(%io(2),'-->k0=237;      //Thermal conductivity of aluminium K*s^-2)');
-write(%io(2),'-->h=50;        //Coefficient of thermical convection');
-write(%io(2),'')
+
 // Constant definitions
 T0=273+100; //Average temperature of a hot micro processor Température
 Tinf=273+20; //Average outside temperature 
 k0=237; //Thermcal conductivity of aluminium
 h=50; //Coefficient of thermical convection. air, with forced convection: 10-500
 
-write(%io(2),'')
-write(%io(2),'-->T=p1(th)              // Variable definition');
+// Variable definition
 T=p1(th);
 
-write(%io(2),'')
-write(%io(2),'-->pb=pde(T)             // Problem definition');
+// Problem definition
 pb=pde(T);
-write(%io(2),'')
-write(%io(2),'-->pb.eq=''-k0*Laplace(T)=0''  // Main equation');
-// Problem equation
+// Main equation
 pb.eq='-k0*Laplace(T)=0';
-
-write(%io(2),'')
-write(%io(2),'-->pb.f1=""Id(T)=T0""; // surface in contact with the hot piece at the temperature of T0')
+// surface in contact with the hot piece at the temperature of T0
 // Boundary condition on the surafce in contact with the hot piece at the temperature of T0 :
 pb.f1="Id(T)=T0";
-
-write(%io(2),'')
-write(%io(2),'-->pb.f2=""Dn(T)=0""; // By symetry, flux are nulls');
-write(%io(2),'-->pb.f3=""Dn(T)=0"";')
-write(%io(2),'-->pb.f4=""Dn(T)=0"";')
-write(%io(2),'-->pb.f5=""Dn(T)=0"";')
 
 // By symetry, flux are nulls :
 pb.f2="Dn(T)=0";
@@ -83,22 +62,17 @@ pb.f3="Dn(T)=0";
 pb.f4="Dn(T)=0";
 pb.f5="Dn(T)=0";
 
-write(%io(2),'')
-write(%io(2),'-->pb.f6=""Dn(T)-h*Id(T)=-h*Tinf""; // convective flux')
+// convective flux
 // Boundary condition on the wings and above the base with an heat exchange thanks to a convective flux :
 pb.f6="Dn(T)-h*Id(T)=-h*Tinf";
 
-write(%io(2),'')
-write(%io(2),'-->assemble(pb)          // Assembling process');
+// Assembling process');
 txt=assemble(pb)
 disp(txt)
-write(%io(2),'')
-write(%io(2),'-->lsolve(pb)            // Linear resolution');
+// Linear resolution');
 txt=lsolve(pb);
 disp(txt);
-write(%io(2),'')
-write(%io(2),'-->vartool(T)            // Result visualisation')
+// Result visualisation')
 vartool(T)
+
 lines(tmp(1));
-assemble(pb);
-lsolve(pb);

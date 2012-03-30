@@ -8,7 +8,7 @@ demopath = get_absolute_file_path("mesh_read.sce");
 write(%io(2),'')
 write(%io(2),'')
 write(%io(2),'       +++++++++++++++++++++++++++++++++++++');
-write(%io(2),'       +  MmodD        2d mesh format      +');
+write(%io(2),'       +  MmodD        3d mesh format      +');
 write(%io(2),'       +++++++++++++++++++++++++++++++++++++');
 write(%io(2),'')
 write(%io(2),'-->\\------- NETGEN Format -------');
