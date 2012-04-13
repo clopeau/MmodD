@@ -3,7 +3,7 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-Files_f=["prime.f90" "tri2ed.f90"]
+Files_f=["prime.f" "tri2ed.f"]
 functions_f=["prime" "tri2ed"];
 //for i=1:size(Files_f,1)
 //  functions_f(i)=part(functions_f(i),1:length(functions_f(i))-2);
@@ -11,7 +11,7 @@ functions_f=["prime" "tri2ed"];
 
 tbx_build_src([functions_f], [Files_f], 'f', ..
               get_absolute_file_path('builder_mmodd.sce'),..
-	      "","","","","gfortran","MmodD");
+	      "","","","","","MmodD");
 
 clear tbx_build_src;
 
