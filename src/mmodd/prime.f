@@ -11,7 +11,7 @@ c      http://www.cecill.info
 !
       integer k,l,m,u
       integer primes( nprime )
-
+!
       DATA primes/251,887,1609,2383,3209,4013,4889,5737,6607,7529,
      & 8429,9323,10223,11173,12149,13043,14011,14983,15907,16937,
      & 17921,18919,19937,20929,21871,22871,23869,24919,25939,26927,
@@ -39,7 +39,7 @@ c      http://www.cecill.info
      & 257713,258919,260209,261557,262783,264031,265273,266521,267643,
      & 268909,270143,271351,272549,273943,275183,276371,277657,278903,
      & 280249,281431,282677,284003,285121,286493/
-
+!
       if (k .le. primes(1)) then
          outprime = primes(1)
          return
@@ -52,11 +52,8 @@ c      http://www.cecill.info
 !
       l = 1
       u = nprime
-      
    10 continue
-
       m = (l + u)/2
-
       if (k .lt. primes(m)) then
          u = m - 1
       else if (k .gt. primes(m)) then
@@ -65,7 +62,6 @@ c      http://www.cecill.info
          outprime = primes(m)
          return
       endif
-
-      if (l .le. u) go to 10
+      if (l .le. u) goto 10
       outprime = primes(u+1)
       end

@@ -24,8 +24,7 @@
       enddo
       do i=1,3*ntri
          ed3(i)=0
-      end do
-      
+      end do      
 !--- indexation
       ind(1,1)=2
       ind(1,2)=3
@@ -63,7 +62,6 @@
            endif
  20     continue
  10   continue
-       
       end 
 
    
