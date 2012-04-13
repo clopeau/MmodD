@@ -6,7 +6,7 @@ funcprot(0)
 
 sci_gateway_dir = get_absolute_file_path('builder_gateway.sce');
 
-rep=["sparskit","mmodd"];
+rep=["sparskit"] //,"mmodd"];
 
 tbx_builder_gateway_lang(rep(1), sci_gateway_dir);
 tbx_builder_gateway_lang(rep(2), sci_gateway_dir);

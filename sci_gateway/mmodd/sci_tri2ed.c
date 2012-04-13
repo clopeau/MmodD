@@ -19,8 +19,8 @@ end
 #include <sciprint.h>
 
 
-extern int F2C(tri2ed)(int *ntri,int *tri,int *ned,int *ed,int *tried,int *hts, int *wht,int *wed);
-extern int F2C(prime)(int *ntri,int *jtri);
+extern void F2C(tri2ed)(int *ntri,int *tri,int *ned,int *ed,int *tried,int *hts, int *wht,int *wed);
+extern void F2C(prime)(int *ntri,int *jtri);
 
 extern int sci_tri2ed(char *fname)
 { 
