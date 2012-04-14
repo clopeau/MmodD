@@ -16,7 +16,11 @@ names
 lib
 hs_err_pid*.log
 libitsolve_fortran.c
+libsciSparskit.c
+libsci_Sparskit.c
 libMmodD.c
+libsci_MmodD.c
+libsciMmodD.c
 #
 # Generated files (Windows)
 #

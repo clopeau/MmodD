@@ -21,7 +21,7 @@ functions=['splsolve';'spusolve';'triangular';...
 Files='int'+functions+'.c';
 Files=Files';
 
-tbx_build_gateway('itsolve_fortran', [functions 'int'+functions], [Files], ..
+tbx_build_gateway('sci_Sparskit', [functions 'int'+functions], [Files], ..
                   locpath, ..
                   ['../../src/sparskit/libSparskit';'../../src/scilin/libScilin'],'',includes_src_c);
                   

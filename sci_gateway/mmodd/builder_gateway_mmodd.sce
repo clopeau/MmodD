@@ -17,7 +17,7 @@ functions=['tri2ed'];
 Files='sci_'+functions+'.c';
 Files=Files';
 
-tbx_build_gateway('MmodD', [functions 'sci_'+functions], [Files], ..
+tbx_build_gateway('sci_MmodD', [functions 'sci_'+functions], [Files], ..
                   locpath, ..
                   ['../../src/mmodd/libMmodD'],'',includes_src_c);
                   
