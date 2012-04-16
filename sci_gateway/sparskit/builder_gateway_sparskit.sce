@@ -13,7 +13,7 @@ else
   includes_src_c = '-I' + locpath + '../../src/scilin'+' '..
                   +'-I' + locpath + '../../src/sparskit';
 end
-if c_link('libitsolve_fortran'),ulink;end;
+if c_link('sci_Sparskit'),ulink;end;
 functions=['splsolve';'spusolve';'triangular';...
 	'pgmres';'pgc';'pbgc';'pdbgc';'pgcnr';...
 	'pbcgstab';'pqmr';'shurgmres';'mshurgmres'];
