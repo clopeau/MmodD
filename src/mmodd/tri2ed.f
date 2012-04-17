@@ -10,7 +10,7 @@
 !------------------------------------------------------------------
       implicit none
 !
-      INTEGER prime,i,j,ind(3,2),htsiz
+      INTEGER i,j,ind(3,2),htsiz
       INTEGER aa,bb,cc,k,ii
       INTEGER ntri,tri(ntri,3),ned,ed(3*ntri,2),tried(ntri,3)
       INTEGER ht(htsiz),ed3(3*ntri)
@@ -48,7 +48,7 @@
            do 30 while (ii .gt. 0)
               if (ed(ii,1).eq.aa .and. ed(ii,2).eq.bb) then
                  tried(i,j)=ii
-                 goto 30
+                 goto 20
               endif
               ii = ed3(ii)
  30        continue
