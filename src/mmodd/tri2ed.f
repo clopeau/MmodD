@@ -48,7 +48,7 @@
            do 30 while (ii .gt. 0)
               if (ed(ii,1).eq.aa .and. ed(ii,2).eq.bb) then
                  tried(i,j)=ii
-                 exit
+                 goto 30
               endif
               ii = ed3(ii)
  30        continue
