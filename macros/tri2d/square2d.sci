@@ -92,7 +92,7 @@ function th=square2d(x,y,nx,ny)
      th.Tri($-(nx-1)*(ny-1),:)=[nx*ny nx*(ny-1)-1 nx*(ny-1)];
    end
    // Reordonnancement des triangles 
-   [tmp,i]=lex_sort(th.Tri); clear tmp;
+   [tmp,i]=gsort(th.Tri,'lr','i'); clear tmp;
    th.Tri=th.Tri(i,:);
    th.TriId=ones(th.Tri(:,1));
    //-------
