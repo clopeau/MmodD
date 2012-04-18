@@ -11,8 +11,8 @@ if MSDOS then
 else
   includes_src_c = '-I' + locpath + '../../src/mmodd';
 end
-if c_link('libMmodD'),ulink;end;
-functions=['tri2ed'];
+if c_link('libsci_MmodD'),ulink;end;
+functions=['tri2ed';'fastsparse'];
 
 Files='sci_'+functions+'.c';
 Files=Files';

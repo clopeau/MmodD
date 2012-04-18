@@ -3,8 +3,8 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-Files_f=["prime.f" "tri2ed.f"]
-functions_f=["prime" "tri2ed"];
+Files_f=["prime.f" "tri2ed.f" "fastsparse.f']
+functions_f=["prime" "tri2ed" "fastsparse"];
 //for i=1:size(Files_f,1)
 //  functions_f(i)=part(functions_f(i),1:length(functions_f(i))-2);
 //end
