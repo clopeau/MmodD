@@ -8,13 +8,12 @@ sp2=fastsparse([1,2;4,5;3,10],[2,1,3],[4,10]);
 sp1=sparse([1,2;4,5;3,10],[2,1,3],[4,10]);
 sp-sp1
 stacksize('max')
-for n=100:50:600
+for n=100:50:1000
   th=square2d(n,n);
   [np,nt]=size(th);
   timer();sp1=sparse([th.Tri(:,1:2);th.Tri(:,2:3);th.Tri(:,[1 3])],ones(1:3*nt),[np,np]);t=timer();
   timer();sp2=fastsparse([th.Tri(:,1:2);th.Tri(:,2:3);th.Tri(:,[1 3])],ones(1:3*nt),[np,np]);tfast=timer();
-  disp(max(Res=sp1-sp2))
-  write(%io(2),string(np)+'- sparse '+string(t)+'  fast '+string(tfast))
+  write(%io(2),string(np)+' diff='+string(abs(max(sp1-sp2)))+'- sparse '+string(t)+'s  fast '+string(tfast)+'s  ratio :'+string(t/tfast))
 end
 */
 #include "api_scilab.h"
