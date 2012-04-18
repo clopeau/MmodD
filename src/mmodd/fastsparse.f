@@ -10,7 +10,7 @@
 !------------------------------------------------------------------
       implicit none
 !     
-      INTEGER nnz,nl,i,j,ii,ii_old,ii_old2,itmp,jtmp,jref,newnnz,ierr
+      INTEGER nnz,nl,i,ii,ii_old,ii_old2,itmp,jtmp,jref,newnnz,ierr
       INTEGER ij(nnz,2),pij(nnz),jout(nl)
       REAL*8 a(nnz)
 !---- initialisation 
@@ -37,8 +37,8 @@
             do 30 while ((ii .gt. 0).and.(jtmp.lt.jref))
                jtmp=ij(ii,2)
                ii_old2=ii_old
-               ii_old=ii;
-               ii=pij(ii);
+               ii_old=ii
+               ii=pij(ii)
  30         continue
             if (jtmp.eq.jref) then
                a(ii_old) = a(ii_old) + a(i)
