@@ -15,14 +15,14 @@ function B=Id_p1_2d(%u,opt)
      cid=1/12; 
 	     
      B=spzeros(nf,nf);
-     Diag=spzeros(nf,1);
+     Diag=spzeros(nf,nf);
      for i=1:3
-       execstr('Diag=Diag+sparse(['+%th+'.Tri(:,i),ones(nt,1)],'+%th+'.Det*cid,[nf,1])');
+       execstr('Diag=Diag+fastsparse('+%th+'.Tri(:,[i i]),'+%th+'.Det*cid,[nf,nf])');
        for j=i+1:3
-	execstr('B=B+sparse('+%th+'.Tri(:,[i j]),'+%th+'.Det*ci,[nf,nf])')
+	execstr('B=B+fastsparse('+%th+'.Tri(:,[i j]),'+%th+'.Det*ci,[nf,nf])')
        end
      end
-     B=B+B'+diag(Diag)
+     B=B+B'+Diag;
    else
      Matel=[1/3 1/6 ; 1/6 1/3];
      %th=%u.geo
@@ -43,7 +43,7 @@ function B=Id_p1_2d(%u,opt)
      
      for i=1:2
        for j=1:2
-	 B=B+sparse([ind(i:$+i-2),ind(j:$+j-2)],long*Matel(i,j),[ntot,ntot]) 
+	 B=B+fastsparse([ind(i:$+i-2),ind(j:$+j-2)],long*Matel(i,j),[ntot,ntot]) 
        end
      end
 

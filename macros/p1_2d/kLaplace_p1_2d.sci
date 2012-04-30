@@ -18,30 +18,29 @@ function A=kLaplace_p1_2d(%kk,%u)
   Tmp2=zeros(nt,2); // 2 eme fcr de base
   // Tensor matrix
   A=spzeros(nf,nf);
-  Diag=spzeros(nf,1);
+  Diag=spzeros(nf,nf);
   
   for i=1:3
     // init fct de base i
     execstr('Tmp1='+%th+'.Shape_p1_Grad(i)');
     // Assemblage termes diagonal
     
-    tmp=sum(Tmp1.^2,'c') .*invdet;
+    tmp=((Tmp1.*Tmp1)*[1;1]) .*invdet;
     
-    execstr('Diag=Diag+sparse(['+%th+'.Tri(:,i),ones(nt,1)],tmp,[nf,1])');
+    execstr('Diag=Diag+fastsparse(['+%th+'.Tri(:,i),ones(nt,1)],tmp,[nf,nf])');
     //
     for j=i+1:3
       // init fonct de base j
       execstr('Tmp2='+%th+'.Shape_p1_Grad(j)');
       
-      tmp=sum(Tmp1.*Tmp2,'c') .*invdet;
+      tmp=((Tmp1.*Tmp2)*[1;1]) .*invdet;
       
-      execstr('A=A+sparse('+%th+'.Tri(:,[i,j]),tmp,[nf,nf])');
+      execstr('A=A+fastsparse('+%th+'.Tri(:,[i,j]),tmp,[nf,nf])');
 
     end
   end
-  
-  clear Tmp1 Tmp2;  
-  A=A+A'+diag(Diag);
+    
+  A=A+A'+Diag;
 
 endfunction
 

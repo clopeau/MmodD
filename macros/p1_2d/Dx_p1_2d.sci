@@ -3,20 +3,18 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 function A=Dx_p1_2d(%u)
-  %th=evstr(%u.geo);
-  [nf,nt]=size(%th);
+  %th=%u.geo;
+  execstr('[nf,nt]=size('+%th+')');
   index=[2 3; 3 1; 1 2]';
   //-------------- Assemblage -------------------------------------------------
   A=spzeros(nf,nf);
-
   for i=1:3
     // init fct de base i
-    tmp=%th.Coor(%th.Tri(:,index(2,i)),2)-...
-	%th.Coor(%th.Tri(:,index(1,i)),2);
+    execstr('tmp='+%th+'.Shape_p1_Grad(i)(:,1)');
     tmp=tmp/6;
  
     for j=1:3
-      A=A+sparse(%th.Tri(:,[i,j]),tmp,[nf,nf]);
+      execstr('A=A+fastsparse('+%th+'.Tri(:,[i,j]),tmp,[nf,nf])');
     end
   end
 

@@ -4,20 +4,19 @@
 // http://www.cecill.info 
 
 function A=Dy_p1_2d(%u)
-  %th=evstr(%u.geo);
-  [nf,nt]=size(%th);
+  %th=%u.geo;
+  execstr('[nf,nt]=size('+%th+')');
   index=[2 3; 3 1; 1 2]';
   //-------------- Assemblage -------------------------------------------------
   A=spzeros(nf,nf);
 
   for i=1:3
     // init fct de base i
-    tmp=%th.Coor(%th.Tri(:,index(1,i)),1)-...
-	%th.Coor(%th.Tri(:,index(2,i)),1);
+    execstr('tmp='+%th+'.Shape_p1_Grad(i)(:,2)');
     tmp=tmp/6;
  
     for j=1:3
-      A=A+sparse(%th.Tri(:,[i,j]),tmp,[nf,nf]);
+      execstr('A=A+fastsparse('+%th+'.Tri(:,[i,j]),tmp,[nf,nf])');
     end
   end
 
