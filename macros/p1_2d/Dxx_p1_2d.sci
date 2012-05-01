@@ -6,7 +6,6 @@
 function A=Dxx_p1_2d(%u)
   %th=%u.geo;
   execstr('[nf,nt]=size('+%th+')');
-  index=[2 3; 3 1; 1 2]';
   //------------- Calcul du déterminant ---------------------------------------
   execstr('invdet=(-1/2) ./'+%th+'.Det')
   //-------------- Assemblage -------------------------------------------------
@@ -22,11 +21,11 @@ function A=Dxx_p1_2d(%u)
     // Assemblage termes diagonal
     tmp=Tmp1.*Tmp1 .*invdet;
     
-    execstr('Diag=Diag+fastsparse(['+%th+'.Tri(:,i),ones(nt,1)],tmp,[nf,nf])');
+    execstr('Diag=Diag+fastsparse('+%th+'.Tri(:,[i i]),tmp,[nf,nf])');
     //
     for j=i+1:3
       // init fonct de base j
-      execstr('Tmp1='+%th+'.Shape_p1_Grad(j)(:,1)');
+      execstr('Tmp2='+%th+'.Shape_p1_Grad(j)(:,1)');
        
       tmp=Tmp1.*Tmp2 .*invdet;
       

@@ -27,7 +27,7 @@ function A=kLaplace_p1_2d(%kk,%u)
     
     tmp=((Tmp1.*Tmp1)*[1;1]) .*invdet;
     
-    execstr('Diag=Diag+fastsparse(['+%th+'.Tri(:,i),ones(nt,1)],tmp,[nf,nf])');
+    execstr('Diag=Diag+fastsparse('+%th+'.Tri(:,[i i]),tmp,[nf,nf])');
     //
     for j=i+1:3
       // init fonct de base j

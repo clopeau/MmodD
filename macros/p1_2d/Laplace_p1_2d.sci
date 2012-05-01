@@ -32,7 +32,6 @@ function A=Laplace_p1_2d(%u)
     end
   end
   
-  clear Tmp1 Tmp2;  
   A=A+A'+Diag;
 
 endfunction
