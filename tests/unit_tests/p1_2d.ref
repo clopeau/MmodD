@@ -1,0 +1,24 @@
+// Copyright (C) 2012 - Thierry Clopeau
+//
+// This file must be used under the terms of the CeCILL.
+// This source file is licensed as described in the file COPYING, which
+// you should have received as part of this distribution. The terms
+// are also available at
+// http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+
+test=square2d(30,30);
+test.TriId(1:300)=2;
+test.TriId(301:500)=3;
+// classical call
+var=p1(test);
+var=p1(test,'x+y');
+if length(var.Node)<>size(test) then pause, end
+// subdomains call
+var=p1(test,domain=2);
+if var.domain<>2  then pause, end
+var=p1(test,domain=[3 1]);
+if var.domain<>[3 1]  then pause, end
+var=p1(test,'x+y',domain=2);
+if length(var.Node)<>186 then pause, end
+var=p1(test,'x+y',domain=[3 1]);
+if length(var.Node)<>745 then pause, end

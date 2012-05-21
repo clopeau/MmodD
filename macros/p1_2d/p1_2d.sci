@@ -3,16 +3,26 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function [out,%th]=p1_2d(%th,%fonction)
+function [out,%th]=p1_2d(%th,%fonction,%domain)
 // Node est le seul champ 
    [lhs,rhs]=argn(0);
    if rhs==0
-     out=mlist(['p1_2d';'#';'Id';'geo';'Node';'Time'],rand(),"","",[],[]);
+     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'NodeId';'Time']..
+	 ,rand(),"","",[],[],[],[]);
    elseif rhs==1
      %fonction="";
-     out=mlist(['p1_2d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name_mmodd(%th),[],[]);     
-   elseif rhs==2
-     out=mlist(['p1_2d';'#';'Id';'geo';'Node';'Time'],rand(),%fonction,name_mmodd(%th),[],[]);   
+     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'NodeId';'Time']..
+	 ,rand(),%fonction,name_mmodd(%th),[],[],[],[]);     
+   elseif rhs==2 & ~exists('domain','local')
+     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'NodeId';'Time']..
+	 ,rand(),%fonction,name_mmodd(%th),[],[],[],[]);  
+     interpol(out,%fonction);
+   elseif rhs==2 & exists('domain','local')
+     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'NodeId';'Time']..
+	 ,rand(),"",name_mmodd(%th),domain,[],[],[]);
+   else
+     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'NodeId';'Time']..
+	 ,rand(),%fonction,name_mmodd(%th),domain,[],[],[]);
      interpol(out,%fonction);
    end
    
