@@ -1,4 +1,4 @@
-// Copyright (C) 2011 - Thierry Clopeau
+// Copyright (C) 2011-12 - Thierry Clopeau
 // 
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
@@ -16,7 +16,8 @@ function p1_2d_contour2d(%v,%x,cbar,style,strf,leg,rect,nax,logflag,frameflag,ax
 	
   
      %th=evstr(%v.geo); 
-
+     [np,nt]=size(%th);
+     
      if %v.Node==[]
        disp(' --- Empty variable ---');
        return
@@ -54,8 +55,18 @@ function p1_2d_contour2d(%v,%x,cbar,style,strf,leg,rect,nax,logflag,frameflag,ax
     EdgeLevely=list();
     nlevel=0;
     for %lev=%x
-      %tri=%v.Node<%lev;
-      %tri=matrix(%tri(%th.Tri),-1,3);
+      if %v.domain<>[]
+	%tri=~ones(np,1)
+	%tri(%v.BoolNode)=%v.Node<%lev;
+	indtri=~ones(nt,1);
+	for i=1:length(%v.domain)
+	  indtri=indtri | %th.TriId==%v.domain(i);
+	end
+	 %tri=matrix(%tri(%th.Tri),-1,3) & indtri(:,[1 1 1]);
+      else
+	%tri=%v.Node<%lev;
+	%tri=matrix(%tri(%th.Tri),-1,3);
+      end
       %stri=sum(%tri,'c');
       // search triangle
       %ind= %stri==2;
@@ -70,10 +81,17 @@ function p1_2d_contour2d(%v,%x,cbar,style,strf,leg,rect,nax,logflag,frameflag,ax
 	  %X=zeros(length(%ind_loc),2);
 	  %Y=zeros(length(%ind_loc),2);
 	  for jj=1:2
-	    %bari=zeros(length(%ind_loc));
+	    if %v.domain<>[]
+	      fun_rec=spzeros(np,1);
+	      fun_rec(%v.BoolNode)=(1:sum(%v.BoolNode))';
+	      %bari=(%v.Node(full(fun_rec(%th.Tri(%ind_loc,ii))))-%lev)./ ..
+		(%v.Node(full(fun_rec(%th.Tri(%ind_loc,ii))))- ..
+		 %v.Node(full(fun_rec(%th.Tri(%ind_loc,lindex(ii,jj))))));
+	   else
 	    %bari=(%v.Node(%th.Tri(%ind_loc,ii))-%lev)./ ..
 		(%v.Node(%th.Tri(%ind_loc,ii))- ..
 		 %v.Node(%th.Tri(%ind_loc,lindex(ii,jj))));
+	   end
 	    %XY=%th.Coor(%th.Tri(%ind_loc,ii),:)- ..
 		%bari(:,[1 1]).*(%th.Coor(%th.Tri(%ind_loc,ii),:)- ...
 			      %th.Coor(%th.Tri(%ind_loc,lindex(ii,jj)),:));
@@ -85,14 +103,14 @@ function p1_2d_contour2d(%v,%x,cbar,style,strf,leg,rect,nax,logflag,frameflag,ax
 	end
       end
       if %XX<>[]
-	EdgeLevelx($+1)=%XX';
-	EdgeLevely($+1)=%YY';
+	EdgeLevelx($+1)=%XX' ;
+	EdgeLevely($+1)=%YY' ;
 	nlevel=nlevel+1
       else
 	%x(%x==%lev)=[];
       end
     end
-      
+   
     for i=1:nlevel
       if (zminmax(2)-zminmax(1))>0
 	coul=coulmax*(zminmax(1)-%x(i))/(zminmax(1)-zminmax(2))

@@ -1,10 +1,11 @@
-// Copyright (C) 2011 - Thierry Clopeau
+// Copyright (C) 2011-12 - Thierry Clopeau
 // 
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
 function p1_2d_contour3d(%v,%x,cbar,theta,alpha,leg,flag,ebox)
     %th=evstr(%v.geo); 
+    [np,nt]=size(%th);
     
     opts=[]
     if exists('theta','local')==1 then opts=[opts,'theta=theta'],end
@@ -54,8 +55,18 @@ function p1_2d_contour3d(%v,%x,cbar,theta,alpha,leg,flag,ebox)
     EdgeLevely=list();
     nlevel=0;
     for %lev=%x
-      %tri=%v.Node<%lev;
-      %tri=matrix(%tri(%th.Tri),-1,3);
+      if %v.domain<>[]
+	%tri=~ones(np,1)
+	%tri(%v.BoolNode)=%v.Node<%lev;
+	indtri=~ones(nt,1);
+	for i=1:length(%v.domain)
+	  indtri=indtri | %th.TriId==%v.domain(i);
+	end
+	 %tri=matrix(%tri(%th.Tri),-1,3) & indtri(:,[1 1 1]);
+      else
+	%tri=%v.Node<%lev;
+	%tri=matrix(%tri(%th.Tri),-1,3);
+      end
       %stri=sum(%tri,'c');
       // search triangle
       %ind= %stri==2;
@@ -70,13 +81,20 @@ function p1_2d_contour3d(%v,%x,cbar,theta,alpha,leg,flag,ebox)
 	  %X=zeros(length(%ind_loc),2);
 	  %Y=zeros(length(%ind_loc),2);
 	  for jj=1:2
-	    %bari=zeros(length(%ind_loc));
-	    %bari=(%v.Node(%th.Tri(%ind_loc,ii))-%lev)./ ..
-		(%v.Node(%th.Tri(%ind_loc,ii))- ..
-		 %v.Node(%th.Tri(%ind_loc,lindex(ii,jj))));
+	    if %v.domain<>[]
+	      fun_rec=spzeros(np,1);
+	      fun_rec(%v.BoolNode)=(1:sum(%v.BoolNode))';
+	      %bari=(%v.Node(full(fun_rec(%th.Tri(%ind_loc,ii))))-%lev)./ ..
+		  (%v.Node(full(fun_rec(%th.Tri(%ind_loc,ii))))- ..
+		  %v.Node(full(fun_rec(%th.Tri(%ind_loc,lindex(ii,jj))))));
+	    else
+	      %bari=(%v.Node(%th.Tri(%ind_loc,ii))-%lev)./ ..
+		  (%v.Node(%th.Tri(%ind_loc,ii))- ..
+		  %v.Node(%th.Tri(%ind_loc,lindex(ii,jj))));
+	    end
 	    %XY=%th.Coor(%th.Tri(%ind_loc,ii),:)- ..
 		%bari(:,[1 1]).*(%th.Coor(%th.Tri(%ind_loc,ii),:)- ...
-			      %th.Coor(%th.Tri(%ind_loc,lindex(ii,jj)),:));
+		%th.Coor(%th.Tri(%ind_loc,lindex(ii,jj)),:));
 	    %X(:,jj)=%XY(:,1);
 	    %Y(:,jj)=%XY(:,2);
 	  end

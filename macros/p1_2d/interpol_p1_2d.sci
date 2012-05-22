@@ -12,7 +12,7 @@ function %u=interpol_p1_2d(%u,%fonction)
       for i=1:length(%u.domain)
 	execstr('%ind(unique('+%u.geo+'.Tri('+%u.geo+'.TriId== %u.domain(i),:)))=%t')
       end
-      %u.NodeId=find(%ind)';
+      %u.BoolNode=%ind;
     end
     
     if grep(%fonction,'x')~=[]

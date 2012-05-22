@@ -42,14 +42,35 @@ function p1_2d_plot3d(%v,cbar,theta,alpha,leg,flag,ebox)
     end
    
     // begin of the code
-    xx=matrix(%th.Coor(%th.Tri,1),-1,3)';
-    yy=matrix(%th.Coor(%th.Tri,2),-1,3)';
-    if typeof(%th)=="tri2d"
-      zz=matrix(%v.Node(%th.Tri),-1,3)';
-      coul=zz;
+    [np,nt]=size(%th);
+    index=[1 3 2]
+    if %v.domain<>[]
+      indtri=~zeros(nt,1);
+      fun_rec=spzeros(np,1);
+      fun_rec(%v.BoolNode)=(1:sum(%v.BoolNode))';
+      indtri=~indtri;
+      for i=1:length(%v.domain)
+	indtri=indtri | %th.TriId==%v.domain(i);
+      end
+      xx=matrix(%th.Coor(%th.Tri(indtri,index),1),-1,3)';
+      yy=matrix(%th.Coor(%th.Tri(indtri,index),2),-1,3)';
+      if typeof(%th)=="tri2d"
+	zz=matrix(%v.Node(full(fun_rec(%th.Tri(indtri,index)))),-1,3)';
+	coul=zz
+      else
+	zz=matrix(%th.Coor(%th.Tri(indtri,index),3),-1,3)';
+	coul=matrix(%v.Node(full(fun_rec(%th.Tri(indtri,index)))),-1,3)';
+      end
     else
-      zz=matrix(%th.Coor(%th.Tri,3),-1,3)';
-      coul=matrix(%v.Node(%th.Tri),-1,3)';
+      xx=matrix(%th.Coor(%th.Tri(:,index),1),-1,3)';
+      yy=matrix(%th.Coor(%th.Tri(:,index),2),-1,3)';
+      if typeof(%th)=="tri2d"
+	zz=matrix(%v.Node(%th.Tri(:,index)),-1,3)';
+	coul=zz;
+      else
+	zz=matrix(%th.Coor(%th.Tr(:,index),3),-1,3)';
+	coul=matrix(%v.Node(%th.Tri(:,index)),-1,3)';
+      end
     end
 
     if mi~=ma
@@ -58,10 +79,11 @@ function p1_2d_plot3d(%v,cbar,theta,alpha,leg,flag,ebox)
       coul=round(coulmax/2)*ones(coul(1,:));
     end
     
-    index=[1 3 2]
-    execstr('plot3d(xx(index,:),yy(index,:),..
-	    list(zz(index,:)+max(0.0001,0.0001*(ma-mi)),coul(index,:)),'+strcat(opts,',')+')');
-  
+    execstr('plot3d(xx,yy,list(zz,coul),'+..
+	strcat(opts,',')+')');
+    my_g=gca();
+    my_g.children(1).hiddencolor=-1; // recto verso
+    my_g.children(1).color_mode=-1;  // without edges
     my_plot3d.immediate_drawing=old_imdraw;
 endfunction
   
