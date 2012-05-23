@@ -7,26 +7,30 @@ function [out,%th]=p1_2d(%th,%fonction,%domain)
 // Node est le seul champ 
    [lhs,rhs]=argn(0);
    if rhs==0
-     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'BoolNode';'Time']..
-	 ,rand(),"","",[],[],[],[]);
+     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'BoolNode';'BoolTri';'Time']..
+	 ,rand(),"","",[],[],[],[],[]);
    elseif rhs==1
      %fonction="";
-     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'BoolNode';'Time']..
-	 ,rand(),%fonction,name_mmodd(%th),[],[],[],[]);     
+     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'BoolNode';'BoolTri';'Time']..
+	 ,rand(),%fonction,name_mmodd(%th),[],[],[],[],[]);     
    elseif rhs==2 & ~exists('domain','local')
-     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'BoolNode';'Time']..
-	 ,rand(),%fonction,name_mmodd(%th),[],[],[],[]);  
+     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'BoolNode';'BoolTri';'Time']..
+	 ,rand(),%fonction,name_mmodd(%th),[],[],[],[],[]);  
      interpol(out,%fonction);
    elseif rhs==2 & exists('domain','local')
-     %ind=~ones(size(%th),1);
+     [%np,%nt]=size(%th);
+     %ind=~ones(%np,1);
+     %ind2=~ones(%nt,1);
      for i=1:length(domain)
-       %ind(matrix(%th.Tri(%th.TriId==domain(i),:),-1,1))=%t;
+       %tmp=%th.TriId==domain(i)
+       %ind(matrix(%th.Tri(%tmp,:),-1,1))=%t;
+       %ind2=%ind2 | %tmp
       end
-     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'BoolNode';'Time']..
-	 ,rand(),"",name_mmodd(%th),domain,[],%ind,[]);
+     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'BoolNode';'BoolTri';'Time']..
+	 ,rand(),"",name_mmodd(%th),domain,[],%ind,%ind2,[]);
    else
-     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'BoolNode';'Time']..
-	 ,rand(),%fonction,name_mmodd(%th),domain,[],[],[]);
+     out=mlist(['p1_2d';'#';'Id';'geo';'domain';'Node';'BoolNode';'BoolTri';'Time']..
+	 ,rand(),%fonction,name_mmodd(%th),domain,[],[],[],[]);
      interpol(out,%fonction);
    end
    

@@ -6,13 +6,18 @@
 function %u=interpol_p1_2d(%u,%fonction)
 
     // particular case for a variable defining on subdomains
-    execstr('%ind=~zeros(size('+%u.geo+'),1)');
+    execstr('[%np,%nt]=size('+%u.geo+')')
+    %ind=~zeros(%np,1);
+    %ind2=~ones(%nt,1);
     if %u.domain~=[]
       %ind=~%ind;
       for i=1:length(%u.domain)
-	execstr('%ind(unique('+%u.geo+'.Tri('+%u.geo+'.TriId== %u.domain(i),:)))=%t')
+	%tmp=evstr(%u.geo+'.TriId== %u.domain(i)');	
+	execstr('%ind(unique('+%u.geo+'.Tri(%tmp,:)))=%t')
+	%ind2=%ind2 | %tmp
       end
       %u.BoolNode=%ind;
+      %u.BoolTri=%ind2
     end
     
     if grep(%fonction,'x')~=[]
