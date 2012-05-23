@@ -15,18 +15,35 @@ function A=Dxy_p1_2d(%u)
   // Tensor matrix
   A=spzeros(nf,nf);
   
-  for i=1:3
-    // init fct de base i
-    execstr('Tmp1='+%th+'.Shape_p1_Grad(i)(:,1)');
-
-    for j=1:3
-      // init fonct de base j
-      execstr('Tmp2='+%th+'.Shape_p1_Grad(j)(:,2)');
+  if %u.domain==[]
+    for i=1:3
+      // init fct de base i
+      execstr('Tmp1='+%th+'.Shape_p1_Grad(i)(:,1)');
       
-      tmp=Tmp1.*Tmp2 .*invdet;
-      
-      execstr('A=A+fastsparse('+%th+'.Tri(:,[i,j]),tmp,[nf,nf])');
+      for j=1:3
+	// init fonct de base j
+	execstr('Tmp2='+%th+'.Shape_p1_Grad(j)(:,2)');
+	
+	tmp=Tmp1.*Tmp2 .*invdet;
+	
+	execstr('A=A+fastsparse('+%th+'.Tri(:,[i,j]),tmp,[nf,nf])');
+      end
     end
+  else
+    for i=1:3
+      // init fct de base i
+      execstr('Tmp1='+%th+'.Shape_p1_Grad(i)(%u.BoolTri,1)');
+      
+      for j=1:3
+	// init fonct de base j
+	execstr('Tmp2='+%th+'.Shape_p1_Grad(j)(%u.BoolTri,2)');
+	
+	tmp=Tmp1.*Tmp2 .*invdet;
+	
+	execstr('A=A+fastsparse('+%th+'.Tri(%u.BoolTri,[i,j]),tmp,[nf,nf])');
+      end
+    end
+    A=A(%u.BoolNode,%u.BoolNode);
   end
   
 

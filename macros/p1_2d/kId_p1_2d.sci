@@ -21,13 +21,24 @@ function B=kId_p1_2d(%kk,%u)
      
      B=spzeros(nf,nf);
      Diag=spzeros(nf,nf);
-     for i=1:3
-       execstr('Diag=Diag+fastsparse('+%th+'.Tri(:,[i i]),Det*cid,[nf,nf])');
-       for j=i+1:3
-	 execstr('B=B+fastsparse('+%th+'.Tri(:,[i j]),Det*ci,[nf,nf])');
+     if %u.domain==[]
+       for i=1:3
+	 execstr('Diag=Diag+fastsparse('+%th+'.Tri(:,[i i]),Det*cid,[nf,nf])');
+	 for j=i+1:3
+	   execstr('B=B+fastsparse('+%th+'.Tri(:,[i j]),Det*ci,[nf,nf])');
+	 end
        end
+       B=B+B'+Diag;
+     else
+        for i=1:3
+	 execstr('Diag=Diag+fastsparse('+%th+'.Tri(%u.BoolTri,[i i]),Det(%u.BoolTri)*cid,[nf,nf])');
+	 for j=i+1:3
+	   execstr('B=B+fastsparse('+%th+'.Tri(%u.BoolTri,[i j]),Det(%u.BoolTri)*ci,[nf,nf])');
+	 end
+       end
+       B=B+B'+Diag;
+       B=B(%u.BoolNode,%u.BoolNode);
      end
-     B=B+B'+Diag;
 
  endfunction
  

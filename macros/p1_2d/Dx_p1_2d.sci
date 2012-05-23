@@ -8,15 +8,28 @@ function A=Dx_p1_2d(%u)
   index=[2 3; 3 1; 1 2]';
   //-------------- Assemblage -------------------------------------------------
   A=spzeros(nf,nf);
-  for i=1:3
-    // init fct de base i
-    execstr('tmp='+%th+'.Shape_p1_Grad(i)(:,1)');
-    tmp=tmp/6;
- 
-    for j=1:3
-      execstr('A=A+fastsparse('+%th+'.Tri(:,[i,j]),tmp,[nf,nf])');
+  
+  if %u.domain==[]
+    for i=1:3
+      // init fct de base i
+      execstr('tmp='+%th+'.Shape_p1_Grad(i)(:,1)');
+      tmp=tmp/6;
+      
+      for j=1:3
+	execstr('A=A+fastsparse('+%th+'.Tri(:,[i,j]),tmp,[nf,nf])');
+      end
     end
+  else
+    for i=1:3
+      // init fct de base i
+      execstr('tmp='+%th+'.Shape_p1_Grad(i)(%u.BoolTri,1)');
+      tmp=tmp/6;
+      
+      for j=1:3
+	execstr('A=A+fastsparse('+%th+'.Tri(%u.BoolTri,[i,j]),tmp,[nf,nf])');
+      end
+    end
+    A=A(%u.BoolNode,%u.BoolNode);
   end
-
 endfunction
 

@@ -32,12 +32,21 @@ function %in=assemble_pde_p1_2d(%in,opt)
   // second membre
   if find(opt==2)~=[]
     %in.b=[];
-    execstr('b=p1_2d('+%in.geo+','''+smbr+''')');
+    %domain= evstr(%in.var+'.domain')
+    if  %domain==[]
+      execstr('b=p1_2d('+%in.geo+','''+smbr+''')');
+    else
+      execstr('b=p1_2d('+%in.geo+','''+smbr+''',domain=%domain)');
+    end
     execstr('%in.b=Id('+%in.var+')*b.Node');
     clear b
     //for i=1:length(%in.BndId)
     //  %in.b(evstr(%in.geo+'('''+%in.BndId(i)+''')'))=0
     //end
+    if %domain~=[]
+      %tmp=evstr('cumsum('+%in.var+'.BoolNode)');
+      execstr('%tmp(~'+%in.var+'.BoolNode)=0');
+    end
     
     for i=1:size(%in.BndId,'*')
       ind=strindex(%in.BndVal(i),'=')
@@ -51,8 +60,16 @@ function %in=assemble_pde_p1_2d(%in,opt)
 	%PP=%Penal;
       end
       execstr('ind='+%in.geo+'.Bnd(i)');
-      execstr('M=Id_p1_2d('+%in.var+','''+%in.BndId(i)+''')');
-      %in.b(ind)=%in.b(ind)+%PP*M(ind,ind)*bloc.Node
+      if  %domain~=[]
+	ind=%tmp(ind);
+	if min(ind)>0
+	  execstr('M=Id_p1_2d('+%in.var+','''+%in.BndId(i)+''')');
+	  %in.b(ind)=%in.b(ind)+%PP*M(ind,ind)*bloc.Node
+	end
+      else
+	execstr('M=Id_p1_2d('+%in.var+','''+%in.BndId(i)+''')');
+	%in.b(ind)=%in.b(ind)+%PP*M(ind,ind)*bloc.Node
+      end
     end
   end
     

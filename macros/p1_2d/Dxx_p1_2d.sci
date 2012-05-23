@@ -15,25 +15,48 @@ function A=Dxx_p1_2d(%u)
   A=spzeros(nf,nf);
   Diag=spzeros(nf,nf);
   
-  for i=1:3
-    // init fct de base i
-    execstr('Tmp1='+%th+'.Shape_p1_Grad(i)(:,1)');
-    // Assemblage termes diagonal
-    tmp=Tmp1.*Tmp1 .*invdet;
-    
-    execstr('Diag=Diag+fastsparse('+%th+'.Tri(:,[i i]),tmp,[nf,nf])');
-    //
-    for j=i+1:3
-      // init fonct de base j
-      execstr('Tmp2='+%th+'.Shape_p1_Grad(j)(:,1)');
-       
-      tmp=Tmp1.*Tmp2 .*invdet;
+  if %u.domain==[]
+    for i=1:3
+      // init fct de base i
+      execstr('Tmp1='+%th+'.Shape_p1_Grad(i)(:,1)');
+      // Assemblage termes diagonal
+      tmp=Tmp1.*Tmp1 .*invdet;
       
-     execstr('A=A+fastsparse('+%th+'.Tri(:,[i,j]),tmp,[nf,nf])');
+      execstr('Diag=Diag+fastsparse('+%th+'.Tri(:,[i i]),tmp,[nf,nf])');
+      //
+      for j=i+1:3
+	// init fonct de base j
+	execstr('Tmp2='+%th+'.Shape_p1_Grad(j)(:,1)');
+	
+	tmp=Tmp1.*Tmp2 .*invdet;
+	
+	execstr('A=A+fastsparse('+%th+'.Tri(:,[i,j]),tmp,[nf,nf])');
+      end
     end
-  end
     
-  A=A+A'+Diag;
-
+    A=A+A'+Diag;
+  else
+    for i=1:3
+      // init fct de base i
+      execstr('Tmp1='+%th+'.Shape_p1_Grad(i)(%u.BoolTri,1)');
+      // Assemblage termes diagonal
+      tmp=Tmp1.*Tmp1 .*invdet;
+      
+      execstr('Diag=Diag+fastsparse('+%th+'.Tri(%u.BoolTri,[i i]),tmp,[nf,nf])');
+      //
+      for j=i+1:3
+	// init fonct de base j
+	execstr('Tmp2='+%th+'.Shape_p1_Grad(j)(%u.BoolTri,1)');
+	
+	tmp=Tmp1.*Tmp2 .*invdet;
+	
+	execstr('A=A+fastsparse('+%th+'.Tri(%u.BoolTri,[i,j]),tmp,[nf,nf])');
+      end
+    end
+    
+    A=A+A'+Diag;
+    A=A(%u.BoolNode,%u.BoolNode);
+  end
+  
 endfunction
 

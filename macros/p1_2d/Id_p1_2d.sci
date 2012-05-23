@@ -16,13 +16,26 @@ function B=Id_p1_2d(%u,opt)
 	     
      B=spzeros(nf,nf);
      Diag=spzeros(nf,nf);
-     for i=1:3
-       execstr('Diag=Diag+fastsparse('+%th+'.Tri(:,[i i]),'+%th+'.Det*cid,[nf,nf])');
-       for j=i+1:3
-	execstr('B=B+fastsparse('+%th+'.Tri(:,[i j]),'+%th+'.Det*ci,[nf,nf])')
+     if %u.domain==[]
+       for i=1:3
+	 execstr('Diag=Diag+fastsparse('+%th+'.Tri(:,[i i]),'+%th+'.Det*cid,[nf,nf])');
+	 for j=i+1:3
+	   execstr('B=B+fastsparse('+%th+'.Tri(:,[i j]),'+%th+'.Det*ci,[nf,nf])')
+	 end
        end
+       B=B+B'+Diag;
+     else
+       for i=1:3
+	 execstr('Diag=Diag+fastsparse('+%th+'.Tri(%u.BoolTri,[i i]),'..
+	     +%th+'.Det(%u.BoolTri)*cid,[nf,nf])');
+	 for j=i+1:3
+	   execstr('B=B+fastsparse('+%th+'.Tri(%u.BoolTri,[i j]),'..
+	       +%th+'.Det(%u.BoolTri)*ci,[nf,nf])')
+	 end
+       end
+       B=B+B'+Diag;
+       B=B(%u.BoolNode,%u.BoolNode);
      end
-     B=B+B'+Diag;
    else
      Matel=[1/3 1/6 ; 1/6 1/3];
      %th=%u.geo
@@ -46,7 +59,9 @@ function B=Id_p1_2d(%u,opt)
 	 B=B+fastsparse([ind(i:$+i-2),ind(j:$+j-2)],long*Matel(i,j),[ntot,ntot]) 
        end
      end
-
+     if %u.domain~=[]
+       B=B(%u.BoolNode,%u.BoolNode);
+     end
    end
  endfunction
  
