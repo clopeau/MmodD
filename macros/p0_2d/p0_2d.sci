@@ -12,7 +12,7 @@ function [out]=p0_2d(%th,%fonction)
      %nam=name_mmodd(%th);
    end
    
-   out=mlist(['p0_2d';'#';'Id';'geo';'Cell'],rand(),%fonction,%nam,[]);   
+   out=mlist(['p0_2d';'#';'Id';'geo';'domain';'Cell'],rand(),%fonction,%nam,[],[]);   
    if rhs==2
      interpol(out,%fonction);
    end
