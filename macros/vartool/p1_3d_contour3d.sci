@@ -39,7 +39,6 @@ function p1_3d_contour3d(%v,%x,cbar,theta,alpha,leg,flag,ebox)
     elseif size(%v.Node,2)==3;
       %v.Node=sqrt(sum(%v.Node.^2,'c')) 
     end
-    end
     // colorbar
     mi=min(%v.Node); ma=max(%v.Node);
     if  exists('cbar','local')==1
