@@ -30,6 +30,8 @@ function p1_2d_plot2d(%v,cbar,strf,leg,ebox,nax)
     if %v.Node==[]
       disp(' --- Empty variable ---');
       return
+    elseif size(%v.Node,2)==2;
+      %v.Node=sqrt(sum(%v.Node.^2,'c'))
     end
     zminmax=[min(%v.Node),max(%v.Node)];
 
