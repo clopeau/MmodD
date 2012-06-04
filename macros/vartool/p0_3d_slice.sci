@@ -33,6 +33,8 @@ function p0_3d_slice(%v,%x,%y,%z,cbar,theta,alpha,leg,flag,ebox)
       xstring(0,0,['Please enter';'a';'variable';'to avoid this message ...']);
       xset("wdim",350,150);
       return
+    elseif  size(%v.Cell,2)==3;
+      %v.Cell=sqrt(sum(%v.Cell.^2,'c'))
     end
     // colorbar
     mi=min(%v.Cell); ma=max(%v.Cell);
