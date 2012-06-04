@@ -36,6 +36,9 @@ function p1_3d_contour3d(%v,%x,cbar,theta,alpha,leg,flag,ebox)
       xstring(0,0,['Please enter';'a';'variable';'to avoid this message ...']);
       xset("wdim",350,150);
       return
+    elseif size(%v.Node,2)==3;
+      %v.Node=sqrt(sum(%v.Node.^2,'c')) 
+    end
     end
     // colorbar
     mi=min(%v.Node); ma=max(%v.Node);

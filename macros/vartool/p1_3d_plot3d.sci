@@ -13,6 +13,16 @@ function []=p1_3d_plot3d(%v,cbar,theta,alpha,leg,flag,ebox)
    if exists('flag' ,'local')==1 then opts=[opts,'flag=flag']  ,end
    if exists('ebox' ,'local')==1 then opts=[opts,'ebox=ebox']  ,end
 
+   // test empty Node
+   if %v.Node==[]
+     disp(' --- Empty variable ---');bool=%f
+     xset("font",1,5);
+     xstring(0,0,['Please enter';'a';'variable';'to avoid this message ...']);
+     xset("wdim",350,150);
+     return
+   elseif size(%v.Node,2)==3;
+     %v.Node=sqrt(sum(%v.Node.^2,'c')) 
+   end
    
    my_plot3d = gcf();
    my_axes=gca();

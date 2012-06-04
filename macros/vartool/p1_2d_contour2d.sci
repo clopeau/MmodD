@@ -21,6 +21,8 @@ function p1_2d_contour2d(%v,%x,cbar,style,strf,leg,rect,nax,logflag,frameflag,ax
      if %v.Node==[]
        disp(' --- Empty variable ---');
        return
+     elseif size(%v.Node,2)==2;
+       %v.Node=sqrt(sum(%v.Node.^2,'c'))
      end
      
      // Graphic config
