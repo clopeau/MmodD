@@ -29,6 +29,8 @@ function p0_2d_plot3d(%v,cbar,theta,alpha,leg,flag,ebox)
     if %v.Cell==[]
       disp(' --- Empty variable ---');
       return
+    elseif  size(%v.Cell,2)==2;
+      %v.Cell=sqrt(sum(%v.Cell.^2,'c'))
     end
     mi=min(%v.Cell); ma=max(%v.Cell);
     if  exists('cbar','local')==1

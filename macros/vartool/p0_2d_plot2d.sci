@@ -11,6 +11,8 @@ function p0_2d_plot2d(%v,cbar)
     if %v.Cell==[]
       disp(' --- Empty variable ---');
       return
+    elseif  size(%v.Cell,2)==2;
+      %v.Cell=sqrt(sum(%v.Cell.^2,'c'))
     end
     
     my_plot2d= gcf();
