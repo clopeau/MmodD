@@ -32,13 +32,13 @@ lsolve(pb);
 if max(abs(var-f)) > 0.014 then pause, end
 //
 pb=pde(var);
-pb.eq='-Laplace(var)+Dx(var)=(8*%pi^2)*f-2*%pi*fcs';
+pb.eq='-Laplace(var)+Dx(var)=(8*%pi^2)*f+2*%pi*fcs';
 assemble(pb);
 lsolve(pb);
 if max(abs(var-f)) > 0.014 then pause, end
 //
 pb=pde(var);
-pb.eq='-Laplace(var)+Dy(var)=(8*%pi^2)*f-2*%pi*fsc';
+pb.eq='-Laplace(var)+Dy(var)=(8*%pi^2)*f+2*%pi*fsc';
 assemble(pb);
 lsolve(pb);
 if max(abs(var-f)) > 0.014 then pause, end
