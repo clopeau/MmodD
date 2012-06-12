@@ -38,16 +38,16 @@ function p1_2d_champ(%v,rect,scale,style,arsize)
     [np,nt]=size(%th);
     index=[1 3 2]
     if %v.domain<>[]
-      xarrows([th.Coor(%v.BoolNode,1)-scale*%v.Node(:,1),..
-	      th.Coor(%v.BoolNode,1)+scale*%v.Node(:,1)]',..
-	  [th.Coor(%v.BoolNode,2)-scale*%v.Node(:,2),..
-	      th.Coor(%v.BoolNode,2)+scale*%v.Node(:,2)]',..
+      xarrows([%th.Coor(%v.BoolNode,1)-scale*%v.Node(:,1),..
+	      %th.Coor(%v.BoolNode,1)+scale*%v.Node(:,1)]',..
+	  [%th.Coor(%v.BoolNode,2)-scale*%v.Node(:,2),..
+	      %th.Coor(%v.BoolNode,2)+scale*%v.Node(:,2)]',..
 	  arsize=arsize,style=style)
     else
-      xarrows([th.Coor(:,1)-scale*%v.Node(:,1),..
-	      th.Coor(:,1)+scale*%v.Node(:,1)]',..
-	  [th.Coor(:,2)-scale*%v.Node(:,2),..
-	      th.Coor(:,2)+scale*%v.Node(:,2)]',arsize=arsize,style=style)
+      xarrows([%th.Coor(:,1)-scale*%v.Node(:,1),..
+	      %th.Coor(:,1)+scale*%v.Node(:,1)]',..
+	  [%th.Coor(:,2)-scale*%v.Node(:,2),..
+	      %th.Coor(:,2)+scale*%v.Node(:,2)]',arsize=arsize,style=style)
     end
     
     my_plot2d.immediate_drawing=old_imdraw;
