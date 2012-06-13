@@ -1,23 +1,21 @@
-// Copyright (C) 2010 - Thierry Clopeau
+// Copyright (C) 2010-12 - Thierry Clopeau
 // 
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
 function A=Dx_p1_3d(%u)
-  %th=evstr(%u.geo);
-  [nf,nt]=size(%th);
-  index=[2 3; 3 1; 1 2]';
-  lindex=list([2 3 4],[1 3 4],[1 2 4],[1 2 3]);
+  %th=%u.geo;
+  execstr('[nf,nt]=size('+%th+')');
   //-------------- Assemblage -------------------------------------------------
   A=spzeros(nf,nf);
 
   for i=1:4
     // init fct de base i
-    tmp=(-1)^(i+1) *det2d(%th.Coor(:,index(:,1)),%th.Tet(:,lindex(i)));
+    execstr('tmp='+%th+'.Shape_p1_Grad(i)(:,1)');
     tmp=tmp/24;
  
     for j=1:4
-      A=A+sparse(%th.Tet(:,[i,j]),tmp,[nf,nf]);
+      execstr('A=A+fastsparse('+%th+'.Tet(:,[i,j]),tmp,[nf,nf])');
     end
   end
 

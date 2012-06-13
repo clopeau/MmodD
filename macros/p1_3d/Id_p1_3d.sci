@@ -18,9 +18,9 @@ function B=Id_p1_3d(%u,opt)
      B=spzeros(nf,nf);
      Diag=spzeros(nf,1);
      for i=1:4
-       execstr('Diag=Diag+sparse(['+%th+'.Tet(:,i),ones(nt,1)],Det*cid,[nf,1])');
+       execstr('Diag=Diag+fastsparse(['+%th+'.Tet(:,i),ones(nt,1)],Det*cid,[nf,1])');
        for j=i+1:4
-	 execstr('B=B+sparse('+%th+'.Tet(:,[i j]),Det*ci,[nf,nf])');
+	 execstr('B=B+fastsparse('+%th+'.Tet(:,[i j]),Det*ci,[nf,nf])');
        end
      end
      B=B+B'+diag(Diag)
@@ -43,9 +43,9 @@ function B=Id_p1_3d(%u,opt)
      B=spzeros(nf,nf);
      Diag=spzeros(nf,1);
      for i=1:3
-       Diag=Diag+sparse([Tri(:,i),ones(nt,1)],Det*cid,[nf,1]);
+       Diag=Diag+fastsparse([Tri(:,i),ones(nt,1)],Det*cid,[nf,1]);
        for j=i+1:3
-         B=B+sparse(Tri(:,[i j]),Det*ci,[nf,nf])
+         B=B+fastsparse(Tri(:,[i j]),Det*ci,[nf,nf])
        end
      end
      B=B+B'+diag(Diag)

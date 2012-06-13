@@ -26,7 +26,7 @@ function A=kLaplace_p1_3d(%kk,%u)
 
     tmp=sum(Tmp1.^2,'c') .*invdet .*%kk.Cell;
     
-    execstr('Diag=Diag+sparse(['+%th+'.Tet(:,i),ones(nt,1)],tmp,[nf,1])');
+    execstr('Diag=Diag+fastsparse(['+%th+'.Tet(:,i),ones(nt,1)],tmp,[nf,1])');
 
     //
     for j=i+1:4
@@ -35,7 +35,7 @@ function A=kLaplace_p1_3d(%kk,%u)
       
       tmp=sum(Tmp1.*Tmp2,'c') .*invdet .*%kk.Cell;
       
-      execstr('A=A+sparse(' + %th + '.Tet(:,[i,j]),tmp,[nf,nf])');     
+      execstr('A=A+fastsparse(' + %th + '.Tet(:,[i,j]),tmp,[nf,nf])');     
 
     end
   end
