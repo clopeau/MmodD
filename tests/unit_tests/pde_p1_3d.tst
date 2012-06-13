@@ -56,37 +56,37 @@ pb=pde(var);
 pb.eq='-Laplace(var)+Dxy(var)=(12*%pi^2)*f+4*%pi^2*fccs';
 assemble(pb);
 lsolve(pb);
-if max(abs(var-f)) > 0.02 then pause, end
+if max(abs(var-f)) > 0.025 then pause, end
 //------- Dyx
 pb=pde(var);
-pb.eq='-Laplace(var)+Dyx(var)=(8*%pi^2)*f+4*%pi^2*fccs';
+pb.eq='-Laplace(var)+Dyx(var)=(12*%pi^2)*f+4*%pi^2*fccs';
 assemble(pb);
 lsolve(pb);
-if max(abs(var-f)) > 0.02 then pause, end
+if max(abs(var-f)) > 0.025 then pause, end
 //------- Dxz
 pb=pde(var);
 pb.eq='-Laplace(var)+Dxz(var)=(12*%pi^2)*f+4*%pi^2*fcsc';
 assemble(pb);
 lsolve(pb);
-if max(abs(var-f)) > 0.02 then pause, end
+if max(abs(var-f)) > 0.025 then pause, end
 //------- Dzx
 pb=pde(var);
-pb.eq='-Laplace(var)+Dzx(var)=(8*%pi^2)*f+4*%pi^2*fcsc';
+pb.eq='-Laplace(var)+Dzx(var)=(12*%pi^2)*f+4*%pi^2*fcsc';
 assemble(pb);
 lsolve(pb);
-if max(abs(var-f)) > 0.02 then pause, end
+if max(abs(var-f)) > 0.025 then pause, end
 //------- Dyz
 pb=pde(var);
 pb.eq='-Laplace(var)+Dyz(var)=(12*%pi^2)*f+4*%pi^2*fscc';
 assemble(pb);
 lsolve(pb);
-if max(abs(var-f)) > 0.02 then pause, end
+if max(abs(var-f)) > 0.025 then pause, end
 //------- Dzy
 pb=pde(var);
-pb.eq='-Laplace(var)+Dzy(var)=(8*%pi^2)*f+4*%pi^2*fscc';
+pb.eq='-Laplace(var)+Dzy(var)=(12*%pi^2)*f+4*%pi^2*fscc';
 assemble(pb);
 lsolve(pb);
-if max(abs(var-f)) > 0.02 then pause, end
+if max(abs(var-f)) > 0.025 then pause, end
 //
 k=p1(test,'1+x');
 //
@@ -94,10 +94,10 @@ pb=pde(var);
 pb.eq='-Laplace(var)+kId(k,var)=(12*%pi^2)*f+k*f';
 assemble(pb);
 lsolve(pb);
-if max(abs(var-f)) > 0.02 then pause, end
+if max(abs(var-f)) > 0.025 then pause, end
 //
 pb=pde(var);
 pb.eq='-kLaplace(k,var)=k*(12*%pi^2)*f-2*%pi*fcss';
 assemble(pb);
 lsolve(pb);
-if max(abs(var-f)) > 0.02 then pause, end
+if max(abs(var-f)) > 0.025 then pause, end
