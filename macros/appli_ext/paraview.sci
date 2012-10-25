@@ -23,8 +23,8 @@ global %paraview_path;
 if %paraview_path==[]
   error("Paraview is not found, install it or check your $PATH environnement variable.");
 end
-
-if ~MSDOS
+OS=getos();
+if OS~="Windows"
   // MacOS and Linux
   filename=TMPDIR+'/out.vtk';
   execstr('exportVTK(filename,'+arg+')')
