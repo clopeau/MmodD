@@ -118,11 +118,17 @@ elseif OS=="Linux"
 else 
   %execpath=root_tlbx+"/MacIntel32/";
   //--- search paraview
-  if grep(ls('/Applications'),'paraview.app')<>[]
+  Directory=ls('/Applications');
+  TMP=grep(Directory,'ParaView');
+  if TMP<>[]
+    %paraview_path="/Applications/"+strsubst(Directory(TMP($)),' ','\ ')+"/Contents/MacOS/";
+  elseif grep(Directory,'paraview.app')<>[]
     %paraview_path="/Applications/paraview.app/Contents/MacOS/";
-    end
+  end
 end
 
+clear TMP;
+clear Directory;
 
 //clear root_tlbx;
 //clear etc_tlbx;
