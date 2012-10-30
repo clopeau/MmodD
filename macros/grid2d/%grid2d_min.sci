@@ -3,6 +3,9 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function out=%p0_1d_min(in)
-  out=min(in.Cell,'r');
+function out=%grid2d_min(in)
+    out(1)=min(in.x);
+    out(2)=min(in.y);
 endfunction
+ 
+

@@ -3,6 +3,8 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function out=%p0_1d_min(in)
-  out=min(in.Cell,'r');
+function out=%tri3d_min(in)
+    out=min(in.Coor,'r')';
 endfunction
+ 
+
