@@ -15,7 +15,7 @@ function out=%p1_3d_norm(%in,%opt)
   
   out=0;
   
-  if %opt==2 | %opt=="L2" | %opt="l2" | %opt=="H1" | %opt="h1"
+  if %opt==2 | %opt=="L2" | %opt=="l2" | %opt=="H1" | %opt=="h1"
     out=sqrt(abs(sum(diag(%in.Node'*Id(%in)*%in.Node))));
     %bopt=%t
   end
