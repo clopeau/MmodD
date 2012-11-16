@@ -322,10 +322,10 @@
     <para>Without edges</para>
     <programlisting role="example"><![CDATA[ 
 scf()
-th=square2d(20,20) \\th is a tri2d mesh
+th=square2d(20,20) //th is a tri2d mesh
 u=p1(th,['x','x*y','x-y'])
-th=th+[0,0,0] \\ transforme th in tri3d mesh
-th.Coor=u.Node \\ change points coordinates
+th=th+[0,0,0] // transforme th in tri3d mesh
+th.Coor=u.Node // change points coordinates
 tri3d_plot3d(th,alpha=63,theta=-118)
  ]]></programlisting>
 
