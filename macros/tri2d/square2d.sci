@@ -39,8 +39,8 @@ function th=square2d(x,y,nx,ny)
   [lhs,rhs]=argn();
   if rhs==0
     // carre unite 4 nodes 2 triangles
-    x=0;nx=2;
-    y=0;ny=2;
+    x=[0;1];nx=2;
+    y=[0;1];ny=2;
 
   elseif rhs==2 
     if length(x)==1 & length(y)==1 // carre unite de nx,ny points par ligne
