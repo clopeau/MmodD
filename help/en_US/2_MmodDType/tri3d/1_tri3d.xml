@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
- *
- * This help file was generated from tri2d.sci using help_from_sci().
- *
- -->
 
 <refentry version="5.0-subset Scilab" xml:id="tri3d" xml:lang="en"
           xmlns="http://docbook.org/ns/docbook"
@@ -15,7 +10,7 @@
           xmlns:db="http://docbook.org/ns/docbook">
 
   <refnamediv>
-    <refname>tri2d</refname><refpurpose>Initialise a 3d unstructured triangular surfcae mesh</refpurpose>
+    <refname>tri3d</refname><refpurpose>Initialise a 3d unstructured triangular surface mesh</refpurpose>
   </refnamediv>
 
 
@@ -24,7 +19,7 @@
    <title>Calling Sequence</title>
    <synopsis>
    th=tri3d()
-   mh=tri2d(name)
+   mh=tri3d(name)
    </synopsis>
 </refsynopsisdiv>
 
@@ -77,6 +72,7 @@ th.E
 <refsection>
    <title>See also</title>
    <simplelist type="inline">
+   <member><link linkend="tri3d_refine">tri3d_refine</link></member>
    <member><link linkend="square2d">square2d</link></member>
    <member><link linkend="read_tri2d_BAMG">read_tri2d_BAMG</link></member>
    <member><link linkend="read_tri2d_GMSH">read_tri2d_GMSH</link></member>
