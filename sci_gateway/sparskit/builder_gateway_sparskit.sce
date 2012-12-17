@@ -5,15 +5,17 @@
 
 locpath=get_absolute_file_path('builder_gateway_sparskit.sce')
 
-if MSDOS then
+if getos()=="Windows" then
   // to manage long pathname
   includes_src_c = '-I""' + locpath + '../../src/scilin""'+' '..
                   +'-I""' + locpath + '../../src/sparskit""' ;
 else
   includes_src_c = '-I' + locpath + '../../src/scilin'+' '..
                   +'-I' + locpath + '../../src/sparskit';
-end
-if c_link('libsci_Sparskit'),ulink;end;
+	    end
+	    
+	    if c_link('libsci_Sparskit'),ulink;end;
+	    
 functions=['splsolve';'spusolve';'triangular';...
 	'pgmres';'pgc';'pbgc';'pdbgc';'pgcnr';...
 	'pbcgstab';'pqmr';'shurgmres';'mshurgmres'];

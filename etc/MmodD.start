@@ -49,10 +49,8 @@ end
 // =============================================================================
 mprintf("\tLoad gateways\n");
 ilib_verbose(0);
-//if ~MSDOS
-   exec(pathconvert(root_tlbx+"/src/loader_src.sce",%f));
-   exec(pathconvert(root_tlbx+"/sci_gateway/loader_gateway.sce",%f));
-//end
+exec(pathconvert(root_tlbx+"/src/loader_src.sce",%f));
+exec(pathconvert(root_tlbx+"/sci_gateway/loader_gateway.sce",%f));
 
 // Load and add help chapter
 // =============================================================================

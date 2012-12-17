@@ -5,16 +5,19 @@
 
 locpath=get_absolute_file_path('builder_gateway_mmodd.sce')
 
-if MSDOS then
+if getos()=="Windows" then
   // to manage long pathname
   includes_src_c = '-I""' + locpath + '../../src/mmodd""';
 else
   includes_src_c = '-I' + locpath + '../../src/mmodd';
 end
+
 if c_link('libsci_MmodD'),ulink;end;
+
 functions=['tri2ed';'fastsparse'];
 
 Files='sci_'+functions+'.c';
+
 Files=Files';
 
 tbx_build_gateway('sci_MmodD', [functions 'sci_'+functions], [Files], ..
