@@ -42,7 +42,10 @@ end
 // =============================================================================
 
 exec(toolbox_dir+'\macros\buildmacros.sce');
-// fortran source compilation ...
+// sources compilation ...
+// to be remove before SCILAB 6.0
+setenv("__USE_DEPRECATED_STACK_FUNCTIONS__", "YES");
+
 tbx_builder_src(toolbox_dir);
 tbx_builder_gateway(toolbox_dir);
 tbx_builder_help(toolbox_dir);
