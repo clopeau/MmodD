@@ -36,7 +36,7 @@ function out=%p1_3d_norm(%in,%opt)
     
   
   if  %opt=="H1" | %opt=="h1" | %opt=="semi-H1" | %opt=="semi-h1" | ...
-	   %opt=="semi_H1" | %opt="semi_h1"
+	   %opt=="semi_H1" | %opt=="semi_h1"
     tmp=sum(diag(%in.Node'*(-Laplace(%in))*%in.Node))
     out=sqrt(out^2 + abs(tmp));
     %bopt=%t
