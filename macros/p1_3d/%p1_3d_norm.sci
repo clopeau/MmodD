@@ -20,7 +20,7 @@ function out=%p1_3d_norm(%in,%opt)
     %bopt=%t
   end
   
-  if %opt==1 | %opt=="L1" | %opt="l1"
+  if %opt==1 | %opt=="L1" | %opt=="l1"
     tmp=zeros(nt,size(%in.Node,2))
     for i=1:4
       tmp=tmp+%in.Node(%th.Tet(:,i),:);
@@ -29,7 +29,7 @@ function out=%p1_3d_norm(%in,%opt)
     %bopt=%t
   end
   
-  if %opt==%inf | %opt=="Linf" | %opt="inf"
+  if %opt==%inf | %opt=="Linf" | %opt=="inf"
     out=max(abs(%in.Node));
     %bopt=%t
   end
