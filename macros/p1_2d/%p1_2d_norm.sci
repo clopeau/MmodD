@@ -20,7 +20,7 @@ function out=%p1_2d_norm(%in,%opt)
     %bopt=%t
   end
   
-  if %opt==1 | %opt=="L1" | %opt="l1"
+  if %opt==1 | %opt=="L1" | %opt=="l1"
     tmp=zeros(nt,size(%in.Node,2))
     for i=1:3
       tmp=tmp+%in.Node(%th.Tri(:,i),:);
