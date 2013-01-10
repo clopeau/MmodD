@@ -70,7 +70,7 @@ function p1_2d_plot3d(%v,cbar,theta,alpha,leg,flag,ebox)
 	zz=matrix(%v.Node(%th.Tri(:,index)),-1,3)';
 	coul=zz;
       else
-	zz=matrix(%th.Coor(%th.Tr(:,index),3),-1,3)';
+	zz=matrix(%th.Coor(%th.Tri(:,index),3),-1,3)';
 	coul=matrix(%v.Node(%th.Tri(:,index)),-1,3)';
       end
     end
