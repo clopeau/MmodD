@@ -6,13 +6,17 @@
 // are also available at
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
+demopath = get_absolute_file_path("Bench.dem.gateway.sce");
+dim=2;
+ext=string(dim)+'d';
+vtype=['p1_']+ext
+grille=['square2d'];
 
 
-demopath = get_absolute_file_path("MmodD.dem.gateway.sce");
-
-subdemolist = ["2d Problems","2d/2d.dem.gateway.sce";..
-	"3d Problems" , "3d/3d.dem.gateway.sce";..
-	"Benchmarks" , "Bench/Bench.dem.gateway.sce"];
-
+subdemolist = [ ..
+		"2d" , "Bench2d.dem.gateway.sce";
+		"3d" , "Bench3d.dem.gateway.sce";
+	      ]
+    
 subdemolist(:,2) = demopath + subdemolist(:,2);
 clear demopath;
