@@ -49,7 +49,6 @@ function [out, %th]=p1_2d(%th, %fonction, %domain)
     if %th.Det==[] | size(%th.Det,1)~=size(%th.Tri,1)
         %th.Det=det(%th);
         [nf,nt]=size(%th);
-
         if typeof(%th)=='tri2d'
             index=[2 3; 3 1; 1 2]';
             Tmp=zeros(nt,2);
@@ -63,6 +62,7 @@ function [out, %th]=p1_2d(%th, %fonction, %domain)
         elseif  typeof(%th)=='tri3d'
             index=[2 3; 3 1; 1 2]';
             Tmp=zeros(nt,3);
+	    d=[0,-1,1]; // to be deleted
             for i=1:3
             //(terme provenant du produit vectoriel v2^v3)
                 c(:,1)=(%th.Coor(%th.Tri(:,index(2,i)),2)-%th.Coor(%th.Tri(:,index(1,i)),2))...
@@ -91,5 +91,5 @@ function [out, %th]=p1_2d(%th, %fonction, %domain)
         if lhs<=1
             execstr('['+name_mmodd(%th)+']=return(%th);');
         end
-end
+    end
 endfunction
