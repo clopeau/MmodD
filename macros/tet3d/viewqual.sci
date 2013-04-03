@@ -34,28 +34,28 @@ function viewqual(th,opt)
       th.Tet(%ss,[3 4])=th.Tet(%ss,[4 3]);
     end
   end
-  p1=th.Coor(th.Tet(:,1),:);
-  p2=th.Coor(th.Tet(:,2),:);
-  p3=th.Coor(th.Tet(:,3),:);
-  p4=th.Coor(th.Tet(:,4),:);
+  pp1=th.Coor(th.Tet(:,1),:);
+  pp2=th.Coor(th.Tet(:,2),:);
+  pp3=th.Coor(th.Tet(:,3),:);
+  pp4=th.Coor(th.Tet(:,4),:);
 
   Aire=zeros(th.Tet);
-  Norm1=prod_vect(p3-p1,p2-p1);
+  Norm1=prod_vect(pp3-pp1,pp2-pp1);
   eucl=sqrt(sum(Norm1.^2,'c'));
   Norm1=Norm1./eucl(:,[1 1 1]);
   Aire(:,1)=eucl/2;
   
-  Norm2=prod_vect(p2-p1,p4-p1);
+  Norm2=prod_vect(pp2-pp1,pp4-pp1);
   eucl=sqrt(sum(Norm2.^2,'c'));
   Norm2=Norm2./eucl(:,[1 1 1]);
   Aire(:,2)=eucl/2;
 
-  Norm3=prod_vect(p4-p1,p3-p1);
+  Norm3=prod_vect(pp4-pp1,pp3-pp1);
   eucl=sqrt(sum(Norm3.^2,'c'));
   Norm3=Norm3./eucl(:,[1 1 1]);
   Aire(:,3)=eucl/2;
 
-  Norm4=prod_vect(p3-p2,p4-p2);
+  Norm4=prod_vect(pp3-pp2,pp4-pp2);
   eucl=sqrt(sum(Norm4.^2,'c'));
   Norm4=Norm4./eucl(:,[1 1 1]);
   Aire(:,4)=eucl/2;
@@ -64,14 +64,14 @@ function viewqual(th,opt)
   
   // longueurs d'aretes
   Long=zeros(n,6);
-  Long(:,1)=sqrt(sum((p2-p1).^2,'c'));
-  Long(:,2)=sqrt(sum((p3-p1).^2,'c'));
-  Long(:,3)=sqrt(sum((p3-p2).^2,'c'));
-  Long(:,4)=sqrt(sum((p4-p1).^2,'c'));
-  Long(:,5)=sqrt(sum((p4-p2).^2,'c'));
-  Long(:,6)=sqrt(sum((p4-p3).^2,'c'));
+  Long(:,1)=sqrt(sum((pp2-pp1).^2,'c'));
+  Long(:,2)=sqrt(sum((pp3-pp1).^2,'c'));
+  Long(:,3)=sqrt(sum((pp3-pp2).^2,'c'));
+  Long(:,4)=sqrt(sum((pp4-pp1).^2,'c'));
+  Long(:,5)=sqrt(sum((pp4-pp2).^2,'c'));
+  Long(:,6)=sqrt(sum((pp4-pp3).^2,'c'));
   
-  clear p1 p2 p3 p4
+  clear pp1 pp2 pp3 pp4
 
   // angles diedraux (la numerotation suit celle des aretes)
   
@@ -109,7 +109,8 @@ function viewqual(th,opt)
   
   //xset('window',0)
   //xset("wdim",800,600)
-  xbasc()
+  //xbasc()
+  scf();
   //1er quart
   xsetech([0,0,0.5,0.5]);
   
@@ -155,6 +156,6 @@ function viewqual(th,opt)
     unix_g("paraview --data="+filename+" &");
   end
 
-  xset("default")
+  //xset("default")
 endfunction
 
