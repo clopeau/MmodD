@@ -56,3 +56,6 @@ tbx_build_cleaner(TOOLBOX_NAME, toolbox_dir);
 // =============================================================================
 
 //clear toolbox_dir TOOLBOX_NAME TOOLBOX_TITLE;
+
+// Exit after compilation
+exit
