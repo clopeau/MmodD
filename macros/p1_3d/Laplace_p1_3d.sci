@@ -9,7 +9,7 @@ function A=Laplace_p1_3d(%u)
   index=[2 3; 3 1; 1 2]';
   lindex=list([2 3 4],[1 3 4],[1 2 4],[1 2 3]);
   //------------- Calcul du déterminant ---------------------------------------
-  execstr('invdet=(-1/6)./det('+%th+')');
+  execstr('invdet=(-1/6)./'+%th+'.Det');
   //-------------- Assemblage -------------------------------------------------
   Tmp1=zeros(nt,3); // 1 ere fct de base
   Tmp2=zeros(nt,3); // 2 eme fcr de base
