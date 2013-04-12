@@ -18,6 +18,8 @@ WebSite: http://mmodd.org
 
 License: CeCILL2
 
+ScilabVersion: >= 5.3
+
 Depends: 
 
 Date: 2010-07-20
