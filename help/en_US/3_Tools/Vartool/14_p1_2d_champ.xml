@@ -27,7 +27,7 @@
     
     <synopsis>
       p1_2d_champ(u,[rect,scal,style,arsize])
-      p1_2d_plot2d(u,&lt;opt_args&gt;)
+      p1_2d_champ(u,&lt;opt_args&gt;)
     </synopsis>
   </refsynopsisdiv>
   
