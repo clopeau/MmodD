@@ -13,7 +13,7 @@ function B=p0_3d_Id_p1_3d(%u)
      execstr('[nf,nt]=size('+%th+')');
 	
      //------------- Calcul du déterminant ------------------------
-     execstr('Det='+%th+'.Det /4');
+     execstr('Det='+%th+'.Det /24');
      
      B=spzeros(nf,nt);
      if %u.domain==[]
