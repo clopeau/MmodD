@@ -29,14 +29,14 @@ function out=%p1_2d_norm(%in,%opt)
     %bopt=%t
   end
   
-  if %opt==%inf | %opt=="Linf" | %opt="inf"
+  if %opt==%inf | %opt=="Linf" | %opt=="inf"
     out=max(abs(%in.Node));
     %bopt=%t
   end
     
   
   if  %opt=="H1" | %opt=="h1" | %opt=="semi-H1" | %opt=="semi-h1" | ...
-	   %opt=="semi_H1" | %opt="semi_h1"
+	   %opt=="semi_H1" | %opt=="semi_h1"
     tmp=sum(diag(%in.Node'*(-Laplace(%in))*%in.Node))
     out=sqrt(out^2 + abs(tmp));
     %bopt=%t

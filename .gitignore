@@ -3,6 +3,7 @@
 #
 # fichiers emacs
 *~
+unloader.sce
 loader.sce
 cleaner.sce
 loader_gateway.sce
