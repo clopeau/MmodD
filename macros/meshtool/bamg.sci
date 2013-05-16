@@ -10,20 +10,20 @@ function [th,txt]=bamg(th,ns)
    bamgf=TMPDIR+filesep()+'bamg_'+part(string(rand(1)*1000000),1:6);
    
    list_open_file=file()
-   ierr=execstr("u=file(''open'',bamgf+''.geo'',''unknown'')",'errcatch')
+   ierr=execstr("u=mopen("""+bamgf+".geo"",""wt"")",'errcatch')
    if ierr<>0
      [str,n]=lasterror()
      if length(list_open_file)<length(file()) then
        [tmp,k]=intersect(list_open_file,file());
        list_open_file(k)=[];
-       file('close',list_open_file)
+       mclose(list_open_file)
      end
      error(str,n)
    end
-   fprintf(u,'MeshVersionFormatted 0')
-   fprintf(u,'Dimension 2');
-   fprintf(u,'MaximalAngleOfCorner 46');
-   fprintf(u,'AngleOfCornerBound 160');
+   mfprintf(u,'MeshVersionFormatted 0\n')
+   mfprintf(u,'Dimension 2\n');
+   mfprintf(u,'MaximalAngleOfCorner 46\n');
+   mfprintf(u,'AngleOfCornerBound 160\n');
    
    // on compte 
    nBnd=length(th.Bnd);
@@ -37,17 +37,17 @@ function [th,txt]=bamg(th,ns)
    nv=sum(inBnd);
    
    if th.BndPerio(1)
-     fprintf(u,'Vertices %i',nv);
+     mfprintf(u,'Vertices %i\n',nv);
      id1=1;
      for i=1:nBnd
        id2=id1+inBnd(i)-1;
        ind=th.Bnd(i)(1:inBnd(i));
-       fprintf(u,'%3.12f %3.12f %i\n',th.Coor(ind,:),(id1:id2)');
+       mfprintf(u,'%3.12f %3.12f %i\n',th.Coor(ind,:),(id1:id2)');
        id1=id2+1;
      end
    else
-     fprintf(u,'Vertices %i',size(th.Coor,1));
-     fprintf(u,'%3.12f %3.12f %i\n',th.Coor,(1:size(th.Coor,1))');
+     mfprintf(u,'Vertices %i\n',size(th.Coor,1));
+     mfprintf(u,'%3.12f %3.12f %i\n',th.Coor,(1:size(th.Coor,1))');
    end
    
    //--- les aretes
@@ -56,7 +56,7 @@ function [th,txt]=bamg(th,ns)
      ne=ne+length(th.Bnd(l))-1;
    end
    
-   fprintf(u,'Edges %i',ne);
+   mfprintf(u,'Edges %i\n',ne);
    id1=1;
    for i=1:nBnd
      id2=id1+inBnd(i)-1;
@@ -65,27 +65,27 @@ function [th,txt]=bamg(th,ns)
      else
        Ed=[th.Bnd(i)(1:$-1),th.Bnd(i)(2:$)];
      end
-     fprintf(u,'%i %i %i\n',Ed,i(ones(inBnd(i),1)));
+     mfprintf(u,'%i %i %i\n',Ed,i(ones(inBnd(i),1)));
      id1=id2+1;
    end
-   if and(th.BndPerio)
-     fprintf(u,'SubDomain %i',1)
-     fprintf(u,'2 1 2 1')
-   end
+//   if and(th.BndPerio)
+//     mfprintf(u,'SubDomain %i\n',1)
+//     mfprintf(u,'2 1 2 1')
+//   end
    
-   file('close',u);
+   mclose(u);
    //-------------------------- Execution Bamg --------------------
    // processing bamg
    global root_drop
    if (getos()=="Windows") then
-       txt=unix_g(root_drop+'\bin\bamg.Win.exe  -nbv 100000 -g '+bamgf+'.geo -o '+bamgf+'.msh');
+       txt=unix_g(mmodd_getpath()+'\thirdparty\bamg.Win.exe  -nbv 1000000 -g '+bamgf+'.geo -o '+bamgf+'.msh');
    elseif  (getos()=="Darwin") then 
-       txt=unix_g(root_drop+'/bin/bamg.darwin  -nbv 100000 -g '+bamgf+'.geo -o '+bamgf+'.msh');
+       txt=unix_g(mmodd_getpath()+'/thirdparty/bamg.darwin  -nbv 1000000 -g '+bamgf+'.geo -o '+bamgf+'.msh');
    elseif  (getos()=="Linux") then 
-       txt=unix_g(root_drop+'/bin/bamg.linux  -nbv 100000 -g '+bamgf+'.geo -o '+bamgf+'.msh');    
+       txt=unix_g(mmodd_getpath()+'/thirdparty/bamg.linux  -nbv 1000000 -g '+bamgf+'.geo -o '+bamgf+'.msh');    
    end
    
-   write(%io(2),txt);
+   //write(%io(2),txt);
    if (grep(txt,'Error')~=[]) | (txt==[])
      write(%io(2),txt)
      error('bamg process error')
