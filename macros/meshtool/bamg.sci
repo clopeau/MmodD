@@ -93,7 +93,6 @@ function [th,txt]=bamg(th,ns)
    end
 
    //------------------------- Lecure des donnees ------------------
-   //th.Id=th.Id+' bamg '+date();
    list_open_file=file()
    ierr=execstr( 'u=file(''open'','''+bamgf+'.msh'',''unknown'')' ,'errcatch','n'); 
    if ierr
@@ -105,41 +104,19 @@ function [th,txt]=bamg(th,ns)
      end
      error('------------------- Erreur dans Bamg ! -------------------');
    end
+   file('close',u)
    
-   //---- les points
-   ligne=""
-   while ligne~="Vertices"
-     ligne=read(u,1,1,'(a)');
+   // --- lecture
+   th=read_tri2d_BAMG(bamgf+'.msh')
+   
+   // To concerve geometric file definition
+   tmp=getfield(1,th);
+   if grep(tmp,'bamg_geo_file')==[] then
+          setfield(1,[tmp;'bamg_geo_file'],th)
    end
-   
-   nbvert=read(u,1,1);
-   tmp=read(u,nbvert,3);
-   th.Coor=tmp(:,1:2);
 
-   //----- les aretes
-   ligne=""
-   while ligne~="Edges"
-     ligne=read(u,1,1,'(a)');
-   end
-   nbedge=read(u,1,1);
-   tmp=read(u,nbedge,3);
-   for i=1:nBnd
-     ind=find(tmp(:,3)==i)
-     th.Bnd(i)=[tmp(ind,1);tmp(ind($),2)];
-   end
-   //----- les triangles
-   ligne=""
-   while ligne~="Triangles"
-     ligne=read(u,1,1,'(a)');
-   end
-   nbtri=read(u,1,1);
-   tmp=read(u,nbtri,4);
-   // on ne récupere que le premier sous domaine !
-   // attention 
-   th.Tri=tmp(:,1:3);
-   th.TriId=ones(tmp(:,1));
-   th.BndId="F"
-   file('close',u);
-   unix('rm '+bamgf+'*');
+   th.bamg_geo_file=bamgf+'.geo'
+   
+   //unix('rm '+bamgf+'*');
 
 endfunction
