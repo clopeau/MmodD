@@ -11,11 +11,9 @@ function tri3d_gmv(u,G)
    nz=1;
    
    mfprintf(u,'nodev '+string(np)+'\n');
-   write(u,[G.Coor]);
+   mfprintf(u,'%f %f %f\n',G.Coor);
    mfprintf(u,'cells '+string(nt)+'\n');
-   add='tri 3 ';
-   write(u,add+strcat(string(G.Tri),' ','c'))
-   
+   mfprintf(u,'tri 3 %i %i %i\n',G.Tri)
    
  endfunction
  

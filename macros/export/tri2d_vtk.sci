@@ -7,18 +7,11 @@ function tri2d_vtk(u,th)
     z=0;
     [np,nt]=size(th);
     nz=1;
-    
-    //fprintf(u,'DATASET  UNSTRUCTURED_GRID\n');
     mfprintf(u,'DATASET POLYDATA\n')
     mfprintf(u,'POINTS '+string(np)+' float\n');
-    write(u,[th.Coor zeros(np,1)]);
-    //fprintf(u,'CELLS '+string(nt)+' '+string(4*nt));
+    mfprintf(u,'%f %f %f\n',[th.Coor zeros(np,1)]);
     mfprintf(u,'POLYGONS '+string(nt)+' '+string(4*nt)+'\n');
-    trois=3;
-    write(u,strcat(string([trois(ones(nt,1),:) , th.Tri-1]),' ','c'))
-    //fprintf(u,'CELL_TYPES '+string(nt));
-    trois=5;
-    //write(u,string(trois(ones(nt,1),:)));
+    mfprintf(u,'3 %i %i %i\n',th.Tri-1)
     
 endfunction
   

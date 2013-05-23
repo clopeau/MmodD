@@ -11,10 +11,9 @@ function quad2d_gmv(u,G)
    nz=1;
    
    mfprintf(u,'nodev '+string(np)+'\n');
-   write(u,[G.Coor zeros(np,1)]);
+   mfprintf(u,[G.Coor zeros(np,1)]);
    mfprintf(u,'cells '+string(nt)+'\n');
-   add='quad 4 ';
-   write(u,add+strcat(string(G.Quad),' ','c'))
+   mfprintf(u,'quad 4 %i %i %i %i\n',G.Quad)
    
    
  endfunction

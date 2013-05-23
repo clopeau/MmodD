@@ -8,9 +8,9 @@ function grid3d_gmv(u,G)
    [nx,ny,nz]=size(G);
    mfprintf(u,'nodes '+string(-1)+' '...
        +string(nx)+' '+string(ny)+' '+string(nz)+'\n');
-   write(u,(G.x)');
-   write(u,(G.y)');
-   write(u,(G.z)');
+   mfprintf(u,'%f\n',(G.x)');
+   mfprintf(u,'%f\n',(G.y)');
+   mfprintf(u,'%f\n',(G.z)');
    mfprintf(u,'cells 0\n');
    
  endfunction

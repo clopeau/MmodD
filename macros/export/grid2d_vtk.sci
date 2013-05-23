@@ -9,11 +9,11 @@ function  grid2d_vtk(u,G)
    mfprintf(u,'DATASET RECTILINEAR_GRID\n');
    mfprintf(u,'DIMENSIONS '+string(nx)+' '+string(ny)+' '+string(nz)+'\n');
    mfprintf(u,'X_COORDINATES '+string(nx)+' float\n');
-   write(u,(G.x)');
+   mfprintf(u,'%f\n',(G.x)');
    mfprintf(u,'Y_COORDINATES '+string(ny)+' float\n');
-   write(u,(G.y)');
+   mfprintf(u,'%f\n',(G.y)');
    mfprintf(u,'Z_COORDINATES '+string(nz)+' float\n');
-   write(u,z);
+   mfprintf(u,'%f\n',z);
    
 endfunction
 

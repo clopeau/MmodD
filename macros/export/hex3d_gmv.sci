@@ -11,10 +11,10 @@ function hex3d_gmv(u,G)
    nz=1;
    
    mfprintf(u,'nodev '+string(np)+'\n');
-   write(u,G.Coor);
+   mfprintf(u,,'%f %f %f\n',G.Coor);
    mfprintf(u,'cells '+string(nt)+'\n');
    add='hex 8 ';
-   write(u,add+strcat(string(G.Hex),' ','c'))
+   mfprintf(u,'hex 8 %i %i %i %i %i %i %i %i\n',G.Hex)
    
    
  endfunction

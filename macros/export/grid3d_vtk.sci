@@ -10,11 +10,11 @@ function  grid3d_vtk(u,G,opt)
      mfprintf(u,'DATASET RECTILINEAR_GRID\n');
      mfprintf(u,'DIMENSIONS '+string(nx)+' '+string(ny)+' '+string(nz)+'\n');
      mfprintf(u,'X_COORDINATES '+string(nx)+' float\n');
-     write(u,(G.x)');
+     mfprintf(u,'%f\n',(G.x)');
      mfprintf(u,'Y_COORDINATES '+string(ny)+' float\n');
-     write(u,(G.y)');
+     mfprintf(u,'%f\n',(G.y)');
      mfprintf(u,'Z_COORDINATES '+string(nz)+' float\n');
-     write(u,(G.z)');
+     mfprintf(u,'%f\n',(G.z)');
    else
      nnode=size(G);
      ncell=size(G,'c');
@@ -23,7 +23,7 @@ function  grid3d_vtk(u,G,opt)
      X=ones(g.z).*.ones(g.y).*.g.x;
      Y=ones(g.z).*.g.y.*.ones(g.x);
      Z=g.z.*.ones(g.y).*.ones(g.x);
-     write(u,[X,Y,Z]);
+     mfprintf(u,,'%f %f %f\n',[X,Y,Z]);
      nnc=9*ncell;
      mfprintf(u,'CELLS '+string(ncell)+' '+string(nnc)+'\n');
      COOR=[8*ones(ncell,1),(G([1 1 1],'c2n')-1),(G([2 1 1],'c2n')-1),...
@@ -32,7 +32,7 @@ function  grid3d_vtk(u,G,opt)
      mfprintf(u,'%i %i %i %i %i %i %i %i %i\n',COOR)
      mfprintf(u,'CELL_TYPES '+string(ncell)+'\n');
      TYPE=12*ones(ncell,1);
-     write(u,string(TYPE));
+     mfprinyf(u,string(TYPE)+'\n');
    end
 
 endfunction

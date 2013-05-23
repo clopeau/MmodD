@@ -12,10 +12,7 @@ function tet3d_vtk(u,th)
     mfprintf(u,'POINTS %i float\n',np);
     mfprintf(u,'%3.12f %3.12f %3.12f\n',th.Coor);
     mfprintf(u,'CELLS %i %i\n',nt,5*nt);
-    trois=4;
-    //Tet=th.Tet-1;
     mfprintf(u,'4 %i %i %i %i\n',th.Tet-1)
-    //write(u,strcat(string([trois(ones(nt,1)),th.Tet-1]),' ','c'));
     mfprintf(u,'CELL_TYPES %i\n',nt);
     trois=10;
     mfprintf(u,'%i\n',trois(ones(nt,1)));

@@ -13,8 +13,7 @@ function tri3d_vtk(u,th)
     mfprintf(u,'CELLS %i %i\n',nt,4*nt);
     trois=3;
     //Tet=th.Tet-1;
-    //fprintf(u,'%i %i %i %i %i\n',[trois(ones(nt,1),:),th.Tri-1])
-    write(u,strcat(string([trois(ones(nt,1),:),th.Tri-1]),' ','c'));
+    mfprintf(u,'3 %i %i %i\n',th.Tri-1);
     mfprintf(u,'CELL_TYPES %i\n',nt);
     trois=5;
     mfprintf(u,'%i\n',trois(ones(nt,1)));
