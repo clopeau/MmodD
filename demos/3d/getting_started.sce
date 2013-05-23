@@ -15,21 +15,21 @@ write(%io(2),'       +    MmodD   Getting Started 3d     +');
 write(%io(2),'       +++++++++++++++++++++++++++++++++++++');
 write(%io(2),'')
 write(%io(2),'')
-write(%io(2),'-->th=tcube3d(20,20,20)  \\ Mesh definition');
+write(%io(2),'-->th=tcube3d(20,20,20)  // Mesh definition');
 th=tcube3d(20,20,20);
 disp(th);
 write(%io(2),'')
-write(%io(2),'-->meshtool(th)          \\ Mesh visualisation')
+write(%io(2),'-->meshtool(th)          // Mesh visualisation')
 meshtool(th)
 write(%io(2),'')
-write(%io(2),'-->u=p1(th)              \\ Variable definition');
+write(%io(2),'-->u=p1(th)              // Variable definition');
 u=p1(th)
 disp(u);
 write(%io(2),'')
-write(%io(2),'-->pb=pde(u)             \\ Problem definition');
+write(%io(2),'-->pb=pde(u)             // Problem definition');
 pb=pde(u)
 write(%io(2),'')
-write(%io(2),'-->pb.S=""Id(u)=1"";       \\ Boundaries conditions');
+write(%io(2),'-->pb.S=""Id(u)=1"";       // Boundaries conditions');
 write(%io(2),'-->pb.E=""Dn(u)=y"";');
 write(%io(2),'-->pb.W=""Dn(u)+Id(u)=sin(y)"";');
 write(%io(2),'-->pb.U=""Id(u)=1+x"";');
@@ -41,14 +41,14 @@ pb.U="Id(u)=1+x"
 pb.D="Id(u)=1+x"
 disp(pb);
 write(%io(2),'')
-write(%io(2),'-->assemble(pb)          \\ Assembling process');
+write(%io(2),'-->assemble(pb)          // Assembling process');
 txt=assemble(pb);
 disp(txt)
 write(%io(2),'')
-write(%io(2),'-->lsolve(pb)            \\ Linear resolution');
+write(%io(2),'-->lsolve(pb)            // Linear resolution');
 txt=lsolve(pb)
 disp(txt)
 write(%io(2),'')
-write(%io(2),'-->vartool(u)            \\ Result visualisation')
+write(%io(2),'-->vartool(u)            // Result visualisation')
 vartool(u)
 lines(tmp(1));
