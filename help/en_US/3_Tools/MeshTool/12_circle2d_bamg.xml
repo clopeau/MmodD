@@ -50,6 +50,7 @@
    <simplelist type="inline">
    <member><link linkend="bamg">bamg</link></member>
    <member><link linkend="adaptmesh_bamg">adaptmesh_bamg</link></member>
+   <member><link linkend="square2d_bamg">square2d_bamg</link></member>
    </simplelist>
 </refsection>
 

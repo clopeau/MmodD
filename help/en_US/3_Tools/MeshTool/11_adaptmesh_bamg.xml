@@ -216,14 +216,10 @@ This tool generate a bidimensional mesh of a domains with prescribed boundaries.
 <refsection>
    <title>Examples</title>
    <programlisting role="example"><![CDATA[
-  n=10;R=1
-  teta=linspace(0,2*%pi,n+1)';
-  teta($)=[];
-  th=tri2d('circle2d');
-  th.Coor=R*[cos(teta),sin(teta)];
-  th.Bnd=list([1:n 1]);
-  th.BndPerio(1)=%t
-  th=bamg(th);
+  th=circle2d_bamg(1,100)
+  eps=p1(th,"0.01")
+  u=p1(th,"(10*x^3+y^3)+atan(eps,sin(5*y)-2*x)")
+  th=adaptmesh_bamg(th,u,AbsError=1,NoRescaling=1,NbJacobi=2,NbSmooth=5,hmax=2,hmin=0.000005,ratio=0,nbv=5000,v=4,err=0.05,errg=0.01)
   meshtool(th)
    ]]></programlisting>
 </refsection>
@@ -232,7 +228,8 @@ This tool generate a bidimensional mesh of a domains with prescribed boundaries.
    <title>See also</title>
    <simplelist type="inline">
    <member><link linkend="bamg">bamg</link></member>
-   <member><link linkend="adaptmesh_bamg">adaptmesh_bamg</link></member>
+   <member><link linkend="square2d_bamg">square2d_bamg</link></member>
+   <member><link linkend="circle2d_bamg">circle2d_bamg</link></member>
    </simplelist>
 </refsection>
 
