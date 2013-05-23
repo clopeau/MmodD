@@ -14,7 +14,7 @@ function Cell_gmv(u,%v)
   end
   nomvar=strsubst(nomvar,'%','')
   
-  fprintf(u,nomvar+' 0');
-  fprintf(u,"%f\n",%v.Cell);
+  mfprintf(u,nomvar+' 0\n');
+  mfprintf(u,"%f\n",%v.Cell);
 endfunction
   

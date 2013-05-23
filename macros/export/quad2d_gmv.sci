@@ -10,9 +10,9 @@ function quad2d_gmv(u,G)
    [np,nt]=size(G);
    nz=1;
    
-   fprintf(u,'nodev '+string(np));
+   mfprintf(u,'nodev '+string(np)+'\n');
    write(u,[G.Coor zeros(np,1)]);
-   fprintf(u,'cells '+string(nt));
+   mfprintf(u,'cells '+string(nt)+'\n');
    add='quad 4 ';
    write(u,add+strcat(string(G.Quad),' ','c'))
    

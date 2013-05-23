@@ -17,36 +17,36 @@ function exportTETGEN(fname,th)
  
 
    //-------- node
-   u=file('open',fname+'.node','unknown')
+   u=mopen(fname+'.node','wt')
 //   if length(th.CoorId)==0
-     fprintf(u,'%i 3 0 0',np);
-     fprintf(u,'%i %3.12f %3.12f %3.12f\n',(1:np)',th.Coor);
+     mfprintf(u,'%i 3 0 0\n',np);
+     mfprintf(u,'%i %3.12f %3.12f %3.12f\n',(1:np)',th.Coor);
 //   else
 //     fprintf(u,'%i 3 1 0',np);
 //     fprintf(u,'%i %3.12f %3.12f %3.12f %i\n',(1:np)',th.Coor,th.CoorId);
 //   end
-   file('close',u);
+   mclose(u);
 
    //--------- face
-   u=file('open',fname+'.face','unknown')
-   fprintf(u,'%i 1',sum(ns));
+   u=mopen(fname+'.face','wt')
+   mfprintf(u,'%i 1\n',sum(ns));
    for i=1:length(th.Bnd)
      ind=(sum(ns(1:i-1))+1:sum(ns(1:i)))';
-     fprintf(u,'%i %i %i %i %i\n',ind,th.Bnd(i),i*ones(ind));
+     mfprintf(u,'%i %i %i %i %i\n',ind,th.Bnd(i),i*ones(ind));
    end
-   file('close',u);
+   mclose(u);
    
    //--------- ele
-   u=file('open',fname+'.ele','unknown')
+   u=mopen(fname+'.ele','wt')
    if length(th.TetId)==0
-     fprintf(u,'%i 4 0',nt);
-     fprintf(u,'%i %i %i %i %i\n',(1:nt)',th.Tet);
+     mfprintf(u,'%i 4 0',nt);
+     mfprintf(u,'%i %i %i %i %i\n',(1:nt)',th.Tet);
    else
-     fprintf(u,'%i 4 0',nt);
-     fprintf(u,'%i %i %i %i %i %i\n',(1:nt)',th.Tet,th.TetId);
+     mfprintf(u,'%i 4 0',nt);
+     mfprintf(u,'%i %i %i %i %i %i\n',(1:nt)',th.Tet,th.TetId);
    end
    
-   file('close',u);
+   mclose(u);
      
    
 endfunction

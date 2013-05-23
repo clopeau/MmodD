@@ -14,7 +14,7 @@ function Node_gmv(u,%v)
   end
   nomvar=strsubst(nomvar,'%','')
   
-  fprintf(u,nomvar+' 1');
-  fprintf(u,"%f\n",%v.Node);
+  mfprintf(u,nomvar+' 1\n');
+  mfprintf(u,"%f\n",%v.Node);
 endfunction
   

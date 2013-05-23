@@ -8,13 +8,13 @@ function quad2d_vtk(u,th)
     [np,nt]=size(th);
     nz=1;
     
-    fprintf(u,'DATASET UNSTRUCTURED_GRID');
-    fprintf(u,'POINTS '+string(np)+' float');
+    mfprintf(u,'DATASET UNSTRUCTURED_GRID\n');
+    mfprintf(u,'POINTS '+string(np)+' float\n');
     write(u,[th.Coor zeros(np,1)]);
-    fprintf(u,'CELLS '+string(nt)+' '+string(5*nt));
+    mfprintf(u,'CELLS '+string(nt)+' '+string(5*nt)+'\n');
     trois=4;
     write(u,strcat(string([trois(ones(nt,1),:) , th.Quad-1]),' ','c'))
-    fprintf(u,'CELL_TYPES '+string(nt));
+    mfprintf(u,'CELL_TYPES '+string(nt)+'\n');
     trois=9;
     write(u,string(trois(ones(nt,1),:)));
     

@@ -14,15 +14,15 @@ function VCell_vtk(%u,%v)
     %nomvar='Vector_'+part(string(rand(1)*1000000),1:3);
   end
   %nomvar=strsubst(%nomvar,'%','')
-  fprintf(%u,'VECTORS '+%nomvar+' float');
+  mfprintf(%u,'VECTORS '+%nomvar+' float\n');
   
    //--- ecriture suivant taille ------
   Var2dCell=['p0_2d']
   Var3dCell=['p0_3d' 'p0_2d']
   if grep(Var2dCell,%ttype)~=[]&(%dim==2)
-    fprintf(%u,"%g %g 0.\n ",%v.Cell);
+    mfprintf(%u,"%g %g 0.\n ",%v.Cell);
   elseif grep(Var3dCell,%ttype)~=[]&(%dim==3)
-    fprintf(%u,"%g %g %g\n ",%v.Cell);
+    mfprintf(%u,"%g %g %g\n ",%v.Cell);
   else
     error("exportVTK: The variable "+%nomvar+" must have 2 or 3 components")
   end

@@ -8,9 +8,9 @@ function tet3d_gmv(u,G)
 
    [np,nt]=size(G);
    
-   fprintf(u,'nodev '+string(np));
+   mfprintf(u,'nodev '+string(np)+'\n');
    write(u,G.Coor);
-   fprintf(u,'cells '+string(nt));
+   mfprintf(u,'cells '+string(nt)+'\n');
    add='tet 4 ';
    write(u,add+strcat(string(G.Tet),' ','c'))
    

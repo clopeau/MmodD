@@ -9,12 +9,12 @@ function grid2d_gmv(u,G)
    z=0;
    [nx,ny]=size(G);
    nz=1;
-   fprintf(u,'nodes '+string(-1)+' '...
-       +string(nx)+' '+string(ny)+' '+string(nz));
+   mfprintf(u,'nodes '+string(-1)+' '...
+       +string(nx)+' '+string(ny)+' '+string(nz)+'\n');
    write(u,(G.x)');
    write(u,(G.y)');
    write(u,(z)');
-   fprintf(u,'cells 0');
+   mfprintf(u,'cells 0\n');
 
  endfunction
  

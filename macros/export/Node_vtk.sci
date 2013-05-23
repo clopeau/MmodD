@@ -13,8 +13,8 @@ function Node_vtk(%u,%v)
      end
    end
    %nomvar=strsubst(%nomvar,'%','')
-   fprintf(%u,'SCALARS '+%nomvar+' float 1\n');
-   fprintf(%u,"LOOKUP_TABLE default\n")
-   fprintf(%u,"%g\n ",%v.Node);
+   mfprintf(%u,'SCALARS '+%nomvar+' float 1\n');
+   mfprintf(%u,"LOOKUP_TABLE default\n")
+   mfprintf(%u,"%g\n ",%v.Node);
 endfunction
   

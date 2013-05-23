@@ -7,11 +7,11 @@ function exportGMV(varargin)
    [lhs,rhs]=argn(0);
 //-- preambule
    filename=varargin(1)
-   u=file('open',filename,'unknown')
-   fprintf(u,'gmvinput ascii');
-   fprintf(u,'comments')
-   fprintf(u,'   comments before nodes')
-   fprintf(u,'endcomm')
+   u=mopen(filename,'wt')
+   mfprintf(u,'gmvinput ascii\n');
+   mfprintf(u,'comments\n')
+   mfprintf(u,'   comments before nodes\n')
+   mfprintf(u,'endcomm\n')
 //-- recherche de la geometrie
     geoconnue=['grid2d' 'grid3d' 'tri2d' 'quad2d' 'tet3d' 'hex3d']
     //-- recherhce d'une geometrie specifie
@@ -44,20 +44,20 @@ function exportGMV(varargin)
       [nv,ddim]=size(varargin(i));
       if ddim==1
 	if ~booscal
-	  fprintf(u,'variable')// ouverture du type variable
+	  mfprintf(u,'variable\n')// ouverture du type variable
 	  booscal=%t
 	end
 	Node_gmv(u,varargin(i));
       end
     end
     if booscal
-      fprintf(u,'endvars'); // fermeture des var
+      mfprintf(u,'endvars\n'); // fermeture des var
     end
   
   
 //--- cloture   
-   fprintf(u,'endgmv');
-   file('close',u);
+   mfprintf(u,'endgmv\n');
+   mclose(u);
 
 endfunction
 

@@ -12,14 +12,14 @@ function  VNode_vtk(%u,%v)
    end
    %nomvar=strsubst(%nomvar,'%','')
 
-   fprintf(%u,'VECTORS '+%nomvar+' float');
+   mfprintf(%u,'VECTORS '+%nomvar+' float\n');
    
    Var2dNode=['df2d' 'q1_2d' 'q1p2d' 'p1_2d']
    Var3dNode=['p1_2d' 'q1_2d' 'df3d' 'q1_3d' 'q1p3d' 'p1_3d']
    if grep(Var2dNode,%ttype)~=[]&(%dim==2)
-     fprintf(%u,"%g %g 0.\n ",%v.Node);
+     mfprintf(%u,"%g %g 0.\n ",%v.Node);
    elseif grep(Var3dNode,%ttype)~=[]&(%dim==3)
-     fprintf(%u,"%g %g %g\n ",%v.Node);
+     mfprintf(%u,"%g %g %g\n ",%v.Node);
    else
      error("exportVTK: The variable "+%nomvar+" must have 2 or 3 components")
    end

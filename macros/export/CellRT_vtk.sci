@@ -16,8 +16,8 @@ function CellRT_vtk(u,%v)
   end
   nomvar=strsubst(nomvar,'%','')
 
-  write(u,'SCALARS '+nomvar+' float 1');
-  write(u,"LOOKUP_TABLE default");
+  mfprintf(u,'SCALARS '+nomvar+' float 1\n');
+  mfprintf(u,"LOOKUP_TABLE default");
   // var locales
   Base= [1 2 3 3 3 3;
 	 3 3 1 2 3 3;
@@ -37,6 +37,6 @@ function CellRT_vtk(u,%v)
     Mat=Mat+sparse([(1:ncel)',G(Base(:,ii),'c2f')],1/6*ones(ncel,1),[ncel,ntot]);
   end    
   
-  fprintf(u,"%f\n ",Mat*%v.Face);
+  mfprintf(u,"%f\n ",Mat*%v.Face);
 endfunction
   
