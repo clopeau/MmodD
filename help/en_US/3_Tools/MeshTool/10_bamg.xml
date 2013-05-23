@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="bamg" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>bamg</refname><refpurpose>Bidimensional Anisotropic Mesh Generator</refpurpose>
+  </refnamediv>
+
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   bamg(th,[opt])
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>th</term>
+      <listitem><para>must be a <link linkend="tri2d">tri2d</link> variable with prescribed boundary</para></listitem></varlistentry>
+   </variablelist>
+   
+</refsection>
+
+<refsection>
+   <title>Optionals arguments</title>
+     <variablelist>
+         <varlistentry>
+           <term>errg</term>
+             <listitem>
+               <para>(double) Set the level of error on geometry (0.1) by default</para>
+             </listitem>
+         </varlistentry>
+
+          <varlistentry>
+           <term>coef</term>
+             <listitem>
+               <para>(double) Set the value of mutiplicative coef on the mesh size (1 by default).</para>
+             </listitem>
+         </varlistentry>
+
+          <varlistentry>
+           <term>power</term>
+             <listitem>
+               <para>(double) Set the power parameter of hessien to construct the metric  (1 by default)</para>
+             </listitem>
+         </varlistentry>
+
+          <varlistentry>
+           <term>maxsubdiv</term>
+             <listitem>
+               <para>(double) Change the metric  such that  the maximal subdivision of a background's edge is bound by the given number (always limited by 10)  </para>
+             </listitem>
+         </varlistentry>
+
+          <varlistentry>
+           <term>ratio</term>
+             <listitem>
+               <para>Set the ratio for a smoothing of the metric. If ratio is  0 then no smoothing and if ratio  is in  [1.1,10] then the smoothing change the metrix such that the greatest geometrical progression (speed of mesh size variation) in a mesh is bounded  by ratio (by default no smoothing).</para>
+             </listitem>
+         </varlistentry>
+
+          <varlistentry>
+           <term>hmin</term>
+             <listitem>
+               <para>(double) Set the value of the minimal edge size.</para>
+             </listitem>
+         </varlistentry>
+
+          <varlistentry>
+           <term>hmax</term>
+             <listitem>
+               <para>(double) Set the value of the maximal edge size.</para>
+             </listitem>
+         </varlistentry>
+
+          <varlistentry>
+           <term>NbSmooth</term>
+             <listitem>
+               <para>(int) Number of Smoothing iteration (3 by default if the metric is set otherwise 0). </para>
+             </listitem>
+         </varlistentry>
+
+         <varlistentry>
+           <term>omega</term>
+             <listitem>
+               <para>(double) relaxation parameter for Smoothing</para>
+             </listitem>
+         </varlistentry>
+
+         <varlistentry>
+           <term>splitpbedge</term>
+             <listitem>
+               <para>split in 2 all internal edges with 2 vertex on boundary</para>
+             </listitem>
+         </varlistentry>
+
+         <varlistentry>
+           <term>nosplitpbedge</term>
+             <listitem>
+               <para>d'ont cut internal edges with 2 vertex on boundary (default)</para>
+             </listitem>
+         </varlistentry>
+
+         <varlistentry>
+           <term>nbv</term>
+             <listitem>
+               <para>Set the maximal of  vertices (50000 by default).</para>
+             </listitem>
+         </varlistentry>
+
+         <varlistentry>
+           <term>v</term>
+             <listitem>
+               <para>Set the level of impression (verbosity) between 0 and 10 (1 by default). </para>
+             </listitem>
+         </varlistentry>
+
+     </variablelist>  
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+This tool generate a bidimensional mesh of a domains with prescribed boundaries.
+   </para>
+</refsection>
+
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+  th=circle2d_bamg(1,100)
+  eps=p1(th,"0.01")
+  u=p1(th,"(10*x^3+y^3)+atan(eps,sin(5*y)-2*x)")
+  th=adaptmesh_bamg(th,u,AbsError=1,NoRescaling=1,NbJacobi=2,NbSmooth=5,hmax=2,hmin=0.000005,ratio=0,nbv=5000,v=4,err=0.05,errg=0.01)
+  meshtool(th)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="circle2d_bamg">circle2d_bamg</link></member>
+   <member><link linkend="adaptmesh_bamg">adaptmesh_bamg</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>T.C.</member>
+   </simplelist>
+</refsection>
+</refentry>

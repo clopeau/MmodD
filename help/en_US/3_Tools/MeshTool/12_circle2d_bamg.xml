@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="circle2d_bamg" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>circle2d_bamg</refname><refpurpose>Create a circle mesh</refpurpose>
+  </refnamediv>
+
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   circle2d_bamg(R,n)
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>R</term>
+      <listitem><para>Radius</para></listitem></varlistentry>
+<varlistentry><term>n</term>
+      <listitem><para>number of equidistributed points on the boundary</para></listitem></varlistentry>
+
+   </variablelist>
+</refsection>
+
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+  th=circle2d_bamg(1,100)
+  meshtool(th)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>See also</title>
+   <simplelist type="inline">
+   <member><link linkend="bamg">bamg</link></member>
+   <member><link linkend="adaptmesh_bamg">adaptmesh_bamg</link></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>T.C.</member>
+   </simplelist>
+</refsection>
+</refentry>

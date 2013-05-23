@@ -3,9 +3,30 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function [th,txt]=bamg(th,ns)
+function [th,txt]=bamg(th,coef,ratio,hmax,hmin,errg,err,power,NbJacobi,maxsubdiv,anisomax,NbSmooth,omega,splitpbedge,nosplitpbedge,v,nbv)
 // fonction d'interface avec bamg
    [lhs,rhs]=argn(0)
+   
+   // options for bamg
+   opts="";
+   if exists('coef','local')==1 then opts=opts+' -coef '+string(coef),end
+   if exists('ratio','local')==1 then opts=opts+' -ratio '+string(ratio),end
+   if exists('hmin','local')==1 then opts=opts+' -hmin '+string(hmin),end
+   if exists('hmax','local')==1 then opts=opts+' -hmax '+string(hmax),end
+   if exists('errg','local')==1 then opts=opts+' -errg '+string(errg),end
+   if exists('err','local')==1 then opts=opts+' -err '+string(err),end
+   if exists('ratio','local')==1 then opts=opts+' -ratio '+string(ratio),end
+   if exists('power','local')==1 then opts=opts+' -power '+string(power),end
+   if exists('NbJacobi','local')==1 then opts=opts+' -NbJacobi '+string(NbJacobi),end
+   if exists('maxsubdiv','local')==1 then opts=opts+' -maxsubdiv '+string(maxsubdiv),end
+   if exists('anisomax','local')==1 then opts=opts+' -anisomax '+string(anisomax),end
+   if exists('NbSmooth','local')==1 then opts=opts+' -NbSmooth '+string(NbSmooth),end
+   if exists('omega','local')==1 then opts=opts+' -omega '+string(omega),end
+   if exists('splitpbedge','local')==1 then opts=opts+' -splitpbedge ',end
+   if exists('nosplitpbedge','local')==1 then opts=opts+' -nosplitpbedge ',end
+   if exists('v','local')==1 then opts=opts+' -v '+string(v),end
+   if exists('nbv','local')==1 then opts=opts+' -nbv '+string(nbv),end
+   
    
    bamgf=TMPDIR+filesep()+'bamg_'+part(string(rand(1)*1000000),1:6);
    
@@ -76,13 +97,14 @@ function [th,txt]=bamg(th,ns)
    mclose(u);
    //-------------------------- Execution Bamg --------------------
    // processing bamg
-   global root_drop
+   Arguments=opts +'-g '+bamgf+'.geo -o '+bamgf+'.msh';
+
    if (getos()=="Windows") then
-       txt=unix_g(mmodd_getpath()+'\thirdparty\bamg.Win.exe  -nbv 1000000 -g '+bamgf+'.geo -o '+bamgf+'.msh');
+       txt=unix_g(mmodd_getpath()+'\thirdparty\bamg.Win.exe '+Arguments);
    elseif  (getos()=="Darwin") then 
-       txt=unix_g(mmodd_getpath()+'/thirdparty/bamg.darwin  -nbv 1000000 -g '+bamgf+'.geo -o '+bamgf+'.msh');
+       txt=unix_g(mmodd_getpath()+'/thirdparty/bamg.darwin  '+Arguments);
    elseif  (getos()=="Linux") then 
-       txt=unix_g(mmodd_getpath()+'/thirdparty/bamg.linux  -nbv 1000000 -g '+bamgf+'.geo -o '+bamgf+'.msh');    
+       txt=unix_g(mmodd_getpath()+'/thirdparty/bamg.linux  '+Arguments);    
    end
    
    //write(%io(2),txt);

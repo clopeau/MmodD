@@ -3,7 +3,7 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function th=circle2d(R,n);
+function th=circle2d_bamg(R,n);
   
   [lhs,rhs]=argn(0);
   

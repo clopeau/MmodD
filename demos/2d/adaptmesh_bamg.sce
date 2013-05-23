@@ -6,7 +6,7 @@
 tmp=lines();
 lines(0);
 
-th=circle2d(1,100)
+th=circle2d_bamg(1,100)
 meshtool(th)
 xtitle('initial mesh')
 
