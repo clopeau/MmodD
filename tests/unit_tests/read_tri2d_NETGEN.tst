@@ -5,18 +5,17 @@
 // you should have received as part of this distribution. The terms
 // are also available at
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+//<-- NO CHECK REF -->
 
 
-// Initialize the global variable containing the path
-global %mmodd_path;
 // Creates the variable "path" containing the path of the file to test 
-path=%mmodd_path+"/demos/2d/Mesh_example/NETGEN_squarehole.vol";
+mypath=mmodd_getpath()+"/demos/2d/Mesh_example/NETGEN_squarehole.vol";
 
 // Execute the function on the previous file
-th_NETGEN = read_tri2d_NETGEN(path);
+th_NETGEN = read_tri2d_NETGEN(mypath);
 
 // Verifies if the identity of the result is correct
-if th_NETGEN.Id <> path then pause, end
+if th_NETGEN.Id <> mypath then pause, end
 // Check if the boundary is correct 
 if th_NETGEN.BndId <> ['f1' 'f2'] then pause, end
 

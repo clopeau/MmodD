@@ -5,17 +5,16 @@
 // you should have received as part of this distribution. The terms
 // are also available at
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
-
+//<-- NO CHECK REF -->
 // Initialize the global variable containing the path
-global %mmodd_path;
 // Creates the variable "path" containing the path of the file to test 
-path=%mmodd_path+"/demos/2d/Mesh_example/BAMG_octogone.msh";
+mypath = mmodd_getpath()+"/demos/2d/Mesh_example/BAMG_octogone.msh";
 
 // Execute the function on the previous file
-th_Bamg = read_tri2d_BAMG(path);
+th_Bamg = read_tri2d_BAMG(mypath);
 
 // Verifies if the identity of the result is correct
-if th_Bamg.Id <> path then pause, end
+if th_Bamg.Id <> mypath then pause, end
 // Check if the boundary is correct 
 if th_Bamg.BndId <> ['f1'] then pause, end
 

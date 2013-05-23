@@ -5,6 +5,7 @@
 // you should have received as part of this distribution. The terms
 // are also available at
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
+//<-- NO CHECK REF -->
 
 meshgeo=tcube3d(20,20,20);
 u=p1(meshgeo);
