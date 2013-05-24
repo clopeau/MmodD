@@ -314,7 +314,7 @@
     <programlisting role="example"><![CDATA[ 
 scf()
 th=square2d(3,3)
-th.TriId=(1:8)' \\ each triangle is a domain
+th.TriId=(1:8)' // each triangle is a domain
 tri2d_plot2d(th,edge="off")
  ]]></programlisting>
 
