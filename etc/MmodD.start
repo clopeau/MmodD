@@ -99,7 +99,7 @@ if OS=="Windows"
   for Disk=['C','D','E','F','G','H','I','J'] //to much...
     All_Dirs=ls(Disk+":\Program Files*");
     Dirs=[];
-    for i=1:size(AllDirs,1)
+    for i=1:size(All_Dirs,1)
       tmps=All_Dirs(i)+'\'+ls (All_Dirs(i));
       Dirs=[Dirs ; tmps ];
     end
