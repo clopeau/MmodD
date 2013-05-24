@@ -100,11 +100,11 @@ if OS=="Windows"
     AllDirs=ls(Disk+":\Program Files*")
     Dirs=[];
     for i=1:size(AllDirs,1)
-      Dirs=[Dirs ; ls (AllDirs(i))];
+      tmp=AllDirs(i)+'\'+ls (AllDirs(i))
+      Dirs=[Dirs ; tmp ];
     end
     if grep(Dirs,'ParaView')<>[]
-      %paraview_path=Disk+":\Program Files\"+Dirs(grep(Dirs,'ParaView'))+'\';
-      %paraview_path=%paraview_path+'\bin';
+      %paraview_path=Dirs(grep(Dirs,'ParaView'))+'\bin';
     end
   end
 elseif OS=="Linux"
