@@ -99,8 +99,8 @@ if OS=="Windows"
   for Disk=['C','D','E','F','G','H','I','J'] //to much...
     All_Dirs=ls(Disk+":\Program Files*");
     Dirs=[];
-    for i=1:size(All_Dirs,1)
-      tmps=All_Dirs(i)+'\'+ls (All_Dirs(i));
+    for %ii=1:size(All_Dirs,1)
+      tmps=All_Dirs(%ii)+'\'+ls (All_Dirs(%ii));
       Dirs=[Dirs ; tmps ];
     end
     if grep(Dirs,'ParaView')<>[]
