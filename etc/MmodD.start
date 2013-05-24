@@ -97,10 +97,10 @@ if OS=="Windows"
   %execpath=root_tlbx+"\Win32\";
   //--- search paraview
   for Disk=['C','D','E','F','G','H','I','J'] //to much...
-    AllDirs=ls(Disk+":\Program Files*")
+    AllDirs=ls(Disk+":\Program Files*");
     Dirs=[];
     for i=1:size(AllDirs,1)
-      tmp=AllDirs(i)+'\'+ls (AllDirs(i))
+      tmp=AllDirs(i)+'\'+ls (AllDirs(i));
       Dirs=[Dirs ; tmp ];
     end
     if grep(Dirs,'ParaView')<>[]
