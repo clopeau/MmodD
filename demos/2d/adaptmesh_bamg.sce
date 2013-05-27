@@ -6,7 +6,7 @@
 tmp=lines();
 lines(0);
 
-th=square2d_bamg(10,10)
+th=square2d_bamg(-0.5:0.1:0.5,-0.5:0.1:0.5)
 meshtool(th)
 xtitle('initial mesh')
 
