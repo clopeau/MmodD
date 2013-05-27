@@ -128,6 +128,21 @@
              </listitem>
          </varlistentry>
 
+         <varlistentry>
+           <term>MaximalAngleOfCorner</term>
+             <listitem>
+               <para>Set maximal angle for corner detection of two consecutive normal of edges, under this value the corner is not detected (default 46) </para>
+             </listitem>
+         </varlistentry>
+
+         <varlistentry>
+           <term>AngleOfCornerBound</term>
+             <listitem>
+               <para>Set value enabling to decide the continuity type between two edges or two faces not clearly defined or not explicitely specified (default 160). </para>
+             </listitem>
+         </varlistentry>
+
+
      </variablelist>  
 </refsection>
 

@@ -43,7 +43,7 @@ function th=square2d_bamg(x,y,nx,ny);
               (nx:nx+ny-1)',..
 	      (nx+ny-1:2*nx+ny-2)',..
 	      [(2*nx+ny-2:2*nx+2*ny-4)';1])
-  th=bamg(th);
+  th=bamg(th,AngleOfCornerBound=89,MaximalAngleOfCorner=91);
   th.BndId=['W' 'E' 'N' 'S'];
 
 endfunction

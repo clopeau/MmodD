@@ -3,7 +3,7 @@
 // This file must be used under the term of the CeCILL
 // http://www.cecill.info 
 
-function [th,txt]=bamg(th,coef,ratio,hmax,hmin,errg,err,power,NbJacobi,maxsubdiv,anisomax,NbSmooth,omega,splitpbedge,nosplitpbedge,v,nbv)
+function [th,txt]=bamg(th,coef,ratio,hmax,hmin,errg,err,power,NbJacobi,maxsubdiv,anisomax,NbSmooth,omega,splitpbedge,nosplitpbedge,v,nbv,MaximalAngleOfCorner,AngleOfCornerBound)
 // fonction d'interface avec bamg
    [lhs,rhs]=argn(0)
    
@@ -26,7 +26,8 @@ function [th,txt]=bamg(th,coef,ratio,hmax,hmin,errg,err,power,NbJacobi,maxsubdiv
    if exists('nosplitpbedge','local')==1 then opts=opts+' -nosplitpbedge ',end
    if exists('v','local')==1 then opts=opts+' -v '+string(v),end
    if exists('nbv','local')==1 then opts=opts+' -nbv '+string(nbv),end
-   
+   if exists('MaximalAngleOfCorner','local')<>1 then MaximalAngleOfCorner=46; end
+   if exists('AngleOfCornerBound','local')<>1 then AngleOfCornerBound=160,end
    
    bamgf=TMPDIR+filesep()+'bamg_'+part(string(rand(1)*1000000),1:6);
    
@@ -43,8 +44,8 @@ function [th,txt]=bamg(th,coef,ratio,hmax,hmin,errg,err,power,NbJacobi,maxsubdiv
    end
    mfprintf(u,'MeshVersionFormatted 0\n')
    mfprintf(u,'Dimension 2\n');
-   mfprintf(u,'MaximalAngleOfCorner 46\n');
-   mfprintf(u,'AngleOfCornerBound 160\n');
+   mfprintf(u,'MaximalAngleOfCorner %f\n',MaximalAngleOfCorner);
+   mfprintf(u,'AngleOfCornerBound %f\n',AngleOfCornerBound);
    
    // on compte 
    nBnd=length(th.Bnd);
