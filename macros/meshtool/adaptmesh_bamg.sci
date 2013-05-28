@@ -130,12 +130,19 @@ function [th,txt]=adaptmesh_bamg(th,sol,coef,ratio,hmax,hmin,errg,err,ratio,iso,
    
 
    bamg_geo_file=th.bamg_geo_file;
+   BndId=th.BndId;
    th=read_tri2d_BAMG(newbamgf+'.msh')
    tmp=getfield(1,th);
    if grep(tmp,'bamg_geo_file')==[] then
           setfield(1,[tmp;'bamg_geo_file'],th)
    end
    th.bamg_geo_file=bamg_geo_file;
+   if size(th.BndId,2)<>size(BndId,2)
+     warnin('adaptmesh_bamg : the number of boundaries is not the"+...
+	    " same !')
+   else
+     th.BndId=BndId
+   end
    //unix('rm '+bamgf+'*');
 
 endfunction

@@ -1,4 +1,4 @@
-// Copyright (C) 2011 - Thierry Clopeau
+// Copyright (C) 2013 - Thierry Clopeau
 //
 // This file must be used under the terms of the CeCILL.
 // This source file is licensed as described in the file COPYING, which
@@ -6,5 +6,8 @@
 // are also available at
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
+http://forge.mmodd.org/projects/mmodd
 
-http://mmodd.univ-lyon1.fr/projects/mmodd
+2013 05 28
+Add function mmodd_update : Update MmodD module  
+

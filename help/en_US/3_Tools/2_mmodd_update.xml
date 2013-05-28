@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="mmodd_update" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+
+  <refnamediv>
+    <refname>mmodd_update</refname><refpurpose>Update MmodD module.</refpurpose>
+  </refnamediv>
+
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   mmodd_update()
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+mmodd_update()
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>T. C.</member>
+   </simplelist>
+</refsection>
+</refentry>
