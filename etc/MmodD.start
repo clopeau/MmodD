@@ -132,6 +132,13 @@ end
 clear TMP;
 clear Directory;
 
+// Add MmodD menu
+// =============================================================================
+if (getscilabmode() == 'STD') then
+   MmodD_menu()
+end
+
+
 //clear root_tlbx;
 //clear etc_tlbx;
 
