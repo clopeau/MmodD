@@ -25,7 +25,7 @@ w=p1(meshgeo,["x","y"])
 //paraview(w)
 
 //----- tri2d 2-vector p0_2d
-// ******* Dont work
+//select Cell center
 w=p0(w)
 //paraview(w)
 
@@ -34,7 +34,7 @@ ww=p1(meshgeo,["x","y","x^2+y^2"])
 //paraview(ww)
 
 // ---- tri2d 3-vector p0_2d
-// ******* Dont work
+// select Cell Center...
 ww=p0(ww)
 //paraview(w)
 
