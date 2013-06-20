@@ -51,9 +51,11 @@ function p0_2d_plot3d(%v,cbar,theta,alpha,leg,flag,ebox)
       coul=round(coulmax/2)*ones(coul(1,:));
     end
     
-    execstr('plot3d([xx xx($:-1:1,:)],[yy yy($:-1:1,:)],..
-	list([zz,zz($:-1:1,:)],[coul,coul($:-1:1,:)]),'+strcat(opts,',')+')');
-
+    execstr('plot3d(xx,yy,list(zz,coul),'+strcat(opts,',')+')');
+    
+    my_g=gca();
+    my_g.children(1).hiddencolor=-1; // recto verso
+    my_g.children(1).color_mode=-1;  // without edges
     my_plot3d.immediate_drawing=old_imdraw;    
 endfunction
   
