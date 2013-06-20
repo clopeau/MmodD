@@ -9,12 +9,13 @@ global %mmodd_path
 // menus additionnals
 // =============================================================================
 if getscilabmode() == ["STD"]
+  labels=['Meshtool';..
+	  'Vartool';..
+	  'Help';..
+	  'MmodD update'];
+  
   delmenu('MmodD')
-  addmenu('MmodD',['Meshtool';'Vartool';'MmodD update']);
-  MmodD(1)="exec("""+%mmodd_path+"/menu/MeshTool.sce"");";
-  MmodD(2)="exec("""+%mmodd_path+"/menu/VarTool.sce"");";
-  MmodD(3)="mmodd_update();";
-  [MmodD]=resume(MmodD)
+  addmenu('MmodD',labels,list(0,"MmodD_menu_action"));
 end
 
 endfunction
