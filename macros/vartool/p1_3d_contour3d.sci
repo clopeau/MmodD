@@ -49,6 +49,7 @@ function p1_3d_contour3d(%v,%x,cbar,theta,alpha,leg,flag,ebox)
    
     // define level
     zminmax=[min(%v.Node),max(%v.Node)];
+    if exists('%x','local')==0 then %x=10 ,end
     if length(%x)==1 & int(%x)==%x & %x>0
       %x=linspace(zminmax(1),zminmax(2),%x+2);
       %x=%x(2:$-1);

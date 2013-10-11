@@ -49,6 +49,7 @@ function p1_2d_contour2d(%v,%x,cbar,style,strf,leg,rect,nax,logflag,frameflag,ax
      end
         
     // test on numder of level or values 
+    if exists('%x','local')==0 then %x=10 ,end
     if length(%x)==1 & int(%x)==%x & %x>0
       %x=linspace(zminmax(1),zminmax(2),%x+2);
       %x=%x(2:$-1);
