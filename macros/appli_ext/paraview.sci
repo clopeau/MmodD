@@ -38,7 +38,7 @@ else
   execstr('exportVTK(filename,'+arg+')')
   ActualDir=pwd();
   chdir(%paraview_path)
-  [rep,stat]=unix_g("paraview.exe --data="+filename+" &");
+  [rep,stat]=unix_g("start /b paraview.exe --data="+filename+" &");
   if stat<>0
     error("Problem with ParaView");
   end
