@@ -94,6 +94,9 @@ global %paraview_path;
 %paraview_path=[];
 OS=getos();
 if OS=="Windows"  
+  // patch for windows user (slow) 
+  fastsparse=sparse;
+  //
   %execpath=root_tlbx+"\Win32\";
   //--- search paraview
   for Disk=['C','D','E','F','G','H','I','J'] //to much...
